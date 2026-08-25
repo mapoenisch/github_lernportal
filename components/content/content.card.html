@@ -1,0 +1,52 @@
+<!-- @dsCard group="Components" viewport="700x520" name="Content — Callout · Quote · Task · Table" subtitle="Callouts, quotes, task sheets, tables" -->
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body{margin:0;background:var(--surface-page);font-family:var(--font-body);padding:24px}
+  .sec{font-family:var(--font-display);font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dba-muted);margin:24px 0 0}
+  .sec:first-child{margin-top:0}
+</style></head><body>
+<div id="root"></div>
+<script type="text/babel">
+  function resolveNS(names){
+    for (const k of Object.keys(window)){
+      const v = window[k];
+      if (v && typeof v==='object' && names.every(n=>typeof v[n]==='function')) return v;
+    }
+    return window;
+  }
+  const { Callout, QuoteBlock, TaskCard, DataTable } = resolveNS(['Callout','QuoteBlock','TaskCard','DataTable']);
+  function Demo(){
+    return (
+      <div>
+        <p className="sec">QuoteBlock</p>
+        <QuoteBlock label="Beispiel-SLA">„Jeden Monat übergibt das Marketing X qualifizierte Leads an den Vertrieb, und der Vertrieb kontaktiert jeden Lead innerhalb von Y Stunden.“</QuoteBlock>
+        <p className="sec">DataTable</p>
+        <DataTable head={['Merkmal','B2C','B2B']} rows={[
+          ['Dauer des Kaufprozesses','Minuten bis Wochen','Tage bis Monate'],
+          ['Entscheidungsträger','Einer bis wenige','Wenige bis viele'],
+          ['Informationsbedarf','Gering bis mittel','Hoch'],
+        ]}/>
+        <p className="sec">Callout</p>
+        <Callout title="Häufige Fehler" items={[
+          {title:'Zu früh pitchen',text:'Ohne Discovery kein echter Bedarf.'},
+          {title:'Monolog halten',text:'Keine Rückfragen zulassen.'},
+          {title:'Kein Follow-up',text:'Nach dem Termin nicht nachfassen.'},
+        ]}/>
+        <p className="sec">TaskCard</p>
+        <TaskCard label="Aufgabe · Task Sheet 1.3.1" title="Deine Lernziele" goals={[
+          'Die Unterschiede zwischen B2C- und B2B-Kaufentscheidungen verstehen.',
+          'Die Rolle mehrerer Stakeholder im Buying Center kennen.',
+          'Nachvollziehen, wie Recherche und Emotion B2B-Käufe prägen.',
+          'Aktuelle Trends im Kaufverhalten bewerten.',
+        ]}/>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script>
+</body></html>

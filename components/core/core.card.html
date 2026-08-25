@@ -1,0 +1,54 @@
+<!-- @dsCard group="Components" viewport="700x360" name="Core — Button · Chip · Card" subtitle="Buttons, pills and content cards" -->
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body{margin:0;background:var(--surface-page);font-family:var(--font-body);padding:24px}
+  .sec{font-family:var(--font-display);font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dba-muted);margin:0 0 12px}
+  .grp{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:24px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+</style></head><body>
+<div id="root"></div>
+<script type="text/babel">
+  function resolveNS(names){
+    for (const k of Object.keys(window)){
+      const v = window[k];
+      if (v && typeof v==='object' && names.every(n=>typeof v[n]==='function')) return v;
+    }
+    return window;
+  }
+  const { Button, Chip, Card } = resolveNS(['Button','Chip','Card']);
+  function Demo(){
+    return (
+      <div>
+        <p className="sec">Buttons</p>
+        <div className="grp">
+          <Button>Als erledigt markieren</Button>
+          <Button variant="secondary" icon="→">Nächste Lektion</Button>
+          <Button disabled>Deaktiviert</Button>
+          <Button size="sm">Klein</Button>
+        </div>
+        <div className="grp">
+          <Button variant="resource" icon="↗">SMARKETING · Die perfekte Pipeline</Button>
+        </div>
+        <p className="sec">Chips</p>
+        <div className="grp">
+          <Chip>≈ 90 Minuten</Chip>
+          <Chip>Task Sheet 1.3.1</Chip>
+          <Chip href="#" icon="↗">01 · SLA</Chip>
+        </div>
+        <p className="sec">Cards</p>
+        <div className="grid">
+          <Card title="Definition" tone="teal">Semi-fiktive Profile deiner idealen Kunden.</Card>
+          <Card num="01" title="Prospecting">Potenzielle Kunden identifizieren.</Card>
+          <Card tone="dark" title="Zeithorizont">B2B-Kunden streben langfristige Partnerschaften an.</Card>
+        </div>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script>
+</body></html>

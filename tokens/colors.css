@@ -1,0 +1,63 @@
+/* DBA color system — extracted from the Lernportal.
+   Base palette + tone families + semantic aliases. */
+:root {
+  /* ---- Brand ---- */
+  --dba-teal:        #22707B; /* primary brand teal */
+  --dba-teal-deep:   #123E45; /* deep teal — dark cards, primary buttons */
+  --dba-teal-light:  #7FC7B9; /* mint — on-dark accents */
+  --dba-coral:       #E4694B; /* accent coral — eyebrows, progress, selection */
+  --dba-coral-deep:  #B84A2E; /* coral pressed / callout titles */
+
+  /* ---- Dark shell neutrals (sidebar / chrome) ---- */
+  --dba-shell:       #14161C; /* deepest background */
+  --dba-shell-2:     #1A1D24;
+  --dba-on-dark:     #FFFFFF;
+  --dba-on-dark-2:   #AEB3BE; /* sidebar item text */
+  --dba-on-dark-3:   #8A8F9C; /* sidebar secondary */
+  --dba-on-dark-4:   #666B79; /* sidebar tertiary */
+  --dba-on-dark-mint:#7FC7B9; /* sidebar lesson codes */
+
+  /* ---- Light content neutrals ---- */
+  --dba-paper:       #F5F4F0; /* warm paper — main content background */
+  --dba-card:        #FFFFFF;
+  --dba-border:      #E4E1D9; /* warm hairline border on light */
+  --dba-border-soft: #C9C6BE; /* breadcrumb separators */
+
+  /* ---- Ink ---- */
+  --dba-ink:         #14171E; /* headings */
+  --dba-ink-2:       #1A1D24;
+  --dba-body:        #565C69; /* body copy */
+  --dba-muted:       #9AA0AC; /* captions, table heads */
+
+  /* ---- Tone families (process steps, phase lanes) ---- */
+  --tone-teal:       #22707B; --tone-teal-bg:  #EAF4F1; --tone-teal-line:  #CFE6E0;
+  --tone-slate:      #3B4A63; --tone-slate-bg: #EEF1F6; --tone-slate-line: #D7DEE9;
+  --tone-plum:       #7C5680; --tone-plum-bg:  #F4EEF4; --tone-plum-line:  #E4D6E4;
+  --tone-sky:        #2B6CA3; --tone-sky-bg:   #EAF1F8; --tone-sky-line:   #CFDEED;
+  --tone-rose:       #A64D5F; --tone-rose-bg:  #F7EDEF; --tone-rose-line:  #EAD3D8;
+
+  /* ---- Card surface variants ---- */
+  --surface-teal:        #F0F6F4; --surface-teal-border:   #BFE0D8;
+  --surface-accent:      #FBF2EE; --surface-accent-border: #F1CDBF;
+  --surface-callout:     #FBF2EE; --surface-callout-border:#F1CDBF;
+
+  /* ---- Semantic aliases ---- */
+  --primary:         var(--dba-teal);
+  --primary-deep:    var(--dba-teal-deep);
+  --accent:          var(--dba-coral);
+  --accent-deep:     var(--dba-coral-deep);
+
+  --surface-page:    var(--dba-paper);
+  --surface-card:    var(--dba-card);
+  --surface-shell:   var(--dba-shell);
+  --border-card:     var(--dba-border);
+
+  --text-heading:    var(--dba-ink);
+  --text-body:       var(--dba-body);
+  --text-muted:      var(--dba-muted);
+  --text-eyebrow:    var(--dba-coral);
+
+  --focus-ring:      var(--dba-coral);
+  --selection-bg:    var(--dba-coral);
+  --selection-fg:    #FFFFFF;
+}

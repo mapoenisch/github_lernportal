@@ -1,0 +1,61 @@
+<!-- @dsCard group="Components" viewport="700x560" name="Process — Flow · Cycle · Funnel · PhaseLane" subtitle="The signature process diagrams" -->
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  body{margin:0;background:var(--surface-page);font-family:var(--font-body);padding:24px}
+  .sec{font-family:var(--font-display);font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dba-muted);margin:26px 0 4px}
+  .sec:first-child{margin-top:0}
+</style></head><body>
+<div id="root"></div>
+<script type="text/babel">
+  function resolveNS(names){
+    for (const k of Object.keys(window)){
+      const v = window[k];
+      if (v && typeof v==='object' && names.every(n=>typeof v[n]==='function')) return v;
+    }
+    return window;
+  }
+  const { ProcessFlow, Cycle, Funnel, PhaseLane } = resolveNS(['ProcessFlow','Cycle','Funnel','PhaseLane']);
+  function Demo(){
+    return (
+      <div>
+        <p className="sec">ProcessFlow — snake</p>
+        <ProcessFlow cols={4} tone="teal" steps={[
+          {num:'01',title:'Prospecting',text:'Kunden identifizieren.'},
+          {num:'02',title:'Qualification',text:'Lead bewerten.'},
+          {num:'03',title:'Discovery',text:'Bedürfnisse recherchieren.'},
+          {num:'04',title:'Pitch',text:'Angebot präsentieren.'},
+          {num:'05',title:'Objection',text:'Einwände behandeln.'},
+          {num:'06',title:'Closing',text:'Abschluss.'},
+          {num:'07',title:'Follow-up',text:'Nachfassen.'},
+          {num:'08',title:'Check-in',text:'Beziehung pflegen.'},
+        ]}/>
+        <p className="sec">Funnel — AIDA</p>
+        <Funnel stages={[
+          {letter:'A',title:'Attention',text:'Anzeige erregt Aufmerksamkeit.'},
+          {letter:'I',title:'Interest',text:'Kunde liest über Funktionen.'},
+          {letter:'D',title:'Desire',text:'Wunsch entsteht.'},
+          {letter:'A',title:'Action',text:'Kunde kauft.'},
+        ]}/>
+        <p className="sec">PhaseLane — Rollen</p>
+        <PhaseLane groups={[
+          {abbr:'SDR',role:'Sales Development Representative',range:'Phase 1–3',tone:'teal',steps:[{num:'01',title:'Prospecting'},{num:'02',title:'Qualification'},{num:'03',title:'Discovery'}]},
+          {abbr:'AE',role:'Account Executive',range:'Phase 4–6',tone:'slate',steps:[{num:'04',title:'Pitch'},{num:'05',title:'Objection'},{num:'06',title:'Closing'}]},
+        ]}/>
+        <p className="sec">Cycle — Pomodoro</p>
+        <Cycle center="25 + 5 min" tone="teal" steps={[
+          {num:'01',title:'Aufgabe wählen'},
+          {num:'02',title:'25 Min Fokus'},
+          {num:'03',title:'5 Min Pause'},
+          {num:'04',title:'Wiederholen'},
+        ]}/>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script>
+</body></html>
