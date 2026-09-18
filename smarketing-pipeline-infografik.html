@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smarketing Infografik</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1E293B; /* Dunkler Hintergrund, damit die Folie heraussticht */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: auto;
+            padding: 2rem;
+        }
+
+        /* Feste Leinwand für die Folie (16:9 Ratio, HD) */
+        .slide-canvas {
+            width: 1280px;
+            height: 720px;
+            background-color: #F8FAFC;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #F97316 0%, #8B5CF6 50%, #3B82F6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Angepasste Scrollbar für den KI-Bereich auf der Folie */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #F1F5F9; 
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #CBD5E1; 
+            border-radius: 4px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #E2E8F0;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body class="antialiased text-slate-800">
+<template id="__bundler_thumbnail" data-bg-color="#0F172A">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0F172A"/>
+    <circle cx="300" cy="400" r="70" fill="#F97316"/>
+    <circle cx="600" cy="400" r="70" fill="#8B5CF6"/>
+    <circle cx="900" cy="400" r="70" fill="#3B82F6"/>
+    <line x1="370" y1="400" x2="530" y2="400" stroke="#475569" stroke-width="10"/>
+    <line x1="670" y1="400" x2="830" y2="400" stroke="#475569" stroke-width="10"/>
+    <text x="600" y="240" font-family="Inter, sans-serif" font-weight="900" font-size="60" fill="#ffffff" text-anchor="middle">SMARKETING</text>
+    <text x="600" y="600" font-family="Inter, sans-serif" font-weight="600" font-size="34" fill="#94A3B8" text-anchor="middle">Die perfekte Pipeline</text>
+  </svg>
+</template>
+
+    <div class="slide-canvas">
+        
+        <!-- HEADER -->
+        <header class="h-[12%] px-8 flex justify-between items-center bg-white border-b border-slate-200 shrink-0">
+            <div>
+                <h1 class="text-4xl font-black tracking-tight text-slate-900 leading-none">
+                    SMARKETING <span class="text-xl font-medium text-slate-400 tracking-normal ml-2">Die perfekte Pipeline</span>
+                </h1>
+            </div>
+            <div class="flex items-center gap-4 text-sm font-bold uppercase tracking-widest">
+                <span class="text-orange-500 flex items-center gap-1"><div class="w-3 h-3 rounded-full bg-orange-500"></div> Marketing</span>
+                <span class="text-violet-500 flex items-center gap-1"><div class="w-3 h-3 rounded-full bg-violet-500"></div> Smarketing</span>
+                <span class="text-blue-500 flex items-center gap-1"><div class="w-3 h-3 rounded-full bg-blue-500"></div> Sales</span>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT GRID -->
+        <div class="flex-1 p-6 grid grid-cols-3 gap-6 h-[88%]">
+            
+            <!-- COLUMN 1: Funnel & Meetings -->
+            <div class="flex flex-col gap-6 h-full">
+                
+                <!-- 1. Funnel -->
+                <div class="card flex-1">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3">1. Der gemeinsame Funnel</h2>
+                    
+                    <div class="flex-1 relative mb-2">
+                        <canvas id="funnelChart"></canvas>
+                    </div>
+                    
+                    <div class="space-y-3 mt-2 text-sm">
+                        <div class="flex gap-3 items-start">
+                            <div class="w-1.5 h-full min-h-[40px] bg-orange-500 rounded-full shrink-0"></div>
+                            <div>
+                                <h3 class="font-bold text-slate-800 leading-tight">TOFU/MOFU <span class="text-orange-500 text-xs font-normal">(Marketing)</span></h3>
+                                <p class="text-[11px] text-slate-500 leading-tight mt-0.5">Ziel: Günstige Lead-Generierung. Ergebnis: <strong>MQLs</strong>.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 items-start bg-violet-50 p-2 rounded-lg -ml-2 border border-violet-100">
+                            <div class="w-1.5 h-full min-h-[40px] bg-violet-500 rounded-full shrink-0"></div>
+                            <div>
+                                <h3 class="font-bold text-slate-800 leading-tight">Die Übergabe</h3>
+                                <p class="text-[11px] text-slate-700 leading-tight mt-0.5"><strong>70%</strong> der Kaufentscheidung fallen <em>vor</em> dem ersten Sales-Kontakt!</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 items-start">
+                            <div class="w-1.5 h-full min-h-[40px] bg-blue-500 rounded-full shrink-0"></div>
+                            <div>
+                                <h3 class="font-bold text-slate-800 leading-tight">BOFU <span class="text-blue-500 text-xs font-normal">(Sales)</span></h3>
+                                <p class="text-[11px] text-slate-500 leading-tight mt-0.5">Ziel: Lead-Konvertierung & Beratung. Ergebnis: <strong>SQLs</strong> & Umsatz.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. POP Meetings -->
+                <div class="card shrink-0 h-[140px] bg-gradient-to-br from-slate-900 to-slate-800 text-white border-none">
+                    <h2 class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">4. Smarketing Meetings</h2>
+                    <div class="flex justify-between items-center h-full">
+                        <div class="text-center w-1/3">
+                            <div class="text-2xl font-black text-violet-400 mb-1">P</div>
+                            <h5 class="font-bold text-xs">Purpose</h5>
+                            <p class="text-[9px] text-slate-400 mt-0.5">Wieso?</p>
+                        </div>
+                        <div class="text-slate-600 text-sm">➔</div>
+                        <div class="text-center w-1/3">
+                            <div class="text-2xl font-black text-violet-400 mb-1">O</div>
+                            <h5 class="font-bold text-xs">Outcomes</h5>
+                            <p class="text-[9px] text-slate-400 mt-0.5">Was?</p>
+                        </div>
+                        <div class="text-slate-600 text-sm">➔</div>
+                        <div class="text-center w-1/3">
+                            <div class="text-2xl font-black text-violet-400 mb-1">P</div>
+                            <h5 class="font-bold text-xs">Process</h5>
+                            <p class="text-[9px] text-slate-400 mt-0.5">Wie?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLUMN 2: SLAs -->
+            <div class="flex flex-col gap-6 h-full">
+                
+                <div class="card bg-slate-50 border-none shadow-none p-0 flex flex-col justify-center text-center">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-1">2. Service Level Agreements (SLA)</h2>
+                    <p class="text-xs text-slate-500">Verbindliche Versprechen eliminieren das "Blame Game".</p>
+                </div>
+
+                <!-- Marketing SLA -->
+                <div class="card flex-1 bg-orange-50 border-orange-100 relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 text-7xl opacity-10">🎯</div>
+                    <h4 class="font-bold text-orange-600 text-[10px] uppercase tracking-wider mb-2">Marketing liefert</h4>
+                    <p class="text-3xl font-black text-slate-800 mb-2">Volumen</p>
+                    <p class="text-xs text-slate-600 leading-relaxed max-w-[85%] mt-auto">"Wir liefern jeden Monat eine fest definierte Anzahl an hochqualifizierten MQLs, die dem Zielkundenprofil entsprechen."</p>
+                </div>
+
+                <!-- Sales SLA -->
+                <div class="card flex-[1.5] bg-blue-50 border-blue-100 relative overflow-hidden">
+                    <div class="absolute -right-4 -bottom-4 text-7xl opacity-10">⚡</div>
+                    <h4 class="font-bold text-blue-600 text-[10px] uppercase tracking-wider mb-2">Sales garantiert</h4>
+                    <p class="text-3xl font-black text-slate-800 mb-2">Speed to Lead</p>
+                    
+                    <div class="flex-1 relative w-full flex items-center justify-center my-2">
+                        <div class="w-full h-[100px] relative">
+                            <canvas id="speedChart"></canvas>
+                        </div>
+                    </div>
+
+                    <p class="text-[11px] text-slate-600 leading-relaxed font-semibold">8x geringere Kontakt-Rate nach 5 Min!</p>
+                    <p class="text-[10px] text-slate-500 leading-relaxed mt-1">"Wir kontaktieren qualifizierte Leads sofort nach Erhalt."</p>
+                </div>
+
+            </div>
+
+            <!-- COLUMN 3: Problems & AI -->
+            <div class="flex flex-col gap-6 h-full">
+                
+                <!-- 3. Wenn es hakt -->
+                <div class="card shrink-0">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">3. Wenn es hakt (Lösungen)</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="flex gap-3">
+                            <div class="text-xl">📉</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-xs">Zu wenig Leads?</h4>
+                                <p class="text-[10px] text-slate-500 leading-tight">Lösung: Content-Produktion & Volumen erhöhen.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="text-xl">🌊</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-xs">Sales überlastet?</h4>
+                                <p class="text-[10px] text-slate-500 leading-tight">Lösung: Sales Velocity (Win-Rate/Deal Value) steigern.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="text-xl">⚠️</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-xs">Schlechte Qualität?</h4>
+                                <p class="text-[10px] text-slate-500 leading-tight">Lösung: Präzisere Botschaften ("Great Content!").</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="text-xl">⚖️</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-xs">Subjektive Ablehnung?</h4>
+                                <p class="text-[10px] text-slate-500 leading-tight">Lösung: Neutrales Richter-Team (CEO/COO) einbinden.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. KI Berater -->
+                <div class="card flex-1 border-violet-200 bg-white shadow-[0_0_20px_rgba(139,92,246,0.1)]">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-violet-500 mb-2 flex items-center gap-1">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16 8 8 0 000-16zM8 11a1 1 0 11-2 0 1 1 0 012 0zm4 0a1 1 0 11-2 0 1 1 0 012 0zm-2 3.5c-1.33 0-2.5-.83-3-2h6c-.5 1.17-1.67 2-3 2z"/></svg>
+                        KI-Smarketing-Berater
+                    </h2>
+                    <p class="text-[10px] text-slate-500 mb-3">Berechne SLA-Metriken (z.B. "MQLs für 1 Mio. Umsatz?") oder löse Konflikte.</p>
+                    
+                    <textarea id="aiInput" rows="2" class="w-full p-2 text-[11px] bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-violet-500 focus:border-violet-500 outline-none resize-none mb-2 custom-scrollbar" placeholder="Beispiel: Wir wollen 500k€ Umsatz machen. Ein Deal bringt ca. 5k€. SQL zu Win-Rate = 20%, MQL zu SQL = 25%. Wie viele MQLs brauchen wir?"></textarea>
+                    
+                    <div class="flex justify-between items-center mb-2">
+                        <span id="aiStatus" class="text-[10px] text-slate-400 italic hidden flex items-center">
+                            <svg class="animate-spin -ml-1 mr-1 h-3 w-3 text-violet-500 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                            Analysiert...
+                        </span>
+                        <button id="askAiBtn" class="ml-auto bg-violet-600 hover:bg-violet-700 text-white text-[11px] font-bold py-1.5 px-4 rounded-md transition-colors shadow-sm">
+                            Fragen
+                        </button>
+                    </div>
+
+                    <div id="aiResponseContainer" class="flex-1 overflow-y-auto custom-scrollbar pr-1 hidden border-t border-slate-100 pt-2 mt-1">
+                        <div id="aiResponseText" class="text-[11px] text-slate-700 whitespace-pre-line leading-relaxed"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <!-- Footer Info Overlay -->
+        <div class="absolute bottom-2 left-6 text-[9px] font-bold text-slate-300 uppercase tracking-widest">
+            DBA Digital Business Akademie
+        </div>
+    </div>
+
+    <script>
+        // 1. Horizontal Funnel Chart
+        const ctxFunnel = document.getElementById('funnelChart').getContext('2d');
+        new Chart(ctxFunnel, {
+            type: 'bar',
+            data: {
+                labels: ['MQL (Marketing)', 'SQL (Sales)', 'Won (Umsatz)'],
+                datasets: [{
+                    data: [1000, 300, 45],
+                    backgroundColor: ['#F97316', '#3B82F6', '#10B981'], // Orange, Blue, Green
+                    borderRadius: 4,
+                    barPercentage: 0.6
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: false }
+                },
+                scales: {
+                    x: { display: false },
+                    y: {
+                        grid: { display: false },
+                        border: { display: false },
+                        ticks: { color: '#475569', font: { family: 'Inter', weight: '600', size: 10 } }
+                    }
+                },
+                animation: { duration: 0 } // No animation for print-ready slide look
+            }
+        });
+
+        // 2. Speed to Lead Gauge (Half Donut)
+        const ctxSpeed = document.getElementById('speedChart').getContext('2d');
+        new Chart(ctxSpeed, {
+            type: 'doughnut',
+            data: {
+                labels: ['> 5 Min (Verloren)', '< 5 Min (Kontakt)'],
+                datasets: [{
+                    data: [80, 20],
+                    backgroundColor: ['#E2E8F0', '#3B82F6'], // Light Gray and Sales Blue
+                    borderWidth: 0,
+                    circumference: 180,
+                    rotation: 270
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { enabled: false }
+                },
+                cutout: '75%',
+                animation: { duration: 0 }
+            }
+        });
+
+        // 3. AI Assistant Logic
+        const aiInput = document.getElementById('aiInput');
+        const askAiBtn = document.getElementById('askAiBtn');
+        const aiStatus = document.getElementById('aiStatus');
+        const aiResponseContainer = document.getElementById('aiResponseContainer');
+        const aiResponseText = document.getElementById('aiResponseText');
+
+        async function fetchWithRetry(url, options, retries = 3, delay = 1000) {
+            try {
+                const res = await fetch(url, options);
+                if (!res.ok && res.status === 429 && retries > 0) {
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    return fetchWithRetry(url, options, retries - 1, delay * 2);
+                }
+                return res;
+            } catch (err) {
+                if (retries > 0) {
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    return fetchWithRetry(url, options, retries - 1, delay * 2);
+                }
+                throw err;
+            }
+        }
+
+        askAiBtn.addEventListener('click', async () => {
+            const prompt = aiInput.value.trim();
+            if (!prompt) return;
+
+            askAiBtn.disabled = true;
+            askAiBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            aiStatus.classList.remove('hidden');
+            aiResponseContainer.classList.add('hidden');
+            aiResponseText.innerHTML = '';
+
+            const systemPrompt = `Du bist ein "Smarketing" Experte. Antworte EXTREM kurz und prägnant (max 3-4 Sätze oder kurze Bulletpoints). 
+            Deine Aufgabe ist es, SLA-Berechnungen durchzuführen oder Smarketing-Konflikte zu lösen. 
+            Antworte auf Deutsch. Nutze einfache Formatierungen wie **fett** für wichtige Zahlen.`;
+
+            const apiKey = ""; // API Key handled by Canvas
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
+
+            try {
+                const response = await fetchWithRetry(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                
+                if (result.candidates && result.candidates[0] && result.candidates[0].content.parts[0]) {
+                    let text = result.candidates[0].content.parts[0].text;
+                    // Bold formatting
+                    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    aiResponseText.innerHTML = text;
+                    aiResponseContainer.classList.remove('hidden');
+                } else {
+                    aiResponseText.innerText = "Fehler bei der Verarbeitung.";
+                    aiResponseContainer.classList.remove('hidden');
+                }
+            } catch (error) {
+                console.error("API Error:", error);
+                aiResponseText.innerText = "Verbindungsfehler zur KI.";
+                aiResponseContainer.classList.remove('hidden');
+            } finally {
+                askAiBtn.disabled = false;
+                askAiBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                aiStatus.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

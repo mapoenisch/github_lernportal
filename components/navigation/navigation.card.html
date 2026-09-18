@@ -1,0 +1,43 @@
+<!-- @dsCard group="Components" viewport="360x600" name="Navigation — SidebarNav" subtitle="Dark course navigator with progress" -->
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  html,body{margin:0;height:100%}
+  body{background:var(--dba-shell);font-family:var(--font-body)}
+  #root{height:600px;display:flex}
+</style></head><body>
+<div id="root"></div>
+<script type="text/babel">
+  function resolveNS(names){
+    for (const k of Object.keys(window)){
+      const v = window[k];
+      if (v && typeof v==='object' && names.every(n=>typeof v[n]==='function')) return v;
+    }
+    return window;
+  }
+  const { SidebarNav } = resolveNS(['SidebarNav']);
+  const modules = [{
+    label:'Modul 1', weeks:'Woche 1–5', title:'Grundlagen des digitalen Vertriebs',
+    groups:[
+      { id:'1.1', code:'1.1', title:'Einführung & Sales Development', lessons:[
+        {id:'1.1.1',title:'Einführung & Kennenlernen'},
+        {id:'1.1.2',title:'SaaS & Tech-Ökosystem'},
+        {id:'1.1.3',title:'Sales & Sales Development'},
+      ]},
+      { id:'1.3', code:'1.3', title:'Verkaufspsychologie & Kommunikation', lessons:[
+        {id:'1.3.1',title:'Der B2B Einkaufsprozess'},
+        {id:'1.3.2',title:'Der B2B Verkaufsprozess'},
+      ]},
+    ],
+  }];
+  function Demo(){
+    const [active,setActive] = React.useState('1.3.1');
+    return <SidebarNav modules={modules} activeId={active} completed={{'1.1.1':true,'1.1.2':true}} onSelect={setActive}/>;
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script>
+</body></html>
