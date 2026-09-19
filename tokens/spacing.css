@@ -1,0 +1,50 @@
+/* DBA spacing, radii, shadows, layout. */
+:root {
+  /* Spacing scale (px) */
+  --space-1: 4px;
+  --space-2: 6px;
+  --space-3: 8px;
+  --space-4: 10px;
+  --space-5: 12px;
+  --space-6: 16px;
+  --space-7: 18px;
+  --space-8: 22px;
+  --space-9: 26px;
+  --space-10: 34px;
+  --space-section: 64px;  /* between content sections */
+  --space-section-first: 56px;
+
+  /* Grid gaps */
+  --gap-card: 16px;       /* card grid gap */
+  --gap-flow-col: 34px;   /* process-flow column gap (arrow runway) */
+  --gap-flow-row: 40px;   /* process-flow row gap (down-arrow runway) */
+
+  /* Radii */
+  --radius-xs: 5px;   /* checkbox tick */
+  --radius-sm: 8px;   /* buttons, sidebar rows, step numbers */
+  --radius-md: 11px;  /* inputs, logo tile, chip=pill */
+  --radius-lg: 13px;  /* cycle nodes */
+  --radius-xl: 16px;  /* cards, callouts, lanes */
+  --radius-pill: 99px;/* chips, badges, progress bar */
+
+  /* Borders */
+  --border-hairline: 1px solid var(--dba-border);
+  --border-accent-w: 3px; /* card top accent stripe */
+  --border-funnel-w: 4px; /* funnel left accent stripe */
+
+  /* Shadows */
+  --shadow-node: 0 6px 18px rgba(20,23,30,.06);   /* floating cycle node */
+  --shadow-button-hover: 0 14px 32px rgba(51,65,92,.28);
+  --shadow-teal-hover:   0 14px 32px rgba(18,62,69,.28);
+
+  /* Layout */
+  --sidebar-w: 320px;
+  --header-h: 68px;
+  --content-max: 900px;
+  --content-pad-x: 40px;
+
+  /* Motion */
+  --ease-out: ease;
+  --dur-fast: .15s;
+  --dur-med: .35s;
+}

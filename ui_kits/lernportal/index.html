@@ -1,0 +1,171 @@
+<!-- @dsCard group="Lernportal" viewport="1280x720" name="Lesson page" subtitle="Sidebar + reading column with process diagrams" -->
+<!-- @startingPoint section="Lernportal" subtitle="Full lesson page (sidebar + reading column)" viewport="1280x720" -->
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{font-family:var(--font-body);background:var(--dba-shell)}
+  #root{height:100vh}
+  ::selection{background:var(--dba-coral);color:#fff}
+  ::-webkit-scrollbar{width:10px}
+  ::-webkit-scrollbar-thumb{background:rgba(140,145,160,.35);border-radius:8px}
+</style></head><body>
+<div id="root"></div>
+<script type="text/babel">
+  function resolveNS(names){
+    for (const k of Object.keys(window)){
+      const v = window[k];
+      if (v && typeof v==='object' && names.every(n=>typeof v[n]==='function')) return v;
+    }
+    return window;
+  }
+  const NS = resolveNS(['SidebarNav','ProcessFlow','Funnel','PhaseLane','Cycle','Card','QuoteBlock','DataTable','TaskCard','Chip','Button','Callout']);
+  const { SidebarNav, ProcessFlow, Funnel, PhaseLane, Cycle, Card, QuoteBlock, DataTable, TaskCard, Chip, Button, Callout } = NS;
+
+  const MODULES = [{
+    label:'Modul 1', weeks:'Woche 1–5', title:'Grundlagen des digitalen Vertriebs',
+    groups:[
+      { id:'1.1', code:'1.1', title:'Einführung & Sales Development', lessons:[
+        {id:'1.1.1',title:'Einführung & Kennenlernen'},
+        {id:'1.1.2',title:'SaaS & Tech-Ökosystem'},
+        {id:'1.1.3',title:'Sales & Sales Development'},
+      ]},
+      { id:'1.3', code:'1.3', title:'Verkaufspsychologie & Kommunikation', lessons:[
+        {id:'1.3.1',title:'Der B2B Einkaufsprozess'},
+        {id:'1.3.2',title:'Der B2B Verkaufsprozess'},
+      ]},
+    ],
+  }];
+
+  const LESSONS = {
+    '1.3.1': {
+      module:'Modul 1', crumb:'1.3 · Verkaufspsychologie & Kommunikation',
+      eyebrow:'Kapitel 1.3.1 · Lektion 1', title:'Der B2B Einkaufsprozess',
+      desc:'Wie Unternehmen anders kaufen als Privatpersonen — vom AIDA-Funnel über den sechsstufigen Gartner-Prozess bis zum Buying Center.',
+      chips:['Modul 1 · Verkaufspsychologie','≈ 90 Minuten','Task Sheet 1.3.1'],
+      render:()=>(<React.Fragment>
+        <Section eyebrow="Abschnitt 01" title="Der B2C-Kaufprozess" lead="Privatpersonen kaufen entlang eines emotionalen Funnels — das AIDA-Modell beschreibt ihn.">
+          <QuoteBlock label="AIDA-Modell">„Der persönliche Verkaufsprozess führt Konsument:innen in vier Stufen von der ersten Aufmerksamkeit bis zur Kaufhandlung.“</QuoteBlock>
+          <Funnel stages={[
+            {letter:'A',title:'Aufmerksamkeit',text:'Eine auffällige Anzeige erregt Aufmerksamkeit.'},
+            {letter:'I',title:'Interesse',text:'Der Kunde liest über Funktionen und Vorteile.'},
+            {letter:'D',title:'Desire',text:'Bewertungen wecken den Wunsch, es zu besitzen.'},
+            {letter:'A',title:'Aktion',text:'Der Kunde kauft im Geschäft oder online.'},
+          ]}/>
+        </Section>
+        <Section eyebrow="Abschnitt 02" title="B2C vs. B2B Kaufprozess" lead="Unternehmen kaufen langsamer, rationaler und mit mehr Beteiligten.">
+          <DataTable head={['Merkmal','B2C','B2B']} rows={[
+            ['Dauer des Kaufprozesses','Minuten bis Wochen','Tage bis Monate'],
+            ['Entscheidungsträger','Einer bis wenige','Wenige bis viele'],
+            ['Informationsbedarf','Gering bis mittel','Hoch'],
+            ['Kundenwert & Margen','Gering','Hoch'],
+          ]}/>
+        </Section>
+        <Section eyebrow="Abschnitt 03" title="Der B2B-Kaufprozess nach Gartner" lead="Sechs Schritte führen vom erkannten Problem bis zur gemeinsam getragenen Entscheidung.">
+          <ProcessFlow cols={3} tone="teal" steps={[
+            {num:'01',title:'Problemidentifikation',text:'Ein Bedarf wird erkannt.'},
+            {num:'02',title:'Lösungsfindung',text:'Recherche nach Anbietern.'},
+            {num:'03',title:'Anforderungen',text:'Kriterienliste erstellen.'},
+            {num:'04',title:'Lieferantenauswahl',text:'Besten Gesamtwert wählen.'},
+            {num:'05',title:'Validierung',text:'Die Wahl bestätigen.'},
+            {num:'06',title:'Konsensbildung',text:'Alle Stakeholder tragen mit.'},
+          ]}/>
+        </Section>
+        <Section eyebrow="Zusammenfassung" title="Recap & Aufgabe">
+          <div style={{display:'grid',gridTemplateColumns:'repeat(2,1fr)',gap:'16px'}}>
+            <Card num="01" title="Entscheidungsträger">Im B2B sind viele Stakeholder beteiligt.</Card>
+            <Card num="02" title="Grundlage">Rationale Recherche statt reiner Emotion.</Card>
+          </div>
+          <TaskCard label="Aufgabe · Task Sheet 1.3.1" title="Deine Lernziele" goals={[
+            'Die Unterschiede zwischen B2C- und B2B-Kaufentscheidungen verstehen.',
+            'Die Rolle mehrerer Stakeholder im Buying Center kennen.',
+            'Nachvollziehen, wie Recherche und Emotion B2B-Käufe prägen.',
+            'Aktuelle Trends im Kaufverhalten bewerten.',
+          ]}/>
+        </Section>
+      </React.Fragment>),
+    },
+    '1.3.2': {
+      module:'Modul 1', crumb:'1.3 · Verkaufspsychologie & Kommunikation',
+      eyebrow:'Kapitel 1.3.2 · Lektion 2', title:'Der moderne B2B-Verkaufsprozess',
+      desc:'Acht Phasen führen vom ersten Kontakt bis zur langfristigen Beziehung — verteilt auf drei Rollen.',
+      chips:['Modul 1 · Verkaufspsychologie','≈ 75 Minuten','Task Sheet 1.3.2'],
+      render:()=>(<React.Fragment>
+        <Section eyebrow="Abschnitt 01" title="Die 8 Schritte des Prozesses" lead="Ein durchgängiger Ablauf vom ersten Kontakt bis zur Betreuung.">
+          <ProcessFlow cols={4} tone="teal" steps={[
+            {num:'01',title:'Prospecting'},{num:'02',title:'Qualification'},{num:'03',title:'Discovery'},{num:'04',title:'Pitch'},
+            {num:'05',title:'Objection Handling'},{num:'06',title:'Closing'},{num:'07',title:'Follow-up'},{num:'08',title:'Check-in'},
+          ]}/>
+        </Section>
+        <Section eyebrow="Abschnitt 02" title="Kundenphasen den Rollen zuordnen" lead="Jede Rolle verantwortet einen Abschnitt des Prozesses.">
+          <PhaseLane groups={[
+            {abbr:'SDR',role:'Sales Development Representative',range:'Phase 1–3',tone:'teal',steps:[{num:'01',title:'Prospecting'},{num:'02',title:'Qualification'},{num:'03',title:'Discovery'}]},
+            {abbr:'AE',role:'Account Executive',range:'Phase 4–6',tone:'slate',steps:[{num:'04',title:'Pitch'},{num:'05',title:'Objection'},{num:'06',title:'Closing'}]},
+            {abbr:'CSM',role:'Customer Success Manager',range:'Phase 7–8',tone:'plum',steps:[{num:'07',title:'Follow-up'},{num:'08',title:'Check-in'}]},
+          ]}/>
+        </Section>
+      </React.Fragment>),
+    },
+  };
+
+  function Section({eyebrow,title,lead,children}){
+    return (
+      <section style={{marginTop:'56px'}}>
+        {eyebrow && <div style={{fontFamily:'var(--font-display)',fontWeight:800,fontSize:'12px',letterSpacing:'.14em',textTransform:'uppercase',color:'var(--dba-coral)',marginBottom:'12px'}}>{eyebrow}</div>}
+        <h2 style={{fontFamily:'var(--font-display)',fontWeight:800,fontSize:'31px',lineHeight:1.12,color:'var(--dba-ink)',margin:'0 0 10px',letterSpacing:'-.02em'}}>{title}</h2>
+        {lead && <p style={{fontFamily:'var(--font-body)',fontWeight:400,fontSize:'16px',lineHeight:1.6,color:'var(--dba-body)',maxWidth:'64ch',margin:0}}>{lead}</p>}
+        {children}
+      </section>
+    );
+  }
+
+  function App(){
+    const [active,setActive] = React.useState('1.3.1');
+    const [completed,setCompleted] = React.useState({'1.1.1':true,'1.1.2':true,'1.1.3':true});
+    const L = LESSONS[active];
+    const scRef = React.useRef(null);
+    React.useEffect(()=>{ if(scRef.current) scRef.current.scrollTop=0; },[active]);
+    const done = !!completed[active];
+    return (
+      <div style={{display:'flex',height:'100vh',overflow:'hidden',background:'var(--dba-shell)'}}>
+        <SidebarNav modules={MODULES} activeId={active} completed={completed} onSelect={setActive}/>
+        <main style={{flex:1,display:'flex',flexDirection:'column',minWidth:0,background:'var(--dba-paper)'}}>
+          <header style={{flex:'0 0 auto',display:'flex',alignItems:'center',gap:'18px',padding:'0 34px',height:'68px',background:'rgba(245,244,240,.9)',backdropFilter:'blur(10px)',WebkitBackdropFilter:'blur(10px)',borderBottom:'1px solid var(--dba-border)'}}>
+            <nav style={{display:'flex',alignItems:'center',gap:'8px',fontFamily:'var(--font-body)',fontWeight:600,fontSize:'13px',color:'var(--dba-muted)',flex:1,minWidth:0}}>
+              <span>{L.module}</span><span style={{color:'var(--dba-border-soft)'}}>/</span>
+              <span style={{whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{L.crumb}</span>
+              <span style={{color:'var(--dba-border-soft)'}}>/</span><span style={{color:'var(--dba-ink)'}}>{active}</span>
+            </nav>
+            <div style={{position:'relative',width:'260px',flex:'0 0 auto'}}>
+              <input placeholder="Lektionen durchsuchen …" style={{width:'100%',height:'40px',padding:'0 14px 0 38px',border:'1px solid var(--dba-border)',borderRadius:'11px',background:'#fff',fontFamily:'var(--font-body)',fontSize:'13.5px',color:'var(--dba-ink)',outline:'none'}}/>
+              <span style={{position:'absolute',left:'13px',top:'50%',transform:'translateY(-50%)',color:'var(--dba-muted)',fontSize:'16px'}}>⌕</span>
+            </div>
+          </header>
+          <div ref={scRef} style={{flex:1,overflowY:'auto'}}>
+            <div style={{maxWidth:'900px',margin:'0 auto',padding:'46px 40px 100px'}}>
+              <div style={{fontFamily:'var(--font-display)',fontWeight:800,fontSize:'12px',letterSpacing:'.14em',textTransform:'uppercase',color:'var(--dba-coral)',marginBottom:'16px'}}>{L.eyebrow}</div>
+              <h1 style={{fontFamily:'var(--font-display)',fontWeight:900,fontSize:'42px',lineHeight:1.08,color:'var(--dba-ink)',letterSpacing:'-.025em',margin:'0 0 16px',maxWidth:'18ch'}}>{L.title}</h1>
+              <p style={{fontFamily:'var(--font-body)',fontWeight:400,fontSize:'18px',lineHeight:1.6,color:'var(--dba-body)',maxWidth:'60ch',margin:'0 0 24px'}}>{L.desc}</p>
+              <div style={{display:'flex',flexWrap:'wrap',gap:'10px'}}>
+                {L.chips.map((c,i)=><Chip key={i}>{c}</Chip>)}
+              </div>
+              {L.render()}
+              <div style={{marginTop:'48px',display:'flex',gap:'12px'}}>
+                <Button onClick={()=>setCompleted(p=>({...p,[active]:!p[active]}))} icon={done?'✓':undefined}>
+                  {done?'Als erledigt markiert':'Als erledigt markieren'}
+                </Button>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+</script>
+</body></html>
