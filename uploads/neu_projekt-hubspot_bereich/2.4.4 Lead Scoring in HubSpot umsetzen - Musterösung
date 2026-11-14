@@ -1,0 +1,125 @@
+Musterlösung 2.5.4
+
+# **Lead Scoring in HubSpot umsetzen**
+
+# &nbsp;
+
+*In dieser Einheit baust du dein Lead Scoring in HubSpot auf. Du startest mit deinem Modell auf Papier und arbeitest dich bis zum laufenden Score am Kontakt vor. Dabei planst du zuerst deine Kriterien, legst dann die passenden Eigenschaften an, baust anschließend den Score und testest ihn zum Schluss an deinen eigenen Kontakten.*
+
+*Hinweis zu dieser Musterlösung: Das Task Sheet arbeitet am eigenen Unternehmensprojekt und besteht überwiegend aus praktischer HubSpot-Arbeit. Die Lösungen zeigen daher die schriftlichen Teile am Kursunternehmen Kravio als Beispiel.*
+
+## Aufgabe 1: Scoring-Kriterien planen
+
+## (45 Minuten)
+
+*Ziel: Bevor du in HubSpot klickst, steht dein Modell auf Papier. Dazu gehört auch die Frage, in welchem Feldtyp jedes Kriterium später landet.*
+
+**1\. Warum Eigenschaften statt Notizen? (schriftlich):** Erkläre kurz, warum HubSpot nur auf strukturierten Eigenschaften filtern, segmentieren und scoren kann. Geh dabei insbesondere darauf ein, welchen Nachteil reine Freitextnotizen für die Auswertung haben.
+
+**Musterlösung:** HubSpot kann nur mit Werten rechnen, die es eindeutig einem Feld zuordnen kann. Eine strukturierte Eigenschaft hat einen festen Ort und eine begrenzte Menge möglicher Werte: Das Feld „Branche“ enthält entweder „Gastronomie“ oder „Handel“, das Feld „Anzahl Mitarbeiter“ eine Zahl. Genau darauf lassen sich Filter, aktive Listen und Scoring-Regeln aufsetzen, weil die Bedingung „Branche ist Gastronomie“ für jeden Kontakt ein klares Ja oder Nein ergibt.
+
+Eine Freitextnotiz hat diesen festen Ort nicht. Steht die Branche irgendwo im Notizfeld, findet HubSpot sie beim Filtern nicht zuverlässig, und dieselbe Information taucht in beliebig vielen Schreibweisen auf: „Gastronomie“, „gastro“, „Systemgastro GmbH“ oder „Restaurantkette“ meinen dasselbe, sind für das System aber vier verschiedene Zeichenketten. Für Scoring ist Freitext damit praktisch wertlos, weil sich keine verlässliche Regel darauf bauen lässt. Merksatz: Was du später auswerten willst, muss in einem eigenen, strukturierten Feld stehen.
+
+**2\. Scoring-Kriterien sammeln (schriftlich):** Sammle die Signale, die für dein Lead Scoring relevant sind, und ordne sie den drei Kategorien Fit/Firmografie, Verhalten/Engagement und Qualifizierung/Beziehung zu.
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+**Musterlösung (Beispiel Kravio):** Die drei Kategorien beschreiben denselben Lead aus drei Blickwinkeln – passt er (Fit), will er (Engagement) und ist er greifbar (Qualifizierung):
+
+| Kategorie | Relevante Signale bei Kravio |
+| :---- | :---- |
+| Fit / Firmografie | Branche (Filial-Einzelhandel, Gastronomie, stationäre Pflege), Unternehmensgröße (50–250 Mitarbeitende), Region (DACH), Schichtbetrieb vorhanden |
+| Verhalten / Engagement | Checkliste „Dienstplanung ohne Excel“ heruntergeladen, Demo angefragt, Preisseite besucht, Webinar besucht, Newsletter geöffnet |
+| Qualifizierung / Beziehung | Ansprechperson gehört zum Buying Committee (Personalleitung, GF, Betriebsleitung), Bedarf im Gespräch bestätigt, Budget bekannt, Trigger-Event (Expansion, Wechsel in der Personalleitung) |
+
+&nbsp;
+
+**3\. Kriterien festlegen und Feldtyp bestimmen (schriftlich):** Wähle fünf bis sieben konkrete Kriterien aus, notiere Feldtyp und Werte, vergib Punkte nach Vorhersagekraft und ergänze zwei negative Kriterien.
+
+**Musterlösung (Beispiel Kravio):** Sieben Kriterien plus zwei negative. Die Gewichtung folgt der Vorhersagekraft: Eine Demo-Anfrage sagt mehr über die Kaufabsicht aus als ein geöffneter Newsletter, deshalb 20 statt 5 Punkte.
+
+| Kriterium | Kategorie | Punkte | Feldtyp / Werte |
+| :---- | :---- | :---- | :---- |
+| Branche passt zum ICP | Fit | \+15 | Dropdown: Handel / Gastro / Pflege / andere |
+| Unternehmensgröße 50–250 | Fit | \+10 | Zahl (oder Dropdown mit Größenklassen) |
+| Region DACH | Fit | \+5 | Dropdown: DACH / außerhalb |
+| Rolle im Buying Committee | Qualifizierung | \+15 | Dropdown: Entscheider / Nutzer / kein Fit |
+| Demo angefragt | Engagement | \+20 | Ja/Nein |
+| Checkliste heruntergeladen | Engagement | \+10 | Ja/Nein |
+| Newsletter geöffnet | Engagement | \+5 | Ja/Nein |
+| Region außerhalb Zielmarkt | negativ | −20 | abgeleitet aus Feld „Region“ |
+| Wettbewerber | negativ | −10 | Dropdown&nbsp; |
+
+&nbsp;
+
+*Worauf es ankommt: Jedes Kriterium ist über einen geschlossenen Feldtyp abbildbar – kein einziges braucht Freitext. Die Fit-Kriterien hängen am Unternehmen, die Engagement-Kriterien am Kontakt.*
+
+**Wichtig, keine Freitextfelder:** Diese Auflage ist erfüllt – jedes Kriterium oben nutzt Dropdown, Zahl oder Ja/Nein. Beispiel für die richtige Zerlegung: Statt eines Freitextfelds „Was interessiert den Lead?“ nimmt man ein Dropdown mit den möglichen Interessen, sonst ließe sich nie darauf filtern.
+
+## Aufgabe 2: Eigenschaften in HubSpot anlegen
+
+## (45 Minuten)
+
+*Jetzt setzt du deine geplanten Kriterien in HubSpot um und prüfst dabei, was HubSpot schon mitbringt.*
+
+**1\. Vorhandene und neue Eigenschaften:** Prüfe, welche Kriterien bereits als Standardeigenschaften existieren; nur für die fehlenden legst du neue an.
+
+**Musterlösung (Beispiel Kravio):** Bereits vorhanden und direkt nutzbar sind in der Regel „Branche“, „Anzahl Mitarbeiter“ und die Lifecycle-Phase. Neu anzulegen sind die kursspezifischen Kriterien, für die es kein Standardfeld gibt, etwa „Rolle im Buying Committee“, „Demo angefragt“ oder „Checkliste heruntergeladen“. Faustregel: Was HubSpot standardmäßig kennt, nicht doppelt anlegen – doppelte Felder führen später zu widersprüchlichen Werten.
+
+**2\. Eigenschaften anlegen** · **3\. In der Ansicht einblenden** · **4\. Werte eintragen**
+
+Praktische HubSpot-Durchführung – keine Musterlösung erforderlich; Nachweis über den Abgabe-Check im Task Sheet.
+
+*Hinweis zur Umsetzung: Achte beim Anlegen darauf, für jedes Feld den in Aufgabe 1 geplanten strukturierten Feldtyp zu wählen (Dropdown, Zahl, Ja/Nein) und die Werteliste sauber zu pflegen – gleiche Schreibweise, keine Dubletten. Für den anschließenden Test genügen fünf vollständig gefüllte Beispielkontakte.*
+
+## Aufgabe 3: Score in HubSpot bauen
+
+## (45 Minuten)
+
+*Jetzt übersetzt du dein Modell in einen laufenden Score, den HubSpot automatisch für jeden Kontakt berechnet.*
+
+**1\. Score anlegen** · **2\. Positive Kriterien hinzufügen** · **3\. Negative Kriterien ergänzen**
+
+Praktische HubSpot-Durchführung – keine Musterlösung erforderlich; Nachweis über den Abgabe-Check im Task Sheet.
+
+*Hinweis zur Umsetzung: Beim Übertragen der Kriterien werden aus den Modell-Zeilen von Aufgabe 1 die Scoring-Regeln – jede Bedingung stützt sich auf eine der in Aufgabe 2 angelegten Eigenschaften. Die negativen Kriterien nicht vergessen: Ohne sie erscheinen Wettbewerber oder Leads außerhalb des Zielmarkts fälschlich mit hohem Score.*
+
+## Aufgabe 4: Score nutzbar machen, testen und kalibrieren
+
+## (30 Minuten)
+
+*Ein Score wirkt erst, wenn er stimmt und Konsequenzen hat.*
+
+**1\. Ergebnis prüfen:** Score an den Beispielkontakten kontrollieren und in der Seitenleiste einblenden.
+
+Praktische HubSpot-Durchführung – keine Musterlösung erforderlich; Nachweis über den Abgabe-Check im Task Sheet.
+
+**2\. Schwellenwert festlegen (schriftlich):** Ab welchem Score gilt ein Lead als „sales-ready“, und was passiert dann?
+
+**Musterlösung (Beispiel Kravio):** Bei einem maximal erreichbaren positiven Score von rund 80 Punkten ist eine sinnvolle Schwelle 40 Punkte. Wer sie erreicht, hat zwingend Fit (Branche und Größe passen) und mindestens ein starkes Kaufsignal wie eine Demo-Anfrage – das ist die Definition von sales-ready. Beim Erreichen der Schwelle passiert Konkretes: Die Lifecycle-Phase wechselt auf „Sales Qualified Lead“, es entsteht automatisch eine Aufgabe für den zuständigen Vertriebler, und der Lead wird innerhalb von 24 Stunden kontaktiert. Zwischen 20 und 40 Punkten kommt der Lead im Nurturing, darunter genügt der Newsletter.
+
+**3\. Kalibrieren (schriftlich):** Verteilung prüfen und Punktwerte oder Schwelle nachjustieren.
+
+**Musterlösung:** Der Test besteht darin, die tatsächlich am höchsten gescorten Kontakte anzusehen und zu fragen: Würde ich diese Leute wirklich zuerst anrufen? Landet ein offensichtlich unpassender Lead weit oben, ist meist ein Punktwert zu hoch (z. B. ein reines Newsletter-Öffnen zu stark gewichtet) oder ein negatives Kriterium fehlt. Landet ein klarer Wunschkunde zu weit unten, ist ein Fit-Kriterium zu schwach gewichtet. Man verschiebt dann einzelne Punktwerte oder die Schwelle und prüft erneut – deshalb ist Scoring nie fertig, sondern wird laufend an echten Ergebnissen nachgeschärft.
+
+*Hinweis: In der Übungsumgebung ersetzt der Plausibilitätscheck an wenigen Beispielkontakten die statistische Auswertung, die man in einem echten Account mit vielen gewonnenen und verlorenen Deals durchführen würde.*
+
+Musterlösung 2.5.4
+
+# **Bonusaufgabe**
+
+# &nbsp;
+
+## Aufgabe 5: Datenqualität absichern
+
+## (30 Minuten)
+
+Überlege, welche deiner Eigenschaften bei bestimmten Deal-Stages verpflichtend sein sollten, und skizziere, wie du das über bedingte Pflichtfelder absicherst.
+
+**Musterlösung (Beispiel Kravio):** Sinnvolle Pflichtfelder je Deal-Stage: Bis eine Verkaufschance auf „Für Kauf qualifiziert“ wandert, müssen Branche, Unternehmensgröße und die Rolle der Ansprechperson gefüllt sein – ohne diese Angaben ist die Qualifizierung nicht belegt. Vor „Vertrag gesendet“ muss das Budget hinterlegt sein, denn ein Vertrag ohne bekannten finanziellen Rahmen ist unrealistisch. Umsetzung in HubSpot: Über die Pipeline-Einstellungen lassen sich je Deal-Stage bedingte Pflichtfelder festlegen, die den Wechsel in die nächste Stage blockieren, solange das Feld leer ist.
+
+*Warum das für Scoring und Reporting zählt: Ein Score ist nur so gut wie die Daten darunter. Fehlt bei der Hälfte der Kontakte die Branche, scort das Modell ins Leere und jede Auswertung nach Branche ist verzerrt. Pflichtfelder an den richtigen Stellen erzwingen genau die Datenqualität, auf der verlässliches Scoring und aussagekräftige Berichte aufbauen.*

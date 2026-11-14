@@ -1,0 +1,152 @@
+Musterlösung 2.5.3
+
+# **Lead Nurturing & Segmentbezogene Inhalte**&nbsp;
+
+*Nicht jeder Lead ist sofort abschlussreif. Für Kontakte, die noch nicht kaufbereit sind, brauchst du eine eigene Strategie: das Lead Nurturing. In dieser Einheit gehst du den ganzen Weg, vom Verständnis über den Entwurf der eigenen Kampagne bis zum Bau der Strecke in HubSpot.*
+
+## Aufgabe 1: Nurturing verstehen und von Sequenzen abgrenzen
+
+## (45 Minuten)
+
+*Bevor du deine eigene Strecke baust, klärst du die Grundlagen schriftlich.*
+
+**1\. Nurturing definieren (schriftlich):** Was ist Lead Nurturing, für welche Leads ist es gedacht, und wie grenzt es sich vom aktiven Outreach ab?
+
+**Musterlösung:** Lead Nurturing ist die systematische Pflege von Kontakten, die noch nicht kaufbereit sind. Statt zu verkaufen, versorgt man den Lead über einen längeren Zeitraum mit hilfreichen Inhalten und Kontaktpunkten und baut so Schritt für Schritt Vertrauen auf, bis er bereit für ein Verkaufsgespräch ist. Gedacht ist es für interessierte, aber noch nicht abschlussreife Leads, also typischerweise Marketing Qualified Leads.
+
+**Abgrenzung zum Outreach:** Aktiver Outreach (Cold E-Mail, Cold Call) richtet sich an Kontakte, die noch kein Interesse gezeigt haben, ist direkt und zielt schnell auf einen Termin oder ein Gespräch. Nurturing setzt später an: Der Lead hat bereits Interesse gezeigt, ist aber noch nicht so weit. Deshalb steht hier Mehrwert vor Verkauf, und die Betreuung läuft geduldig über Wochen statt in wenigen Tagen.
+
+**2\. Nurturing vs. Sequenzen (schriftlich):** Unterschiede entlang von Ziel, Zielgruppe und Timing beziehungsweise Dauer.
+
+**Musterlösung:** Beide sind automatisierte E-Mail-Abfolgen, verfolgen aber gegensätzliche Zwecke:
+
+| Kriterium | Sequenz | Nurturing-Strecke |
+| :---- | :---- | :---- |
+| Ziel | Schnelle Reaktion herbeiführen, aktiv zum Termin oder Gespräch führen | Vertrauen und Beziehung aufbauen, den Lead langsam bis zur Kaufbereitschaft erwärmen |
+| Zielgruppe | Kontakte, die aktiv angegangen werden (kalte Prospects oder bereits kaufbereite Leads) | Interessierte, aber noch nicht kaufbereite Leads (MQL) |
+| Timing / Dauer | Kurz und dicht: wenige Touches über Tage bis etwa zwei Wochen, endet bei Antwort | Lang und verteilt: mehrere Touches über Wochen bis Monate, mit Mehrwert-Content |
+| Tonfall | Direkter, stärker auf Abschluss ausgerichtet | Hilfreich, mehrwertorientiert, kein Verkaufsdruck |
+
+&nbsp;
+
+**3\. Entscheidung treffen (schriftlich):** Zwei Beispiel-Situationen für Sequenz beziehungsweise Nurturing.
+
+**Musterlösung:**&nbsp;
+
+**Sequenz:** Ein Betriebsleiter einer Gastro-Kette hat auf der Website eine Demo angefragt. Er ist kaufbereit, also reagierst du schnell und zielgerichtet mit einer kurzen Sequenz, die auf den Termin hinarbeitet.
+
+**Nurturing:** Eine Personalleiterin hat die Checkliste „Dienstplanung ohne Excel“ heruntergeladen, aber keinen akuten Bedarf oder Zeitdruck signalisiert. Sie kommt in die Nurturing-Strecke und wird über Wochen mit passenden Inhalten warmgehalten, bis ein Kaufsignal kommt.
+
+##  Aufgabe 2: Nurturing-Kampagne entwerfen mit Ein- und Ausstieg
+
+## (60 Minuten)
+
+*In dieser Aufgabe entwirfst du eine Kampagne für dein eigenes Projekt und legst Ein-, Ausstieg und Erfolgsmessung fest.*
+
+**1\. Persona und Ausgangslage wählen (schriftlich):**&nbsp;
+
+**Musterlösung (Beispiel Kravio):** Persona HR-Heike, Personalleiterin einer Filialbäckerei mit rund 180 Mitarbeitenden. Ausgangslage: Sie ist gerade Lead geworden, weil sie die Checkliste „Dienstplanung ohne Excel“ heruntergeladen hat. Sie spürt das Excel-Chaos in der Planung, hat das Thema aber gerade erst erkannt. Es gibt keinen akuten Auslöser und keine Terminfrist, sie ist also interessiert, aber noch nicht kaufbereit.
+
+**2\. Touchpoints entwerfen (schriftlich):** Vier bis fünf Touchpoints über vier bis sechs Wochen.
+
+**Musterlösung (Beispiel Kravio):**&nbsp;
+
+| Touch (Tag) | Content / Thema | Ziel | Kanal |
+| :---- | :---- | :---- | :---- |
+| 1 (Tag 0\) | Willkommen und der versprochene Leitfaden, kurz eingeordnet | Mehrwert liefern, Vertrauen starten | E-Mail |
+| 2 (Tag 5\) | Blogartikel „Die 3 häufigsten Fehler bei der Schichtplanung im Handel“ | Problembewusstsein vertiefen (edukativ) | E-Mail |
+| 3 (Tag 14\) | Case Study „Wie eine Bäckereikette 6 Stunden pro Woche zurückgewann“ | Lösungsweg zeigen (Consideration) | E-Mail |
+| 4 (Tag 24\) | Einladung zum Webinar „Digitale Dienstplanung in der Praxis“ | Live erleben, Engagement messen | E-Mail |
+| 5 (Tag 35\) | Persönliches Angebot für eine kurze Demo, zugeschnitten auf ihren Betrieb | Weiche Conversion zum Termin (Decision) | E-Mail |
+
+&nbsp;
+
+**3\. Dramaturgie prüfen (schriftlich):**&nbsp;
+
+**Musterlösung:** Die Strecke steigert sich sauber von edukativ zu entscheidungsnah. Touch 1 und 2 schaffen Problembewusstsein und liefern reinen Mehrwert, ohne das Produkt in den Vordergrund zu stellen. Touch 3 und 4 zeigen Lösungswege, hier taucht Kravio zum ersten Mal konkret auf, aber im Kontext eines echten Ergebnisses statt als Werbung. Erst Touch 5 wird produkt- und abschlussnah mit dem Demo-Angebot. Jeder Touch trägt für sich einen Mehrwert, sodass die Personalleiterin auch dann etwas gewinnt, wenn sie noch nicht kauft.
+
+**4\. Einstieg definieren (schriftlich):**&nbsp;
+
+**Musterlösung (Beispiel Kravio):** Ein Lead wird aufgenommen, sobald er über einen Content-Download (zum Beispiel die Checkliste) zum Lead geworden ist, aber die Sales-ready-Kriterien noch nicht erfüllt, also kein akutes Kaufsignal zeigt und im Score unter der Schwelle liegt. Kurz: interessiert, aber noch nicht abschlussreif.
+
+**5\. Ausstieg und Rückkehr (schriftlich):**&nbsp;
+
+**Musterlösung (Beispiel Kravio):** Der Lead verlässt die Strecke, sobald er ein klares Kaufsignal zeigt: eine Demo anfragt, die Preisseite besucht oder im Lead Score die sales-ready-Schwelle überschreitet. Dann geht er zurück in Qualifizierung beziehungsweise an den Vertrieb. Zusätzlich fällt jeder Kontakt heraus, der sich vom Newsletter abmeldet.
+
+**6\. Erfolg messen (schriftlich):**&nbsp;
+
+**Musterlösung:** Öffnungs- und Klickraten je E-Mail zeigen, ob Betreff und Inhalt ziehen. Der Anstieg des Lead Scores über die Strecke zeigt echten Fortschritt Richtung Kauf. Die wichtigste Zahl ist der Anteil der Leads, die aus dem Nurturing heraus sales-ready werden (der Übergang von MQL zu SQL). Ergänzend lässt sich die Zeit messen, bis ein Lead kaufbereit wird.
+
+*Hinweis: Dies ist ein Beispiel für Kravio. In einem eigenen Projekt hängen Themen, Kanäle und Abstände vom jeweiligen Angebot und der Zielgruppe ab.*
+
+## Aufgabe 3: E-Mails in HubSpot vorbereiten
+
+## (45 Minuten)
+
+*Die drei vorgegebenen E-Mails werden wortgleich in HubSpot angelegt und getestet.*
+
+**1\. E-Mails anlegen** · **2\. Prüfen**
+
+Praktische HubSpot-Durchführung – keine Musterlösung erforderlich; Nachweis über den Abgabe-Check im Task Sheet.
+
+*Hinweis zur Umsetzung: Wichtig ist, den Typ „für Automatisierung“ zu wählen (nicht die reguläre Marketing-E-Mail), da nur diese sich später in den Workflow einbauen lässt. Die Links stehen bereits in den Vorlagen, sie werden also beim wortgleichen Übertragen mitkopiert. Der Test an die eigene Adresse prüft Anrede (Vorname-Token), Darstellung und dass die Links funktionieren.*
+
+## Aufgabe 4: Workflow bauen und testen
+
+## (90 Minuten)
+
+*Die drei E-Mails werden zu einer automatisierten Strecke mit festen Wartezeiten verbunden und anschließend getestet.*
+
+**1\. Workflow anlegen** · **2\. E-Mails mit Wartezeiten einfügen** · **3\. Test-Kontakt aufnehmen** · **4\. Ablauf prüfen** · **5\. Dokumentieren**
+
+Praktische HubSpot-Durchführung – keine Musterlösung erforderlich; Nachweis über den Abgabe-Check im Task Sheet.
+
+*Hinweis zur Umsetzung: Die Wartezeiten ergeben die Abfolge Tag 0, Tag 3, Tag 7 (3 plus 4 Tage). Für den Test lassen sich die Verzögerungen vorübergehend auf wenige Minuten verkürzen, damit man nicht tagelang warten muss; danach wieder zurückstellen. Die manuelle Aufnahme ist hier bewusst gewählt, damit alle Teilnehmenden dieselbe kontrollierte Grundlage haben und die Ergebnisse (gesendet, geöffnet, geklickt) vergleichbar sind.*
+
+## Aufgabe 5: Automatische Trigger verstehen
+
+## (30 Minuten)
+
+*In der Praxis startet eine Nurturing-Strecke meist automatisch. Diese Aufgabe ist schriftlich.*
+
+**1\. Prinzip erklären (schriftlich):**&nbsp;
+
+**Musterlösung:** Bei der manuellen Aufnahme fügst du die Kontakte selbst in den Workflow ein, einzeln oder aus einer Liste. Das gibt dir volle Kontrolle, skaliert aber nicht. Ein automatischer Enrollment-Trigger nimmt Kontakte selbstständig auf, sobald sie eine festgelegte Bedingung erfüllen. Das läuft ohne Zutun und in beliebiger Menge, erfordert aber eine sauber definierte Bedingung, damit die richtigen Kontakte in der Strecke landen.
+
+**2\. Trigger sammeln (schriftlich):**&nbsp;
+
+**Musterlösung:** Mögliche Aufnahme-Trigger: Formular ausgefüllt (zum Beispiel Checkliste heruntergeladen), Lifecycle-Phase wird „Lead“, Lead-Score erreicht eine bestimmte Schwelle, eine bestimmte Seite besucht oder Content heruntergeladen, oder Mitgliedschaft in einer aktiven Liste. Ebenso wichtig sind Ausschluss-Trigger, bei denen ein Kontakt die Strecke verlassen soll: Er fragt eine Demo an, wird zum Sales Qualified Lead oder Kunden, oder er meldet sich vom Newsletter ab. Ohne solche Ausschlüsse bekäme ein bereits kaufbereiter oder abgesprungener Lead weiter Nurturing-Mails.
+
+**3\. Auswahl begründen (schriftlich):**&nbsp;
+
+**Musterlösung (Beispiel Kravio):** Am sinnvollsten als Aufnahme-Trigger ist „Checkliste heruntergeladen“ beziehungsweise Lifecycle-Phase wird „Lead“, denn genau das ist der in Aufgabe 2 definierte Einstiegspunkt: ein interessierter, aber noch nicht kaufbereiter Kontakt. Als Ausschluss passt am besten das Überschreiten der Score-Schwelle oder eine Demo-Anfrage, weil der Lead dann sales-ready ist und in die Qualifizierung gehört, nicht mehr ins Nurturing.
+
+Musterlösung 2.5.3
+
+# **Bonusaufgaben**&nbsp;
+
+## 
+
+## 
+
+## Aufgabe 6: Umgang mit Nicht-Reaktion
+
+## (30 Minuten)
+
+Für Leads, die über die gesamte Kampagne nicht interagieren, wird ein letzter Re-Engagement-Touch oder eine „Break-up“-E-Mail entworfen.
+
+**Musterlösung (Beispiel Kravio, Break-up-E-Mail):**&nbsp;
+
+**Betreff:** Sollen wir uns später wieder melden?
+
+„Hallo Frau Berg, wir haben zuletzt einige Male von uns hören lassen, aber vielleicht ist das Thema Dienstplanung bei Ihnen gerade nicht dran, und das ist völlig in Ordnung. Damit wir Ihr Postfach nicht unnötig füllen, hören wir an dieser Stelle auf. Falls das Excel-Chaos irgendwann doch wieder Zeit kostet, sind wir da: Diese eine Checkliste fasst die wichtigsten Schritte zusammen. Melden Sie sich einfach, wann immer es passt.“
+
+*Warum das funktioniert: Die Mail akzeptiert das Schweigen ohne Vorwurf, liefert ein letztes Mal Mehrwert und lässt die Tür bewusst offen, statt aufdringlich nachzufassen. Oft erzeugt gerade der angekündigte Rückzug noch eine Reaktion.*
+
+## Aufgabe 7: Peer-Review der Kampagne
+
+## (30 Minuten)
+
+Die eigene Kampagne wird mit einer anderen teilnehmenden Person getauscht und gegenseitig Feedback gegeben.
+
+Peer-Feedback – keine Musterlösung erforderlich; Nachweis über den Abgabe-Check im Task Sheet.

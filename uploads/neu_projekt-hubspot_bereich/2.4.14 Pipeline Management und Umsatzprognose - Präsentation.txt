@@ -1,0 +1,273 @@
+Lead Management und Reporting
+Digital Sales Management
+Kurs
+Pipeline Management und Umsatzprognose
+Lektion 14
+Kapitel 2.4
+
+Intro
+Pulse Check (Slido)
+Wie fühlst du dich heute?
+ 😊😐😔
+Wie aktiv wirst du an den heutigen Diskussionen teilnehmen?
+Wie motiviert bist du heute für die Vorlesung?
+💬
+1 = wenig 
+5 = sehr aktiv
+🔋🌟
+1 = wenig 
+5 = sehr motiviert
+2
+
+2
+
+Intro
+DBA Curriculum - dein Fahrplan
+Modul 1:
+(6 Wochen)
+Einführung im Bereich 
+Digital Sales
+Modul 2:
+(22 Wochen)
+Vertiefung zum 
+Digital Sales Experte
+Modul 4:
+(3 Wochen)
+Vorbereitung auf den Arbeitsmarkt
+Orientierung im digitalen Vertrieb
+​
+Denkweise & Priorisierung im Vertriebsalltag
+
+Basiswissen Verkaufspsychologie und effektive Kommunikation
+Cloudbasiertes Arbeiten mit Microsoft 365
+LinkedIn Deepdive
+3
+Zielkunden & Strategie
+Outbound Workshop
+
+Inbound Sales: Digitaler Vertriebsprozess
+Lead Management & -reporting
+Bedarfsanalyse Workshop
+Account Management & Customer Support Basics
+Verkaufspräsentationen erstellen & halten
+Vertiefung Salesforce Sales Cloud
+​​
+IHK: Digital Sales Manager Zertifizierung
+Grundlagen für ein selbstsicheres Vorstellungsgespräch
+​
+Erfolgreiche Jobsuche und Kontaktaufnahme mit Unternehmen
+Modul 3:
+(9 Wochen)
+Salesforce & IHK Zertifizierung
+
+3
+
+📌 Einfach & aktivVisualisiere klar, vergleiche Soll/Ist, nutze es täglich im Team. Nur ein aktiv genutztes Dashboard bringt echten Mehrwert.
+Recap
+Recap zur letzten Vorlesung
+💡 Gibt es aktuell noch offene Fragen hierzu?
+4
+01
+📌 Von Daten zu TatenMit den richtigen KPIs wird aus deinem Dashboard ein Steuerungsinstrument für mehr Vertriebserfolg.
+02
+03
+04
+
+
+
+
+📌 Dashboard = KompassZeigt dir jederzeit, wo du im Vertriebsprozess stehst. Ohne Dashboard = Blindflug, mit Dashboard = datengesteuerte Navigation.
+📌 Fokus auf KPIsWenige, klare Kennzahlen statt Zahlenwust. Jede Zahl muss einen Zweck haben – z. B. Fortschritt messen oder Probleme erkennen.
+
+4
+
+Von der Pipeline zur Prognose
+Eine gesunde Pipeline
+Agenda
+Agenda
+01
+02
+5
+03
+Forecasting-Methoden
+04
+Warum Pipeline Management
+05
+Pipeline und Forecast in HubSpot
+
+Warum Pipeline Management
+6
+
+Was ist die Sales Pipeline?
+🛤️ Alle offenen Deals im Blick: Die Pipeline bildet alle laufenden Deals ab, geordnet nach Phase.
+📊 Der Weg des Kunden: Jede Phase steht für einen Schritt im Kaufprozess, so siehst du, wie weit ein Deal ist.
+🧭 Grundlage für Steuerung: Die Pipeline zeigt, was reinkommt, und ist die Basis für Reporting und Prognose.
+✅ Fazit: Die Pipeline ist dein Blick nach vorn: alle Chancen, sauber sortiert.
+
+Warum die Pipeline aktiv gemanagt werden muss
+8
+🧹 Ohne Pflege veraltet sie: Alte Deals, falsche Beträge und überfällige Abschlussdaten verzerren das Bild.
+🚧 Deals bleiben liegen: Ohne aktives Nachfassen stauen sich Chancen und gehen verloren.
+🔮 Die Prognose leidet: Eine Prognose ist immer nur so gut wie die Pipeline, aus der sie stammt.
+✅ Fazit: Pipeline Management heißt, die Pipeline sauber, ehrlich und in Bewegung zu halten.
+
+Eine gesunde Pipeline
+9
+
+Merkmale einer gesunden Pipeline
+⛽ Genug Deckung: Es sind genug offene Deals da, um das Ziel realistisch zu erreichen.
+✅ Realistische Deals: Beträge und Abschlussdaten sind aktuell und ehrlich, nicht geschönt.
+🔄 Bewegung statt Stau: Deals wandern regelmäßig weiter, statt in einer Phase festzuhängen.
+✅ Fazit: Volumen, Ehrlichkeit und Bewegung, das ist die Basis jeder verlässlichen Prognose.
+
+Pipeline-Coverage
+11
+⛽ Deckung heißt Puffer: Coverage ist der offene Pipeline-Wert im Verhältnis zum Ziel für den Zeitraum.
+🧮 Die Faustregel: Nötige Deckung ist ungefähr eins geteilt durch die Win Rate. Bei 25 Prozent also das Vierfache des Ziels.
+🚨 Frühwarnsignal: Reicht die Deckung nicht, wird das Ziel unrealistisch, lange bevor das Quartal endet.
+✅ Fazit: Coverage zeigt früh, ob genug im Topf ist, oder ob ihr nachlegen müsst.
+
+Pipeline sauber halten
+🗑️ Karteileichen schließen: Deals ohne Aktivität oder mit lange überfälligem Abschlussdatum ehrlich schließen.
+📅 Daten aktuell halten: Beträge und Abschlussdaten pflegen. Ohne Abschlussdatum fällt ein Deal aus der Prognose.
+➡️ Nächste Schritte je Deal: Jeder offene Deal braucht einen klaren nächsten Schritt und einen Termin.
+✅ Fazit: Regelmäßige Hygiene hält die Zahlen ehrlich und die Prognose belastbar.
+
+Pipeline-Aging: wie alt sind deine Deals?
+13
+⏳ Zeit in der Phase messen: Wie lange liegt ein Deal schon in seiner aktuellen Phase?
+🚨 Lange liegt selten gut: Deals weit über dem Schnitt einer Phase sind ein Warnsignal.
+🌱 Frisch gegen abgestanden: Neue, bewegte Deals sind wertvoller als alte, die sich nicht bewegen.
+✅ Fazit: Aging deckt auf, wo Deals feststecken, so erkennst du Engpässe, bevor sie die Prognose verzerren.
+
+Von der Pipeline zur Prognose
+14
+
+Was ist eine Umsatzprognose?
+🔮 Ein Blick nach vorn: Die Prognose schätzt, wie viel Umsatz in einem Zeitraum realistisch abgeschlossen wird.
+🧾 Basiert auf echten Deals: Sie stützt sich auf die offene Pipeline, nicht auf ein Bauchgefühl.
+🎯 Kein Wunschdenken: Ein guter Forecast zeigt das Wahrscheinliche, nicht das Erhoffte.
+✅ Fazit: Die Umsatzprognose ist die datenbasierte Antwort auf die Frage, wie viel wirklich kommt.
+
+Warum ein Forecast wichtig ist
+16
+🗺️ Planung ermöglichen: Die Umsatzerwartung steuert Einstellungen, Budgets und Ziele.
+⏰ Früh gegensteuern: Zeichnet sich eine Lücke zum Ziel ab, bleibt Zeit zum Handeln.
+🤝 Vertrauen schaffen: Verlässliche Prognosen stärken das Vertrauen von Führung und Team.
+✅ Fazit: Der Forecast macht aus der Pipeline ein Planungsinstrument, aus Zahlen werden Entscheidungen.
+
+Die gewichtete Pipeline
+⚖️ Wahrscheinlichkeit je Phase: Jede Deal-Phase trägt eine Abschlusswahrscheinlichkeit, zum Beispiel 20, 60 oder 80 Prozent.
+✖️ Wert mal Wahrscheinlichkeit: Ein Deal über 10.000 EUR in einer Phase mit 60 Prozent zählt gewichtet 6.000 EUR.
+➕ Summe ist der Forecast: Die Summe aller gewichteten Deals ergibt den erwarteten Umsatz.
+✅ Fazit: Die gewichtete Pipeline übersetzt offene Deals in einen realistischen Umsatzwert.
+
+Forecasting-Methoden
+18
+
+Drei Wege zu einer Prognose
+19
+⚖️ Gewichtete Pipeline: Deals mit der Wahrscheinlichkeit ihrer Phase gewichten, schnell und datennah.
+📈 Historischer Trend: Aus vergangenen Perioden hochrechnen, zum Beispiel als Run-Rate.
+🔀 Bottom-up und Top-down: Aus einzelnen Deals aufbauen oder vom Ziel herunterbrechen.
+✅ Fazit: Es gibt nicht die eine Methode. Gute Teams kombinieren mehrere und gleichen sie ab.
+
+Historischer Trend und Run-Rate
+📅 Aus der Vergangenheit lernen: Der Durchschnitt vergangener Monate wird fortgeschrieben.
+🌦️ Saisonalität beachten: Starke und schwache Monate berücksichtigen, sonst trügt die Zahl.
+⚠️ Blind für Veränderung: Die Methode ignoriert neue Deals und Marktveränderungen.
+✅ Fazit: Der Trend ist ein guter Anker, taugt aber als Ergänzung, nicht als einzige Quelle.
+
+Bottom-up gegen Top-down
+21
+🧱 Bottom-up: Die Prognose entsteht aus der Summe der einzelnen Deals, nah an der Realität des Teams.
+🏔️ Top-down: Vom Umsatzziel oder vom Markt wird heruntergerechnet, was nötig ist.
+🤝 Am besten kombiniert: Beide Blickwinkel zusammen decken Lücken und unrealistische Annahmen auf.
+✅ Fazit: Bottom-up erdet die Prognose, Top-down gibt die Richtung. Erst zusammen wird es belastbar.
+
+Typische Fehler und Verzerrungen
+🌈 Zu optimistisch: Deals werden zu hoch oder zu früh eingeschätzt, die Prognose bricht später ein.
+🛡️ Sandbagging: Aus Vorsicht wird zu niedrig geschätzt, um am Ende gut dazustehen.
+🗑️ Alte Deals verfälschen: Karteileichen und fehlende Abschlussdaten verzerren die gewichtete Summe.
+✅ Fazit: Die meisten Prognosen scheitern nicht an der Methode, sondern an unsauberen Daten.
+
+Prognosegenauigkeit verbessern
+23
+🧹 Pipeline pflegen: Saubere Daten sind die Voraussetzung für jede verlässliche Prognose.
+📊 Wahrscheinlichkeiten kalibrieren: Die Phasen-Werte an echten Abschlussquoten ausrichten, nicht am Gefühl.
+🔁 Soll gegen Ist prüfen: Die Prognose regelmäßig mit dem Ergebnis vergleichen und daraus lernen.
+✅ Fazit: Genauigkeit entsteht durch Disziplin: gepflegte Daten, ehrliche Einschätzungen, regelmäßiger Abgleich.
+
+Pipeline und Forecast in HubSpot
+24
+
+Die Pipeline in HubSpot pflegen
+🗂️ Das Deal-Board nutzen: Deals per Drag-and-Drop durch die Phasen bewegen und den Überblick behalten.
+🎚️ Phasen und Wahrscheinlichkeiten: Jede Phase trägt eine Abschlusswahrscheinlichkeit, die Basis der gewichteten Pipeline.
+📝 Eigenschaften aktuell halten: Betrag und Abschlussdatum pflegen, sonst fehlt der Deal in der Prognose.
+✅ Fazit: In HubSpot ist die gepflegte Pipeline die Grundlage, der Forecast baut direkt darauf auf.
+
+Das Forecast-Tool in HubSpot
+26
+📍 Zu finden unter Sales, Prognose: Das Tool rollt alle Deals nach erwartetem Abschlussdatum und Phase zusammen.
+🗂️ Zwei Wege: Nach Deal-Phase gewichtet oder über Kategorien wie Pipeline, Best Case, Most Likely und Commit.
+🧑‍💼 Einschätzung des Teams: Mitarbeiter können eine eigene Prognose abgeben, die die reine Rechnung ergänzt.
+✅ Fazit: Das Forecast-Tool verbindet Daten und Einschätzung zu einer Zahl, mit der ihr arbeiten könnt.
+
+Der ForecastReview
+🗓️ Fester Rhythmus: Die Prognose wird regelmäßig, mit der Leitung durchgesprochen.
+🔍 Deals hinterfragen: Weicht die Team-Einschätzung stark von der Rechnung ab, wird der Deal geprüft.
+🛠️ Maßnahmen ableiten: Aus dem Review folgen konkrete Schritte, etwa gefährdete Deals gezielt anschieben.
+✅ Fazit: Der Review macht die Prognose lebendig, aus einer Zahl werden Entscheidungen.
+
+Fallbeispiel Kravio: die Ausgangslage
+28
+🏢 Situation: Kravio, der Anbieter für digitale Schichtplanung, hat eine volle Pipeline, aber am Quartalsende gibt es immer wieder Überraschungen.
+🚧 Problem: Viele Deals liegen seit Wochen unbewegt in „Für Kauf qualifiziert“, Abschlussdaten fehlen.
+❓ Herausforderung: Die Prognose beruht auf Bauchgefühl, niemand kann sagen, wie viel Umsatz wirklich kommt.
+✅ Der Plan: Erst die Pipeline aufräumen, dann sauber rechnen. Genau das schauen wir uns jetzt an.
+
+Kravio: die Pipeline im Blick
+🧹 Aufräumen zuerst: Deals ohne Abschlussdatum werden ergänzt, überfällige Karteileichen ehrlich geschlossen.
+⏳ Aging prüfen: In „Für Kauf qualifiziert“ stecken die meisten alten Deals, hier liegt der Engpass.
+➡️ Nächste Schritte setzen: Jeder verbliebene Deal bekommt einen klaren nächsten Schritt und Termin.
+✅ Fazit: Erst nach dem Aufräumen ist Kravios Pipeline ehrlich genug für eine verlässliche Prognose.
+
+Die Prognose berechnen
+30
+⚖️ Gewichten je Phase: Jeder offene Deal wird mit der Wahrscheinlichkeit seiner Phase multipliziert.
+➕ Summe bilden: Die gewichteten Beträge ergeben zusammen den erwarteten Umsatz für das Quartal.
+🎯 Mit dem Ziel abgleichen: Der Forecast wird dem Quartalsziel gegenübergestellt, die Lücke zeigt den Handlungsbedarf.
+✅ Fazit: Aus der gepflegten Pipeline entsteht eine Zahl, mit der Kravio planen und reagieren kann.
+
+Übung: den Forecast berechnen
+🔢 Aufgabe: Drei offene Deals: 20.000 EUR bei 80 Prozent, 30.000 EUR bei 60 Prozent und 10.000 EUR bei 20 Prozent. Berechne den gewichteten Forecast.
+💬 Diskussion: Welcher Deal trägt am meisten zur Prognose bei, und warum ist es nicht einfach der größte?
+🛠️ Weiterdenken: Was würdet ihr tun, wenn dieser Forecast unter dem Monatsziel liegt?
+✅ Tipp: Rechnet Deal für Deal: Wert mal Wahrscheinlichkeit, dann alles addieren.
+
+Checkliste für Pipeline und Forecast
+32
+🧹 Gepflegt: Sind Beträge und Abschlussdaten aktuell und Karteileichen geschlossen?
+⚖️ Gewichtet: Sind für alle Phasen realistische Abschlusswahrscheinlichkeiten hinterlegt?
+🎯 Abgeglichen: Steht der Forecast dem Ziel gegenüber und wird er regelmäßig geprüft?
+✅ Merksatz: Überall ein Haken? Dann ist deine Prognose belastbar.
+
+🧩 Methoden kombinieren Gewichtete Pipeline, Trend und Team-Einschätzung zusammen sind am stärksten.
+⚖️ Gewichtet rechnen Wert mal Wahrscheinlichkeit je Phase ergibt den erwarteten Umsatz.
+Recap
+Recap zur heutigen Vorlesung
+💡 Gibt es aktuell noch offene Fragen hierzu?
+33
+01
+02
+03
+04
+
+
+
+
+🔁 Review statt Zufall Regelmäßig prüfen, mit dem Ziel abgleichen und gegensteuern.
+🩺 Pipeline zuerstEine gepflegte, gesunde Pipeline ist die Basis für jede Prognose.
+
+33

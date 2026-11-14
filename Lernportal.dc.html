@@ -677,6 +677,13 @@ class Component extends DCLogic {
       { id:'hub-2.3.7', code:'2.3.7', title:'Cold Calling: Vorbereitung, Durchführung & Dokumentation' },
       { id:'hub-2.3.8', code:'2.3.8', title:'Sequenzen & Reaktionen: Automatisierten Outreach steuern' },
       { id:'hub-2.3.9', code:'2.3.9', title:'Das Qualifizierungsgespräch (GCP-TCI-BA)' },
+      { id:'hub-2.4.11', code:'2.4.11', title:'Funnel-Analyse & Vertriebsdaten interpretieren' },
+      { id:'hub-2.4.12', code:'2.4.12', title:'Reporting im Vertrieb gezielt einsetzen' },
+      { id:'hub-2.4.13', code:'2.4.13', title:'Sales Dashboards erstellen' },
+      { id:'hub-2.4.14', code:'2.4.14', title:'Pipeline Management und Umsatzprognose' },
+      { id:'hub-2.7.1', code:'2.7.1', title:'Grundlagen & Bedeutung von KAM' },
+      { id:'hub-2.7.2', code:'2.7.2', title:'KAM-Strategie & Auswahl der Schlüsselkunden' },
+      { id:'hub-2.7.3', code:'2.7.3', title:'Key Account Planning & -Prozesse' },
     ];
 
     this.COMPACT = [
@@ -1320,6 +1327,560 @@ class Component extends DCLogic {
               { title:'3. Einwandsbehandlung', text:'(Um souverän mit Bedenken umzugehen.) „Das verstehe ich absolut. Darf ich kurz erklären, wie wir das angehen?“ / „Ich höre heraus, dass du Bedenken wegen … hast. Was wäre nötig, um diese auszuräumen?“ / „Lass uns das gemeinsam anschauen. Was genau bereitet dir Sorgen?“ / „Viele unserer Kunden hatten ähnliche Fragen, bevor sie sich für uns entschieden haben. Was ihnen geholfen hat, war …“ / „Mal angenommen, wir finden eine Lösung für dieses Problem – wäre unser Angebot dann für dich interessant?“ / „Ich verstehe, dass es eine Investition ist. Hast du schon überlegt, was es kostet, nichts zu verändern?“' },
               { title:'4. Themenwechsel', text:'(Wenn du das Gespräch in eine neue Richtung lenken möchtest.) „Lass uns kurz über etwas anderes sprechen, das auch relevant sein könnte…“ / „Apropos, wie sieht es eigentlich mit … aus?“ / „Ich möchte noch auf einen anderen Punkt eingehen, der für dich spannend sein könnte.“ / „Danke für den Input! Lass uns einen Schritt weitergehen und über … sprechen.“ / „Das bringt mich zu einem anderen wichtigen Thema: …“' },
               { title:'5. Gespräch beenden', text:'(Um das Gespräch elegant und professionell zu einem Abschluss zu bringen.) „Ich denke, wir haben heute viele gute Punkte besprochen. Lass uns festhalten, wie wir weiter vorgehen.“ / „Danke für das Gespräch! Ich fasse nochmal die nächsten Schritte zusammen…“ / „Ich lasse dir alle Infos per Mail zukommen und melde mich am [Tag] nochmal dazu.“ / „Ich freue mich auf dein Feedback und stehe für weitere Fragen gerne bereit.“ / „Das klingt nach einem spannenden Weg. Wann wäre ein guter Zeitpunkt für ein Follow-up?“ / „Danke für deine Zeit! Ich bin gespannt, wie wir gemeinsam eine Lösung finden können.“' },
+            ] },
+          ] },
+        ]
+      },
+      'hub-2.4.11': {
+        hero: { eyebrow:'HubSpot · TaskSheets & Musterlösungen', title:'2.4.11 · Funnel-Analyse & Vertriebsdaten interpretieren', desc:'Du importierst eine bereitgestellte Deal-Liste in HubSpot, wertest Verteilung, Win Rate und Pipeline-Wert aus und findest schriftlich den Engpass im Funnel.', chips:['Task Sheet','Musterlösung','CSV-Import'] },
+        sections: [
+          { eyebrow:'Task Sheet 2.4.11', title:'Funnel-Analyse & Vertriebsdaten interpretieren', pill:'Task Sheet 2.4.11', blocks:[
+            { t:'heading', text:'Aufgabe 1: Deals importieren' },
+            { t:'note', text:'45 Minuten' },
+            { t:'lead', text:'Bevor du Vertriebsdaten auswerten kannst, brauchst du Daten im System. In dieser Aufgabe importierst du eine bereitgestellte Deal-Liste in HubSpot.' },
+            { t:'checklist', items:[
+              { title:'Datei sichten', text:'Öffne die bereitgestellte Datei „Deals Import Funnel-Analyse.csv" und verschaffe dir einen Überblick (Spalten: Deal-Name, Deal-Phase, Betrag, Abschlussdatum).' },
+              { title:'Import durchführen', text:'Gehe zu CRM > Deals > Importieren, lade die Datei hoch und ordne die Spalten den passenden Deal-Eigenschaften zu (Deal-Name, Deal-Phase, Betrag, Abschlussdatum).' },
+              { title:'Import prüfen', text:'Kontrolliere stichprobenartig, dass die Deals korrekt in den jeweiligen Stages gelandet sind.' },
+            ] },
+            { t:'heading', text:'Aufgabe 2: Deals auswerten' },
+            { t:'note', text:'60 Minuten' },
+            { t:'lead', text:'Jetzt wertest du die importierten Deals aus. Die Kennzahlen liest du direkt aus HubSpot ab (Deal-Board, Filter, Summen).' },
+            { t:'checklist', items:[
+              { title:'Verteilung ermitteln', text:'Wie viele Deals stehen in welcher Stage? Halte die Verteilung über alle Phasen fest.' },
+              { title:'Win Rate berechnen', text:'Berechne aus den abgeschlossenen Deals die Win Rate: Gewonnen ÷ (Gewonnen + Verloren) × 100.' },
+              { title:'Pipeline-Wert ermitteln', text:'Ermittle den Gesamtwert der offenen Deals (Pipeline-Wert).' },
+            ] },
+            { t:'heading', text:'Aufgabe 3: Interpretieren & Engpass finden' },
+            { t:'note', text:'45 Minuten' },
+            { t:'lead', text:'Zahlen allein sagen wenig – jetzt liest du heraus, wo es im Funnel klemmt. Diese Aufgabe löst du schriftlich.' },
+            { t:'checklist', items:[
+              { title:'Engpass identifizieren', text:'In welcher Stage stauen sich die meisten offenen Deals? Das ist ein möglicher Engpass (Bottleneck).' },
+              { title:'Ursachen hypothetisieren', text:'Nenne 2–3 mögliche Gründe, warum an dieser Stelle so viele Deals hängen bleiben.' },
+              { title:'Maßnahmen ableiten', text:'Formuliere 2–3 konkrete Maßnahmen, um genau diesen Engpass zu lösen.' },
+            ] },
+            { t:'heading', text:'Bonusaufgabe 4: Nach Wert priorisieren' },
+            { t:'note', text:'30 Minuten' },
+            { t:'checklist', items:[
+              { title:'Offene Deals nach Betrag sortieren', text:'Sortiere bzw. filtere die offenen Deals nach Betrag: Welche drei offenen Deals haben den höchsten Wert? Überlege schriftlich, warum es sinnvoll sein kann, diese priorisiert zu bearbeiten – und wo die Grenze dieser Sichtweise liegt.' },
+            ] },
+          ] },
+          { eyebrow:'Musterlösung 2.4.11', title:'Funnel-Analyse & Vertriebsdaten interpretieren – Musterlösung', pill:'Musterlösung 2.4.11', blocks:[
+            { t:'note', text:'Die Zahlen beziehen sich auf die Datei Deals_Import_Funnel-Analyse.csv mit 40 Deals.' },
+            { t:'heading', text:'Aufgabe 1: Deals importieren' },
+            { t:'checklist', items:[
+              { title:'Import & Prüfung', text:'Die Datei enthält 40 Deals mit Deal-Name, Deal-Phase, Betrag und Abschlussdatum in sieben Phasen. Nach dem Import stehen alle 40 Deals im Board, verteilt auf die sieben Phasen – Stichprobe bestätigt korrekte Zuordnung.' },
+            ] },
+            { t:'heading', text:'Aufgabe 2: Deals auswerten' },
+            { t:'table', head:['Deal-Phase','Anzahl Deals','Betrag gesamt'], rows:[
+              ['Termin vereinbart','4','110.000 €'],
+              ['Für Kauf qualifiziert','8','201.000 €'],
+              ['Präsentation vereinbart','3','96.000 €'],
+              ['Entscheidungsträger hat zugestimmt','3','100.000 €'],
+              ['Vertrag gesendet','2','52.000 €'],
+              ['Abgeschlossen und gewonnen','8','172.000 €'],
+              ['Abgeschlossen und verloren','12','269.000 €'],
+              ['Gesamt','40','1.000.000 €'],
+            ] },
+            { t:'checklist', items:[
+              { title:'Win Rate', text:'Gewonnen = 8, Verloren = 12. Win Rate = 8 ÷ (8 + 12) × 100 = 40 %.' },
+              { title:'Pipeline-Wert der offenen Deals', text:'20 offene Deals (alle Stages außer gewonnen/verloren) mit einem Gesamtwert von 559.000 €.' },
+            ] },
+            { t:'heading', text:'Aufgabe 3: Interpretieren & Engpass finden' },
+            { t:'checklist', items:[
+              { title:'Engpass', text:'Der Engpass liegt in „Für Kauf qualifiziert": 8 offene Deals im Wert von 201.000 €, mit Abstand die vollste offene Phase – doppelt so viele Deals wie in „Termin vereinbart".' },
+              { title:'Mögliche Ursachen', text:'Leads werden zu ungefiltert übergeben (Bedarf/Budget/Entscheider nicht geklärt); kein festes Zeitfenster für die Qualifizierung; zu hohe Auslastung in der Qualifizierungsphase.' },
+              { title:'Maßnahmen', text:'Verbindlichen Qualifizierungsleitfaden mit festen Kriterien und Zeitlimit einführen; automatisches Follow-up in HubSpot einrichten (Aufgabe nach z. B. 5 Tagen ohne Aktivität); Verantwortlichkeit für die Qualifizierungsphase klären, ggf. an eine zweite Person übergeben.' },
+            ] },
+            { t:'heading', text:'Bonusaufgabe 4: Nach Wert priorisieren' },
+            { t:'table', head:['Rang','Deal','Betrag','Deal-Phase'], rows:[
+              ['1','Bytewerk Software – Projekt','45.000 €','Vertrag gesendet'],
+              ['2','Stadtwerk Media – Projekt','43.000 €','Termin vereinbart'],
+              ['3','Immo Vester – Projekt','42.000 €','Entscheidungsträger hat zugestimmt'],
+              ['3','Druckerei Pfeil – Projekt','42.000 €','Präsentation vereinbart'],
+            ] },
+            { t:'note', text:'Priorisieren ist sinnvoll, weil die begrenzte Zeit auf die Deals mit dem größten Umsatzhebel gelenkt wird – die vier größten offenen Deals machen fast ein Drittel des gesamten Pipeline-Werts aus. Die Grenze: Der reine Betrag blendet Abschlusswahrscheinlichkeit, Phase und strategischen Wert aus. Wer nur die großen Deals bearbeitet, riskiert zuverlässige, kleinere Kunden zu vernachlässigen.' },
+          ] },
+        ]
+      },
+      'hub-2.4.12': {
+        hero: { eyebrow:'HubSpot · TaskSheets & Musterlösungen', title:'2.4.12 · Reporting im Vertrieb gezielt einsetzen', desc:'Als Vertriebsanalyst:in beim fiktiven Unternehmen CRM4U wertest du echte Vertriebsdaten aus einer Tabelle aus und baust anschließend eigene Berichte direkt in HubSpot.', chips:['Task Sheet','Musterlösung','CRM4U-Datensatz'] },
+        sections: [
+          { eyebrow:'Task Sheet 2.4.12', title:'Reporting im Vertrieb gezielt einsetzen', pill:'Task Sheet 2.4.12', blocks:[
+            { t:'lead', text:'CRM4U ist ein B2B-Softwareanbieter, der KMU eine CRM-Lösung verkauft. Das fünfköpfige Vertriebsteam möchte datengetrieben wachsen, weg vom Bauchgefühl, hin zu Entscheidungen auf Basis von Berichten. Datengrundlage: CRM4U_Reporting_2026 (Google Sheets).' },
+            { t:'heading', text:'Aufgabe 1: Team-Performance analysieren' },
+            { t:'note', text:'60 Minuten' },
+            { t:'checklist', items:[
+              { title:'Überblick verschaffen', text:'Öffne den Reiter „Team-Performance". Sichte je Mitarbeiter:in und Monat: Aktivitäten, Meetings, Angebote, Gewonnen, Verloren, Umsatz und Sales-Cycle.' },
+              { title:'Abschlussquote berechnen', text:'Berechne über alle Monate die Abschlussquote = Gewonnen / (Gewonnen + Verloren) × 100 %. Wer schließt am stärksten ab, wer am schwächsten? Halte die Spanne im Team fest.' },
+              { title:'Aktivität mit Ergebnis abgleichen', text:'Setze Aktivitäten und Meetings ins Verhältnis zu Gewonnenem und Umsatz. Wer viel Aktivität zeigt, aber wenig abschließt, hat ein Effizienzthema; wer mit wenig Aktivität viel gewinnt, ein starkes Vorgehen.' },
+              { title:'Entwicklung über die Zeit', text:'Vergleiche H1 (Dez–Feb) mit H2 (Mrz–Mai): Wie verändern sich Abschlussquote, Deal-Größe und Sales-Cycle? Formuliere 2–3 belegte Befunde mit Zahlen und eine konkrete Maßnahme.' },
+            ] },
+            { t:'heading', text:'Aufgabe 2: Kundenzufriedenheit & Retention analysieren' },
+            { t:'note', text:'60 Minuten' },
+            { t:'checklist', items:[
+              { title:'Daten prüfen', text:'Öffne den Reiter „Kunden". Verschaffe dir einen Überblick über Segment, MRR, Onboarding, Ø Logins/Monat, offene Tickets, NPS (0–10) und Status. Wie verteilt sich der NPS?' },
+              { title:'Kennzahlen berechnen', text:'Bestimme Churn-Rate und durchschnittlichen NPS, jeweils zusätzlich getrennt nach Segment (SMB vs. Mid-Market) – wo ist die Abwanderung höher?' },
+              { title:'Zusammenhänge erkennen', text:'Vergleiche gekündigte und aktive Kunden bei Logins, NPS, Onboarding und Tickets. Welche 2–3 Faktoren treiben den Churn am stärksten? Gibt es Risikokunden mit denselben Warnsignalen?' },
+              { title:'Handlungsfelder ableiten', text:'Identifiziere 3–5 Risikokunden und schätze das gefährdete MRR ab. Welche konkreten Maßnahmen schlägst du vor?' },
+              { title:'Kundenzufriedenheit steigern', text:'Leite eine übergreifende Empfehlung ab, wie sich Zufriedenheit und Bindung systematisch erhöhen ließen.' },
+            ] },
+            { t:'heading', text:'Aufgabe 3: Einen eigenen Bericht erstellen' },
+            { t:'note', text:'30 Minuten' },
+            { t:'checklist', items:[
+              { title:'Bericht anlegen', text:'Berichterstellung > Berichte > Bericht erstellen, „Von Grund auf neu" als benutzerdefinierten Bericht, Datenquelle: Deals.' },
+              { title:'Kennzahl und Aufschlüsselung', text:'Baue einen Bericht, der die Anzahl der Deals je Deal-Phase zeigt.' },
+              { title:'Diagrammtyp und Speichern', text:'Wähle eine passende Darstellung (z. B. Balken- oder Säulendiagramm) und speichere den Bericht unter einem sprechenden Namen.' },
+            ] },
+            { t:'heading', text:'Aufgabe 4: Einen Wert-Bericht mit Filter bauen' },
+            { t:'note', text:'30 Minuten' },
+            { t:'checklist', items:[
+              { title:'Wert-Bericht erstellen', text:'Baue einen zweiten Bericht, der den Gesamtwert (Summe „Betrag") je Deal-Phase zeigt.' },
+              { title:'Filter setzen', text:'Filtere so, dass nur offene Deals berücksichtigt werden (ohne „Abgeschlossen und gewonnen" und „Abgeschlossen und verloren").' },
+              { title:'Benennen und speichern', text:'Gib dem Bericht einen klaren Namen, z. B. „Pipeline-Wert nach Phase".' },
+            ] },
+            { t:'heading', text:'Aufgabe 5: Unternehmen mit mehr als 30 Mitarbeitenden anzeigen' },
+            { t:'note', text:'30 Minuten' },
+            { t:'checklist', items:[
+              { title:'Bericht anlegen', text:'Bericht erstellen, „Von Grund auf neu", Datenquelle: Unternehmen.' },
+              { title:'Filter setzen', text:'Filtere nach „Anzahl der Mitarbeiter" mit der Bedingung „ist größer als 30".' },
+              { title:'Darstellung wählen und speichern', text:'Zeige das Ergebnis als Tabelle (z. B. Unternehmensname, Anzahl der Mitarbeiter), Name z. B. „Unternehmen über 30 Mitarbeitende".' },
+            ] },
+            { t:'heading', text:'Bonusaufgabe 6: Bericht „Gewonnen und Verloren"' },
+            { t:'note', text:'30 Minuten' },
+            { t:'checklist', items:[
+              { title:'Bericht bauen', text:'Baue einen Bericht, der gewonnene und verlorene Deals gegenüberstellt (Anzahl je Abschluss-Phase) – die Grundlage, um die Win Rate auf einen Blick abzulesen.' },
+            ] },
+          ] },
+          { eyebrow:'Lösungen 2.4.12', title:'Reporting im Vertrieb gezielt einsetzen – Lösungen', pill:'Lösungen 2.4.12', blocks:[
+            { t:'heading', text:'Aufgabe 1: Team-Performance analysieren' },
+            { t:'table', head:['Mitarbeiter:in','Abschlussquote'], rows:[
+              ['Eva Krause','58,7 % (stärkste)'],
+              ['Lena Schmidt','46,2 %'],
+              ['Jonas Weber','40,7 %'],
+              ['Mara Fischer','34,4 %'],
+              ['Tom Berger','25,6 % (schwächste)'],
+            ] },
+            { t:'checklist', items:[
+              { title:'Spanne & Team-Durchschnitt', text:'Team-Durchschnitt 38,4 % (106 gewonnen, 170 verloren). Spanne im Team (Max-Min): 33,1 Prozentpunkte – sehr große Unterschiede in der Vorgehensweise.' },
+              { title:'Aktivität vs. Ergebnis', text:'Tom Berger: mit Abstand meiste Aktivität (1.103), aber nur 25,6 % Quote und 269 € Umsatz/Aktivität – Effizienzproblem. Eva Krause: 689 Aktivitäten, höchste Quote (58,7 %) und höchster Umsatz/Aktivität (633 €) – qualitätsorientiertes Vorgehen als Best Practice.' },
+              { title:'Entwicklung H1 vs. H2', text:'Mara Fischer fällt am stärksten ab (Quote -21,8 Pp, Sales-Cycle +11 Tage) → Coaching nötig. Jonas Weber entwickelt sich am stärksten (+4,4 Pp). Teamweit verlängert sich der Sales-Cycle in H2 durchgehend – deutet auf Prozess- oder Saisonursache hin.' },
+            ] },
+            { t:'heading', text:'Aufgabe 2: Kundenzufriedenheit & Retention analysieren' },
+            { t:'checklist', items:[
+              { title:'NPS-Verteilung (72 Kunden)', text:'Promotoren (9–10): 33,3 % · Passive (7–8): 38,9 % · Detraktoren (0–6): 27,8 %.' },
+              { title:'Churn nach Segment', text:'Die Churn-Rate ist bei SMB (25,0 %) doppelt so hoch wie bei Mid-Market (12,5 %).' },
+              { title:'Top-Treiber für Churn', text:'Ø Logins/Monat (6,0 vs. 16,1 bei aktiven Kunden), Ø NPS (5,19 vs. 7,86), Onboarding-Quote (50 % vs. 84 %).' },
+              { title:'Risikokunden & gefährdetes MRR', text:'5 Risikokunden mit denselben Warnsignalen wie gekündigte Kunden identifiziert (kein Onboarding, NPS ≤ 6) – gefährdetes MRR: 8.450 €/Monat (101.400 € ARR). Empfohlene Maßnahmen: proaktives Onboarding + Customer-Success-Call bzw. Schulung, je nach Ursache.' },
+              { title:'Übergreifende Empfehlung', text:'Onboarding verbindlich machen, Nutzung aktiv überwachen (Frühwarnsystem bei <6 Logins/Monat), NPS-Feedback aktiv nutzen (Detraktoren → Success-Call), Ticket-Last im Blick behalten.' },
+            ] },
+            { t:'heading', text:'Aufgabe 3–5: Eigene Berichte' },
+            { t:'table', head:['Deal-Phase','Anzahl Deals'], rows:[
+              ['Termin vereinbart','14'],
+              ['Für Kauf qualifiziert','12'],
+              ['Präsentation vereinbart','3'],
+              ['Entscheidungsträger hat zugestimmt','3'],
+              ['Vertrag gesendet','2'],
+              ['Abgeschlossen und gewonnen','9'],
+              ['Abgeschlossen und verloren','12'],
+            ] },
+            { t:'checklist', items:[
+              { title:'Pipeline-Wert nach Phase (Aufgabe 4)', text:'Termin vereinbart 226.200 € · Für Kauf qualifiziert 225.500 € · Präsentation vereinbart 96.000 € · Entscheidungsträger hat zugestimmt 100.000 € · Vertrag gesendet 52.000 €. Insgesamt (offene Pipeline): 699.700 €.' },
+              { title:'Unternehmen über 30 Mitarbeitende (Aufgabe 5)', text:'Bericht mit Filter „Anzahl der Mitarbeiter" > 30, Darstellung als Tabelle mit Unternehmensname und Mitarbeiterzahl.' },
+              { title:'Gewonnen vs. Verloren (Bonus 6)', text:'Bericht stellt gewonnene und verlorene Deals je Abschluss-Phase gegenüber und macht die Win Rate direkt ablesbar.' },
+            ] },
+          ] },
+        ]
+      },
+      'hub-2.4.13': {
+        hero: { eyebrow:'HubSpot · TaskSheets & Musterlösungen', title:'2.4.13 · Sales Dashboards erstellen', desc:'Du klärst schriftlich Zweck und Zielgruppen eines Vertriebs-Dashboards und baust anschließend dein eigenes Dashboard aus deinen HubSpot-Berichten.', chips:['Task Sheet','Lösungen','Dashboards in HubSpot'] },
+        sections: [
+          { eyebrow:'Task Sheet 2.4.13', title:'Dashboards in HubSpot bauen', pill:'Task Sheet 2.4.13', blocks:[
+            { t:'heading', text:'Aufgabe 1: Dashboard-Überlegungen' },
+            { t:'note', text:'45 Minuten' },
+            { t:'lead', text:'Ein Dashboard bündelt mehrere Berichte zu einem Überblick. Bevor du eins baust, klärst du schriftlich, wofür es überhaupt gut ist.' },
+            { t:'checklist', items:[
+              { title:'Wofür ist ein Dashboard gut?', text:'Erkläre, welchen Zweck ein Dashboard erfüllt und welchen Vorteil es gegenüber einzelnen, verstreuten Berichten hat.' },
+              { title:'Wer nutzt ein Dashboard?', text:'Nenne 2–3 Rollen (z. B. Vertriebsleitung, einzelne Vertriebler, Geschäftsführung) und überlege, welche Informationen sie jeweils brauchen.' },
+              { title:'Was sollte drauf sein?', text:'Überlege, welche Kennzahlen bzw. Berichte auf ein gutes Vertriebs-Dashboard gehören – und was eher nicht. Ein Dashboard lebt von Fokus, nicht von Überladung.' },
+            ] },
+            { t:'heading', text:'Aufgabe 2: Dein Dashboard in HubSpot bauen' },
+            { t:'note', text:'60 Minuten' },
+            { t:'checklist', items:[
+              { title:'Dashboard anlegen', text:'Berichte > Dashboards > Dashboard erstellen, neues leeres Dashboard anlegen (z. B. „Vertriebs-Überblick").' },
+              { title:'Berichte hinzufügen', text:'Füge deine bereits erstellten Berichte hinzu – Anzahl der Deals je Phase und Pipeline-Wert je Phase (über „Bericht hinzufügen" > „Aus meinen Berichten").' },
+              { title:'Anordnen & benennen', text:'Ordne die Berichte sinnvoll an (wichtigste Kennzahl oben bzw. links) und gib dem Dashboard einen sprechenden Namen.' },
+            ] },
+            { t:'heading', text:'Aufgabe 3: Das Dashboard weiterdenken' },
+            { t:'note', text:'45 Minuten' },
+            { t:'checklist', items:[
+              { title:'Lücken erkennen', text:'Welche wichtigen Fragen kann dein aktuelles Dashboard noch nicht beantworten?' },
+              { title:'Ergänzende Kennzahlen benennen', text:'Nenne 3–4 weitere Kennzahlen, die ein vollständiges Vertriebs-Dashboard braucht (z. B. Win Rate, Umsatz je Monat, durchschnittliche Deal-Dauer, Aktivitäten je Vertriebler, Umsatzprognose).' },
+              { title:'Zugriff & Aktualität', text:'Wer sollte Zugriff auf dieses Dashboard haben, und wie oft sollte diese Person draufschauen (täglich, wöchentlich, monatlich)? Begründe kurz.' },
+            ] },
+            { t:'heading', text:'Bonusaufgabe 4: Dashboard erweitern' },
+            { t:'note', text:'30 Minuten' },
+            { t:'checklist', items:[
+              { title:'Weiteren Bericht ergänzen', text:'Ergänze dein Dashboard um einen weiteren Bericht, z. B. „Gewonnen vs. Verloren" oder Unternehmen mit mehr als 30 Mitarbeitenden – bleib dabei übersichtlich.' },
+            ] },
+            { t:'heading', text:'Bonusaufgabe 5: Dashboard für eine andere Rolle' },
+            { t:'note', text:'30 Minuten' },
+            { t:'checklist', items:[
+              { title:'Andere Zielgruppe skizzieren', text:'Skizziere schriftlich, wie dein Dashboard für eine andere Zielgruppe aussehen würde, z. B. für die Geschäftsführung statt für einzelne Vertriebler. Welche Berichte kämen dazu, welche fielen weg?' },
+            ] },
+          ] },
+          { eyebrow:'Lösungen 2.4.13', title:'Dashboards in HubSpot bauen – Lösungen', pill:'Lösungen 2.4.13', blocks:[
+            { t:'heading', text:'Aufgabe 1: Dashboard-Überlegungen' },
+            { t:'checklist', items:[
+              { title:'Wofür ist ein Dashboard gut?', text:'Bündelt mehrere Einzelberichte auf einer Fläche, ersetzt Bauchgefühl durch Fakten, macht Probleme früh sichtbar und spart Zeit gegenüber manuellem Zusammentragen – das zentrale Vertriebs-Cockpit.' },
+            ] },
+            { t:'table', head:['Rolle','Welche Infos braucht sie?'], rows:[
+              ['Vertriebsleitung','Pipeline-Wert je Phase, Win Rate, Anzahl offener Deals – steuert das Team, erkennt Engpässe'],
+              ['Einzelne Vertriebsmitarbeitende','Eigene Deals, nächste Schritte, eigene Zielerreichung – Fokus Tagesgeschäft'],
+              ['Geschäftsführung','MRR-/ARR-Entwicklung, Gewonnen vs. Verloren, Umsatzprognose – strategischer Blick'],
+            ] },
+            { t:'checklist', items:[
+              { title:'Was sollte drauf sein?', text:'Gehört drauf: Pipeline-Wert je Phase, Deals je Phase, Win Rate, neue Leads pro Monat, Gewonnen vs. Verloren. Gehört eher nicht drauf: Vanity Metrics ohne Handlungsbezug, zu granulare Einzelkontakt-Listen, Kennzahlen ohne Ziel oder Vergleichswert. Lieber 5–10 aussagekräftige KPIs als ein Datenfriedhof.' },
+            ] },
+            { t:'heading', text:'Aufgabe 3: Das Dashboard weiterdenken' },
+            { t:'checklist', items:[
+              { title:'Lücken', text:'Das Dashboard beantwortet noch nicht: Abschlussquote, real erzielten Umsatz, ob genug neue Leads nachkommen, durchschnittliche Deal-Dauer und die Umsatzentwicklung der nächsten Monate.' },
+            ] },
+            { t:'table', head:['Kennzahl','Warum relevant'], rows:[
+              ['Win Rate','Zeigt die Abschlussstärke; sinkende Werte wären ein Warnsignal'],
+              ['Neue Leads pro Monat','Zeigt, ob der Funnel-Eingang gesichert ist'],
+              ['Umsatzprognose (Forecast)','Zeigt, ob wir auf das Umsatzziel zusteuern'],
+              ['Aktivitäten je Vertriebler','Zeigt frühzeitig, ob genug Anrufe/Meetings stattfinden'],
+            ] },
+            { t:'table', head:['Rolle','Zugriff','Wie oft'], rows:[
+              ['Vertriebsleitung','Vollzugriff','Täglich'],
+              ['Einzelne Vertriebsmitarbeitende','Eigene Deals','Täglich'],
+              ['Geschäftsführung','Vollzugriff','Wöchentlich'],
+            ] },
+            { t:'note', text:'Je operativer die Rolle, desto häufiger der Blick aufs Dashboard.' },
+            { t:'heading', text:'Bonusaufgaben' },
+            { t:'checklist', items:[
+              { title:'Dashboard erweitern', text:'„Gewonnen vs. Verloren" und „Unternehmen mit mehr als 30 Mitarbeitenden" ergänzt, Dashboard bleibt übersichtlich.' },
+              { title:'Dashboard für die Geschäftsführung', text:'Stärker auf finanzielle Zielerreichung ausrichten. Zusätzlich: MRR-/ARR-Entwicklung im Zeitverlauf, Umsatzprognose vs. Ziel, Gewonnen vs. Verloren über mehrere Monate, Kundenzahl inkl. Churn-Rate. Unnötig: Einzelne Deal-Listen und Tagesaktivitäten pro Person – zu detailliert für die strategische Sicht.' },
+            ] },
+          ] },
+        ]
+      },
+      'hub-2.4.14': {
+        hero: { eyebrow:'HubSpot · TaskSheets & Musterlösungen', title:'2.4.14 · Pipeline Management und Umsatzprognose', desc:'Du vertiefst das Verständnis für eine gesunde Pipeline, saubere Deal-Daten und eine belastbare Umsatzprognose in HubSpot.', chips:['Task Sheet','Lösungen','Forecasting-Methoden'] },
+        sections: [
+          { eyebrow:'Task Sheet 2.4.14', title:'Pipeline Management und Umsatzprognose', pill:'Task Sheet 2.4.14', blocks:[
+            { t:'heading', text:'Aufgabe 1: Eine gesunde Pipeline verstehen' },
+            { t:'note', text:'30 Minuten' },
+            { t:'checklist', items:[
+              { title:'Merkmale beschreiben', text:'Nenne drei Merkmale einer gesunden Pipeline und begründe kurz, warum jedes für eine verlässliche Prognose wichtig ist.' },
+              { title:'Warnsignale erkennen', text:'An welchen zwei bis drei Anzeichen erkennst du, dass eine Pipeline nicht gesund ist?' },
+              { title:'Deckung einordnen', text:'Was bedeutet Pipeline-Coverage, und warum reicht eine Pipeline in Höhe des Ziels meist nicht aus, um das Ziel auch zu erreichen?' },
+            ] },
+            { t:'heading', text:'Aufgabe 2: Deal-Daten richtig pflegen' },
+            { t:'note', text:'30 Minuten' },
+            { t:'checklist', items:[
+              { title:'Abschlussdatum pflegen', text:'Wie sollte das Abschlussdatum eines Deals gesetzt und aktuell gehalten werden? Was passiert in der Prognose, wenn es fehlt oder in der Vergangenheit liegt?' },
+              { title:'Betrag und Phase', text:'Warum sollten Betrag und Deal-Phase realistisch und aktuell sein, und welchen Effekt hat ein geschönter Betrag auf die gewichtete Prognose?' },
+              { title:'Karteileichen und nächste Schritte', text:'Was ist eine Karteileiche, wie solltest du damit umgehen, und warum braucht jeder offene Deal einen nächsten Schritt mit Datum?' },
+            ] },
+            { t:'heading', text:'Aufgabe 3: Die Umsatzprognose in HubSpot einordnen' },
+            { t:'note', text:'30 Minuten' },
+            { t:'checklist', items:[
+              { title:'Gewichtete Pipeline erklären', text:'Erkläre in eigenen Worten, wie aus Betrag und Abschlusswahrscheinlichkeit je Deal ein erwarteter Umsatz entsteht.' },
+              { title:'Voraussetzungen am Deal', text:'Welche Angaben braucht ein Deal, damit er korrekt in die Prognose einfließt?' },
+            ] },
+            { t:'heading', text:'Aufgabe 4: Forecasting-Methoden einordnen' },
+            { t:'note', text:'30 Minuten' },
+            { t:'checklist', items:[
+              { title:'Methoden erklären', text:'Erkläre kurz die drei Methoden: gewichtete Pipeline, historischer Trend, Bottom-up gegen Top-down.' },
+              { title:'Passende Situation', text:'Ordne jeder Situation die passende Methode zu: schnell aus aktuellen Deals eine Zahl; wenige offene Deals, aber viele Vorjahresdaten; Jahresziel der Führung auf Machbarkeit prüfen.' },
+              { title:'Grenzen benennen', text:'Nenne für die gewichtete Pipeline und für den historischen Trend je eine wichtige Grenze.' },
+            ] },
+            { t:'heading', text:'Aufgabe 5: Vom Forecast zur Entscheidung' },
+            { t:'note', text:'30 Minuten' },
+            { t:'checklist', items:[
+              { title:'Nutzen erklären', text:'Warum ist ein Forecast für ein Vertriebsteam wichtig? Nenne zwei konkrete Entscheidungen, die auf einer Prognose aufbauen.' },
+              { title:'Forecast-Review', text:'Was passiert in einem Forecast-Review, und warum ist es sinnvoll, die Einschätzung des Teams mit der reinen Rechnung zu vergleichen?' },
+              { title:'Lücke zum Ziel', text:'Der Forecast liegt unter dem Monatsziel. Nenne zwei sinnvolle Maßnahmen und eine, die du eher vermeiden solltest.' },
+            ] },
+            { t:'heading', text:'Bonusaufgabe 6: Deine Prognose ehrlich halten' },
+            { t:'note', text:'30 Minuten' },
+            { t:'checklist', items:[
+              { title:'Prognosen ehrlich halten', text:'Beschreibe, wie du zu niedrig angesetzte und zu optimistische Einschätzungen im Team vermeiden würdest, und nenne zwei konkrete Regeln oder Routinen.' },
+            ] },
+          ] },
+          { eyebrow:'Lösungen 2.4.14', title:'Pipeline Management und Umsatzprognose – Lösungen', pill:'Lösungen 2.4.14', blocks:[
+            { t:'heading', text:'Aufgabe 1: Eine gesunde Pipeline verstehen' },
+            { t:'checklist', items:[
+              { title:'Merkmale', text:'Ausreichende Pipeline-Coverage (Puffer zwischen Ziel und Abschlüssen); aktuelle, realistische Deal-Daten (belastbare Rechenbasis); Bewegung in den Phasen (Deals stecken nicht fest).' },
+              { title:'Warnsignale', text:'Viele Deals liegen deutlich länger als üblich in derselben Phase; Abschlussdaten fehlen oder liegen in der Vergangenheit; Beträge wirken geschätzt ohne klare nächste Schritte.' },
+              { title:'Pipeline-Coverage', text:'Offener Pipeline-Wert im Verhältnis zum Umsatzziel. Nicht jeder Deal wird gewonnen: Bei 25 % Win Rate braucht man ungefähr das Vierfache des Ziels als Coverage – 1:1 ist kein Puffer, sondern Wunschdenken.' },
+            ] },
+            { t:'heading', text:'Aufgabe 2: Deal-Daten richtig pflegen' },
+            { t:'checklist', items:[
+              { title:'Abschlussdatum', text:'Realistisch erwarteter Unterschriftstermin, nicht der Wunschtermin. Fehlt es, fehlt der Deal in der zeitbezogenen Prognose; liegt es in der Vergangenheit, rutscht der Deal aus dem Forecast (klares Hygiene-Signal).' },
+              { title:'Betrag und Phase', text:'Beispiel: 20.000 € bei 60 % = 12.000 € Forecast. Wird der Betrag auf 30.000 € geschönt, stehen 18.000 € im Forecast – die Differenz von 6.000 € ist nicht real.' },
+              { title:'Karteileichen', text:'Ein Deal ohne echte Aktivität oder realistische Chance, oft mit überfälligem Abschlussdatum. Umgang: requalifizieren oder ehrlich als verloren schließen. Jeder offene Deal braucht einen nächsten Schritt mit Datum, das schafft Verbindlichkeit.' },
+            ] },
+            { t:'heading', text:'Aufgabe 3: Die Umsatzprognose in HubSpot einordnen' },
+            { t:'checklist', items:[
+              { title:'Gewichtete Pipeline', text:'HubSpot rechnet pro Deal: Betrag × Abschlusswahrscheinlichkeit der Phase. Beispiel: 10.000 € in einer 60-%-Phase zählt mit 6.000 € zum erwarteten Umsatz.' },
+              { title:'Voraussetzungen', text:'Betrag (Ausgangswert), Deal-Phase (liefert die Wahrscheinlichkeit), Abschlussdatum (ordnet den Deal dem richtigen Zeitraum zu) – ein aktueller nächster Schritt macht die Einschätzung zusätzlich prüfbar.' },
+            ] },
+            { t:'heading', text:'Aufgabe 4: Forecasting-Methoden einordnen' },
+            { t:'table', head:['Methode','Stärke','Grenze'], rows:[
+              ['Gewichtete Pipeline','Schnell, nah an aktuellen Chancen','Hängt komplett von sauberen Deal-Daten ab'],
+              ['Historischer Trend','Hilft bei vielen Vergangenheitsdaten','Erkennt neue Deals oder Saisonalität nicht automatisch'],
+              ['Bottom-up / Top-down','Abgleich zeigt Lücken & unrealistische Ziele','Einzeln bleiben beide Sichtweisen unvollständig'],
+            ] },
+            { t:'checklist', items:[
+              { title:'Passende Methode je Situation', text:'Schnelle Zahl aus aktuellen Deals → gewichtete Pipeline. Wenige offene Deals, viele Vorjahresdaten → historischer Trend. Jahresziel auf Machbarkeit prüfen → Top-down mit Bottom-up-Abgleich.' },
+            ] },
+            { t:'heading', text:'Aufgabe 5: Vom Forecast zur Entscheidung' },
+            { t:'checklist', items:[
+              { title:'Nutzen', text:'Ressourcen steuern (z. B. mehr Zeit in gefährdete Großdeals) und Budget planen (Kampagnen, Einstellungen, externe Unterstützung).' },
+              { title:'Forecast-Review', text:'Fester Termin mit Team und Führung: Deals, Beträge, Phasen, Abschlussdaten und nächste Schritte werden geprüft. Team-Einschätzung gegen Rechnung zu halten verhindert Bauchgefühl, Sandbagging und zu viel Optimismus.' },
+              { title:'Forecast unter Monatsziel', text:'Sinnvoll: gefährdete, realistische Deals gezielt voranbringen; neue Pipeline aufbauen. Eher vermeiden: Beträge erhöhen, Abschlussdaten künstlich vorziehen oder Deals ohne Beleg in eine höhere Phase schieben.' },
+            ] },
+            { t:'heading', text:'Bonusaufgabe 6: Prognose ehrlich halten' },
+            { t:'checklist', items:[
+              { title:'Vermeidung von Verzerrung', text:'Klare Kriterien pro Deal-Phase festlegen, Forecast auf nachweisbare Kundensignale stützen (Budget bestätigt, Entscheider eingebunden, nächster Termin fixiert), Prognose regelmäßig mit dem Ist vergleichen.' },
+              { title:'Zwei Routinen', text:'Wöchentlicher Forecast-Review mit Begründung abweichender Deals; Rückblick pro Monat/Quartal, der Phasen-Wahrscheinlichkeiten an echte Win Rates nachjustiert.' },
+            ] },
+          ] },
+        ]
+      },
+      'hub-2.7.1': {
+        hero: { eyebrow:'HubSpot · TaskSheets & Musterlösungen', title:'2.7.1 · Grundlagen & Bedeutung von KAM', desc:'Als neue KAM-Stelle bei der TechSolutions GmbH analysierst du das Kundenportfolio, rechnest einen Business Case für deine eigene Stelle und grenzt die KAM-Rolle vom klassischen Vertrieb ab.', chips:['Task Sheet','Musterlösung','TechSolutions-Portfolio'] },
+        sections: [
+          { eyebrow:'Task Sheet 2.7.1', title:'Grundlagen und Bedeutung von KAM', pill:'Task Sheet 2.7.1', blocks:[
+            { t:'lead', text:'Die TechSolutions GmbH (85 Mitarbeitende) bietet eine modulare Vertriebssoftware für den Mittelstand an. Du bist die erste dedizierte KAM-Stelle – auf Probe. Geschäftsführer Robert Menge ist skeptisch: „Unsere größten Kunden zahlen doch. Wozu brauchen wir dann noch die extra Betreuung?"' },
+            { t:'table', head:['Kunde','ARR (€)','Wachstum','DB-Marge'], rows:[
+              ['AutoTech AG','1.240.000','+4 %','31 %'],
+              ['BetaLog GmbH','830.000','+18 %','42 %'],
+              ['MediCore Kliniken','610.000','+9 %','24 %'],
+              ['FinanzPlus AG','480.000','+12 %','9 %'],
+              ['Quantum Data GmbH','420.000','+31 %','40 %'],
+              ['NordWind Logistik','350.000','+22 %','38 %'],
+              ['EcoStart AG','290.000','+65 %','45 %'],
+              ['HansaBau AG','260.000','+2 %','15 %'],
+              ['StylePoint GmbH','210.000','0 %','55 %'],
+              ['GlobalRetail SE','150.000','+8 %','22 %'],
+              ['Craftio KG','95.000','+5 %','50 %'],
+              ['LocalPrint GmbH','85.000','-6 %','18 %'],
+            ] },
+            { t:'note', text:'Gesamt-ARR: 5.020.000 €. Alle Zahlen fiktiv, aber realistisch kalibriert.' },
+            { t:'heading', text:'Aufgabe 1: Portfolio-Analyse: Wo steckt der Wert wirklich?' },
+            { t:'note', text:'60 Minuten' },
+            { t:'checklist', items:[
+              { title:'Konzentration berechnen', text:'Sortiere die Kunden nach ARR und berechne, wie viel Prozent des Gesamtumsatzes auf die Top 3 bzw. Top 6 Kunden entfallen. Vergleiche mit der 80/20-Regel.' },
+              { title:'Absoluten Deckungsbeitrag berechnen', text:'Berechne für jeden Kunden ARR × DB-Marge und erstelle ein zweites Ranking. Welche drei Kunden verändern ihre Position am stärksten?' },
+              { title:'Effizienz bewerten', text:'Berechne für die drei auffälligsten Kunden den Deckungsbeitrag pro Betreuungsstunde. Was sagt das über den „teuersten" Kunden im Portfolio?' },
+              { title:'Konzentrationsrisiko benennen', text:'Formuliere in 3–4 Sätzen, welches Risiko in der aktuellen Umsatzverteilung steckt.' },
+            ] },
+            { t:'heading', text:'Aufgabe 2: Business Case: Lohnt sich deine eigene Stelle?' },
+            { t:'note', text:'60 Minuten' },
+            { t:'lead', text:'Deine KAM-Stelle kostet 95.000 € Vollkosten pro Jahr. Dediziertes KAM senkt laut Branchenstudien den Churn bei Schlüsselkunden um 3–5 Prozentpunkte und erhöht die Upsell-Quote um 10–15 % über zwei Jahre. TechSolutions verliert aktuell 1 von 12 Kunden pro Jahr; zuletzt kündigte ein Kunde mit 380.000 € ARR wegen fehlender Ansprache.' },
+            { t:'checklist', items:[
+              { title:'Nutzen quantifizieren', text:'Rechne zwei Szenarien (konservativ/optimistisch): Wie viel ARR sichert bzw. gewinnt eine KAM-Stelle pro Jahr, wenn sie die vier wertvollsten Kunden betreut?' },
+              { title:'Gegenargumente antizipieren', text:'Formuliere zu den Einwänden „Der Vertrieb macht das doch mit", „Die Großen zahlen doch sowieso" und „95.000 € sind zu teuer" jeweils eine sachliche Entgegnung mit Zahlen.' },
+              { title:'Management-Memo schreiben', text:'Verfasse ein Memo an die Geschäftsführung (max. 1 Seite): Kernaussage zuerst, drei Argumente mit Zahlen, dann dein konkreter Vorschlag.' },
+            ] },
+            { t:'heading', text:'Aufgabe 3: KAM vs. Vertrieb – Rollenkonflikt lösen & CRM aufsetzen' },
+            { t:'note', text:'60 Minuten' },
+            { t:'lead', text:'Vertriebskollege Timo hat der BetaLog GmbH für einen schnellen Zusatzabschluss zum Quartalsende 18 % Dauerrabatt angeboten, ohne dich einzubinden. Der Deal rettet sein Quartalsziel, drückt aber dauerhaft die Marge deines profitabelsten Wachstumskunden.' },
+            { t:'checklist', items:[
+              { title:'Interessen analysieren', text:'Stelle Timos Ziele (Abschlussorientierung) und deine KAM-Ziele (Kundenwert, Preisintegrität) gegenüber. Worin besteht der Zielkonflikt?' },
+              { title:'Lösungsvorschlag entwickeln', text:'Entwickle einen Vorschlag, der den Abschluss ermöglicht, ohne den Account langfristig zu beschädigen (z. B. befristete Konditionen, Staffelmodell).' },
+              { title:'Gespräch vorbereiten', text:'Formuliere die ersten fünf Sätze, mit denen du das Gespräch mit Timo eröffnest.' },
+              { title:'HubSpot-Fundament anlegen', text:'Lege die vier umsatzstärksten Kunden als Unternehmen an, ergänze je einen Ansprechpartner und erstelle die Eigenschaft „Account-Tier" (A/B/C).' },
+            ] },
+            { t:'heading', text:'Bonusaufgabe 4: Kick-off-Pitch vor der Geschäftsführung' },
+            { t:'note', text:'90 Minuten' },
+            { t:'checklist', items:[
+              { title:'Storyline & Pitch', text:'Entwickle aus Aufgabe 1 und 2 eine Argumentationslinie in max. 5 Folien: Wo wir stehen, was auf dem Spiel steht, was KAM verändert, deine ersten 90 Tage, was du brauchst. Visualisiere eine Grafik und trage den Pitch in 5 Minuten laut vor.' },
+            ] },
+          ] },
+          { eyebrow:'Musterlösung 2.7.1', title:'Grundlagen und Bedeutung von KAM – Musterlösung', pill:'Musterlösung 2.7.1', blocks:[
+            { t:'heading', text:'Aufgabe 1: Portfolio-Analyse' },
+            { t:'table', head:['Gruppe','ARR','Anteil'], rows:[
+              ['Top 3 (AutoTech, BetaLog, MediCore)','2.680.000 €','53,4 %'],
+              ['Top 6 (+ FinanzPlus, Quantum Data, NordWind)','3.930.000 €','78,3 %'],
+              ['Gesamtportfolio','5.020.000 €','100 %'],
+            ] },
+            { t:'checklist', items:[
+              { title:'80/20-Regel trifft nicht zu', text:'Die zwei größten Kunden stellen 41,2 % statt rund 80 %. Selbst die Top 6 erreichen mit 78,3 % knapp die 80-%-Marke, repräsentieren aber die Hälfte des Portfolios.' },
+              { title:'Deckungsbeitrag zeigt anderes Bild', text:'FinanzPlus fällt um fünf Plätze (hoher Umsatz, nur 9 % Marge). Craftio steigt um drei Plätze (kleiner Umsatz, 50 % Marge, sehr niedriger Aufwand). HansaBau verliert zwei Plätze.' },
+              { title:'Effizienz der auffälligsten Kunden', text:'FinanzPlus: 43.200 € DB bei 492 Jahresstunden = 87,80 €/Stunde – der teuerste Kunde im Portfolio (Rang 4 nach ARR, aber schwache Marge, NPS 4, nur 7 Monate Restlaufzeit). Craftio: 989,58 €/Stunde. HansaBau: 130,00 €/Stunde.' },
+              { title:'Konzentrationsrisiko', text:'Top 3 Kunden tragen 53,4 % des ARR; AutoTech allein 24,7 % mit nur 9 Monaten Restlaufzeit. Kundenbindung ist Schutz des bestehenden Geschäfts, nicht Nice-to-have – parallel dürfen margenstarke Wachstumskunden nicht unterbetreut bleiben.' },
+            ] },
+            { t:'heading', text:'Aufgabe 2: Business Case' },
+            { t:'table', head:['Szenario','Churn-Reduktion','Nutzen p.a.','Netto nach Kosten'], rows:[
+              ['Konservativ','3 Pp','252.800 €','157.800 €'],
+              ['Optimistisch','5 Pp','395.000 €','300.000 €'],
+            ] },
+            { t:'checklist', items:[
+              { title:'Nutzen', text:'Betreute Kunden: AutoTech, BetaLog, MediCore, FinanzPlus (62,9 % des Portfolios). Selbst konservativ übersteigt der Nutzen die Vollkosten der Stelle um das 2,7-Fache; der bereits verlorene Kunde mit 380.000 € ARR hätte die Jahreskosten viermal gedeckt.' },
+              { title:'Kernargument im Memo', text:'Vier Accounts stehen für 3,16 Mio. € ARR (62,9 %). Konservativ 94.800 € ARR/Jahr gesichert durch weniger Churn, zusätzlich 158.000–237.000 € Upsell-ARR. Gesamtnutzen 252.800–395.000 € übersteigt die 95.000 € Vollkosten deutlich – Vorschlag: Freigabe der Stelle, verbindliche Mitarbeit der Fachbereiche, monatliches Steering.' },
+            ] },
+            { t:'heading', text:'Aufgabe 3: KAM und Vertrieb zusammenbringen' },
+            { t:'checklist', items:[
+              { title:'Zielkonflikt', text:'Timo schützt kurzfristig sein Quartalsziel, KAM schützt Preisintegrität und langfristigen Kundenwert – der Konflikt liegt im Zeithorizont, nicht in schlechter Absicht.' },
+              { title:'Tragfähiger Vorschlag', text:'18 % Einführungsrabatt nur für 12 Monate auf das neue Modul, dafür 24 Monate Vertragsverlängerung und ein Staffelmodell (ab Jahr 2 max. 8 % Rabatt). So erhält Timo einen abschließbaren Deal, BetaLog einen kalkulierbaren Einstieg, TechSolutions schützt die Marge langfristig.' },
+              { title:'HubSpot-Fundament', text:'Die vier umsatzstärksten Kunden als Unternehmen angelegt, Account-Tier A für AutoTech, BetaLog und FinanzPlus, B für MediCore, jeweils mit Ansprechpartner und Notiz zur wichtigsten Erkenntnis aus Aufgabe 1.' },
+            ] },
+            { t:'heading', text:'Bonusaufgabe 4: Kick-off-Pitch' },
+            { t:'checklist', items:[
+              { title:'5-Folien-Storyline', text:'Wo wir stehen (62,9 % ARR an vier Accounts) → Was auf dem Spiel steht (380.000-€-Churn bereits passiert) → Was KAM verändert (252.800–395.000 € Nutzen p. a.) → Erste 90 Tage (Stakeholder-Maps, Account-Pläne, QBRs) → Was ich brauche (Mandat, Teamzugang, monatliches Steering).' },
+            ] },
+          ] },
+        ]
+      },
+      'hub-2.7.2': {
+        hero: { eyebrow:'HubSpot · TaskSheets & Musterlösungen', title:'2.7.2 · KAM-Strategie & Auswahl der Schlüsselkunden', desc:'Du entwickelst ein gewichtetes Scoring-Modell für das TechSolutions-Portfolio, testest seine Belastbarkeit und vertrittst deine Auswahl auch gegen Widerstand von oben.', chips:['Task Sheet','Musterlösung','Scoring-Modell'] },
+        sections: [
+          { eyebrow:'Task Sheet 2.7.2', title:'KAM Strategie & Auswahl der Schlüsselkunden', pill:'Task Sheet 2.7.2', blocks:[
+            { t:'lead', text:'Grundlage ist weiterhin das TechSolutions-Portfolio aus 2.7.1. Zusatzinfo: GlobalRetail SE ist eine bekannte Handelsmarke, die Robert Menge in jedem Kundengespräch erwähnt.' },
+            { t:'heading', text:'Aufgabe 1: Gewichtete Scorecard entwickeln und anwenden' },
+            { t:'note', text:'60 Minuten' },
+            { t:'checklist', items:[
+              { title:'Kriterien definieren', text:'Wähle mindestens 5 Kriterien (z. B. ARR, Wachstum, DB-Marge, NPS, Betreuungsaufwand, Restlaufzeit) plus mindestens ein qualitatives Kriterium (Referenzwert, strategischer Fit).' },
+              { title:'Gewichtung festlegen', text:'Verteile 100 % auf deine Kriterien. Begründe, warum dein wichtigstes Kriterium das höchste Gewicht bekommt.' },
+              { title:'Scoring durchführen', text:'Bewerte alle 12 Kunden je Kriterium auf einer Skala von 1–5 und berechne den gewichteten Gesamtscore. Achtung: hoher Betreuungsaufwand und lange Restlaufzeit sollten invertiert (negativ) bewertet werden.' },
+              { title:'Schwelle ziehen', text:'Lege begründet fest, ab welchem Score ein Kunde Key Account wird. Wie viele Key Accounts kann eine KAM-Stelle realistisch betreuen?' },
+            ] },
+            { t:'heading', text:'Aufgabe 2: Sensitivitätsanalyse & Portfolio-Matrix' },
+            { t:'note', text:'60 Minuten' },
+            { t:'checklist', items:[
+              { title:'Stresstest rechnen', text:'Verändere die Gewichtung in zwei Szenarien: „Wachstum zählt doppelt" und „Profitabilität zählt doppelt". Welche Kunden fallen heraus, welche kommen neu hinein?' },
+              { title:'Wackelkandidaten identifizieren', text:'Benenne 1–2 Kunden, deren Einstufung stark von der Gewichtung abhängt, und entscheide dich begründet final.' },
+              { title:'Portfolio-Matrix bauen', text:'Erstelle eine 2×2-Matrix mit den Achsen Kundenattraktivität (Score) und Beziehungsstärke (aus NPS und Restlaufzeit). Beschrifte die vier Quadranten mit einer Betreuungsstrategie.' },
+            ] },
+            { t:'heading', text:'Aufgabe 3: De-Selektion & der Konflikt mit dem Chef' },
+            { t:'note', text:'60 Minuten' },
+            { t:'lead', text:'Robert Menge schreibt: „GlobalRetail muss auf die Key-Account-Liste – das ist unsere bekannteste Marke. Und FinanzPlus bitte auch, die beschweren sich sonst bei mir persönlich." Dein Scoring sagt bei beiden etwas anderes.' },
+            { t:'checklist', items:[
+              { title:'De-Selektion begründen', text:'Wähle die zwei Kunden mit dem schwächsten Gesamtbild und definiere ein konkretes Downgrade-Betreuungsmodell. Was sparst du an Stunden pro Monat?' },
+              { title:'Antwort an die GF schreiben', text:'Verfasse eine E-Mail an Robert Menge (150–250 Wörter): seinen Punkt ernst nehmen, mit Zahlen begründen, eine Alternative für GlobalRetail anbieten.' },
+              { title:'HubSpot pflegen', text:'Setze die Eigenschaft „Account-Tier" für alle 12 Unternehmen und erstelle eine gespeicherte Ansicht „Key Accounts (Tier A)".' },
+            ] },
+            { t:'heading', text:'Bonusaufgabe 4: Auswahlprozess als wiederverwendbares Playbook' },
+            { t:'note', text:'90 Minuten' },
+            { t:'checklist', items:[
+              { title:'Playbook schreiben', text:'Halte auf 1 Seite fest: benötigte Daten und Quellen, Ablauf des Scorings, Entscheider der finalen Liste, Review-Rhythmus, plus zwei Regeln für Grenzfälle.' },
+            ] },
+          ] },
+          { eyebrow:'Musterlösung 2.7.2', title:'KAM Strategie und Auswahl der Schlüsselkunden – Musterlösung', pill:'Musterlösung 2.7.2', blocks:[
+            { t:'heading', text:'Aufgabe 1: Gewichtete Scorecard' },
+            { t:'table', head:['Kriterium','Gewicht'], rows:[
+              ['ARR','25 %'],
+              ['DB-Marge','20 %'],
+              ['Wachstum','20 %'],
+              ['Beziehung / NPS','15 %'],
+              ['Referenz- / Strategiewert','10 %'],
+              ['Aufwand (invertiert)','10 %'],
+            ] },
+            { t:'table', head:['Tier','Regel','Kunden'], rows:[
+              ['Tier A','Score ab 3,60','BetaLog, Quantum Data, NordWind, EcoStart'],
+              ['Tier B','Score 2,75–3,59','AutoTech, MediCore, StylePoint, GlobalRetail, Craftio'],
+              ['Tier C','Score unter 2,75','FinanzPlus, HansaBau, LocalPrint'],
+            ] },
+            { t:'checklist', items:[
+              { title:'Begründung der Gewichtung', text:'ARR erhält mit 25 % das höchste Gewicht, da das Konzentrationsrisiko sichtbar bleiben muss. Marge und Wachstum bekommen zusammen 40 %, damit die Auswahl nicht bloß die Umsatzrangliste kopiert.' },
+              { title:'Schwelle & Kapazität', text:'Vier Tier-A-Accounts sind für eine KAM-Stelle realistisch (zusammen 64 Stunden/Monat) und lassen echte Account-Pläne zu. AutoTech erhält trotz 1,24 Mio. € ARR keinen A-Status: 38 Stunden Aufwand, nur 4 % Wachstum und mittlerer NPS rechtfertigen keine automatische Premiumbetreuung.' },
+            ] },
+            { t:'heading', text:'Aufgabe 2: Sensitivitätsanalyse & Portfolio-Matrix' },
+            { t:'checklist', items:[
+              { title:'Stresstest-Ergebnis', text:'Die vier A-Kunden bleiben in beiden Stresstests (Wachstum bzw. Profitabilität doppelt gewichtet) auf der Liste – die Auswahl ist robust. NordWind (Score 3,65) und StylePoint sind die Wackelkandidaten, bleiben aber final bei A bzw. B.' },
+              { title:'Portfolio-Matrix', text:'Ausbauen (attraktiv & starke Beziehung): BetaLog, Quantum Data, NordWind, EcoStart, StylePoint, Craftio. Verteidigen (attraktiv, Beziehung ausbaufähig): AutoTech, MediCore. Effizient halten (geringe Attraktivität, starke Beziehung): GlobalRetail. Prüfen/abgeben: FinanzPlus, HansaBau, LocalPrint.' },
+            ] },
+            { t:'heading', text:'Aufgabe 3: De-Selektion & Konflikt mit dem Chef' },
+            { t:'checklist', items:[
+              { title:'De-Selektionsmodell', text:'HansaBau (25 → 8 Std./Monat, Standard-SLA) und LocalPrint (9 → 3 Std./Monat, Self-Service) sparen zusammen 23 Std./Monat, die in QBR-Vorbereitung und Upsell-Roadmaps für die A-Kunden fließen.' },
+              { title:'Antwort an Robert Menge', text:'GlobalRetail bleibt Tier B (Score 2,75) – Referenzwert wird über einen halbjährlichen Executive-Check-in und Nutzung als Branchenlogo genutzt, ohne A-Betreuungskosten. FinanzPlus (Score 2,35: 9 % Marge, NPS 4, 55 Tickets/Quartal) erhält statt A-Status einen 90-Tage-Sanierungsplan mit Ticketanalyse, Margenprüfung und Renewal-Gespräch.' },
+            ] },
+            { t:'heading', text:'Bonusaufgabe 4: Playbook' },
+            { t:'checklist', items:[
+              { title:'Prozess in vier Schritten', text:'1) Daten & Score (RevOps/KAM, monatlich/quartalsweise). 2) Stresstest (KAM, Quartalsreview). 3) Entscheidung nach Tier-Schwellen (KAM + Vertriebsleitung). 4) Umsetzung im CRM & Review. Grenzfälle: Neukunden unter 2 Quartalen Historie gelten als Tier B; GF-Wunschkunden erhalten Referenz-/Sponsor-Status statt automatischem A-Status.' },
+            ] },
+          ] },
+        ]
+      },
+      'hub-2.7.3': {
+        hero: { eyebrow:'HubSpot · TaskSheets & Musterlösungen', title:'2.7.3 · Key Account Planning & -Prozesse', desc:'Du erstellst einen vollständigen Account-Plan für AutoTech AG, den wichtigsten Kunden von TechSolutions: 25 % des Umsatzes, Vertragsende in 9 Monaten, ein Wettbewerber bereits im Haus.', chips:['Task Sheet','Musterlösung','Account-Plan AutoTech'] },
+        sections: [
+          { eyebrow:'Task Sheet 2.7.3', title:'Key Account Planning und -Prozesse', pill:'Task Sheet 2.7.3', blocks:[
+            { t:'lead', text:'AutoTech AG: Automobilzulieferer, 2.400 Mitarbeitende, 6 Standorte (DE, PL, CZ). ARR 1.240.000 €, Laufzeit endet in 9 Monaten. InsightHub ist nicht im Einsatz, PL/CZ arbeiten noch mit Excel. Warnsignal: Die Tochter in Posen testet seit 2 Monaten den Wettbewerber SalesOne (41 Tickets/Quartal, NPS 7).' },
+            { t:'table', head:['Stakeholder','Rolle'], rows:[
+              ['Dr. Simone Weber','Leiterin Einkauf – verhandelt das Renewal, hat den SalesOne-Test angestoßen'],
+              ['Markus Riedel','IT-Leiter – cloud-skeptisch, genervt von Support-Tickets'],
+              ['Jens Brauner','Vertriebsleiter DE – stärkster Fürsprecher'],
+              ['Katrin Alvers','CFO – finale Budgetfreigabe über 500 T€'],
+              ['Aylin Kaya','Projektleiterin Digitalisierung – verantwortet IT der Auslandsstandorte'],
+              ['Petra Sommer','Assistenz der Geschäftsleitung – koordiniert alle Termine'],
+            ] },
+            { t:'heading', text:'Aufgabe 1: Account-Ziele setzen und Chancen erkennen' },
+            { t:'note', text:'60 Minuten' },
+            { t:'checklist', items:[
+              { title:'Analyse', text:'Wo stecken aktuell die größten Potenziale oder Risiken? Welche Probleme könnten durch TechSolutions-Lösungen gelöst werden und wie viel Umsatzpotenzial steckt darin?' },
+              { title:'Ziele festlegen', text:'Formuliere ein Muss-Ziel (was passiert in 9 Monaten?) und mindestens zwei weitere SMART-Ziele mit messbarer Kennzahl und Frühindikator nach 8 Wochen.' },
+              { title:'Prioritäten setzen', text:'Entscheide, welches Feld du zuerst angehst, mit Blick auf das Renewal.' },
+            ] },
+            { t:'heading', text:'Aufgabe 2: Die richtigen Beziehungen aufbauen' },
+            { t:'note', text:'60 Minuten' },
+            { t:'checklist', items:[
+              { title:'Einfluss-Interesse-Karte erstellen', text:'Beurteile alle sechs Personen nach Einfluss, Interesse und Haltung (Fürsprecher/neutral/kritisch), mit besonderem Fokus auf Dr. Weber und Markus Riedel.' },
+              { title:'Beziehungsziele setzen', text:'Lege für jede Person fest: Beziehung heute, Zielzustand in 6 Monaten, erste Maßnahme mit Termin.' },
+              { title:'Die Lücke schließen', text:'Katrin Alvers entscheidet über das Budget, kennt euch aber nicht. Überlege einen realistischen Weg zu einem Termin, ohne Dr. Weber zu übergehen.' },
+              { title:'Nicht von einer Person abhängig sein', text:'Jens Brauner ist der stärkste Fürsprecher, könnte aber das Unternehmen verlassen. Notiere zwei Maßnahmen, damit die Beziehung nicht nur an ihm hängt.' },
+            ] },
+            { t:'heading', text:'Aufgabe 3: Maßnahmenplan und Umsetzung in HubSpot' },
+            { t:'note', text:'60 Minuten' },
+            { t:'checklist', items:[
+              { title:'Quartalsplan erstellen', text:'Erstelle einen Maßnahmenplan über 3 Quartale bis zum Renewal: Was – Wer intern – Mit wem beim Kunden – Bis wann – Zielbezug. Mindestens 6 Maßnahmen, u. a. SalesOne-Test in Posen und Ticket-Reduktion.' },
+              { title:'Risiken und Frühwarnzeichen', text:'Nenne die drei größten Risiken fürs Muss-Ziel, je mit Frühwarnzeichen und Gegenmaßnahme (Plan B).' },
+              { title:'In HubSpot eintragen', text:'Lege einen Deal „AutoTech Renewal" und „AutoTech InsightHub" an, die sechs Personen als Kontakte mit Rollen-Notiz und drei Aufgaben mit Fälligkeit – alles mit dem Unternehmen AutoTech AG verknüpft.' },
+              { title:'Plan-Dokument fertigstellen', text:'Fasse alles auf max. 2 Seiten zusammen (Ziele → Personen → Maßnahmen → Risiken) und stelle es im Tutorium in 3 Minuten vor.' },
+            ] },
+            { t:'heading', text:'Bonusaufgabe 4: Der interne Kick-off' },
+            { t:'note', text:'90 Minuten' },
+            { t:'checklist', items:[
+              { title:'Internes Team briefen', text:'Kläre, wen du intern brauchst (Support-Lead, Produktteam, Geschäftsführung), schreibe eine Briefing-Mail (max. 200 Wörter) und bereite dich auf den Einwand „Wir haben keine Zeit für Sonderbehandlung" vor.' },
+            ] },
+          ] },
+          { eyebrow:'Musterlösung 2.7.3', title:'Key Account Planning und -Prozesse – Musterlösung', pill:'Musterlösung 2.7.3', blocks:[
+            { t:'heading', text:'Aufgabe 1: Account-Ziele setzen und Chancen erkennen' },
+            { t:'checklist', items:[
+              { title:'Potenzial- und Risikoanalyse', text:'Gesamtpotenzial rund 284.500 € zusätzliches ARR (+23 %). Größtes Risiko ist nicht die größte Zahl: Der SalesOne-Pilot in Polen (108.000 € Potenzial) ist eine Verdrängung im laufenden Vertrag, kein Cross-Sell – ungestoppt wirkt er sich auf das komplette DE-Renewal aus. InsightHub DE (90.000 € Potenzial) ist der Umsatzhebel mit dem geringsten Risiko.' },
+              { title:'SMART-Ziele', text:'Muss-Ziel: Renewal SalesCore + FieldConnect DE ≥ 1.240.000 € ARR bis 16.06.2027. Weitere Ziele: SalesOne-Pilot in Posen ablösen (mind. 30 Lizenzen bis 15.12.2026), Support-Tickets von 41 auf unter 25/Quartal senken, InsightHub-Pilot mit 2 Vertriebsteams starten (90.000 € ARR Deal).' },
+              { title:'Priorisierung', text:'Zuerst Polen (SalesOne stoppen) – größtes Risiko fürs Renewal, nicht der größte Umsatzposten. Danach Support-Tickets senken (entzieht Weber ein Verhandlungsargument). Dann InsightHub-Wachstum als positives Signal für die Verhandlung.' },
+            ] },
+            { t:'heading', text:'Aufgabe 2: Die richtigen Beziehungen aufbauen' },
+            { t:'table', head:['Person','Einfluss','Haltung','Rolle im Renewal'], rows:[
+              ['Dr. Simone Weber','Hoch','Kritisch','Führt die Verhandlung'],
+              ['Markus Riedel','Hoch','Kritisch','Kann technisches Veto einlegen'],
+              ['Katrin Alvers','Sehr hoch','Neutral/unbekannt','Finale Budgetfreigabe'],
+              ['Jens Brauner','Mittel','Fürsprecher','Interner Multiplikator'],
+              ['Aylin Kaya','Mittel','Neutral, gewinnbar','Schlüssel für PL/CZ-Rollout'],
+              ['Petra Sommer','Niedrig (formal)','Neutral','Türöffnerin zu Alvers'],
+            ] },
+            { t:'checklist', items:[
+              { title:'Lücke zu Katrin Alvers', text:'Zugang über Petra Sommer als „Wirtschaftlichkeits-Update zum Renewal" einfädeln, gerahmt im Rahmen eines ohnehin stattfindenden Business-Reviews. Dr. Weber wird vorab aktiv informiert, um nicht übergangen zu wirken.' },
+              { title:'Nicht von Brauner abhängig sein', text:'Einen zweiten Kontakt in der DE-Vertriebsorganisation aufbauen (Team Lead/Key User) und den Nutzen dokumentieren statt nur mündlich zu wissen (Nutzungszahlen, Statement für QBR-Unterlagen).' },
+            ] },
+            { t:'heading', text:'Aufgabe 3: Maßnahmenplan und Umsetzung in HubSpot' },
+            { t:'table', head:['Deal','Betrag','Phase'], rows:[
+              ['AutoTech Renewal','1.240.000 €','Qualified To Buy'],
+              ['AutoTech InsightHub','90.000 €','Appointment Scheduled'],
+            ] },
+            { t:'checklist', items:[
+              { title:'Quartalsplan (Auszug)', text:'Ticketursachen-Workshop mit Markus Riedel (30.09.2026); Kickoff SalesCore-Pilot Posen mit Aylin Kaya (09.10.2026); Termin mit Katrin Alvers über Petra Sommer (30.10.2026); InsightHub-Demo für Jens Brauner (15.11.2026); formales Renewal-Angebot (30.04.2027); Unterschrift bis 16.06.2027.' },
+              { title:'Größte Risiken', text:'SalesOne setzt sich in Polen durch (Gegenmaßnahme: Eskalation an Kaya, befristetes Einführungsangebot); Riedel bestärkt Weber durch ungelöste Tickets (Gegenmaßnahme: Sonder-SLA); Alvers entscheidet rein kostenbasiert ohne Kontakt (Gegenmaßnahme: Wirtschaftlichkeits-Onepager vorab über Weber).' },
+            ] },
+            { t:'heading', text:'Bonusaufgabe 4: Der interne Kick-off' },
+            { t:'checklist', items:[
+              { title:'Antwort auf den Einwand des Support-Leads', text:'„Ich bitte nicht um Dauer-Sonderbehandlung, sondern um einen einmaligen 60-Minuten-Workshop. AutoTech trägt mit 384.400 € den höchsten Deckungsbeitrag im Portfolio – ein Verlust wegen ungelöster Tickets kostet uns ein Vielfaches der Zeit, die der Workshop jetzt braucht."' },
             ] },
           ] },
         ]

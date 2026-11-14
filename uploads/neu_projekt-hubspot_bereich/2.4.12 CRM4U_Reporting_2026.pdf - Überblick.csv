@@ -1,0 +1,19 @@
+,
+,CRM4U – Vertriebsdaten 2026
+,
+,
+,Dieser Datensatz gehört zum Task Sheet 2.4.12 „Reporting im Vertrieb gezielt einsetzen“.
+,CRM4U ist ein B2B-Softwareanbieter (CRM für KMU). Du arbeitest als Vertriebsanalyst:in.
+,
+,Reiter „Team-Performance“ – monatliche Leistung der 5 Vertriebsmitarbeitenden (Dez 2025–Mai 2026):
+,    Monat · Mitarbeiter:in · Aktivitäten (Calls+Mails) · Meetings/Demos · Angebote ·
+,    Gewonnen · Verloren · Neuer Umsatz (EUR) · Ø Sales-Cycle (Tage).
+,    Hinweis: Abschlussquote (Win-Rate) = Gewonnen ÷ (Gewonnen + Verloren).
+,
+,Reiter „Kunden“ – Kundenbestand mit Zufriedenheit & Retention (72 Kunden):
+,    Kunde-ID · Branche · Segment (SMB/Mid-Market) · MRR (EUR) · Kunde seit (Monaten) ·
+,    Onboarding abgeschlossen · Ø Logins/Monat · Offene Tickets · NPS (0-10) ·
+,    Status (Aktiv/Gekündigt) · Kündigungsmonat.
+,    NPS: 0–6 = Detraktor · 7–8 = Passiv · 9–10 = Promotor.
+,
+,Es sind bewusst KEINE Kennzahlen vorberechnet – die Auswertung ist deine Aufgabe.
