@@ -1,0 +1,4504 @@
+{
+  "lessons": [
+    {
+      "id": "2.7.6",
+      "title": "Kommunikation & Konfliktmanagement im KAM",
+      "hero": {
+        "eyebrow": "Kapitel 2.7.6 · Lektion 6",
+        "title": "Kommunikation & Konfliktmanagement im KAM",
+        "desc": "Du strukturierst schwierige Kundengespräche und erkennst, wann ein Konflikt zusätzliche Unterstützung braucht.",
+        "chips": [
+          "Modul 2 · Account Management & Customer Support",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Vom Tagesgeschäft zur Kundenentwicklung",
+          "pill": "01 · Vom Tagesgeschäft zur Kundenentwicklung",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Ein KAM übernimmt Verantwortung für die langfristige Kundenbeziehung. Dazu gehören aktives Zuhören, klare Erwartungen und ein Account-Plan, der Ziele in konkrete nächste Schritte übersetzt."
+            },
+            {
+              "t": "note",
+              "text": "Reagiere auf eine Beschwerde zuerst mit einer Rückfrage zum tatsächlichen Problem. Wer sofort eine Lösung verkauft, kann am eigentlichen Anliegen vorbeireden."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Mit SCQA auf den Punkt kommen",
+          "pill": "02 · Mit SCQA auf den Punkt kommen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "SCQA ordnet eine Argumentation: Situation beschreibt den Ausgangspunkt, Complication das Hindernis, Question die daraus entstehende Frage und Answer deinen Lösungsvorschlag."
+            },
+            {
+              "t": "flow",
+              "cols": 2,
+              "steps": [
+                {
+                  "num": "01",
+                  "title": "Situation",
+                  "text": "Der Kunde nutzt eine Software, aber nur ein Teil des Teams arbeitet damit."
+                },
+                {
+                  "num": "02",
+                  "title": "Complication",
+                  "text": "Die geringe Nutzung verhindert das vereinbarte Ziel."
+                },
+                {
+                  "num": "03",
+                  "title": "Question",
+                  "text": "Wie bringen wir die übrigen Anwender in den gemeinsamen Ablauf?"
+                },
+                {
+                  "num": "04",
+                  "title": "Answer",
+                  "text": "Ein gezieltes Training mit Nutzungskontrolle und festem Review."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Konflikte früh bearbeiten",
+          "pill": "03 · Konflikte früh bearbeiten",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Bei Glasl steigen Konflikte von Win-Win über Win-Lose bis Lose-Lose. Je stärker die Eskalation, desto eher braucht ihr Moderation oder eine unabhängige Vermittlung. Das Modell hilft bei der Einordnung, ersetzt aber kein Gespräch."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Zuhören und klären",
+                  "text": "Lass den Kunden ausreden, fasse den Sachverhalt zusammen und trenne Interessen von Vorwürfen."
+                },
+                {
+                  "title": "Verbindlich vereinbaren",
+                  "text": "Kläre einen realistischen Lösungsweg mit Verantwortlichem, Termin und Rückmeldung."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Erwartungen und Stakeholder steuern",
+          "pill": "04 · Erwartungen und Stakeholder steuern",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Ein Erwartungsabgleich macht Ziele, Zuständigkeiten, Reaktionszeiten und Grenzen sichtbar. Versprich nur, was du intern tragen kannst."
+            },
+            {
+              "t": "note",
+              "text": "Eine Rollenmatrix zeigt Entscheider, Anwender und Einflussnehmer. Wenn ein Kontakt verstummt, prüfe den Grund und suche einen passenden Gesprächsanlass, statt dieselbe Nachricht erneut zu senden."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Vom Tagesgeschäft zur Kundenentwicklung",
+                  "text": "Ein KAM übernimmt Verantwortung für die langfristige Kundenbeziehung. Dazu gehören aktives Zuhören, klare Erwartungen und ein Account-Plan, der Ziele in konkrete nächste Schritte übersetzt."
+                },
+                {
+                  "title": "Mit SCQA auf den Punkt kommen",
+                  "text": "SCQA ordnet eine Argumentation: Situation beschreibt den Ausgangspunkt, Complication das Hindernis, Question die daraus entstehende Frage und Answer deinen Lösungsvorschlag."
+                },
+                {
+                  "title": "Konflikte früh bearbeiten",
+                  "text": "Bei Glasl steigen Konflikte von Win-Win über Win-Lose bis Lose-Lose. Je stärker die Eskalation, desto eher braucht ihr Moderation oder eine unabhängige Vermittlung. Das Modell hilft bei der Einordnung, ersetzt aber kein Gespräch."
+                },
+                {
+                  "title": "Erwartungen und Stakeholder steuern",
+                  "text": "Ein Erwartungsabgleich macht Ziele, Zuständigkeiten, Reaktionszeiten und Grenzen sichtbar. Versprich nur, was du intern tragen kannst."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Ein schwieriges Gespräch vorbereiten",
+              "goals": [
+                "Formuliere eine SCQA-Argumentation für einen Kunden mit geringer Produktnutzung.",
+                "Notiere seine Erwartungen und deine Grenzen.",
+                "Skizziere eine Vereinbarung mit Zuständigkeit und nächstem Termin."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe, wie du die Inhalte aus „Kommunikation & Konfliktmanagement im KAM“ anwendest. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Wofür steht das Q in SCQA?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Für die zentrale Frage, die aus dem Problem folgt."
+              },
+              {
+                "id": "B",
+                "text": "Für die Umsatzquote."
+              },
+              {
+                "id": "C",
+                "text": "Für die Qualitätsbewertung des Verkäufers."
+              },
+              {
+                "id": "D",
+                "text": "Für das Quartalsbudget."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Situation und Hindernis sollen eine konkrete Entscheidungsfrage vorbereiten."
+          },
+          {
+            "question": "Ein Kunde fordert eine nicht zugesagte Funktion bis morgen. Wie gehst du vor?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Sofort zusagen, um die Beziehung zu halten."
+              },
+              {
+                "id": "B",
+                "text": "Bedarf und Dringlichkeit klären, intern prüfen und eine realistische Alternative vereinbaren."
+              },
+              {
+                "id": "C",
+                "text": "Den Kunden ohne Erklärung ablehnen."
+              },
+              {
+                "id": "D",
+                "text": "Nur auf den Vertrag verweisen und das Gespräch beenden."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Erwartungsmanagement verbindet Verständnis mit belastbaren Zusagen."
+          },
+          {
+            "question": "Wozu dient eine Stakeholder-Matrix?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Sie ersetzt den Account-Plan."
+              },
+              {
+                "id": "B",
+                "text": "Sie zählt ausschließlich Umsätze."
+              },
+              {
+                "id": "C",
+                "text": "Sie zeigt Rollen, Einfluss und Beziehungen im Kundenunternehmen."
+              },
+              {
+                "id": "D",
+                "text": "Sie dokumentiert nur die Kontaktdaten des Einkäufers."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Nicht jeder Ansprechpartner entscheidet selbst."
+          },
+          {
+            "question": "Was spricht bei einem eskalierenden Konflikt für eine Vermittlung?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Die Monatsrechnung ist bereits bezahlt."
+              },
+              {
+                "id": "B",
+                "text": "Der Kunde hat mehr als einen Ansprechpartner."
+              },
+              {
+                "id": "C",
+                "text": "Ein Meeting dauert länger als geplant."
+              },
+              {
+                "id": "D",
+                "text": "Die Beteiligten finden allein keinen tragfähigen Gesprächsrahmen mehr."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Achte auf die Fähigkeit, noch gemeinsam an einer Lösung zu arbeiten."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.7.7",
+      "title": "Einsatz von KPIs im KAM",
+      "hero": {
+        "eyebrow": "Kapitel 2.7.7 · Lektion 7",
+        "title": "Einsatz von KPIs im KAM",
+        "desc": "Du liest Kundenkennzahlen im Zusammenhang und leitest daraus Maßnahmen für das nächste Kundengespräch ab.",
+        "chips": [
+          "Modul 2 · Account Management & Customer Support",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Fünf Perspektiven auf einen Account",
+          "pill": "01 · Fünf Perspektiven auf einen Account",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Umsatz allein zeigt nicht, ob eine Kundenbeziehung gesund ist. Ergänze Wachstum um Zufriedenheit, Nutzung, Beziehung und Risiko."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Perspektive",
+                "Mögliche Kennzahl",
+                "Wozu sie hilft"
+              ],
+              "rows": [
+                [
+                  "Wachstum",
+                  "Wiederkehrender Umsatz, Upsell",
+                  "Entwicklung des Kundenwerts prüfen"
+                ],
+                [
+                  "Zufriedenheit",
+                  "CSAT, NPS und offenes Feedback",
+                  "Erwartungen und Frust erkennen"
+                ],
+                [
+                  "Nutzung",
+                  "Aktive Lizenzen, verwendete Funktionen",
+                  "Tatsächlichen Produktgebrauch verstehen"
+                ],
+                [
+                  "Beziehung",
+                  "Kontakte, Entscheiderzugang",
+                  "Abhängigkeit von Einzelkontakten erkennen"
+                ],
+                [
+                  "Risiko",
+                  "Kündigungen, offene kritische Tickets",
+                  "Abwanderung früh bearbeiten"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Health Score statt Einzelzahl",
+          "pill": "02 · Health Score statt Einzelzahl",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Ein Health Score verdichtet mehrere Signale. Lege vorab fest, welche Größen einfließen, wie sie gewichtet werden und was Grün, Gelb oder Rot auslöst."
+            },
+            {
+              "t": "note",
+              "text": "Ein hoher Umsatz kann eine sinkende Nutzung verdecken. Prüfe den Verlauf und frage nach Ursachen, bevor du ein zusätzliches Paket anbietest. Ein Score ist ein Hinweis, keine Diagnose."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Das QBR als Strategiegespräch",
+          "pill": "03 · Das QBR als Strategiegespräch",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "QBR heißt Quarterly Business Review: ein vierteljährlicher gemeinsamer Rückblick und Ausblick mit dem Kunden. Zeige Ziel, Ergebnis, Abweichung und nächste Entscheidung."
+            },
+            {
+              "t": "note",
+              "text": "Besprecht Fortschritte und Probleme offen. Haltet Maßnahmen mit Verantwortlichem, Termin und Erfolgskriterium fest; ein Bericht ohne Entscheidung verändert den Account nicht."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Aus Zahlen Handlungen machen",
+          "pill": "04 · Aus Zahlen Handlungen machen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Wenn von 100 Lizenzen nur 80 genutzt werden, beträgt die Aktivierungsquote 80 %. Prüfe, wer fehlt und warum. Ein Training kann helfen, eine unpassende Lizenzverteilung erfordert eine andere Maßnahme."
+            },
+            {
+              "t": "note",
+              "text": "Nutze wenige relevante Kennzahlen mit klarer Definition, Zeitraum und Datenquelle. Vergleichbare Werte sind hilfreicher als ein Dashboard voller Zahlen."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Fünf Perspektiven auf einen Account",
+                  "text": "Umsatz allein zeigt nicht, ob eine Kundenbeziehung gesund ist. Ergänze Wachstum um Zufriedenheit, Nutzung, Beziehung und Risiko."
+                },
+                {
+                  "title": "Health Score statt Einzelzahl",
+                  "text": "Ein Health Score verdichtet mehrere Signale. Lege vorab fest, welche Größen einfließen, wie sie gewichtet werden und was Grün, Gelb oder Rot auslöst."
+                },
+                {
+                  "title": "Das QBR als Strategiegespräch",
+                  "text": "QBR heißt Quarterly Business Review: ein vierteljährlicher gemeinsamer Rückblick und Ausblick mit dem Kunden. Zeige Ziel, Ergebnis, Abweichung und nächste Entscheidung."
+                },
+                {
+                  "title": "Aus Zahlen Handlungen machen",
+                  "text": "Wenn von 100 Lizenzen nur 80 genutzt werden, beträgt die Aktivierungsquote 80 %. Prüfe, wer fehlt und warum. Ein Training kann helfen, eine unpassende Lizenzverteilung erfordert eine andere Maßnahme."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Ein QBR vorbereiten",
+              "goals": [
+                "Wähle je ein Signal für Wachstum, Nutzung und Risiko.",
+                "Berechne eine Nutzungsquote und notiere mögliche Ursachen einer Abweichung.",
+                "Formuliere eine konkrete Maßnahme samt Termin."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe, wie du die Inhalte aus „Einsatz von KPIs im KAM“ anwendest. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "80 von 100 Lizenzen sind aktiv. Wie hoch ist die Aktivierungsquote?",
+            "options": [
+              {
+                "id": "A",
+                "text": "20 %."
+              },
+              {
+                "id": "B",
+                "text": "80 %."
+              },
+              {
+                "id": "C",
+                "text": "125 %."
+              },
+              {
+                "id": "D",
+                "text": "8 %."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Teile aktive durch vorhandene Lizenzen."
+          },
+          {
+            "question": "Was ist das Ziel eines QBR?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nur die Rechnung kontrollieren."
+              },
+              {
+                "id": "B",
+                "text": "Möglichst viele Diagramme vorlesen."
+              },
+              {
+                "id": "C",
+                "text": "Gemeinsam Fortschritt bewerten und nächste Maßnahmen für den Kundenerfolg vereinbaren."
+              },
+              {
+                "id": "D",
+                "text": "Jeden Monat den gleichen Rabatt anbieten."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Ein Business Review verbindet Rückblick und Ausblick."
+          },
+          {
+            "question": "Der Umsatz wächst, die Nutzung fällt stark. Was folgt daraus?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Der Account ist sicher gesund."
+              },
+              {
+                "id": "B",
+                "text": "Nur der Umsatz ist relevant."
+              },
+              {
+                "id": "C",
+                "text": "Alle ungenutzten Lizenzen ohne Rückfrage löschen."
+              },
+              {
+                "id": "D",
+                "text": "Die Signale gemeinsam prüfen und die Ursache der sinkenden Nutzung klären."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Wachstum und Risiko können gleichzeitig auftreten."
+          },
+          {
+            "question": "Was macht einen Health Score nachvollziehbar?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Definierte Signale, Gewichte und Schwellen mit vereinbarten Maßnahmen."
+              },
+              {
+                "id": "B",
+                "text": "Eine beliebige Ampelfarbe."
+              },
+              {
+                "id": "C",
+                "text": "Nur der letzte Umsatzwert."
+              },
+              {
+                "id": "D",
+                "text": "Ein Score ohne Zeitraum oder Datenquelle."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Eine Verdichtung ist nur hilfreich, wenn ihre Grundlage bekannt ist."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.7.8",
+      "title": "Einführung in Customer Success",
+      "hero": {
+        "eyebrow": "Kapitel 2.7.8 · Lektion 8",
+        "title": "Einführung in Customer Success",
+        "desc": "Du unterscheidest akute Hilfe von proaktiver Begleitung und planst den Kundenerfolg nach dem Kauf.",
+        "chips": [
+          "Modul 2 · Account Management & Customer Support",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Support und Success arbeiten zusammen",
+          "pill": "01 · Support und Success arbeiten zusammen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Support löst konkrete Anliegen, häufig nachdem ein Problem aufgetreten ist. Customer Success begleitet Kunden proaktiv dabei, ihre Ziele mit dem Produkt zu erreichen."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Reaktiv helfen",
+                  "text": "Ein gesperrtes Konto wird durch den Support wieder zugänglich gemacht."
+                },
+                {
+                  "title": "Proaktiv begleiten",
+                  "text": "Eine CSM erkennt ausbleibende Nutzung und vereinbart ein passendes Onboarding."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Der Kauf ist ein Übergang",
+          "pill": "02 · Der Kauf ist ein Übergang",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Im Inbound-Flywheel folgen auf Attract und Engage die Begeisterung und Weiterempfehlung im Delight-Bereich. Erfahrungen nach dem Kauf beeinflussen auch künftige Geschäfte."
+            },
+            {
+              "t": "note",
+              "text": "Eine gute Übergabe aus Sales enthält Ziele, Zusagen, Ansprechpartner und erste Erfolgskriterien. Wiederhole nicht einfach die Produktdemo, sondern plane das erste nutzbare Ergebnis."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Journey und Empathie-Map",
+          "pill": "03 · Journey und Empathie-Map",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Die Customer Journey zeigt Phasen und Kontaktpunkte aus Kundensicht. Eine Empathie-Map ergänzt, was eine Person denkt, fühlt, hört, sieht, sagt und tut sowie ihre Schwierigkeiten und Wünsche."
+            },
+            {
+              "t": "note",
+              "text": "Beispiel aus dem Lernstoff: Eine Ladenbesitzerin testet eine Inventar-App, traut sich aber nicht, nachzufragen. Eine verständliche Anleitung für das erste korrekt erfasste Regal kann hilfreicher sein als ein weiterer Werbetext."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Erfolg, Bindung und Kundenwert",
+          "pill": "04 · Erfolg, Bindung und Kundenwert",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Vereinbare ein messbares Kundenziel und überprüfe Nutzung, Feedback und Hindernisse. Self-Service hilft bei Routinefragen; ein persönlicher Kontakt bleibt für schwierige Fälle erreichbar."
+            },
+            {
+              "t": "note",
+              "text": "Vereinfachte Umsatzbetrachtung aus dem Kurs: 12 € Monatsumsatz × 24 Monate × 1,3 Upsell-Faktor ergeben 374,40 €. Das ist ein modellierter Umsatzwert über die Beziehung, keine Gewinnrechnung."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Support und Success arbeiten zusammen",
+                  "text": "Support löst konkrete Anliegen, häufig nachdem ein Problem aufgetreten ist. Customer Success begleitet Kunden proaktiv dabei, ihre Ziele mit dem Produkt zu erreichen."
+                },
+                {
+                  "title": "Der Kauf ist ein Übergang",
+                  "text": "Im Inbound-Flywheel folgen auf Attract und Engage die Begeisterung und Weiterempfehlung im Delight-Bereich. Erfahrungen nach dem Kauf beeinflussen auch künftige Geschäfte."
+                },
+                {
+                  "title": "Journey und Empathie-Map",
+                  "text": "Die Customer Journey zeigt Phasen und Kontaktpunkte aus Kundensicht. Eine Empathie-Map ergänzt, was eine Person denkt, fühlt, hört, sieht, sagt und tut sowie ihre Schwierigkeiten und Wünsche."
+                },
+                {
+                  "title": "Erfolg, Bindung und Kundenwert",
+                  "text": "Vereinbare ein messbares Kundenziel und überprüfe Nutzung, Feedback und Hindernisse. Self-Service hilft bei Routinefragen; ein persönlicher Kontakt bleibt für schwierige Fälle erreichbar."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Ein erstes Erfolgserlebnis planen",
+              "goals": [
+                "Beschreibe eine Hürde in der Nutzungsphase.",
+                "Ergänze eine Empathie-Map um beobachtete Bedürfnisse; kennzeichne Annahmen.",
+                "Plane einen proaktiven Kontakt mit einem überprüfbaren Kundenziel."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe, wie du die Inhalte aus „Einführung in Customer Success“ anwendest. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Was kennzeichnet Customer Success?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nur Beschwerden abarbeiten."
+              },
+              {
+                "id": "B",
+                "text": "Nach dem Kauf den Kontakt beenden."
+              },
+              {
+                "id": "C",
+                "text": "Proaktive Begleitung zu den vereinbarten Kundenzielen."
+              },
+              {
+                "id": "D",
+                "text": "Jeden Kontakt ausschließlich für Upselling nutzen."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Denke an den Unterschied zwischen Problemlösung und vorbeugender Begleitung."
+          },
+          {
+            "question": "Was ergänzt eine Empathie-Map zur Journey?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nur die Reihenfolge der Deal-Stufen."
+              },
+              {
+                "id": "B",
+                "text": "Nur die Kosten der Werbekampagne."
+              },
+              {
+                "id": "C",
+                "text": "Eine Liste aller Produktfunktionen."
+              },
+              {
+                "id": "D",
+                "text": "Gedanken, Gefühle, Umfeld und Verhalten einer Person."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Die Perspektive der Person steht im Mittelpunkt."
+          },
+          {
+            "question": "Was sollte Sales an Customer Success übergeben?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Kundenziele, relevante Zusagen, Ansprechpartner und nächste Schritte."
+              },
+              {
+                "id": "B",
+                "text": "Nur den Rechnungsbetrag."
+              },
+              {
+                "id": "C",
+                "text": "Nur den Link zur Website."
+              },
+              {
+                "id": "D",
+                "text": "Keine Informationen, damit alles neu erfragt wird."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Die Begleitung sollte an das Verkaufsgespräch anschließen."
+          },
+          {
+            "question": "Was bedeutet Delight im Flywheel?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Die Auswahl möglichst vieler Werbekanäle."
+              },
+              {
+                "id": "B",
+                "text": "Kunden nach dem Kauf zu guten Ergebnissen führen und positive Erfahrungen ermöglichen."
+              },
+              {
+                "id": "C",
+                "text": "Die Unterschrift unter dem Angebot."
+              },
+              {
+                "id": "D",
+                "text": "Nur die Erstansprache neuer Kontakte."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Die Kundenbeziehung läuft nach dem Abschluss weiter."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.7.9",
+      "title": "Strukturierter Customer Service mit dem Help Desk",
+      "hero": {
+        "eyebrow": "Kapitel 2.7.9 · Lektion 9",
+        "title": "Strukturierter Customer Service mit dem Help Desk",
+        "desc": "Du organisierst Serviceanfragen als nachvollziehbaren Prozess mit klarer Verantwortung.",
+        "chips": [
+          "Modul 2 · Account Management & Customer Support",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Warum ein Help Desk nötig ist",
+          "pill": "01 · Warum ein Help Desk nötig ist",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Wenn Anfragen in persönlichen Postfächern bleiben, entstehen Doppelarbeit, Lücken und widersprüchliche Antworten. Ein Help Desk bündelt Anliegen und macht Status, Zuständigkeit und nächste Schritte sichtbar."
+            },
+            {
+              "t": "note",
+              "text": "Ein Ticket dokumentiert den Fall. Es sollte so verständlich sein, dass eine Kollegin ohne erneute Befragung des Kunden übernehmen kann."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Vier Schritte im Support",
+          "pill": "02 · Vier Schritte im Support",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Die Bearbeitung folgt einem gemeinsamen Ablauf. Auch bei einer Übergabe bleibt nachvollziehbar, wer verantwortlich ist."
+            },
+            {
+              "t": "flow",
+              "cols": 2,
+              "steps": [
+                {
+                  "num": "01",
+                  "title": "Intake",
+                  "text": "Kunde, Anliegen, Zeitpunkt, betroffene Umgebung und bisherige Versuche aufnehmen."
+                },
+                {
+                  "num": "02",
+                  "title": "Triage",
+                  "text": "Auswirkung und Dringlichkeit prüfen, priorisieren und dem passenden Team zuweisen."
+                },
+                {
+                  "num": "03",
+                  "title": "Lösung bearbeiten",
+                  "text": "Ursache eingrenzen, Lösung testen und den Kunden über den Stand informieren."
+                },
+                {
+                  "num": "04",
+                  "title": "Nachverfolgen",
+                  "text": "Erfolg bestätigen, Fall dokumentieren und wiederkehrende Ursachen verbessern."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Prioritäten und SLAs",
+          "pill": "03 · Prioritäten und SLAs",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Eine Priorität beschreibt, was zuerst bearbeitet werden soll. Ein Service Level Agreement legt messbare Serviceziele fest, etwa eine erste Antwort innerhalb einer vereinbarten Frist."
+            },
+            {
+              "t": "note",
+              "text": "Eine erste Antwort ist noch keine Lösung. Definiert beide Zeiten getrennt und macht für Kunden sichtbar, wann sie mit dem nächsten Update rechnen können."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Vom Einzelfall zum besseren Prozess",
+          "pill": "04 · Vom Einzelfall zum besseren Prozess",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Ein nicht reagierender Bestellbutton braucht zunächst Informationen zur betroffenen Seite, zum Gerät und zum Fehlerbild. Erst dann lässt sich der Fall sinnvoll einordnen und an Technik übergeben."
+            },
+            {
+              "t": "note",
+              "text": "Häufen sich ähnliche Tickets, prüft die Ursache gemeinsam und ergänzt die Wissensdatenbank. Reporting soll den Prozess verbessern und nicht bloß abgeschlossene Tickets zählen."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Warum ein Help Desk nötig ist",
+                  "text": "Wenn Anfragen in persönlichen Postfächern bleiben, entstehen Doppelarbeit, Lücken und widersprüchliche Antworten. Ein Help Desk bündelt Anliegen und macht Status, Zuständigkeit und nächste Schritte sichtbar."
+                },
+                {
+                  "title": "Vier Schritte im Support",
+                  "text": "Die Bearbeitung folgt einem gemeinsamen Ablauf. Auch bei einer Übergabe bleibt nachvollziehbar, wer verantwortlich ist."
+                },
+                {
+                  "title": "Prioritäten und SLAs",
+                  "text": "Eine Priorität beschreibt, was zuerst bearbeitet werden soll. Ein Service Level Agreement legt messbare Serviceziele fest, etwa eine erste Antwort innerhalb einer vereinbarten Frist."
+                },
+                {
+                  "title": "Vom Einzelfall zum besseren Prozess",
+                  "text": "Ein nicht reagierender Bestellbutton braucht zunächst Informationen zur betroffenen Seite, zum Gerät und zum Fehlerbild. Erst dann lässt sich der Fall sinnvoll einordnen und an Technik übergeben."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Einen Supportfall durchspielen",
+              "goals": [
+                "Ordne einen fehlgeschlagenen Login den vier Prozessschritten zu.",
+                "Formuliere die Angaben, die du zur Eingrenzung brauchst.",
+                "Lege Priorität und nächsten Kundenkontakt begründet fest."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe, wie du die Inhalte aus „Strukturierter Customer Service mit dem Help Desk“ anwendest. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Was passiert bei der Triage?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Der Vertrag wird automatisch gekündigt."
+              },
+              {
+                "id": "B",
+                "text": "Der Kunde bewertet den Artikel."
+              },
+              {
+                "id": "C",
+                "text": "Jedes Ticket wird sofort geschlossen."
+              },
+              {
+                "id": "D",
+                "text": "Ein Fall wird eingeordnet, priorisiert und passend zugewiesen."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Triage liegt zwischen Aufnahme und Bearbeitung."
+          },
+          {
+            "question": "Was unterscheidet Antwortzeit von Lösungszeit?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Die Antwortzeit endet mit der ersten Reaktion, die Lösungszeit mit der Lösung des Falls."
+              },
+              {
+                "id": "B",
+                "text": "Beide Begriffe bedeuten immer dasselbe."
+              },
+              {
+                "id": "C",
+                "text": "Antwortzeit wird nur bei Telefonaten gemessen."
+              },
+              {
+                "id": "D",
+                "text": "Lösungszeit beginnt erst nach der Rechnung."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Eine Eingangsbestätigung behebt den Fehler noch nicht."
+          },
+          {
+            "question": "Warum dokumentierst du die bisher versuchten Schritte?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Damit der Kunde keine Rückfragen stellen kann."
+              },
+              {
+                "id": "B",
+                "text": "Damit andere übernehmen können und der Kunde nicht alles wiederholen muss."
+              },
+              {
+                "id": "C",
+                "text": "Um das Ticket länger zu machen."
+              },
+              {
+                "id": "D",
+                "text": "Weil dadurch jede Priorisierung entfällt."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Dokumentation soll Zusammenarbeit ermöglichen."
+          },
+          {
+            "question": "Was gehört zum Abschluss eines Supportfalls?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nur den Status ändern."
+              },
+              {
+                "id": "B",
+                "text": "Alle Notizen löschen."
+              },
+              {
+                "id": "C",
+                "text": "Lösung bestätigen, dokumentieren und mögliche Verbesserungen prüfen."
+              },
+              {
+                "id": "D",
+                "text": "Den Kunden über die Lösung im Unklaren lassen."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Der letzte Prozessschritt enthält auch Lernen aus dem Fall."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.7.11",
+      "title": "Omnichannel-Kommunikation im Customer Support",
+      "hero": {
+        "eyebrow": "Kapitel 2.7.11 · Lektion 11",
+        "title": "Omnichannel-Kommunikation im Customer Support",
+        "desc": "Du verbindest Servicekanäle so, dass der Kunde sein Anliegen beim Wechsel nicht neu erklären muss.",
+        "chips": [
+          "Modul 2 · Account Management & Customer Support",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Multichannel ist noch kein Omnichannel",
+          "pill": "01 · Multichannel ist noch kein Omnichannel",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Multichannel bietet mehrere Kontaktwege. Omnichannel verbindet diese Wege über gemeinsamen Kontext, abgestimmte Informationen und klare Zuständigkeit."
+            },
+            {
+              "t": "note",
+              "text": "Ein Chat, ein Telefonanschluss und eine E-Mail-Adresse reichen allein nicht: Wenn die Vorgeschichte beim Wechsel verloren geht, bleibt der Service getrennt."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Ein Verlauf statt wiederholter Erklärungen",
+          "pill": "02 · Ein Verlauf statt wiederholter Erklärungen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Der Support braucht die relevante Historie am Kundenprofil. Dokumentiere Anliegen, bisherigen Lösungsweg und offene Vereinbarungen an einem gemeinsamen Ort."
+            },
+            {
+              "t": "note",
+              "text": "Im Kursbeispiel wechselt Max zwischen E-Mail, Chat und Telefon. Ein gemeinsamer Verlauf ermöglicht, beim letzten Stand fortzufahren, statt jedes Mal mit der Aufnahme zu beginnen."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Inbox, Chat und Übergabe",
+          "pill": "03 · Inbox, Chat und Übergabe",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Eine gemeinsame Inbox unterstützt die Zuweisung und Zusammenarbeit. Bots können Routinefragen vorqualifizieren; komplexe oder unklare Fälle brauchen einen erkennbaren Weg zu einer Person."
+            },
+            {
+              "t": "note",
+              "text": "Die Kursunterlagen zeigen HubSpot Conversations als Beispiel. Konkrete Kanäle und Funktionen hängen von der eingesetzten Konfiguration ab; diese Lektion behandelt den Prozess, nicht einen verbindlichen aktuellen Klickpfad."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Qualität über Kanalgrenzen messen",
+          "pill": "04 · Qualität über Kanalgrenzen messen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Vergleiche erste Antwort, Lösungszeit und Feedback über den gesamten Fall. Ein schneller Chat ist wenig wert, wenn die spätere E-Mail unbearbeitet bleibt."
+            },
+            {
+              "t": "note",
+              "text": "Starte mit den Kanälen, die deine Zielgruppe nutzt und dein Team zuverlässig betreuen kann. Einheitlicher Ton, gepflegte Daten und klare Übergaben sind die Grundlage."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Multichannel ist noch kein Omnichannel",
+                  "text": "Multichannel bietet mehrere Kontaktwege. Omnichannel verbindet diese Wege über gemeinsamen Kontext, abgestimmte Informationen und klare Zuständigkeit."
+                },
+                {
+                  "title": "Ein Verlauf statt wiederholter Erklärungen",
+                  "text": "Der Support braucht die relevante Historie am Kundenprofil. Dokumentiere Anliegen, bisherigen Lösungsweg und offene Vereinbarungen an einem gemeinsamen Ort."
+                },
+                {
+                  "title": "Inbox, Chat und Übergabe",
+                  "text": "Eine gemeinsame Inbox unterstützt die Zuweisung und Zusammenarbeit. Bots können Routinefragen vorqualifizieren; komplexe oder unklare Fälle brauchen einen erkennbaren Weg zu einer Person."
+                },
+                {
+                  "title": "Qualität über Kanalgrenzen messen",
+                  "text": "Vergleiche erste Antwort, Lösungszeit und Feedback über den gesamten Fall. Ein schneller Chat ist wenig wert, wenn die spätere E-Mail unbearbeitet bleibt."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Einen Kanalwechsel gestalten",
+              "goals": [
+                "Skizziere Max’ Wechsel vom Chat zur E-Mail.",
+                "Notiere, welche Informationen mitgegeben werden müssen.",
+                "Definiere Verantwortung und eine Rückmeldung bei Übergabe an einen Menschen."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe, wie du die Inhalte aus „Omnichannel-Kommunikation im Customer Support“ anwendest. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Was macht mehrere Kanäle zu Omnichannel?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Verbundener Kontext und konsistente Bearbeitung über die Kanäle hinweg."
+              },
+              {
+                "id": "B",
+                "text": "Die möglichst große Zahl von Telefonnummern."
+              },
+              {
+                "id": "C",
+                "text": "Ein eigenes Team ohne Austausch je Kanal."
+              },
+              {
+                "id": "D",
+                "text": "Derselbe Begrüßungstext in getrennten Postfächern."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Entscheidend ist, was beim Wechsel erhalten bleibt."
+          },
+          {
+            "question": "Max muss sein Problem bei jedem Kanalwechsel neu erklären. Was fehlt?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Ein weiterer Werbekanal."
+              },
+              {
+                "id": "B",
+                "text": "Eine gemeinsame verfügbare Historie des Falls."
+              },
+              {
+                "id": "C",
+                "text": "Eine neue Preisliste."
+              },
+              {
+                "id": "D",
+                "text": "Ein längerer Begrüßungstext."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Die Ursache ist ein Bruch im Kontext."
+          },
+          {
+            "question": "Wann sollte ein Bot an einen Menschen übergeben?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nie, sonst sinkt die Automatisierungsquote."
+              },
+              {
+                "id": "B",
+                "text": "Erst nach einer Kündigung."
+              },
+              {
+                "id": "C",
+                "text": "Wenn er den Fall nicht sinnvoll lösen kann oder persönliche Klärung nötig ist."
+              },
+              {
+                "id": "D",
+                "text": "Nur wenn der Kunde einen neuen Account erstellt."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Automatisierung soll Hilfe erleichtern."
+          },
+          {
+            "question": "Wie wählst du neue Servicekanäle?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nur nach der Zahl verfügbarer Plattformen."
+              },
+              {
+                "id": "B",
+                "text": "Alle gleichzeitig, unabhängig vom Team."
+              },
+              {
+                "id": "C",
+                "text": "Ausschließlich nach der Lieblings-App der Geschäftsführung."
+              },
+              {
+                "id": "D",
+                "text": "Nach Kundenbedarf und der Fähigkeit des Teams, sie zuverlässig zu betreuen."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Reichweite ohne Bearbeitungskapazität erzeugt zusätzliche Brüche."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.7.12",
+      "title": "Ticketing und Fall-Management mit HubSpot",
+      "hero": {
+        "eyebrow": "Kapitel 2.7.12 · Lektion 12",
+        "title": "Ticketing und Fall-Management mit HubSpot",
+        "desc": "Du strukturierst den Lebenszyklus eines Tickets und hältst Kunden auch während der Bearbeitung informiert.",
+        "chips": [
+          "Modul 2 · Account Management & Customer Support",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Die Ticket-Pipeline",
+          "pill": "01 · Die Ticket-Pipeline",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Eine Pipeline macht den Bearbeitungsstand sichtbar. Ein einfacher Ablauf ist Neu → In Bearbeitung → Wartet auf Kunde → Geschlossen. Die Status müssen zum tatsächlichen Prozess passen."
+            },
+            {
+              "t": "note",
+              "text": "Ein Statuswechsel ersetzt keine Vereinbarung: Halte fest, wer als Nächstes was bis wann erledigt. „Wartet auf Kunde“ braucht eine konkrete Rückfrage und einen Zeitpunkt für das Nachfassen."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Tickets vollständig anlegen",
+          "pill": "02 · Tickets vollständig anlegen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Erfasse einen aussagekräftigen Titel, Beschreibung, Kategorie, Priorität, Owner und den zugehörigen Kunden. Ergänze relevante Anhänge und bisherige Kontaktversuche."
+            },
+            {
+              "t": "note",
+              "text": "Die Kursunterlagen behandeln manuelle und kanalgestützte Erstellung in HubSpot. Der genaue Funktionsumfang richtet sich nach dem Portal; die Qualitätskriterien für ein Ticket bleiben gleich."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Priorisieren und automatisieren",
+          "pill": "03 · Priorisieren und automatisieren",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Ordne Fälle nach Auswirkung und Dringlichkeit. Eine einfache Anfrage kann warten, ein produktionskritischer Ausfall braucht einen anderen Weg."
+            },
+            {
+              "t": "note",
+              "text": "Automatisiere wiederkehrende Zuweisungen, Bestätigungen und Erinnerungen, wenn die Regeln klar sind. Definiere auch, was bei fehlenden Angaben und drohender Fristüberschreitung geschieht."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "SLA, Transparenz und Reporting",
+          "pill": "04 · SLA, Transparenz und Reporting",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "SLA-Zeiten schaffen Verbindlichkeit. Berücksichtige vereinbarte Arbeitszeiten und Eskalationen; ein Kundenportal kann den Bearbeitungsstand für Kunden sichtbar machen."
+            },
+            {
+              "t": "note",
+              "text": "Werte offene Fälle, Antwort- und Lösungszeiten sowie wiederkehrende Kategorien aus. Schließe erst, wenn die Lösung dokumentiert ist und der Abschluss zum Fall passt."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Die Ticket-Pipeline",
+                  "text": "Eine Pipeline macht den Bearbeitungsstand sichtbar. Ein einfacher Ablauf ist Neu → In Bearbeitung → Wartet auf Kunde → Geschlossen. Die Status müssen zum tatsächlichen Prozess passen."
+                },
+                {
+                  "title": "Tickets vollständig anlegen",
+                  "text": "Erfasse einen aussagekräftigen Titel, Beschreibung, Kategorie, Priorität, Owner und den zugehörigen Kunden. Ergänze relevante Anhänge und bisherige Kontaktversuche."
+                },
+                {
+                  "title": "Priorisieren und automatisieren",
+                  "text": "Ordne Fälle nach Auswirkung und Dringlichkeit. Eine einfache Anfrage kann warten, ein produktionskritischer Ausfall braucht einen anderen Weg."
+                },
+                {
+                  "title": "SLA, Transparenz und Reporting",
+                  "text": "SLA-Zeiten schaffen Verbindlichkeit. Berücksichtige vereinbarte Arbeitszeiten und Eskalationen; ein Kundenportal kann den Bearbeitungsstand für Kunden sichtbar machen."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Eine Ticket-Pipeline entwerfen",
+              "goals": [
+                "Beschreibe für jeden Status ein Eintritts- und Austrittskriterium.",
+                "Lege eine Regel für Priorität und Zuständigkeit fest.",
+                "Plane eine Erinnerung für Fälle, die auf den Kunden warten."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe, wie du die Inhalte aus „Ticketing und Fall-Management mit HubSpot“ anwendest. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Ein Ticket steht auf „Wartet auf Kunde“. Was sollte dokumentiert sein?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nur der Name der Pipeline."
+              },
+              {
+                "id": "B",
+                "text": "Welche Information fehlt und wann erneut nachgefasst wird."
+              },
+              {
+                "id": "C",
+                "text": "Dass das Ticket endgültig erledigt ist."
+              },
+              {
+                "id": "D",
+                "text": "Ein neuer Rechnungsbetrag."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Ein Wartestatus braucht einen nachvollziehbaren nächsten Schritt."
+          },
+          {
+            "question": "Welche Angaben machen eine Übergabe tragfähig?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nur ein beliebiger Titel."
+              },
+              {
+                "id": "B",
+                "text": "Nur die Anzahl bisheriger Tickets."
+              },
+              {
+                "id": "C",
+                "text": "Anliegen, bisherige Schritte, Priorität, Owner und nächster Termin."
+              },
+              {
+                "id": "D",
+                "text": "Nur ein Screenshot ohne Beschreibung."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Andere sollen den Fall übernehmen können."
+          },
+          {
+            "question": "Was ist ein sinnvoller Automatisierungsfall?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Unklare Fälle ohne Prüfung schließen."
+              },
+              {
+                "id": "B",
+                "text": "Jede Anfrage unabhängig von der Auswirkung als kritisch markieren."
+              },
+              {
+                "id": "C",
+                "text": "Kundenantworten löschen, um das Postfach zu leeren."
+              },
+              {
+                "id": "D",
+                "text": "Tickets nach definierten Kategorien zuweisen und Fristwarnungen auslösen."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Automatisierung setzt bekannte Regeln um."
+          },
+          {
+            "question": "Was zeigt ein Kundenportal im Support-Kontext?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Den nachvollziehbaren Stand eigener Supportfälle."
+              },
+              {
+                "id": "B",
+                "text": "Automatisch alle Tickets anderer Kunden."
+              },
+              {
+                "id": "C",
+                "text": "Nur den öffentlichen Produktkatalog."
+              },
+              {
+                "id": "D",
+                "text": "Ausschließlich den internen Personalplan."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Transparenz bezieht sich auf die Fälle des jeweiligen Kunden."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.7.13",
+      "title": "Wissensdatenbank & Self-Service",
+      "hero": {
+        "eyebrow": "Kapitel 2.7.13 · Lektion 13",
+        "title": "Wissensdatenbank & Self-Service",
+        "desc": "Du machst Antworten auffindbar und pflegst Hilfeinhalte als Teil des Serviceprozesses.",
+        "chips": [
+          "Modul 2 · Account Management & Customer Support",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Mit häufigen Fragen anfangen",
+          "pill": "01 · Mit häufigen Fragen anfangen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Eine Wissensdatenbank bündelt Antworten, Anleitungen und Hilfen. Wähle Themen aus tatsächlichen wiederkehrenden Tickets und Suchfragen, statt die interne Organisationsstruktur abzubilden."
+            },
+            {
+              "t": "note",
+              "text": "Self-Service soll Kunden ermöglichen, Routineanliegen selbst zu lösen. Wenn das nicht gelingt, bleibt ein verständlicher Kontaktweg zum Support verfügbar."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Einen brauchbaren Artikel schreiben",
+          "pill": "02 · Einen brauchbaren Artikel schreiben",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Ein guter Artikel nennt zuerst das Problem und das erwartete Ergebnis. Er erklärt Voraussetzungen und führt in überschaubaren Schritten zur Lösung."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Klarer Titel",
+                  "text": "Nutze die Frage oder Begriffe, mit denen Kunden suchen."
+                },
+                {
+                  "title": "Prüfbare Schritte",
+                  "text": "Eine Handlung je Schritt, passende Abbildungen und ein erkennbarer Abschluss."
+                },
+                {
+                  "title": "Hilfe bei Fehlern",
+                  "text": "Erkläre, was bei einem abweichenden Ergebnis zu tun ist."
+                },
+                {
+                  "title": "Zugängliche Sprache",
+                  "text": "Vermeide unnötige Fachbegriffe und beschreibe Bilder verständlich."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Auffindbarkeit und Pflege",
+          "pill": "03 · Auffindbarkeit und Pflege",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Kategorien, Suche und verwandte Artikel helfen beim Finden. Halte öffentliche Kundenhilfe und interne Arbeitsanweisungen passend getrennt."
+            },
+            {
+              "t": "note",
+              "text": "Jeder Artikel braucht eine Zuständigkeit und regelmäßige Prüfung. Bei Produktänderungen aktualisiert ihr die betroffenen Schritte; ein alter Screenshot kann eine ansonsten richtige Anleitung unbrauchbar machen."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Wirksamkeit prüfen",
+          "pill": "04 · Wirksamkeit prüfen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Beobachte Suchbegriffe ohne Treffer, hilfreiche oder nicht hilfreiche Bewertungen und wiederkehrende Tickets zum Thema. Viele Aufrufe allein beweisen keine gelösten Probleme."
+            },
+            {
+              "t": "note",
+              "text": "Bots können auf passende Artikel verweisen. Prüfe, ob der Inhalt das Anliegen beantwortet und ob bei Bedarf eine Person übernehmen kann."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Mit häufigen Fragen anfangen",
+                  "text": "Eine Wissensdatenbank bündelt Antworten, Anleitungen und Hilfen. Wähle Themen aus tatsächlichen wiederkehrenden Tickets und Suchfragen, statt die interne Organisationsstruktur abzubilden."
+                },
+                {
+                  "title": "Einen brauchbaren Artikel schreiben",
+                  "text": "Ein guter Artikel nennt zuerst das Problem und das erwartete Ergebnis. Er erklärt Voraussetzungen und führt in überschaubaren Schritten zur Lösung."
+                },
+                {
+                  "title": "Auffindbarkeit und Pflege",
+                  "text": "Kategorien, Suche und verwandte Artikel helfen beim Finden. Halte öffentliche Kundenhilfe und interne Arbeitsanweisungen passend getrennt."
+                },
+                {
+                  "title": "Wirksamkeit prüfen",
+                  "text": "Beobachte Suchbegriffe ohne Treffer, hilfreiche oder nicht hilfreiche Bewertungen und wiederkehrende Tickets zum Thema. Viele Aufrufe allein beweisen keine gelösten Probleme."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Eine Hilfeanleitung planen",
+              "goals": [
+                "Wähle eine wiederkehrende Frage aus dem Servicealltag.",
+                "Skizziere Titel, Voraussetzungen, Lösungsschritte und Ergebnisprüfung.",
+                "Lege Pflegeverantwortung und einen Weg zum persönlichen Support fest."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe, wie du die Inhalte aus „Wissensdatenbank & Self-Service“ anwendest. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Welches Thema eignet sich für den ersten Wissensartikel?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Ein nur intern gebräuchliches Organigramm."
+              },
+              {
+                "id": "B",
+                "text": "Ein Produktversprechen ohne Anleitung."
+              },
+              {
+                "id": "C",
+                "text": "Eine häufige, wiederkehrende Kundenfrage."
+              },
+              {
+                "id": "D",
+                "text": "Eine zufällige Meldung ohne Bezug zu Tickets."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Beginne mit einem belegten Hilfebedarf."
+          },
+          {
+            "question": "Was macht einen Artikel praktisch nutzbar?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Möglichst viele Fachbegriffe."
+              },
+              {
+                "id": "B",
+                "text": "Ein allgemeiner Werbetext."
+              },
+              {
+                "id": "C",
+                "text": "Ein Titel ohne Bezug zum Problem."
+              },
+              {
+                "id": "D",
+                "text": "Klare Voraussetzungen, einzelne Schritte und eine überprüfbare Lösung."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Kunden müssen erkennen können, ob der Weg funktioniert hat."
+          },
+          {
+            "question": "Wie bleibt eine Wissensdatenbank verlässlich?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Durch feste Zuständigkeiten und Aktualisierung bei Änderungen."
+              },
+              {
+                "id": "B",
+                "text": "Durch einmaliges Veröffentlichen ohne Prüfung."
+              },
+              {
+                "id": "C",
+                "text": "Durch automatisches Entfernen aller Rückmeldungen."
+              },
+              {
+                "id": "D",
+                "text": "Durch möglichst viele doppelte Artikel."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Hilfeinhalte haben einen Lebenszyklus."
+          },
+          {
+            "question": "Viele Aufrufe, negative Bewertungen und weiter viele Tickets: Was ist sinnvoll?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Den Erfolg allein an Aufrufen festmachen."
+              },
+              {
+                "id": "B",
+                "text": "Suchabsicht und Verständlichkeit des Artikels prüfen und überarbeiten."
+              },
+              {
+                "id": "C",
+                "text": "Den Supportkontakt verstecken."
+              },
+              {
+                "id": "D",
+                "text": "Die Bewertungen ignorieren."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Nutzung und tatsächlich gelöste Anliegen sind unterschiedliche Größen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.7.14",
+      "title": "Kundenfeedback, Erfolgsmessung & Kundenbindung",
+      "hero": {
+        "eyebrow": "Kapitel 2.7.14 · Lektion 14",
+        "title": "Kundenfeedback, Erfolgsmessung & Kundenbindung",
+        "desc": "Du wählst passende Feedbackgrößen und verbindest Rückmeldungen mit konkreten Verbesserungen.",
+        "chips": [
+          "Modul 2 · Account Management & Customer Support",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Den Feedback-Kreis schließen",
+          "pill": "01 · Den Feedback-Kreis schließen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Sammeln → auswerten → handeln → zurückmelden: Erst wenn Kunden erfahren, was aus ihrer Rückmeldung geworden ist, entsteht ein geschlossener Feedback-Kreis."
+            },
+            {
+              "t": "note",
+              "text": "Verknüpfe Beschwerden mit einer Ursache, einer verantwortlichen Person und einer Entscheidung. Reine Umfrageauswertung verändert das Kundenerlebnis noch nicht."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "CSAT, NPS und CES unterscheiden",
+          "pill": "02 · CSAT, NPS und CES unterscheiden",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Die Messgrößen beantworten verschiedene Fragen. Wähle sie passend zum Anlass und dokumentiere Skala, Zeitraum und Zahl der Antworten."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Messgröße",
+                "Frage dahinter",
+                "Einordnung"
+              ],
+              "rows": [
+                [
+                  "CSAT",
+                  "Wie zufrieden warst du mit dieser Interaktion?",
+                  "Situative Zufriedenheit"
+                ],
+                [
+                  "NPS",
+                  "Wie wahrscheinlich ist eine Weiterempfehlung?",
+                  "Weiterempfehlungsbereitschaft, Skala 0–10"
+                ],
+                [
+                  "CES",
+                  "Wie leicht ließ sich dein Anliegen lösen?",
+                  "Wahrgenommener Aufwand; Skalenrichtung vorher festlegen"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "NPS richtig berechnen",
+          "pill": "03 · NPS richtig berechnen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Promotoren geben 9–10, Detraktoren 0–6 und Passive 7–8 Punkte. NPS = Anteil Promotoren minus Anteil Detraktoren in Prozentpunkten. Der Wertebereich reicht von −100 bis +100."
+            },
+            {
+              "t": "note",
+              "text": "Bei 60 Promotoren, 25 Passiven und 15 Detraktoren unter 100 Antworten beträgt der NPS +45. Passive zählen zur Gesamtzahl der gültigen Antworten, werden aber in keiner der beiden Gruppen addiert."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Umsatzbindung lesen",
+          "pill": "04 · Umsatzbindung lesen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "GRR = (Startumsatz − Kündigungen − Reduktionen) / Startumsatz. NRR ergänzt im Zähler den zusätzlichen Umsatz aus bestehenden Kunden. Verwende denselben Zeitraum und dieselbe Ausgangskundengruppe."
+            },
+            {
+              "t": "note",
+              "text": "Beispielrechnung: 100.000 € Startumsatz, 5.000 € Verlust und 10.000 € Expansion ergeben 95 % GRR und 105 % NRR. Expansion kann Verluste überdecken; lies deshalb beide Werte zusammen."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Den Feedback-Kreis schließen",
+                  "text": "Sammeln → auswerten → handeln → zurückmelden: Erst wenn Kunden erfahren, was aus ihrer Rückmeldung geworden ist, entsteht ein geschlossener Feedback-Kreis."
+                },
+                {
+                  "title": "CSAT, NPS und CES unterscheiden",
+                  "text": "Die Messgrößen beantworten verschiedene Fragen. Wähle sie passend zum Anlass und dokumentiere Skala, Zeitraum und Zahl der Antworten."
+                },
+                {
+                  "title": "NPS richtig berechnen",
+                  "text": "Promotoren geben 9–10, Detraktoren 0–6 und Passive 7–8 Punkte. NPS = Anteil Promotoren minus Anteil Detraktoren in Prozentpunkten. Der Wertebereich reicht von −100 bis +100."
+                },
+                {
+                  "title": "Umsatzbindung lesen",
+                  "text": "GRR = (Startumsatz − Kündigungen − Reduktionen) / Startumsatz. NRR ergänzt im Zähler den zusätzlichen Umsatz aus bestehenden Kunden. Verwende denselben Zeitraum und dieselbe Ausgangskundengruppe."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Feedback in eine Maßnahme übersetzen",
+              "goals": [
+                "Wähle CSAT, NPS oder CES für einen konkreten Anlass und begründe die Wahl.",
+                "Berechne einen NPS mit allen gültigen Antworten im Nenner.",
+                "Beschreibe eine Verbesserung und wie du den Kunden darüber informierst."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe, wie du die Inhalte aus „Kundenfeedback, Erfolgsmessung & Kundenbindung“ anwendest. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Welche Messgröße passt zum wahrgenommenen Aufwand einer Problemlösung?",
+            "options": [
+              {
+                "id": "A",
+                "text": "NPS."
+              },
+              {
+                "id": "B",
+                "text": "Monatsumsatz."
+              },
+              {
+                "id": "C",
+                "text": "Anzahl der Verkaufsangebote."
+              },
+              {
+                "id": "D",
+                "text": "CES."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Die Frage lautet: Wie einfach war es?"
+          },
+          {
+            "question": "60 % Promotoren und 15 % Detraktoren ergeben welchen NPS?",
+            "options": [
+              {
+                "id": "A",
+                "text": "+45."
+              },
+              {
+                "id": "B",
+                "text": "+75."
+              },
+              {
+                "id": "C",
+                "text": "45 %."
+              },
+              {
+                "id": "D",
+                "text": "+60."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Ziehe die beiden Anteile ab; der Score wird als Zahl angegeben."
+          },
+          {
+            "question": "Wie werden Passive beim NPS behandelt?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Sie werden aus dem Nenner gestrichen."
+              },
+              {
+                "id": "B",
+                "text": "Sie zählen zur Gesamtzahl der Antworten, aber nicht als Promotoren oder Detraktoren."
+              },
+              {
+                "id": "C",
+                "text": "Sie werden zu den Promotoren addiert."
+              },
+              {
+                "id": "D",
+                "text": "Sie zählen automatisch als Detraktoren."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Die Gruppenanteile beziehen sich auf alle gültigen Antworten."
+          },
+          {
+            "question": "Was unterscheidet NRR von GRR?",
+            "options": [
+              {
+                "id": "A",
+                "text": "GRR enthält alle Neukundenumsätze."
+              },
+              {
+                "id": "B",
+                "text": "NRR ist immer kleiner als GRR."
+              },
+              {
+                "id": "C",
+                "text": "NRR berücksichtigt zusätzlich die Expansion innerhalb der Ausgangskundengruppe."
+              },
+              {
+                "id": "D",
+                "text": "Beide messen ausschließlich die Zahl der Umfrageantworten."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Prüfe, was mit zusätzlichen Erlösen bestehender Kunden passiert."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.7.15",
+      "title": "HubSpot Service Hub Prüfungsvorbereitung",
+      "hero": {
+        "eyebrow": "Kapitel 2.7.15 · Lektion 15",
+        "title": "HubSpot Service Hub Prüfungsvorbereitung",
+        "desc": "Du verbindest Help Desk, Self-Service und Feedback zu einem durchgängigen Servicefall.",
+        "chips": [
+          "Modul 2 · Account Management & Customer Support",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Den gesamten Fall verstehen",
+          "pill": "01 · Den gesamten Fall verstehen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Für die Wiederholung verknüpfst du die Bausteine: Anfrage aufnehmen, priorisieren, zuweisen, bearbeiten und nachvollziehbar abschließen. Danach fließt das Gelernte in Prozesse und Inhalte zurück."
+            },
+            {
+              "t": "note",
+              "text": "Diese Lektion bereitet mit Kurswissen auf die Themen vor. Sie verspricht keine bestimmte Zahl aktueller Prüfungsfragen und ersetzt keine offiziellen Prüfungsbedingungen."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Den richtigen Baustein wählen",
+          "pill": "02 · Den richtigen Baustein wählen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Inbox bündelt Kommunikation; Ticketing verfolgt einen Fall; Wissensdatenbank hilft beim eigenständigen Lösen; Kundenportal macht eigene Fälle nachvollziehbar."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "SLA",
+                  "text": "Messbares Serviceziel für Reaktion oder Lösung."
+                },
+                {
+                  "title": "Triage",
+                  "text": "Einstufung und Routing vor der Bearbeitung."
+                },
+                {
+                  "title": "Troubleshooting",
+                  "text": "Fehlerbild eingrenzen, Ursache prüfen und Lösung testen."
+                },
+                {
+                  "title": "Automatisierung",
+                  "text": "Bekannte Regeln für Zuweisung, Erinnerung und Eskalation umsetzen."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Feedback und Wissen verbinden",
+          "pill": "03 · Feedback und Wissen verbinden",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "CSAT bewertet eine Interaktion, CES den Aufwand, NPS die Weiterempfehlungsbereitschaft. Offene Antworten erklären häufig besser als ein Score allein, was du verbessern solltest."
+            },
+            {
+              "t": "note",
+              "text": "Eine Closed-Loop-Schleife endet mit einer Rückmeldung zum ergriffenen Schritt. Wiederkehrende Fragen werden zu gepflegten Wissensartikeln mit einem Weg zu persönlicher Hilfe."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Mit Fällen statt Stichworten üben",
+          "pill": "04 · Mit Fällen statt Stichworten üben",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Beispiel: Eine Kundin findet einen Artikel, kommt aber nicht weiter. Der Support übernimmt den Kontext, legt ein priorisiertes Ticket an, löst das Problem und verbessert den Artikel."
+            },
+            {
+              "t": "note",
+              "text": "Prüfe bei jeder Auswahlfrage: Welches Ziel hat der Kunde? Welcher Prozessschritt ist gemeint? Welche Antwort verbessert den Fall tatsächlich?"
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Den gesamten Fall verstehen",
+                  "text": "Für die Wiederholung verknüpfst du die Bausteine: Anfrage aufnehmen, priorisieren, zuweisen, bearbeiten und nachvollziehbar abschließen. Danach fließt das Gelernte in Prozesse und Inhalte zurück."
+                },
+                {
+                  "title": "Den richtigen Baustein wählen",
+                  "text": "Inbox bündelt Kommunikation; Ticketing verfolgt einen Fall; Wissensdatenbank hilft beim eigenständigen Lösen; Kundenportal macht eigene Fälle nachvollziehbar."
+                },
+                {
+                  "title": "Feedback und Wissen verbinden",
+                  "text": "CSAT bewertet eine Interaktion, CES den Aufwand, NPS die Weiterempfehlungsbereitschaft. Offene Antworten erklären häufig besser als ein Score allein, was du verbessern solltest."
+                },
+                {
+                  "title": "Mit Fällen statt Stichworten üben",
+                  "text": "Beispiel: Eine Kundin findet einen Artikel, kommt aber nicht weiter. Der Support übernimmt den Kontext, legt ein priorisiertes Ticket an, löst das Problem und verbessert den Artikel."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Einen Servicefall erklären",
+              "goals": [
+                "Beschreibe die Zusammenarbeit von Inbox und Ticket-Pipeline.",
+                "Ergänze Self-Service, Eskalation und Feedback zu einem vollständigen Ablauf.",
+                "Begründe, welchen Report du zur Verbesserung nutzen würdest."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe, wie du die Inhalte aus „HubSpot Service Hub Prüfungsvorbereitung“ anwendest. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Welche Reihenfolge beschreibt einen vollständigen Supportprozess?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Aufnehmen, einordnen, bearbeiten, bestätigen und verbessern."
+              },
+              {
+                "id": "B",
+                "text": "Schließen, verkaufen, löschen, nachfragen."
+              },
+              {
+                "id": "C",
+                "text": "Nur erfassen und zählen."
+              },
+              {
+                "id": "D",
+                "text": "Umfrage senden und danach den Fall vergessen."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Ein Prozess endet nicht bei der Aufnahme."
+          },
+          {
+            "question": "Was zeigt, ob Hilfe als unkompliziert erlebt wurde?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nur die Zahl der offenen Angebote."
+              },
+              {
+                "id": "B",
+                "text": "Eine passende CES-Befragung nach dem Vorgang."
+              },
+              {
+                "id": "C",
+                "text": "Nur die Zahl der Mitarbeitenden."
+              },
+              {
+                "id": "D",
+                "text": "Nur die Gesamtzahl der Webseitenbesucher."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Gesucht ist der Aufwand aus Kundensicht."
+          },
+          {
+            "question": "Welche Automatisierung braucht eine klare fachliche Regel?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nur das Ändern einer Hintergrundfarbe."
+              },
+              {
+                "id": "B",
+                "text": "Das manuelle Lesen einer Rückfrage."
+              },
+              {
+                "id": "C",
+                "text": "Die prioritätsabhängige Zuweisung und Eskalation von Tickets."
+              },
+              {
+                "id": "D",
+                "text": "Das Ansehen einer Folie."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Die Regel muss vor ihrer automatischen Ausführung klar sein."
+          },
+          {
+            "question": "Was bedeutet Closed-Loop-Feedback?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nur Umfragen versenden."
+              },
+              {
+                "id": "B",
+                "text": "Negative Antworten löschen."
+              },
+              {
+                "id": "C",
+                "text": "Ergebnisse ausschließlich intern archivieren."
+              },
+              {
+                "id": "D",
+                "text": "Feedback auswerten, handeln und die Rückmeldung an den Kunden schließen."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Der Kunde soll erfahren, was aus seiner Rückmeldung wurde."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.8.1",
+      "title": "Grundlagen der Verkaufspräsentation",
+      "hero": {
+        "eyebrow": "Kapitel 2.8.1 · Lektion 1",
+        "title": "Grundlagen der Verkaufspräsentation",
+        "desc": "Du legst das Fundament für einen Kunden-Pitch mit einer klaren Entscheidung am Ende.",
+        "chips": [
+          "Modul 2 · Kunden-Pitch",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Ein Pitch braucht ein Ziel",
+          "pill": "01 · Ein Pitch braucht ein Ziel",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Ein Pitch will eine Reaktion auslösen. Der Kunden-Pitch zielt auf einen konkreten nächsten Schritt im Verkaufsprozess; ein Investoren-Pitch verfolgt eine andere Entscheidung."
+            },
+            {
+              "t": "note",
+              "text": "Für die Kurswoche planst du einen Kunden-Pitch von rund fünf Minuten. Inhalt, Folien und Auftritt müssen dieselbe Botschaft tragen."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Publikum vor Produkt",
+          "pill": "02 · Publikum vor Produkt",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Sammle Unternehmensidee, Hero Statement, ICP, Buyer Persona und Nutzenargumente in deinem Pitch-Dossier. Bewerte jeden Baustein mit Grün, Gelb oder Rot und notiere, was noch fehlt."
+            },
+            {
+              "t": "note",
+              "text": "Vertiefe die Persona: Alltag, Ziele, Entscheidungsumfeld, konkrete Probleme und die Folgen dahinter. Ein fiktives Persona-Zitat bleibt als solches erkennbar und wird nicht als Kundeninterview ausgegeben."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Vom Feature zum Nutzen",
+          "pill": "03 · Vom Feature zum Nutzen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Baue eine Problem–Feature–Nutzen-Tabelle. Die rechte Spalte erklärt in Kundensprache, was sich im Alltag verbessert. Wähle die beiden stärksten Argumente für den Pitch."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Problem",
+                "Funktion im Projektkonzept",
+                "Möglicher Nutzen"
+              ],
+              "rows": [
+                [
+                  "Messekontakte bleiben liegen",
+                  "Verantwortlicher und fällige Aufgabe",
+                  "Nachverfolgung wird sichtbar und verbindlich"
+                ],
+                [
+                  "Verteilte Vertriebsinformationen",
+                  "Gemeinsame Pipeline",
+                  "Weniger manuelles Zusammentragen für die Vorschau"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Kernbotschaft und CTA",
+          "pill": "04 · Kernbotschaft und CTA",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Der Ablauf führt über Einstieg, Problem, Lösung, Nutzen und Beweis zu Vorgehen, Angebot und Call-to-Action. Die Kernbotschaft verdichtet den Nutzen in einem Satz."
+            },
+            {
+              "t": "note",
+              "text": "Ein CTA nennt einen konkreten nächsten Schritt: Was soll die Person tun, mit wem und wann? „Melden Sie sich bei Interesse“ lässt zu viel offen."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Ein Pitch braucht ein Ziel",
+                  "text": "Ein Pitch will eine Reaktion auslösen. Der Kunden-Pitch zielt auf einen konkreten nächsten Schritt im Verkaufsprozess; ein Investoren-Pitch verfolgt eine andere Entscheidung."
+                },
+                {
+                  "title": "Publikum vor Produkt",
+                  "text": "Sammle Unternehmensidee, Hero Statement, ICP, Buyer Persona und Nutzenargumente in deinem Pitch-Dossier. Bewerte jeden Baustein mit Grün, Gelb oder Rot und notiere, was noch fehlt."
+                },
+                {
+                  "title": "Vom Feature zum Nutzen",
+                  "text": "Baue eine Problem–Feature–Nutzen-Tabelle. Die rechte Spalte erklärt in Kundensprache, was sich im Alltag verbessert. Wähle die beiden stärksten Argumente für den Pitch."
+                },
+                {
+                  "title": "Kernbotschaft und CTA",
+                  "text": "Der Ablauf führt über Einstieg, Problem, Lösung, Nutzen und Beweis zu Vorgehen, Angebot und Call-to-Action. Die Kernbotschaft verdichtet den Nutzen in einem Satz."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Deinen Pitch vorbereiten",
+              "goals": [
+                "Prüfe deine vorhandenen Bausteine mit einer Ampel.",
+                "Formuliere zwei Nutzenargumente aus Sicht der Persona.",
+                "Schreibe eine Kernbotschaft und einen passenden nächsten Schritt."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe dein Verständnis der Unterrichtsthemen und ihre Anwendung. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Welches Ziel unterscheidet einen Kunden-Pitch von einem Investoren-Pitch?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Der Kunden-Pitch soll vor allem Kapitalgeber vom Geschäftsmodell überzeugen."
+              },
+              {
+                "id": "B",
+                "text": "Der Kunden-Pitch soll eine Kaufentscheidung oder einen nächsten Verkaufsschritt vorbereiten."
+              },
+              {
+                "id": "C",
+                "text": "Der Kunden-Pitch soll die vollständige Produktdokumentation vermitteln."
+              },
+              {
+                "id": "D",
+                "text": "Der Kunden-Pitch soll die Bewertung des Unternehmens für eine Finanzierungsrunde begründen."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Unterscheide die Adressaten und die Entscheidung, die du auslösen willst."
+          },
+          {
+            "question": "Was musst du vor der Auswahl deiner Verkaufsargumente über das Publikum wissen?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Vor allem, welche Präsentationsvorlage es bevorzugt."
+              },
+              {
+                "id": "B",
+                "text": "Welche deiner Funktionen sich am aufwendigsten entwickeln ließen."
+              },
+              {
+                "id": "C",
+                "text": "Seine Probleme, Ziele und Rolle im Entscheidungsprozess."
+              },
+              {
+                "id": "D",
+                "text": "Welche Unternehmensgeschichte du am ausführlichsten erzählen kannst."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Die Relevanz eines Arguments ergibt sich aus der Situation des Gegenübers."
+          },
+          {
+            "question": "Welche Aussage übersetzt eine Produkteigenschaft in Kundennutzen?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Das Produkt verfügt über ein automatisches Berichtsmodul."
+              },
+              {
+                "id": "B",
+                "text": "Das Berichtsmodul unterstützt mehrere Exportformate."
+              },
+              {
+                "id": "C",
+                "text": "Die Berichte enthalten Tabellen, Diagramme und Filter."
+              },
+              {
+                "id": "D",
+                "text": "Automatische Berichte verkürzen deine monatliche Auswertung, sodass du mehr Zeit für Kundengespräche hast."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Nutzen beschreibt, was sich für den Kunden durch eine Funktion verbessert."
+          },
+          {
+            "question": "Was macht einen Call-to-Action in einer Verkaufspräsentation wirksam?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Er fordert einen konkreten, zum Gespräch passenden nächsten Schritt."
+              },
+              {
+                "id": "B",
+                "text": "Er wiederholt möglichst viele Produkteigenschaften."
+              },
+              {
+                "id": "C",
+                "text": "Er lässt offen, wer nach dem Gespräch aktiv werden soll."
+              },
+              {
+                "id": "D",
+                "text": "Er ersetzt die Nutzenargumentation durch Zeitdruck."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Am Ende soll klar sein, welche Handlung als Nächstes ansteht."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.8.2",
+      "title": "Die Gestaltung deiner Botschaft",
+      "hero": {
+        "eyebrow": "Kapitel 2.8.2 · Lektion 2",
+        "title": "Die Gestaltung deiner Botschaft",
+        "desc": "Du baust mit Situation, Complication und Resolution eine Geschichte, in der sich dein Kunde wiedererkennt.",
+        "chips": [
+          "Modul 2 · Kunden-Pitch",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Die Situation setzt den Rahmen",
+          "pill": "01 · Die Situation setzt den Rahmen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Beschreibe die Ausgangslage knapp: Wer will welches Ziel erreichen, und wie sieht der Alltag heute aus? Erzähle nur, was das folgende Problem verständlich macht."
+            },
+            {
+              "t": "note",
+              "text": "Der Kunde ist die Hauptperson. Deine Unternehmensgeschichte ist nur relevant, wenn sie zur anstehenden Entscheidung beiträgt."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Die Complication macht das Hindernis sichtbar",
+          "pill": "02 · Die Complication macht das Hindernis sichtbar",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Zeige das eine Problem, das den Kunden vom Ziel trennt. Erkläre seine Folgen konkret, ohne unbelegte Zahlen oder künstliche Dramatik."
+            },
+            {
+              "t": "note",
+              "text": "Im Fall Weidner stehen regelmäßigen Messegesprächen verteilte Listen und unklare Zuständigkeiten gegenüber. So entsteht ein nachvollziehbarer Anlass für Veränderung."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Die Resolution beantwortet das Problem",
+          "pill": "03 · Die Resolution beantwortet das Problem",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Die Lösung muss auf das zuvor beschriebene Hindernis passen. Verbinde Funktion und Nutzen; neue Produktdetails ohne Bezug zur Geschichte stören den roten Faden."
+            },
+            {
+              "t": "flow",
+              "cols": 2,
+              "steps": [
+                {
+                  "num": "01",
+                  "title": "Situation",
+                  "text": "Ein Vertriebsteam gewinnt Kontakte auf mehreren Messen."
+                },
+                {
+                  "num": "02",
+                  "title": "Complication",
+                  "text": "Nach der Übergabe bleibt bei einem Teil unklar, wer nachfasst."
+                },
+                {
+                  "num": "03",
+                  "title": "Resolution",
+                  "text": "Jeder Kontakt erhält im CRM einen Verantwortlichen und einen fälligen Schritt."
+                },
+                {
+                  "num": "04",
+                  "title": "Handlungsimpuls",
+                  "text": "Den Ablauf mit der eigenen Liste in einer Demo prüfen."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Vom SCR zum gesprochenen Drehbuch",
+          "pill": "04 · Vom SCR zum gesprochenen Drehbuch",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Formuliere zuerst je einen Satz für S, C und R. Baue dann Einstieg, Nutzenbeleg, Angebot und CTA um diesen Kern und lies den Text laut."
+            },
+            {
+              "t": "note",
+              "text": "Metaphern können helfen, ersetzen aber keine Erklärung. Kürze Vorgeschichte und Funktionslisten; prüfe, ob jede Passage die nächste vorbereitet."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Die Situation setzt den Rahmen",
+                  "text": "Beschreibe die Ausgangslage knapp: Wer will welches Ziel erreichen, und wie sieht der Alltag heute aus? Erzähle nur, was das folgende Problem verständlich macht."
+                },
+                {
+                  "title": "Die Complication macht das Hindernis sichtbar",
+                  "text": "Zeige das eine Problem, das den Kunden vom Ziel trennt. Erkläre seine Folgen konkret, ohne unbelegte Zahlen oder künstliche Dramatik."
+                },
+                {
+                  "title": "Die Resolution beantwortet das Problem",
+                  "text": "Die Lösung muss auf das zuvor beschriebene Hindernis passen. Verbinde Funktion und Nutzen; neue Produktdetails ohne Bezug zur Geschichte stören den roten Faden."
+                },
+                {
+                  "title": "Vom SCR zum gesprochenen Drehbuch",
+                  "text": "Formuliere zuerst je einen Satz für S, C und R. Baue dann Einstieg, Nutzenbeleg, Angebot und CTA um diesen Kern und lies den Text laut."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Eine SCR-Geschichte schreiben",
+              "goals": [
+                "Formuliere Situation, Complication und Resolution jeweils in einem Satz.",
+                "Prüfe, ob das Kundenproblem vor der Produktvorstellung klar ist.",
+                "Lies deine Story laut und kürze Sätze ohne Beitrag zur Entscheidung."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe dein Verständnis der Unterrichtsthemen und ihre Anwendung. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Welche Reihenfolge entspricht dem SCR-Framework?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Lösung zeigen, alle Funktionen erklären, Ausgangslage nachreichen."
+              },
+              {
+                "id": "B",
+                "text": "Unternehmen vorstellen, Preise nennen, Referenzen auflisten."
+              },
+              {
+                "id": "C",
+                "text": "Ausgangslage beschreiben, Hindernis zuspitzen, passende Lösung zeigen."
+              },
+              {
+                "id": "D",
+                "text": "Problem wiederholen, Angebot vorlesen, weitere Probleme ergänzen."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "SCR steht für Situation, Complication und Resolution."
+          },
+          {
+            "question": "Welche Aufgabe hat die Complication innerhalb einer Verkaufsgeschichte?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Sie beschreibt den Funktionsumfang der angebotenen Lösung."
+              },
+              {
+                "id": "B",
+                "text": "Sie nennt den Termin für den nächsten Kontakt."
+              },
+              {
+                "id": "C",
+                "text": "Sie liefert möglichst viele Hintergrundinformationen zur Unternehmensgründung."
+              },
+              {
+                "id": "D",
+                "text": "Sie zeigt, was den Kunden am Erreichen seines Ziels hindert und warum Veränderung nötig ist."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Der Konflikt begründet den Bedarf an einer Lösung."
+          },
+          {
+            "question": "Eine Präsentation beginnt mit langer Unternehmensgeschichte und zahlreichen Funktionen. Was fehlt für eine kundenzentrierte Story?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Ein nachvollziehbarer Bezug zum Ziel und Problem des Kunden."
+              },
+              {
+                "id": "B",
+                "text": "Eine noch ausführlichere Beschreibung der internen Abteilungen."
+              },
+              {
+                "id": "C",
+                "text": "Eine frühere Aufzählung aller verfügbaren Tarife."
+              },
+              {
+                "id": "D",
+                "text": "Eine zusätzliche Erklärung des verwendeten Präsentationstools."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Frage dich, wessen Situation die Geschichte erklärt."
+          },
+          {
+            "question": "Woran erkennst du eine schlüssige Resolution?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Sie führt möglichst viele neue Themen ein."
+              },
+              {
+                "id": "B",
+                "text": "Die Lösung beantwortet genau das zuvor gezeigte Kundenproblem."
+              },
+              {
+                "id": "C",
+                "text": "Sie vermeidet den Bezug zur Complication, um positiv zu wirken."
+              },
+              {
+                "id": "D",
+                "text": "Sie stellt vor allem dar, wie neu die Technik ist."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Die Geschichte braucht einen erkennbaren Zusammenhang zwischen Hindernis und Lösung."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.8.3",
+      "title": "Gestaltung der Präsentation mit Pitch",
+      "hero": {
+        "eyebrow": "Kapitel 2.8.3 · Lektion 3",
+        "title": "Gestaltung der Präsentation mit Pitch",
+        "desc": "Du übersetzt dein Drehbuch in ein fokussiertes Storyboard und lesbare Folien.",
+        "chips": [
+          "Modul 2 · Kunden-Pitch",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Erst Storyboard, dann Gestaltung",
+          "pill": "01 · Erst Storyboard, dann Gestaltung",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Teile das Drehbuch in Folienmomente entlang der Geschichte. Das Task Sheet arbeitet mit ungefähr acht bis zehn Momenten als Planungshilfe; entscheidend bleibt die Verständlichkeit in der verfügbaren Zeit."
+            },
+            {
+              "t": "note",
+              "text": "Notiere je Folie die Kernaussage, den gesprochenen Inhalt und eine passende Visualisierung. Eine Folie soll eine Botschaft tragen."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Action Titles führen durch die Geschichte",
+          "pill": "02 · Action Titles führen durch die Geschichte",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Ein Action Title formuliert die Aussage, statt nur das Thema zu nennen. „Jede dritte Messeanfrage bleibt ohne Anruf“ erklärt mehr als „Problem“."
+            },
+            {
+              "t": "note",
+              "text": "Lies nur die Überschriften hintereinander. Bleibt der rote Faden erkennbar, unterstützt das Deck deinen Vortrag. Zahlen und Aussagen müssen zu den Unterlagen passen."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Lesbarkeit und einheitliche Regeln",
+          "pill": "03 · Lesbarkeit und einheitliche Regeln",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Nutze wenige Schriften, eine begrenzte Farbpalette und deutliche Kontraste. Freie Flächen trennen Inhalte und führen den Blick; sie müssen nicht gefüllt werden."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Text reduzieren",
+                  "text": "Sprechtext gehört in Notizen. Auf die Folie kommen Aussage und Beleg."
+                },
+                {
+                  "title": "Visuals passend wählen",
+                  "text": "Zeige Prozess, Vergleich oder Zahl so, dass die Botschaft schneller verständlich wird."
+                },
+                {
+                  "title": "Konsistent bleiben",
+                  "text": "Gleiche Abstände, Überschriften und Bildstile schaffen Orientierung."
+                },
+                {
+                  "title": "Auf Zielgröße prüfen",
+                  "text": "Kontrolliere die Folien in der tatsächlich geteilten Bildschirmansicht."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Im Tool bauen und prüfen",
+          "pill": "04 · Im Tool bauen und prüfen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Pitch ist im Kurs das vorgesehene Präsentationswerkzeug. Die Gestaltungsregeln lassen sich auch in einem vorhandenen PowerPoint-Deck anwenden."
+            },
+            {
+              "t": "note",
+              "text": "Prüfe Export, Reihenfolge und Darstellung vor dem Einsatz. Die vollständigen Projektdecks bleiben im Portal als Originale verfügbar, damit auch spätere Bearbeitung möglich ist."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Erst Storyboard, dann Gestaltung",
+                  "text": "Teile das Drehbuch in Folienmomente entlang der Geschichte. Das Task Sheet arbeitet mit ungefähr acht bis zehn Momenten als Planungshilfe; entscheidend bleibt die Verständlichkeit in der verfügbaren Zeit."
+                },
+                {
+                  "title": "Action Titles führen durch die Geschichte",
+                  "text": "Ein Action Title formuliert die Aussage, statt nur das Thema zu nennen. „Jede dritte Messeanfrage bleibt ohne Anruf“ erklärt mehr als „Problem“."
+                },
+                {
+                  "title": "Lesbarkeit und einheitliche Regeln",
+                  "text": "Nutze wenige Schriften, eine begrenzte Farbpalette und deutliche Kontraste. Freie Flächen trennen Inhalte und führen den Blick; sie müssen nicht gefüllt werden."
+                },
+                {
+                  "title": "Im Tool bauen und prüfen",
+                  "text": "Pitch ist im Kurs das vorgesehene Präsentationswerkzeug. Die Gestaltungsregeln lassen sich auch in einem vorhandenen PowerPoint-Deck anwenden."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Dein Storyboard prüfen",
+              "goals": [
+                "Notiere für jede Folie genau eine Kernaussage.",
+                "Schreibe thematische Überschriften als Action Titles um.",
+                "Kontrolliere Kontrast, Schriftgröße und unnötige Textblöcke."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe dein Verständnis der Unterrichtsthemen und ihre Anwendung. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Welche Überschrift ist ein Action Title?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Ergebnisse der Prozessanalyse."
+              },
+              {
+                "id": "B",
+                "text": "Unser Freigabeprozess."
+              },
+              {
+                "id": "C",
+                "text": "Überblick über die Bearbeitungszeit."
+              },
+              {
+                "id": "D",
+                "text": "Die Bearbeitungszeit sinkt durch einen gemeinsamen Freigabeprozess."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Ein Action Title formuliert eine Aussage statt nur ein Thema."
+          },
+          {
+            "question": "Was legst du in einem Storyboard fest, bevor du Folien gestaltest?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Die Kernbotschaft und die passende Visualisierung je Folie."
+              },
+              {
+                "id": "B",
+                "text": "Die endgültigen Animationen, bevor die Inhalte feststehen."
+              },
+              {
+                "id": "C",
+                "text": "Die Zahl aller verfügbaren Vorlagen."
+              },
+              {
+                "id": "D",
+                "text": "Den vollständigen Sprechtext als Fließtext auf jeder Folie."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Plane zuerst, was das Publikum pro Folie verstehen soll."
+          },
+          {
+            "question": "Warum hilft Weißraum auf einer Präsentationsfolie?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Er ermöglicht, mehr Text in die übrigen Bereiche zu drängen."
+              },
+              {
+                "id": "B",
+                "text": "Er trennt Inhalte und macht ihre visuelle Hierarchie erkennbar."
+              },
+              {
+                "id": "C",
+                "text": "Er ersetzt eine klare Kernaussage der Folie."
+              },
+              {
+                "id": "D",
+                "text": "Er macht Kontraste und lesbare Schriftgrößen überflüssig."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Freie Fläche lenkt Aufmerksamkeit und schafft Orientierung."
+          },
+          {
+            "question": "Eine Folie enthält mehrere gleich wichtige Aussagen und kleine Textblöcke. Welche Überarbeitung entspricht dem Gestaltungsprinzip aus dem Unterricht?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Die Schrift weiter verkleinern, damit alle Inhalte in einer Zeile stehen."
+              },
+              {
+                "id": "B",
+                "text": "Alle Textblöcke unterschiedlich einfärben, ohne den Inhalt zu reduzieren."
+              },
+              {
+                "id": "C",
+                "text": "Eine Kernaussage auswählen und weitere Botschaften auf eigene Folien verteilen."
+              },
+              {
+                "id": "D",
+                "text": "Zusätzliche Animationen einsetzen und die Informationsmenge beibehalten."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Eine Folie soll eine Botschaft tragen, die schnell erfasst werden kann."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.8.4",
+      "title": "Präsentationstechniken",
+      "hero": {
+        "eyebrow": "Kapitel 2.8.4 · Lektion 4",
+        "title": "Präsentationstechniken",
+        "desc": "Du bereitest Stimme, Kamera und Technik vor und verbesserst deinen Auftritt anhand einer Aufnahme.",
+        "chips": [
+          "Modul 2 · Kunden-Pitch",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Stimme und Tempo bewusst einsetzen",
+          "pill": "01 · Stimme und Tempo bewusst einsetzen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Sprich verständlich und variiere die Betonung an wichtigen Stellen. Pausen geben dem Publikum Zeit, einen Gedanken oder eine Zahl einzuordnen."
+            },
+            {
+              "t": "note",
+              "text": "Ein Spickzettel enthält Stichworte statt den ganzen Vortrag. Einstieg, Kernbotschaft und CTA kannst du besonders sorgfältig vorbereiten, damit du an diesen Stellen sicher bist."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Präsenz vor der Kamera",
+          "pill": "02 · Präsenz vor der Kamera",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Eine aufrechte, entspannte Haltung, sichtbare Gestik und Blick zur Webcam schaffen einen direkten Kontakt. Richte den Bildausschnitt auf Augenhöhe ein."
+            },
+            {
+              "t": "note",
+              "text": "Wenig Reaktion im Online-Termin bedeutet nicht automatisch Desinteresse. Stelle eine gezielte Frage oder prüfe kurz, ob das Publikum folgen kann."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Raum und Technik vorbereiten",
+          "pill": "03 · Raum und Technik vorbereiten",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Prüfe Ton, Kamera, Bildschirmfreigabe und Verbindung. Licht von vorn, ein ruhiger Hintergrund und ausgeschaltete Benachrichtigungen erleichtern die Konzentration."
+            },
+            {
+              "t": "note",
+              "text": "Öffne die richtigen Dateien vor dem Termin und halte eine lokale Fassung bereit. Kläre, welche Ansicht die anderen tatsächlich sehen; vertrauliche Notizen bleiben in deiner eigenen Ansicht."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Aufnehmen, auswerten, erneut proben",
+          "pill": "04 · Aufnehmen, auswerten, erneut proben",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Sprich den Pitch laut und vollständig mit Zeitmessung. Sieh dir Tempo, Füllwörter, Blick, Energie, roten Faden und Länge an. Wähle anschließend drei konkrete Verbesserungen."
+            },
+            {
+              "t": "note",
+              "text": "Übe die kritischen Passagen und den Schluss erneut. Friere die finale Fassung nach dem Feinschliff ein, damit du den Vortrag mit genau dieser Version kennst."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Stimme und Tempo bewusst einsetzen",
+                  "text": "Sprich verständlich und variiere die Betonung an wichtigen Stellen. Pausen geben dem Publikum Zeit, einen Gedanken oder eine Zahl einzuordnen."
+                },
+                {
+                  "title": "Präsenz vor der Kamera",
+                  "text": "Eine aufrechte, entspannte Haltung, sichtbare Gestik und Blick zur Webcam schaffen einen direkten Kontakt. Richte den Bildausschnitt auf Augenhöhe ein."
+                },
+                {
+                  "title": "Raum und Technik vorbereiten",
+                  "text": "Prüfe Ton, Kamera, Bildschirmfreigabe und Verbindung. Licht von vorn, ein ruhiger Hintergrund und ausgeschaltete Benachrichtigungen erleichtern die Konzentration."
+                },
+                {
+                  "title": "Aufnehmen, auswerten, erneut proben",
+                  "text": "Sprich den Pitch laut und vollständig mit Zeitmessung. Sieh dir Tempo, Füllwörter, Blick, Energie, roten Faden und Länge an. Wähle anschließend drei konkrete Verbesserungen."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Deine Generalprobe durchführen",
+              "goals": [
+                "Nimm einen vollständigen Durchlauf auf und miss die Zeit.",
+                "Notiere drei konkrete Verbesserungen mit Fundstelle.",
+                "Übe Einstieg und CTA erneut und prüfe die geteilte Ansicht."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe dein Verständnis der Unterrichtsthemen und ihre Anwendung. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Wie setzt du Stimme und Pausen bei einer wichtigen Aussage ein?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Die Kernaussage betonen und danach eine kurze Pause zum Einordnen lassen."
+              },
+              {
+                "id": "B",
+                "text": "Die Kernaussage schneller sprechen als den Rest, um Zeit zu sparen."
+              },
+              {
+                "id": "C",
+                "text": "Jeden Satz gleich stark betonen, damit alle Inhalte gleich wirken."
+              },
+              {
+                "id": "D",
+                "text": "Pausen vermeiden, damit die Zuhörer nicht abschweifen."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Wichtige Inhalte brauchen hörbare Gewichtung und Verarbeitungszeit."
+          },
+          {
+            "question": "Wodurch entsteht beim Online-Pitch der Eindruck direkten Blickkontakts?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Durch dauernden Blick auf die eigene Miniaturansicht."
+              },
+              {
+                "id": "B",
+                "text": "Durch regelmäßigen Blick in die Webcam bei passender Kameraposition."
+              },
+              {
+                "id": "C",
+                "text": "Durch ausschließliches Lesen der Folien auf dem zweiten Bildschirm."
+              },
+              {
+                "id": "D",
+                "text": "Durch Blick auf die Tastatur, während du frei sprichst."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Die Kameralinse entspricht aus Sicht des Publikums deiner Blickrichtung."
+          },
+          {
+            "question": "Wie nutzt du die Aufnahme einer Generalprobe für eine Verbesserung?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Die Aufnahme nur danach bewerten, ob dir deine Stimme gefällt."
+              },
+              {
+                "id": "B",
+                "text": "Das gesamte Deck neu gestalten, ohne den Vortrag zu analysieren."
+              },
+              {
+                "id": "C",
+                "text": "Konkrete Stellen zu Tempo, Füllwörtern und Blick auswerten und gezielt erneut üben."
+              },
+              {
+                "id": "D",
+                "text": "Den Sprechtext vollständig auswendig lernen, ohne weitere Probe."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Beobachtungen sollen zu überprüfbaren Veränderungen des Auftritts führen."
+          },
+          {
+            "question": "Welche Vorbereitung verringert technische Unterbrechungen beim Remote-Pitch?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nur die Präsentation öffnen und auf einen Test der Freigabe verzichten."
+              },
+              {
+                "id": "B",
+                "text": "Notizen und private Fenster gemeinsam mit dem gesamten Bildschirm teilen."
+              },
+              {
+                "id": "C",
+                "text": "Die technischen Einstellungen erst während der Einleitung ausprobieren."
+              },
+              {
+                "id": "D",
+                "text": "Ton, Kamera und Bildschirmfreigabe vorab testen und Benachrichtigungen ausschalten."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Prüfe vor dem Start, was die Zuhörer tatsächlich sehen und hören."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.8.5",
+      "title": "Pitch Day: Präsentieren & Feedback",
+      "hero": {
+        "eyebrow": "Kapitel 2.8.5 · Lektion 5",
+        "title": "Pitch Day: Präsentieren & Feedback",
+        "desc": "Du nutzt zwei Pitch-Runden, um Rückmeldungen direkt in einen besseren zweiten Auftritt zu übersetzen.",
+        "chips": [
+          "Modul 2 · Kunden-Pitch",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Zwei Runden mit anderem Publikum",
+          "pill": "01 · Zwei Runden mit anderem Publikum",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Laut Task Sheet hältst du deinen Kunden-Pitch zweimal in unterschiedlich zusammengesetzten Vierergruppen. Pro Pitch sind etwa fünf Minuten vorgesehen; danach folgen kurze Rückmeldungen."
+            },
+            {
+              "t": "note",
+              "text": "Notiere das Feedback aus Runde 1 und setze die wichtigsten Punkte in Runde 2 bewusst um. Eine Aufnahme ist optional und kann den Vergleich mit der Generalprobe unterstützen."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Mit gemeinsamen Kriterien beobachten",
+          "pill": "02 · Mit gemeinsamen Kriterien beobachten",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Der Feedbackbogen betrachtet roten Faden, Story und Kundenbezug, Foliengestaltung, Auftritt und Call-to-Action. Er benennt außerdem zwei Stärken und zwei Verbesserungsmöglichkeiten."
+            },
+            {
+              "t": "note",
+              "text": "Beobachte konkrete Stellen: War das Kundenproblem vor der Produktvorstellung klar? Konnte man die Folie sofort erfassen? Stand am Ende ein verständlicher nächster Schritt?"
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Feedback als Vorschlag formulieren",
+          "pill": "03 · Feedback als Vorschlag formulieren",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Beginne mit Stärken und beschreibe eine beobachtete Wirkung. „Nach dem Persona-Zitat war das Problem verständlich“ hilft mehr als „war gut“."
+            },
+            {
+              "t": "note",
+              "text": "Verbesserungen bleiben konkret und umsetzbar: „Lass nach der Umsatzrechnung eine Pause“ statt „Du bist zu hektisch“. Beziehe dich auf Verhalten und Inhalt, nicht auf die Person."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Die Entwicklung festhalten",
+          "pill": "04 · Die Entwicklung festhalten",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Halte im Dossier fest, was zwischen den Runden besser wurde, welche Rückmeldung am meisten half und welche Stärke du in den Team-Pitch mitnimmst."
+            },
+            {
+              "t": "note",
+              "text": "Die Lektion beruht auf dem vorhandenen Task Sheet; ein eigener Foliensatz zu 2.8.5 liegt nicht vor. Der zusätzliche Portalabschluss 2.8.6 sammelt das finale Kunden-Pitch-Material."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Zwei Runden mit anderem Publikum",
+                  "text": "Laut Task Sheet hältst du deinen Kunden-Pitch zweimal in unterschiedlich zusammengesetzten Vierergruppen. Pro Pitch sind etwa fünf Minuten vorgesehen; danach folgen kurze Rückmeldungen."
+                },
+                {
+                  "title": "Mit gemeinsamen Kriterien beobachten",
+                  "text": "Der Feedbackbogen betrachtet roten Faden, Story und Kundenbezug, Foliengestaltung, Auftritt und Call-to-Action. Er benennt außerdem zwei Stärken und zwei Verbesserungsmöglichkeiten."
+                },
+                {
+                  "title": "Feedback als Vorschlag formulieren",
+                  "text": "Beginne mit Stärken und beschreibe eine beobachtete Wirkung. „Nach dem Persona-Zitat war das Problem verständlich“ hilft mehr als „war gut“."
+                },
+                {
+                  "title": "Die Entwicklung festhalten",
+                  "text": "Halte im Dossier fest, was zwischen den Runden besser wurde, welche Rückmeldung am meisten half und welche Stärke du in den Team-Pitch mitnimmst."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Feedback für die nächste Runde nutzen",
+              "goals": [
+                "Notiere zwei Stärken und zwei konkrete Verbesserungsvorschläge zu einem Pitch.",
+                "Wähle einen Punkt für Runde 2 und beobachte die Wirkung.",
+                "Sichere Feedbackbögen und Reflexion im Dossier."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe dein Verständnis der Unterrichtsthemen und ihre Anwendung. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Wie gehst du mit einer Rückmeldung zu einem unklaren Einstieg um?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Den gesamten Vortrag ohne weitere Klärung verwerfen."
+              },
+              {
+                "id": "B",
+                "text": "Nach der konkreten Stelle fragen und eine veränderte Einleitung im nächsten Vortrag erproben."
+              },
+              {
+                "id": "C",
+                "text": "Die Rückmeldung ignorieren, wenn die Folien vollständig sind."
+              },
+              {
+                "id": "D",
+                "text": "Die Einleitung nur verlängern, ohne den Kundenbezug zu prüfen."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Feedback wird nützlich, wenn du Beobachtung und nächste Veränderung verbinden kannst."
+          },
+          {
+            "question": "Welche Rückmeldung ist konkret und umsetzbar?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Dein Vortrag war insgesamt nicht überzeugend."
+              },
+              {
+                "id": "B",
+                "text": "Du wirkst einfach nicht wie ein Verkäufer."
+              },
+              {
+                "id": "C",
+                "text": "Nach der zentralen Zahl würde eine kurze Pause helfen, ihre Bedeutung einzuordnen."
+              },
+              {
+                "id": "D",
+                "text": "Bei deinem Auftritt fehlt noch etwas."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Nenne eine beobachtbare Stelle und einen Veränderungsvorschlag."
+          },
+          {
+            "question": "Woran beurteilst du den roten Faden einer Verkaufspräsentation?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Ob jede Folie dieselbe Menge Text enthält."
+              },
+              {
+                "id": "B",
+                "text": "Ob sämtliche Produktfunktionen vorkommen."
+              },
+              {
+                "id": "C",
+                "text": "Ob der Firmenname auf jeder Folie genannt wird."
+              },
+              {
+                "id": "D",
+                "text": "Ob Kundenproblem, Lösung, Nutzen und Handlungsaufforderung logisch aufeinander aufbauen."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Struktur ist der inhaltliche Zusammenhang, nicht die Gleichförmigkeit der Folien."
+          },
+          {
+            "question": "Warum trennst du im Feedback Beobachtung und persönliches Urteil?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Damit sich die Rückmeldung auf veränderbares Verhalten statt auf die Person richtet."
+              },
+              {
+                "id": "B",
+                "text": "Damit du jede Kritik möglichst allgemein halten kannst."
+              },
+              {
+                "id": "C",
+                "text": "Damit du keine Beispiele aus dem Vortrag nennen musst."
+              },
+              {
+                "id": "D",
+                "text": "Damit die präsentierende Person den Vorschlag ungeprüft übernehmen muss."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Ein hilfreicher Vorschlag lässt erkennen, was jemand beim nächsten Mal anders machen kann."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.8.6",
+      "title": "Pitch-Day 1",
+      "hero": {
+        "eyebrow": "Kapitel 2.8.6 · Lektion 6",
+        "title": "Pitch-Day 1",
+        "desc": "Der Abschluss von 2.8 bündelt deinen fertigen Kunden-Pitch für die Fallstudie Weidner.",
+        "chips": [
+          "Modul 2 · Kunden-Pitch",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Das fertige Kunden-Deck",
+          "pill": "01 · Das fertige Kunden-Deck",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Hier liegen die Inhalte des Ordners „2.8 Kunden-Pitch“, chronologisch nach 2.8.5. Das vollständige finale Deck ist als PDF verlinkt."
+            },
+            {
+              "t": "note",
+              "text": "Der Pitch spricht Jens Hartwig bei Weidner an und führt vom Messekontaktproblem zu Verantwortlichkeit, Follow-up und einem konkreten Demo-Termin. LeadPilot und die gezeigten Kundenfälle sind fiktives Projektmaterial."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Die wirtschaftliche Argumentation",
+          "pill": "02 · Die wirtschaftliche Argumentation",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Das Kunden-Deck rechnet mit drei Messen, zwei möglichen zusätzlichen Aufträgen je Messe und 25.000 € Erstumsatz pro Auftrag: 3 × 2 × 25.000 € = 150.000 €."
+            },
+            {
+              "t": "note",
+              "text": "Diese Rechnung beschreibt mögliches Potenzial unter Annahmen. Sie ist weder ein nachgewiesener Verlust noch eine zugesicherte Umsatzsteigerung. Auch die im Deck gezeigte Kundengeschichte ist als Bestandteil der Fallstudie einzuordnen."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Angebot und nächster Schritt",
+          "pill": "03 · Angebot und nächster Schritt",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Das Deck zeigt für sieben Nutzer 343 € monatlich im Starter- und 623 € im Growth-Szenario. Diese historischen Fallpreise sind Material des Projekts und kein aktuelles Marktangebot."
+            },
+            {
+              "t": "note",
+              "text": "Die Geschichte endet mit einer eigenen Messe-Liste als Grundlage für eine 30-minütige Demo und einen anschließenden 14-Tage-Teamtest. Prüfe, ob dein Vortrag genau auf diesen Schritt hinarbeitet."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Mit dem Pitch-Cockpit arbeiten",
+          "pill": "04 · Mit dem Pitch-Cockpit arbeiten",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Das Pitch-Cockpit ergänzt das Deck als lokales HTML-Werkzeug. Öffne es zur Vorbereitung und halte die finale Präsentation daneben bereit."
+            },
+            {
+              "t": "note",
+              "text": "Prüfe vor dem Vortrag Deck-Version, Zeit und CTA. Bewahre die vollständigen Unterlagen zusammen mit den Feedbackbögen aus 2.8.5 auf."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Das fertige Kunden-Deck",
+                  "text": "Hier liegen die Inhalte des Ordners „2.8 Kunden-Pitch“, chronologisch nach 2.8.5. Das vollständige finale Deck ist als PDF verlinkt."
+                },
+                {
+                  "title": "Die wirtschaftliche Argumentation",
+                  "text": "Das Kunden-Deck rechnet mit drei Messen, zwei möglichen zusätzlichen Aufträgen je Messe und 25.000 € Erstumsatz pro Auftrag: 3 × 2 × 25.000 € = 150.000 €."
+                },
+                {
+                  "title": "Angebot und nächster Schritt",
+                  "text": "Das Deck zeigt für sieben Nutzer 343 € monatlich im Starter- und 623 € im Growth-Szenario. Diese historischen Fallpreise sind Material des Projekts und kein aktuelles Marktangebot."
+                },
+                {
+                  "title": "Mit dem Pitch-Cockpit arbeiten",
+                  "text": "Das Pitch-Cockpit ergänzt das Deck als lokales HTML-Werkzeug. Öffne es zur Vorbereitung und halte die finale Präsentation daneben bereit."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Deinen Abschluss prüfen",
+              "goals": [
+                "Öffne das komplette Deck und kontrolliere den Weg vom Problem zum CTA.",
+                "Erkläre die 150.000-€-Fallrechnung mit ihren Annahmen.",
+                "Halte die wichtigste Verbesserung für den Team-Pitch fest."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe dein Verständnis der Unterrichtsthemen und ihre Anwendung. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Warum sollte das Kundenproblem in einer Verkaufspräsentation vor der Lösung verständlich werden?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Damit du die Produktvorstellung ganz vermeiden kannst."
+              },
+              {
+                "id": "B",
+                "text": "Damit der Preis ohne Bezug zum Nutzen im Mittelpunkt steht."
+              },
+              {
+                "id": "C",
+                "text": "Damit das Publikum erkennt, wofür es die Lösung braucht und welchen Nutzen sie hat."
+              },
+              {
+                "id": "D",
+                "text": "Damit du möglichst viele Probleme nennen kannst, auch wenn dein Angebot sie nicht löst."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Die Lösung wird durch die Ausgangslage und das Hindernis relevant."
+          },
+          {
+            "question": "Was unterscheidet ein Nutzenargument von einer reinen Feature-Aufzählung?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Es enthält möglichst viele technische Details."
+              },
+              {
+                "id": "B",
+                "text": "Es beschreibt jede verfügbare Funktion gleich ausführlich."
+              },
+              {
+                "id": "C",
+                "text": "Es nennt vor allem die Entwicklungsarbeit des Anbieters."
+              },
+              {
+                "id": "D",
+                "text": "Es erklärt, welchen konkreten Vorteil die Funktion für die Situation des Kunden schafft."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Frage bei einer Produkteigenschaft: Was hat der Kunde dadurch gewonnen?"
+          },
+          {
+            "question": "Welche Wirkung soll ein Action Title auf einer Folie haben?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Die zentrale Aussage auf einen Blick verständlich machen."
+              },
+              {
+                "id": "B",
+                "text": "Den gesprochenen Vortrag vollständig wiedergeben."
+              },
+              {
+                "id": "C",
+                "text": "Nur das allgemeine Thema nennen, ohne eine Aussage zu treffen."
+              },
+              {
+                "id": "D",
+                "text": "Möglichst viele Begriffe für verschiedene Zielgruppen sammeln."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Die Überschrift soll den Gedanken der Folie tragen."
+          },
+          {
+            "question": "Warum übst du einen Pitch vorab laut und mit Zeitmessung?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Um nur die Länge des geschriebenen Textes zu zählen."
+              },
+              {
+                "id": "B",
+                "text": "Um Verständlichkeit, Übergänge und Dauer im tatsächlichen Vortrag zu prüfen."
+              },
+              {
+                "id": "C",
+                "text": "Um danach jede Rückfrage im Vortrag zu vermeiden."
+              },
+              {
+                "id": "D",
+                "text": "Um eine inhaltliche Prüfung durch reine Sprechgeschwindigkeit zu ersetzen."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Geschriebener Text und gesprochener Vortrag wirken unterschiedlich."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.9.1",
+      "title": "Kickoff & Kundenverständnis",
+      "hero": {
+        "eyebrow": "Kapitel 2.9.1 · Lektion 1",
+        "title": "Kickoff & Kundenverständnis",
+        "desc": "Ihr legt als Team die B2B-Idee, den Zielkunden und das gemeinsame Wertversprechen fest.",
+        "chips": [
+          "Modul 2 · Team-Pitch",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Das Team organisiert die Projektwoche",
+          "pill": "01 · Das Team organisiert die Projektwoche",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Die Kursaufgabe sieht Teams mit drei bis vier Personen vor. Ihr entwickelt eine B2B-Idee und zeigt im rund 15-minütigen Team-Pitch eine zusammenhängende digitale Vertriebsstrategie mit gleichen Redeanteilen."
+            },
+            {
+              "t": "note",
+              "text": "Legt Moderation und Dokumentation fest. Das gemeinsame Dossier sammelt Entscheidungen; das Deck wächst täglich um die passenden Folien."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Eine tragfähige Idee auswählen",
+          "pill": "02 · Eine tragfähige Idee auswählen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Sammelt zuerst Kundenprobleme und bewertet anschließend mögliche Lösungen. Prüft, ob das Problem spürbar ist, die Käufer Unternehmen sind und ein relevanter Unterschied zu Alternativen erkennbar wird."
+            },
+            {
+              "t": "note",
+              "text": "Die Idee muss in der Projektwoche nachvollziehbar pitchbar sein und vom ganzen Team getragen werden. Ein klar erklärtes Problem ist wertvoller als Originalität ohne Bedarf."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "ICP und Persona trennen",
+          "pill": "03 · ICP und Persona trennen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Das ICP beschreibt das passende Unternehmen: Branche, Größe, Situation und erkennbaren Fit. Die Persona beschreibt die Person darin mit Alltag, Entscheidungsrolle, Zielen und Problemen."
+            },
+            {
+              "t": "note",
+              "text": "Geht über eine Stellenbezeichnung hinaus. Was steht für diese Person auf dem Spiel? Im LeadPilot-Projekt ist Jens Hartwig eine fiktive Vertriebsleiter-Persona, kein dokumentierter realer Kunde."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Hero Statement, USP und erste Folien",
+          "pill": "04 · Hero Statement, USP und erste Folien",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Ein Hero Statement benennt Zielgruppe, Problem und Nutzen. Der USP erklärt einen für die Persona relevanten Unterschied zu Alternativen, einschließlich des heutigen Status quo wie Excel und E-Mail."
+            },
+            {
+              "t": "note",
+              "text": "Zum Start gehören Titel, Persona mit ICP-Zeile, Problem sowie Lösung und Nutzen ins Deck. Produkt und Preismodell werden knapp eingeordnet; die folgenden Tage ergänzen die Vertriebsstrategie."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Das Team organisiert die Projektwoche",
+                  "text": "Die Kursaufgabe sieht Teams mit drei bis vier Personen vor. Ihr entwickelt eine B2B-Idee und zeigt im rund 15-minütigen Team-Pitch eine zusammenhängende digitale Vertriebsstrategie mit gleichen Redeanteilen."
+                },
+                {
+                  "title": "Eine tragfähige Idee auswählen",
+                  "text": "Sammelt zuerst Kundenprobleme und bewertet anschließend mögliche Lösungen. Prüft, ob das Problem spürbar ist, die Käufer Unternehmen sind und ein relevanter Unterschied zu Alternativen erkennbar wird."
+                },
+                {
+                  "title": "ICP und Persona trennen",
+                  "text": "Das ICP beschreibt das passende Unternehmen: Branche, Größe, Situation und erkennbaren Fit. Die Persona beschreibt die Person darin mit Alltag, Entscheidungsrolle, Zielen und Problemen."
+                },
+                {
+                  "title": "Hero Statement, USP und erste Folien",
+                  "text": "Ein Hero Statement benennt Zielgruppe, Problem und Nutzen. Der USP erklärt einen für die Persona relevanten Unterschied zu Alternativen, einschließlich des heutigen Status quo wie Excel und E-Mail."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Euer Fundament abstimmen",
+              "goals": [
+                "Beschreibt die gemeinsame Idee in zwei Sätzen.",
+                "Trennt ICP und Persona und kennzeichnet Annahmen.",
+                "Formuliert Hero Statement und USP und baut die ersten Folien."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe dein Verständnis der Unterrichtsthemen und ihre Anwendung. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Wie unterscheiden sich ICP und Buyer Persona?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Das ICP beschreibt die Person, die Persona ausschließlich die Branche."
+              },
+              {
+                "id": "B",
+                "text": "Beide beschreiben nur die technischen Anforderungen an das Produkt."
+              },
+              {
+                "id": "C",
+                "text": "Die Persona beschreibt das Preismodell, das ICP den Vertriebskanal."
+              },
+              {
+                "id": "D",
+                "text": "Das ICP beschreibt das passende Unternehmen, die Persona die relevante Person darin."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Trenne Merkmale des Unternehmens von Rolle, Alltag und Bedürfnissen eines Menschen."
+          },
+          {
+            "question": "Woran prüfst du, ob eine Geschäftsidee für einen B2B-Pitch tragfähig ist?",
+            "options": [
+              {
+                "id": "A",
+                "text": "An einem spürbaren Kundenproblem und einem relevanten Unterschied zu heutigen Alternativen."
+              },
+              {
+                "id": "B",
+                "text": "Vor allem daran, ob der Produktname ungewöhnlich klingt."
+              },
+              {
+                "id": "C",
+                "text": "Daran, ob möglichst viele Zielgruppen gleichzeitig angesprochen werden."
+              },
+              {
+                "id": "D",
+                "text": "Daran, ob das Produkt mehr Funktionen als alle Wettbewerber aufzählt."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Bedarf und nachvollziehbare Abgrenzung bilden die Grundlage."
+          },
+          {
+            "question": "Welche Formulierung entspricht einem kundenzentrierten Hero Statement?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Sie zählt alle Abteilungen und deren Leistungen auf."
+              },
+              {
+                "id": "B",
+                "text": "Sie benennt, wem das Angebot bei welchem Problem zu welchem Ergebnis hilft."
+              },
+              {
+                "id": "C",
+                "text": "Sie beschreibt ausschließlich die eingesetzte Technik."
+              },
+              {
+                "id": "D",
+                "text": "Sie verspricht allgemein Innovation ohne Bezug zum Kundenproblem."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Zielgruppe, Problem und Nutzen gehören zusammen."
+          },
+          {
+            "question": "Was macht einen USP aus Kundensicht überzeugend?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Eine Eigenschaft, die zwar neu ist, für den Kunden aber keine Rolle spielt."
+              },
+              {
+                "id": "B",
+                "text": "Ein allgemeines Qualitätsversprechen, das alle Wettbewerber ebenfalls geben."
+              },
+              {
+                "id": "C",
+                "text": "Ein belegbarer Unterschied, der ein wichtiges Bedürfnis besser adressiert als die betrachteten Alternativen."
+              },
+              {
+                "id": "D",
+                "text": "Die Behauptung, einzigartig zu sein, ohne einen Vergleich zu erklären."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Ein Unterschied ist erst relevant, wenn er für die Entscheidung des Kunden zählt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.9.2",
+      "title": "Content-Strategie entlang der Customer Journey",
+      "hero": {
+        "eyebrow": "Kapitel 2.9.2 · Lektion 2",
+        "title": "Content-Strategie entlang der Customer Journey",
+        "desc": "Ihr plant Inhalte für unterschiedliche Entscheidungsphasen und macht daraus konkrete Prototypen.",
+        "chips": [
+          "Modul 2 · Team-Pitch",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Jede Phase braucht eine andere Hilfe",
+          "pill": "01 · Jede Phase braucht eine andere Hilfe",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "In Awareness erkennt die Persona ihr Problem, in Consideration vergleicht sie Lösungswege und in Decision prüft sie eine konkrete Entscheidung. Ein Inhalt muss zur Frage in dieser Phase passen."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Phase",
+                "Frage der Persona",
+                "Mögliches Format"
+              ],
+              "rows": [
+                [
+                  "Awareness",
+                  "Habe ich dieses Problem überhaupt?",
+                  "Problemorientierte Infografik oder Post"
+                ],
+                [
+                  "Consideration",
+                  "Wie könnte ein besserer Ablauf aussehen?",
+                  "Workflow-Grafik oder Checkliste"
+                ],
+                [
+                  "Decision",
+                  "Passt diese Lösung zu meinem Team?",
+                  "Demo mit eigener Liste oder nachvollziehbare Fallstudie"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Ideen sammeln und auswählen",
+          "pill": "02 · Ideen sammeln und auswählen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Sammelt zunächst zwei bis drei Ideen je Phase und wählt dann pro Phase eine aus. Legt Format, Kanal und Zweck fest, statt nur „wir posten auf LinkedIn“ zu schreiben."
+            },
+            {
+              "t": "note",
+              "text": "Prüft jede Idee gegen die Persona: Erkennt sie ihr Problem, versteht sie die Sprache und erreicht ihr sie über diesen Kanal?"
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Prototypen machen die Idee sichtbar",
+          "pill": "03 · Prototypen machen die Idee sichtbar",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Ein Prototyp enthält Headline, Kernaussage und Bildidee. Es genügt ein verständlicher Entwurf, der die spätere Wirkung diskutierbar macht."
+            },
+            {
+              "t": "note",
+              "text": "Sales Enablement bedeutet hier: Marketing und Vertrieb nutzen aufeinander abgestimmte Inhalte, damit der nächste Kundenschritt unterstützt wird. Die Gestaltung allein ersetzt keinen Zweck."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Content-Folie und Dossier ergänzen",
+          "pill": "04 · Content-Folie und Dossier ergänzen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Die Content-Folie ordnet die ausgewählten Inhalte den Phasen zu. Im Dossier bleiben Ideen, Formate, Arbeitstitel und Begründungen nachvollziehbar."
+            },
+            {
+              "t": "note",
+              "text": "Im LeadPilot-Teamdeck führen Infografik, Workflow und Demo-Angebot durch die Entscheidung. Das ist die Strategie des fiktiven Projekts, kein nachgewiesener Kampagnenerfolg."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Jede Phase braucht eine andere Hilfe",
+                  "text": "In Awareness erkennt die Persona ihr Problem, in Consideration vergleicht sie Lösungswege und in Decision prüft sie eine konkrete Entscheidung. Ein Inhalt muss zur Frage in dieser Phase passen."
+                },
+                {
+                  "title": "Ideen sammeln und auswählen",
+                  "text": "Sammelt zunächst zwei bis drei Ideen je Phase und wählt dann pro Phase eine aus. Legt Format, Kanal und Zweck fest, statt nur „wir posten auf LinkedIn“ zu schreiben."
+                },
+                {
+                  "title": "Prototypen machen die Idee sichtbar",
+                  "text": "Ein Prototyp enthält Headline, Kernaussage und Bildidee. Es genügt ein verständlicher Entwurf, der die spätere Wirkung diskutierbar macht."
+                },
+                {
+                  "title": "Content-Folie und Dossier ergänzen",
+                  "text": "Die Content-Folie ordnet die ausgewählten Inhalte den Phasen zu. Im Dossier bleiben Ideen, Formate, Arbeitstitel und Begründungen nachvollziehbar."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Drei passende Content-Stücke planen",
+              "goals": [
+                "Wählt je Phase einen Inhalt mit klarer Aufgabe.",
+                "Skizziert Headline, Aussage und Bildidee.",
+                "Prüft, ob die Content-Folie den Weg zur Entscheidung zeigt."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe dein Verständnis der Unterrichtsthemen und ihre Anwendung. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Welcher Inhalt unterstützt vor allem die Awareness-Phase?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Ein Beitrag, durch den die Persona ein relevantes eigenes Problem erkennt."
+              },
+              {
+                "id": "B",
+                "text": "Ein Preisvergleich für eine bereits ausgewählte Lösung."
+              },
+              {
+                "id": "C",
+                "text": "Eine konkrete Angebotsverhandlung."
+              },
+              {
+                "id": "D",
+                "text": "Eine Anleitung zur Nutzung nach dem Vertragsabschluss."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "In Awareness geht es zunächst um Problembewusstsein."
+          },
+          {
+            "question": "Wozu dient ein Content-Prototyp?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Er ersetzt die Entscheidung, für welche Persona der Inhalt gedacht ist."
+              },
+              {
+                "id": "B",
+                "text": "Er macht mit Headline, Kernaussage und Bildidee einen geplanten Inhalt prüfbar."
+              },
+              {
+                "id": "C",
+                "text": "Er belegt bereits, wie viele Abschlüsse die Kampagne erzielen wird."
+              },
+              {
+                "id": "D",
+                "text": "Er muss sämtliche technischen Funktionen des Produkts erklären."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Ein Prototyp dient dem Prüfen einer Idee, bevor sie vollständig produziert wird."
+          },
+          {
+            "question": "Wie prüfst du, ob eine Content-Idee zur Persona passt?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nur die Vorlieben des Marketingteams vergleichen."
+              },
+              {
+                "id": "B",
+                "text": "Ausschließlich prüfen, ob sich das Format schnell produzieren lässt."
+              },
+              {
+                "id": "C",
+                "text": "Problembezug, Sprache, Kanal und Entscheidungsphase mit ihren Bedürfnissen abgleichen."
+              },
+              {
+                "id": "D",
+                "text": "Den Inhalt für alle Zielgruppen unverändert veröffentlichen."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Relevanz entsteht aus der Perspektive des Empfängers."
+          },
+          {
+            "question": "Was bedeutet Sales Enablement im Zusammenhang mit Content?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Marketing veröffentlicht möglichst viel, unabhängig von den Vertriebsgesprächen."
+              },
+              {
+                "id": "B",
+                "text": "Vertrieb ersetzt jeden persönlichen Kontakt durch allgemeine Beiträge."
+              },
+              {
+                "id": "C",
+                "text": "Jeder Kanal erhält dieselbe Botschaft, unabhängig von der Entscheidungsphase."
+              },
+              {
+                "id": "D",
+                "text": "Marketing und Vertrieb erhalten passende, abgestimmte Inhalte für die jeweiligen Kundenschritte."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Inhalte sollen den Vertriebsprozess und die Entscheidung des Kunden unterstützen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.9.3",
+      "title": "Digitale Ansprache & Outreach-Kampagnen",
+      "hero": {
+        "eyebrow": "Kapitel 2.9.3 · Lektion 3",
+        "title": "Digitale Ansprache & Outreach-Kampagnen",
+        "desc": "Ihr verbindet passende Kanäle, konkrete Nachrichten und eine nachvollziehbare Priorisierung.",
+        "chips": [
+          "Modul 2 · Team-Pitch",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Kanäle aus der Persona ableiten",
+          "pill": "01 · Kanäle aus der Persona ableiten",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Wählt zwei bis drei Kanäle, über die ihr die Persona sinnvoll erreicht, und begründet jeden. E-Mail kann Inhalte erklären, LinkedIn einen Gesprächsanlass schaffen und ein Anruf direkte Klärung ermöglichen."
+            },
+            {
+              "t": "note",
+              "text": "Entscheidet, wie Inbound und Outbound zusammenspielen. Ein Kanal-Mix ist nur dann eine Strategie, wenn Zweck, Reihenfolge und Bearbeitung zusammenpassen."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Eine Sequenz mit Stopps planen",
+          "pill": "02 · Eine Sequenz mit Stopps planen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Eine Sequenz legt Reihenfolge, Abstände und Zahl der Versuche fest. Im finalen LeadPilot-Teamdeck stehen Tag 1 E-Mail, Tag 4 LinkedIn, Tag 8 Telefon und Tag 12 E-Mail."
+            },
+            {
+              "t": "note",
+              "text": "Bei Antwort, Buchung oder Absage stoppt die automatische Folge. Danach entscheidet der tatsächliche Gesprächsstand über den nächsten Schritt. Das Portal beschreibt die Kursplanung; es startet keine Kontaktaufnahme."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Nachrichten wirklich ausformulieren",
+          "pill": "03 · Nachrichten wirklich ausformulieren",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Die erste Nachricht braucht einen konkreten Empfängerbezug, ein relevantes Problem, verständlichen Nutzen und eine einfache Frage. Ein Follow-up liefert einen neuen hilfreichen Gedanken statt bloß „Haben Sie gelesen?“."
+            },
+            {
+              "t": "note",
+              "text": "Personalisierungs-Test: Könntest du den Text unverändert an jede andere Firma schicken? Dann ist er zu allgemein. Im Dossier bleiben erste Nachricht und Follow-up wörtlich erhalten."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Priorität und Deck zusammenführen",
+          "pill": "04 · Priorität und Deck zusammenführen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Legt drei bis vier Kriterien für die Lead-Passung fest und beschreibt hohe, mittlere und niedrige Priorität samt Bearbeitungszeit. Fit und echtes Interesse dürfen nicht beliebig gleichgesetzt werden."
+            },
+            {
+              "t": "note",
+              "text": "Die Outreach-Folie zeigt eine Timeline und eine konkrete Beispielnachricht. Prüft den Übergang zur Content-Folie: Warum folgt dieser Kontakt auf diese Information?"
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Kanäle aus der Persona ableiten",
+                  "text": "Wählt zwei bis drei Kanäle, über die ihr die Persona sinnvoll erreicht, und begründet jeden. E-Mail kann Inhalte erklären, LinkedIn einen Gesprächsanlass schaffen und ein Anruf direkte Klärung ermöglichen."
+                },
+                {
+                  "title": "Eine Sequenz mit Stopps planen",
+                  "text": "Eine Sequenz legt Reihenfolge, Abstände und Zahl der Versuche fest. Im finalen LeadPilot-Teamdeck stehen Tag 1 E-Mail, Tag 4 LinkedIn, Tag 8 Telefon und Tag 12 E-Mail."
+                },
+                {
+                  "title": "Nachrichten wirklich ausformulieren",
+                  "text": "Die erste Nachricht braucht einen konkreten Empfängerbezug, ein relevantes Problem, verständlichen Nutzen und eine einfache Frage. Ein Follow-up liefert einen neuen hilfreichen Gedanken statt bloß „Haben Sie gelesen?“."
+                },
+                {
+                  "title": "Priorität und Deck zusammenführen",
+                  "text": "Legt drei bis vier Kriterien für die Lead-Passung fest und beschreibt hohe, mittlere und niedrige Priorität samt Bearbeitungszeit. Fit und echtes Interesse dürfen nicht beliebig gleichgesetzt werden."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Eine Outreach-Sequenz prüfen",
+              "goals": [
+                "Wählt Kanäle mit Begründung aus der Persona.",
+                "Schreibt Erstnachricht und Follow-up aus.",
+                "Legt Abstände, Stopp-Regeln und Prioritätsstufen fest."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe dein Verständnis der Unterrichtsthemen und ihre Anwendung. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Welche Angaben machen eine Outreach-Sequenz ausführbar?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nur eine Liste aller verfügbaren Kontaktkanäle."
+              },
+              {
+                "id": "B",
+                "text": "Reihenfolge der Kanäle, Kontaktabstände, Nachrichtentexte und Regeln zum Beenden."
+              },
+              {
+                "id": "C",
+                "text": "Nur die Zahl gewünschter Neukunden am Quartalsende."
+              },
+              {
+                "id": "D",
+                "text": "Nur eine gemeinsame Produktbeschreibung für jede Nachricht."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Eine Sequenz beschreibt konkrete Schritte statt nur eine Absicht."
+          },
+          {
+            "question": "Ein Kontakt antwortet auf die erste Nachricht. Wie sollte die geplante Folge reagieren?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Alle weiteren Nachrichten zum ursprünglichen Zeitpunkt versenden."
+              },
+              {
+                "id": "B",
+                "text": "Die Antwort erst nach dem letzten Sequenzschritt auswerten."
+              },
+              {
+                "id": "C",
+                "text": "Die Folge stoppen und den tatsächlichen Gesprächsstand für die nächsten Schritte berücksichtigen."
+              },
+              {
+                "id": "D",
+                "text": "Unabhängig vom Inhalt sofort mehr Kontaktversuche einplanen."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Automatisierte Kontaktpläne müssen auf eine tatsächliche Reaktion Rücksicht nehmen."
+          },
+          {
+            "question": "Was verbessert ein Follow-up ohne bisherige Antwort?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Die unveränderte erste Nachricht mit höherem Druck wiederholen."
+              },
+              {
+                "id": "B",
+                "text": "Eine längere allgemeine Unternehmensbeschreibung ergänzen."
+              },
+              {
+                "id": "C",
+                "text": "Ausschließlich nachfragen, ob die letzte Nachricht gelesen wurde."
+              },
+              {
+                "id": "D",
+                "text": "Ein neuer relevanter Gedanke mit Bezug zum Empfänger und einer einfachen Handlungsfrage."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Der erneute Kontakt braucht einen nachvollziehbaren Anlass."
+          },
+          {
+            "question": "Warum kombinierst du bei der Lead-Priorisierung Unternehmenspassung und Interesse?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Ein passendes Unternehmen ist ohne erkennbaren Bedarf nicht automatisch kontaktbereit."
+              },
+              {
+                "id": "B",
+                "text": "Ein Klick beweist unabhängig vom Unternehmen immer Kaufbereitschaft."
+              },
+              {
+                "id": "C",
+                "text": "Unternehmensgröße allein zeigt, wann eine Person kaufen wird."
+              },
+              {
+                "id": "D",
+                "text": "Alle Kontakte sollten unabhängig von Fit und Verhalten dieselbe Priorität haben."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Unterscheide Eignung für das Angebot und das Signal für den nächsten Schritt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.9.4",
+      "title": "Lead Management & Erfolgsmessung",
+      "hero": {
+        "eyebrow": "Kapitel 2.9.4 · Lektion 4",
+        "title": "Lead Management & Erfolgsmessung",
+        "desc": "Ihr verknüpft Content und Ansprache mit einem klar definierten Funnel und messbaren Übergängen.",
+        "chips": [
+          "Modul 2 · Team-Pitch",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Funnel-Stufen mit Bedeutung füllen",
+          "pill": "01 · Funnel-Stufen mit Bedeutung füllen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Ein möglicher Projektfunnel lautet Lead → MQL → SQL → Opportunity → Abschluss. Definiert für jede Stufe, welche Kriterien erfüllt sind und welcher Baustein den nächsten Schritt unterstützt."
+            },
+            {
+              "t": "note",
+              "text": "Ein anonymer Seitenaufruf ist noch kein identifizierter Kontakt. Im Team-Dossier gilt ein MQL als passend und aktiv interessiert; bei einem SQL sind Bedarf und ein Erstgespräch oder eine Demo bestätigt."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Prozess und Funnel unterscheiden",
+          "pill": "02 · Prozess und Funnel unterscheiden",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Der Prozess beschreibt, was euer Team tut. Der Funnel zeigt, in welchem Zustand der Lead steht. Beide müssen über klare Übergabekriterien verbunden sein."
+            },
+            {
+              "t": "note",
+              "text": "Ordnet Awareness-Inhalte am Einstieg ein, Content und Outreach in der Qualifizierung sowie Demo, Teamtest und Angebot später. Dokumentiert die Zuständigkeit an den Übergaben."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Kennzahlen richtig definieren",
+          "pill": "03 · Kennzahlen richtig definieren",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Conversion = Zahl in der Folgestufe / Zahl in der Ausgangsstufe × 100. Nenner, Zeitraum und betrachtete Kontaktgruppe gehören zur Definition."
+            },
+            {
+              "t": "note",
+              "text": "Beispiel aus dem finalen Teamdeck, Q3-Szenario: 650 Leads, 210 MQL, 75 SQL, 36 Angebote und 16 Neukunden. Die Angebotsabschlussquote beträgt 16 / 36 ≈ 44,4 %, nicht 16 / 650. Das sind fiktive Projektzahlen."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Zielhypothese und wichtigste Zahl",
+          "pill": "04 · Zielhypothese und wichtigste Zahl",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Wählt je Übergang eine Kennzahl mit begründetem Zielwert und Messquelle. Eine Zielhypothese ist noch kein Ist-Ergebnis. Haltet fest, wie die Zahl eine Entscheidung auslöst."
+            },
+            {
+              "t": "note",
+              "text": "Im Teamdeck wird die Abschlussrate hervorgehoben. Trial-to-Paid nutzt dagegen die 58 gestarteten Teamtests als Nenner: 16 / 58 ≈ 27,6 %. Beide Zahlen messen verschiedene Übergänge."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 05",
+          "title": "Ins Deck und Lücken prüfen",
+          "pill": "05 · Ins Deck und Lücken prüfen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Baut eine Funnel- und eine KPI-Folie. Klickt anschließend das ganze Deck durch und notiert fehlende Inhalte, unklare Übergänge und abweichende Gestaltung als Arbeitsliste für das Finale."
+            },
+            {
+              "t": "note",
+              "text": "Der Lösungstext in diesem Ordner trägt außen noch „Pitch Day Präsentieren & Feedback“, behandelt im Dokument aber ausdrücklich Task Sheet 2.9.4 „Lead Management und Erfolgsmessung“. Er ist hier nach dem Dokumentinhalt zugeordnet."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Funnel-Stufen mit Bedeutung füllen",
+                  "text": "Ein möglicher Projektfunnel lautet Lead → MQL → SQL → Opportunity → Abschluss. Definiert für jede Stufe, welche Kriterien erfüllt sind und welcher Baustein den nächsten Schritt unterstützt."
+                },
+                {
+                  "title": "Prozess und Funnel unterscheiden",
+                  "text": "Der Prozess beschreibt, was euer Team tut. Der Funnel zeigt, in welchem Zustand der Lead steht. Beide müssen über klare Übergabekriterien verbunden sein."
+                },
+                {
+                  "title": "Kennzahlen richtig definieren",
+                  "text": "Conversion = Zahl in der Folgestufe / Zahl in der Ausgangsstufe × 100. Nenner, Zeitraum und betrachtete Kontaktgruppe gehören zur Definition."
+                },
+                {
+                  "title": "Zielhypothese und wichtigste Zahl",
+                  "text": "Wählt je Übergang eine Kennzahl mit begründetem Zielwert und Messquelle. Eine Zielhypothese ist noch kein Ist-Ergebnis. Haltet fest, wie die Zahl eine Entscheidung auslöst."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Euren Funnel erklären",
+              "goals": [
+                "Definiert Übergänge zu MQL und SQL mit überprüfbaren Kriterien.",
+                "Berechnet eine Conversion mit eindeutigem Nenner.",
+                "Notiert Ziel, Quelle und Handlung je KPI und erstellt eine Lückenliste."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe dein Verständnis der Unterrichtsthemen und ihre Anwendung. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Was unterscheidet den Lead-Funnel von der Beschreibung interner Vertriebsaktivitäten?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Der Funnel listet ausschließlich die Aufgaben einzelner Mitarbeitender auf."
+              },
+              {
+                "id": "B",
+                "text": "Der Funnel beschreibt nur die Veröffentlichungszeiten von Content."
+              },
+              {
+                "id": "C",
+                "text": "Der Funnel zeigt die Zustände, die ein Kontakt bis zur Kaufentscheidung durchläuft."
+              },
+              {
+                "id": "D",
+                "text": "Der Funnel ersetzt die Kriterien für Qualifizierung und Übergabe."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Trenne den Zustand eines Leads von dem, was das Team gerade tut."
+          },
+          {
+            "question": "Von 120 MQL werden im betrachteten Zeitraum 30 zu SQL. Wie hoch ist die MQL-zu-SQL-Conversion?",
+            "options": [
+              {
+                "id": "A",
+                "text": "4 %."
+              },
+              {
+                "id": "B",
+                "text": "75 %."
+              },
+              {
+                "id": "C",
+                "text": "40 %."
+              },
+              {
+                "id": "D",
+                "text": "25 %."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Die Folgestufe wird durch die Ausgangsstufe geteilt und mit 100 multipliziert."
+          },
+          {
+            "question": "Welche Aussage unterscheidet MQL und SQL fachlich am besten?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Ein MQL erfüllt Marketingkriterien; beim SQL ist zusätzlich die Vertriebsreife nach vereinbarten Kriterien geprüft."
+              },
+              {
+                "id": "B",
+                "text": "Jeder identifizierte Kontakt ist sofort ein SQL."
+              },
+              {
+                "id": "C",
+                "text": "Ein MQL hat bereits gekauft, ein SQL noch nicht."
+              },
+              {
+                "id": "D",
+                "text": "MQL und SQL unterscheiden sich ausschließlich durch den genutzten Kontaktkanal."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Qualifizierung braucht gemeinsame überprüfbare Kriterien statt nur eine neue Bezeichnung."
+          },
+          {
+            "question": "Welche Angaben braucht eine aussagekräftige KPI-Zielhypothese?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nur eine möglichst hohe Prozentzahl."
+              },
+              {
+                "id": "B",
+                "text": "Kennzahldefinition, begründeten Zielwert, Zeitraum und eine geplante Messquelle."
+              },
+              {
+                "id": "C",
+                "text": "Einen Zielwert ohne festgelegten Nenner."
+              },
+              {
+                "id": "D",
+                "text": "Nur die Zahl erzeugter Kontakte ohne Bezug zum nächsten Schritt."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Eine Kennzahl soll später vergleichbar gemessen und für Entscheidungen genutzt werden."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.9.5",
+      "title": "Pitch-Day 2",
+      "hero": {
+        "eyebrow": "Kapitel 2.9.5 · Lektion 5",
+        "title": "Pitch-Day 2",
+        "desc": "Finalisierung, Generalprobe und der komplette Team-Pitch bilden gemeinsam den Abschluss von 2.9.",
+        "chips": [
+          "Modul 2 · Team-Pitch",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Finalisierung aus der Lückenliste",
+          "pill": "01 · Finalisierung aus der Lückenliste",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Die Vorbereitung aus „Finalisierung & Generalprobe“ ist hier mit dem Pitch-Day zusammengeführt. Arbeitet die Lückenliste aus 2.9.4 ab und prüft die Geschichte vom Kundenproblem bis zur Vertriebssteuerung."
+            },
+            {
+              "t": "note",
+              "text": "Sind Idee, ICP, Persona, Nutzen, USP, Content, Outreach, Funnel und KPIs verbunden? Jede Zahl benötigt eine erkennbare Bedeutung; Originaldeck und Dossier bleiben vollständig verfügbar."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Die gemeinsame Generalprobe",
+          "pill": "02 · Die gemeinsame Generalprobe",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Plant den rund 15-minütigen Vortrag mit gleichen Redeanteilen. Das Team-Dossier sieht für Patrick, André und Marc je fünf Minuten vor. Übt Übergaben und kontrolliert die tatsächliche Dauer, statt Redezeit nur über Folienzahlen zu schätzen."
+            },
+            {
+              "t": "note",
+              "text": "Prüft Technik, Bildschirmfreigabe, lokale Dateien und Einstieg. Notiert gezielte Verbesserungen und friert anschließend eine gemeinsame finale Fassung ein."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Deck, Dossier und Hilfsmittel",
+          "pill": "03 · Deck, Dossier und Hilfsmittel",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Hier liegen die Materialien aus „2.9 Team-Pitch“: das finale Deck mit Schlussfolie, das vollständige Team-Dossier, der Teleprompter und der Zoom-Hintergrund. Die Präsentations-Entwurfsskizzen sind zusätzlich als Entwurfsstand gekennzeichnet."
+            },
+            {
+              "t": "note",
+              "text": "Das finale Deck umfasst zwölf Folien. Im Dossier steht noch eine frühere Planung mit 15 Folien. Nutze für den Auftritt die tatsächlich vorliegende finale Deck-Version."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Mit Unterschieden transparent umgehen",
+          "pill": "04 · Mit Unterschieden transparent umgehen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Die wirtschaftliche Rechnung unterscheidet sich: Das Kunden-Deck und das Dossier verwenden 3 × 2 × 25.000 €; das finale Teamdeck verwendet 60 offene Kontakte × 25 % × 10.000 €. Beides ergibt 150.000 €, beruht aber auf verschiedenen Annahmen."
+            },
+            {
+              "t": "note",
+              "text": "Behandle die Beträge als Fallpotenzial. Die finalen Decks zeigen fiktive Produktkonzepte und historische Szenariodaten, keine verifizierten Kundenresultate oder bestätigten aktuellen Integrationen."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 05",
+          "title": "Pitch und anschließende Reflexion",
+          "pill": "05 · Pitch und anschließende Reflexion",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Die Jury soll eine zusammenhängende B2B-Vertriebsstrategie verstehen. Erklärt den Zusammenhang und die Annahmen, statt nur Folientexte vorzulesen."
+            },
+            {
+              "t": "note",
+              "text": "Sichert nach dem Vortrag Rückfragen und Feedback. Welche Annahme war unklar, welche Folie half bei der Entscheidung und was würdet ihr als nächsten Test planen?"
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Finalisierung aus der Lückenliste",
+                  "text": "Die Vorbereitung aus „Finalisierung & Generalprobe“ ist hier mit dem Pitch-Day zusammengeführt. Arbeitet die Lückenliste aus 2.9.4 ab und prüft die Geschichte vom Kundenproblem bis zur Vertriebssteuerung."
+                },
+                {
+                  "title": "Die gemeinsame Generalprobe",
+                  "text": "Plant den rund 15-minütigen Vortrag mit gleichen Redeanteilen. Das Team-Dossier sieht für Patrick, André und Marc je fünf Minuten vor. Übt Übergaben und kontrolliert die tatsächliche Dauer, statt Redezeit nur über Folienzahlen zu schätzen."
+                },
+                {
+                  "title": "Deck, Dossier und Hilfsmittel",
+                  "text": "Hier liegen die Materialien aus „2.9 Team-Pitch“: das finale Deck mit Schlussfolie, das vollständige Team-Dossier, der Teleprompter und der Zoom-Hintergrund. Die Präsentations-Entwurfsskizzen sind zusätzlich als Entwurfsstand gekennzeichnet."
+                },
+                {
+                  "title": "Mit Unterschieden transparent umgehen",
+                  "text": "Die wirtschaftliche Rechnung unterscheidet sich: Das Kunden-Deck und das Dossier verwenden 3 × 2 × 25.000 €; das finale Teamdeck verwendet 60 offene Kontakte × 25 % × 10.000 €. Beides ergibt 150.000 €, beruht aber auf verschiedenen Annahmen."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Das Team-Finale proben",
+              "goals": [
+                "Prüft alle Bausteine anhand der Lückenliste.",
+                "Probt den gesamten Vortrag mit Zeitmessung und Übergaben.",
+                "Gleicht Rechnungen und Deck-Version ab und notiert offene Annahmen.",
+                "Sichert die finale Fassung und reflektiert das Juryfeedback."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe dein Verständnis der Unterrichtsthemen und ihre Anwendung. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Woran erkennst du eine zusammenhängende digitale Vertriebsstrategie?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Jeder Bereich verwendet eigene Zielkunden, solange die Folien gleich aussehen."
+              },
+              {
+                "id": "B",
+                "text": "Die Strategie enthält möglichst viele Tools, auch ohne klaren Einsatzgrund."
+              },
+              {
+                "id": "C",
+                "text": "Die Zahl der geplanten Maßnahmen ersetzt die Begründung ihrer Wirkung."
+              },
+              {
+                "id": "D",
+                "text": "Persona, Content, Ansprache und Funnel-Kennzahlen unterstützen dieselbe Kundenentscheidung."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Die Bausteine müssen inhaltlich aufeinander aufbauen."
+          },
+          {
+            "question": "Wie bereitet sich ein Team auf einen gemeinsamen Pitch mit ausgewogenen Redeanteilen vor?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Den gesamten Vortrag mit Zeitmessung und geübten Übergaben gemeinsam proben."
+              },
+              {
+                "id": "B",
+                "text": "Nur die Anzahl der Folien gleich verteilen."
+              },
+              {
+                "id": "C",
+                "text": "Jede Person übt getrennt, ohne die Übergänge abzustimmen."
+              },
+              {
+                "id": "D",
+                "text": "Den längsten Abschnitt spontan der schnellsten Person zuweisen."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Ausgewogene Redezeit entsteht im gesprochenen Zusammenspiel, nicht durch Folienzählung."
+          },
+          {
+            "question": "Ein Funnel zeigt viele neue Kontakte, aber wenige qualifizierte Gespräche. Welche Prüfung ist fachlich sinnvoll?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nur mehr Kontakte einkaufen, ohne den Übergang zu untersuchen."
+              },
+              {
+                "id": "B",
+                "text": "Den schwachen Übergang lokalisieren und Zielgruppenpassung, Ansprache sowie Qualifizierung prüfen."
+              },
+              {
+                "id": "C",
+                "text": "Die Gesamtzahl der Kontakte als ausreichenden Erfolg darstellen."
+              },
+              {
+                "id": "D",
+                "text": "Die Gesprächsstufe aus dem Funnel entfernen, damit die Quote steigt."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Mengenwerte brauchen den Zusammenhang mit den folgenden Schritten."
+          },
+          {
+            "question": "Wie wählst du die wichtigste Kennzahl für eine Vertriebsstrategie?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Danach, welche Zahl auf einer Folie am größten wirkt."
+              },
+              {
+                "id": "B",
+                "text": "Immer nach der Reichweite, unabhängig vom Geschäftsziel."
+              },
+              {
+                "id": "C",
+                "text": "Danach, welche Zielerreichung sie zeigt und welche Entscheidung das Team daraus ableiten kann."
+              },
+              {
+                "id": "D",
+                "text": "Nach der am einfachsten verfügbaren Zahl, auch ohne Bezug zur Strategie."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Eine Kennzahl ist hilfreich, wenn sie eine geschäftliche Frage beantwortet."
+          }
+        ]
+      }
+    }
+  ]
+}
