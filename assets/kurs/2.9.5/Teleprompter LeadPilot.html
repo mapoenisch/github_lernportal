@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teleprompter LeadPilot</title>
+<style>
+  :root {
+    --bg: #0B1F1D;
+    --text: #F2F4F4;
+    --muted: #7F9692;
+    --line: #FF7A3D;
+    --patrick: #2DD4BF;
+    --andre: #FF7A3D;
+    --marc: #8AB4FF;
+    --bar: rgba(11, 31, 29, 0.92);
+    --font: 54px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--text); overflow: hidden;
+    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; }
+
+  #viewport { position: fixed; inset: 0; overflow: hidden; }
+  #scroller { position: absolute; left: 0; right: 0; top: 0; will-change: transform; }
+  #content { max-width: 1100px; margin: 0 auto; padding: 0 48px; font-size: var(--font); line-height: 1.45; }
+  #viewport.mirror #content { transform: scaleX(-1); }
+
+  .pad-top { height: 38vh; }
+  .pad-bottom { height: 70vh; }
+
+  .slide { margin-top: 1.6em; padding-top: .6em; border-top: 2px solid #1E3B37; }
+  .slide h2 { font-size: .55em; font-weight: 700; letter-spacing: .04em; color: var(--muted); margin: 0; }
+  .slide .phase { font-size: .42em; color: var(--muted); text-transform: uppercase; letter-spacing: .14em; margin: .3em 0 .2em; }
+
+  .say { margin: .7em 0; }
+  .who { display: block; font-size: .5em; font-weight: 800; letter-spacing: .12em; margin-bottom: .1em; }
+  .say.patrick .who { color: var(--patrick); }
+  .say.andre .who { color: var(--andre); }
+  .say.marc .who { color: var(--marc); }
+  .say.patrick { border-left: 6px solid var(--patrick); padding-left: .4em; }
+  .say.andre { border-left: 6px solid var(--andre); padding-left: .4em; }
+  .say.marc { border-left: 6px solid var(--marc); padding-left: .4em; }
+
+  .dir { color: var(--muted); font-style: italic; font-size: .7em; }
+  .handover { font-size: .45em; color: var(--muted); margin: .4em 0 0; padding: .4em .6em; background: #12302C; border-radius: 6px; }
+
+  /* Leselinie */
+  #marker { position: fixed; left: 0; right: 0; top: 38vh; height: 0; pointer-events: none; z-index: 5; }
+  #marker::before, #marker::after { content: ""; position: absolute; top: -14px; border: 14px solid transparent; }
+  #marker::before { left: 6px; border-left-color: var(--line); }
+  #marker::after { right: 6px; border-right-color: var(--line); }
+  #shade-top { position: fixed; left: 0; right: 0; top: 0; height: 22vh; pointer-events: none; z-index: 4;
+    background: linear-gradient(var(--bg), transparent); }
+
+  /* Steuerleiste */
+  #bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; background: var(--bar);
+    border-top: 1px solid #1E3B37; padding: 10px 16px; display: flex; flex-wrap: wrap; gap: 10px 18px;
+    align-items: center; font-size: 14px; transition: opacity .4s; }
+  body.playing.idle #bar { opacity: 0; }
+  #bar button { background: #12302C; color: var(--text); border: 1px solid #2A4A45; border-radius: 6px;
+    padding: 7px 12px; font-size: 14px; cursor: pointer; }
+  #bar button:hover { border-color: var(--patrick); }
+  #play { min-width: 92px; font-weight: 700; }
+  #bar label { display: flex; align-items: center; gap: 8px; color: var(--muted); }
+  #bar input[type=range] { width: 120px; }
+  #bar .val { color: var(--text); min-width: 52px; font-variant-numeric: tabular-nums; }
+  #status { margin-left: auto; color: var(--muted); font-variant-numeric: tabular-nums; }
+  #status b { color: var(--text); }
+  #help { color: var(--muted); font-size: 12px; width: 100%; }
+
+  /* Editor */
+  #editor { position: fixed; inset: 0; z-index: 20; background: var(--bg); display: none; flex-direction: column; padding: 16px; gap: 10px; }
+  #editor.open { display: flex; }
+  #editor textarea { flex: 1; width: 100%; max-width: 1100px; margin: 0 auto; background: #0F2926; color: var(--text);
+    border: 1px solid #2A4A45; border-radius: 8px; padding: 16px; font: 16px/1.55 ui-monospace, Menlo, monospace; resize: none; }
+  #editor .row { max-width: 1100px; width: 100%; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  #editor .row button { background: #12302C; color: var(--text); border: 1px solid #2A4A45; border-radius: 6px; padding: 8px 14px; font-size: 14px; cursor: pointer; }
+  #editor .row button.primary { background: var(--patrick); color: #06201C; border-color: var(--patrick); font-weight: 700; }
+  #editor .hint { color: var(--muted); font-size: 13px; line-height: 1.5; max-width: 1100px; margin: 0 auto; width: 100%; }
+
+  @media (max-width: 700px) {
+    #content { padding: 0 16px; }
+    #help { display: none; }
+  }
+</style>
+</head>
+<body>
+<div id="viewport">
+  <div id="scroller"><div id="content"></div></div>
+</div>
+<div id="shade-top"></div>
+<div id="marker"></div>
+
+<div id="bar">
+  <button id="play">▶ Start</button>
+  <button id="prev" title="Vorherige Folie">◀ Folie</button>
+  <button id="next" title="Nächste Folie">Folie ▶</button>
+  <button id="reset" title="Zum Anfang">⟲ Anfang</button>
+  <label>Tempo <input id="speed" type="range" min="60" max="220" step="5" value="130"><span class="val" id="speedVal"></span></label>
+  <label>Schrift <input id="size" type="range" min="28" max="110" step="2" value="54"><span class="val" id="sizeVal"></span></label>
+  <button id="edit" title="Text bearbeiten">✎ Text bearbeiten</button>
+  <button id="mirror" title="Spiegeln für Teleprompter-Glas">Spiegeln</button>
+  <button id="full">Vollbild</button>
+  <span id="status">Folie <b id="slideNo">1</b> / 11 · <b id="clock">0:00</b></span>
+  <div id="help">Leertaste: Start/Pause · ↑ ↓: Tempo · ← →: Folie zurück/vor · + −: Schrift · Mausrad: manuell scrollen · M: spiegeln · F: Vollbild · R: Anfang</div>
+</div>
+
+<div id="editor">
+  <div class="hint">
+    Format: Eine Zeile pro Absatz. <b>Folie 3: Titel (Sprecher, 1:39)</b> startet eine Folie, danach z. B. <b>PATRICK:</b> / <b>ANDRÉ:</b> / <b>MARC:</b> für Redebeiträge.
+    Regieanweisungen in <b>[eckigen Klammern]</b> werden grau angezeigt und nicht mitgezählt. Zeilen mit <b>Übergabe:</b> erscheinen als Kasten.
+  </div>
+  <textarea id="editorText" spellcheck="true" lang="de"></textarea>
+  <div class="row">
+    <button class="primary" id="editApply">Übernehmen</button>
+    <button id="editCancel">Abbrechen</button>
+    <button id="editExport">Als .txt sichern</button>
+    <button id="editReset">Zurück zum Originaltext</button>
+  </div>
+</div>
+
+<script id="script" type="text/plain">
+Folie 1: Messekontakt rein. Nächster Schritt klar. (Patrick / Marc / André, 1:15)
+S – Situation
+PATRICK:  [Blick zur Jury, ruhig starten] Stellen Sie sich einen Montagmorgen vor. [Pause] Die Messe ist vorbei. Auf dem Tisch liegen sechzig neue Kontakte. Visitenkarten, Notizen, ein paar Fotos vom Stand. [Pause] Sechs Wochen später hat ein Drittel davon noch keinen Anruf bekommen. [betonen] Nicht, weil jemand faul war. Sondern weil sich niemand zuständig gefühlt hat. [Pause] Genau dafür gibt es LeadPilot. Messekontakt rein. Nächster Schritt klar. Ich bin Patrick, Chief Revenue Officer bei LeadPilot. Ich verantworte Umsatz und Abschluss.
+ANDRÉ:  Ich bin André, Head of Business Development. Ich sorge dafür, dass die richtigen Kunden uns überhaupt finden. Was Patrick gerade beschrieben hat, passiert in vielen mittelständischen Vertriebsteams nach jeder Messe. Wir erzählen es Ihnen heute an einem konkreten Beispiel.
+MARC:  Und ich bin Marc, CTO. Ich zeige Ihnen, wie LeadPilot technisch funktioniert und was die Zahlen sagen. In den nächsten vierzehn Minuten geht es um drei Dinge: das Problem, unsere Lösung und wie wir unsere Kunden gewinnen. Ganz offen vorweg: LeadPilot ist ein fiktives Produktkonzept. Unsere Zahlen sind Szenarien. [betonen] Aber sie gehen auf. [Folienwechsel durch Marc]
+Übergabe: MARC → ANDRÉ: „Aber sie gehen auf.“ André startet mit „Das ist Jens Hartwig.“
+Folie 2: Jens Hartwig fehlt der Überblick nach der Messe (André / Patrick, 1:21)
+S – Situation
+ANDRÉ:  [auf das Foto zeigen, dann Blick zur Jury] Das ist Jens Hartwig. Er ist 47 und Vertriebsleiter bei der Weidner Antriebstechnik, einem Maschinenbau-Zulieferer bei Stuttgart. 85 Mitarbeitende, sieben davon im Vertrieb: fünf im Außendienst, zwei im Innendienst. [Pause] Jeden Freitag liefert er der Geschäftsführung den Forecast. Sein Ziel: fünfzehn Prozent mehr Umsatz. [betonen] Ohne zusätzliche Stelle. Seine Woche ist voll: Außendienst steuern, Zahlen zusammentragen, Kunden betreuen. Drei Dinge rauben ihm die Nerven. Messe-Leads versanden. Der Forecast kostet ihn Zeit. Und sein Team meidet das CRM. Er steht unter Druck. Und er ist skeptisch, denn das letzte CRM hat sein Team kaum benutzt. Hartwig steht für unser Zielkundenprofil: industrielle Zulieferer im Maschinenbau, DACH-Region, 20 bis 100 Mitarbeitende, mit eigener Vertriebsstruktur.
+PATRICK:  [Einwurf] Und wie beschreibt er sein Problem selbst?
+ANDRÉ:  [Zitat, langsam] „Leads haben wir genug. Mein Problem ist, dass ich erst sechs Wochen nach der Messe merke, wie viele tatsächlich kontaktiert wurden.“
+PATRICK:  [Pause] Sechs Wochen. An dieser Zahl hängt alles. Im Vertrieb sind sechs Wochen eine Ewigkeit. Nach so langer Zeit erinnert sich kaum ein Interessent noch an das Gespräch am Stand. Schauen wir uns an, was in diesen sechs Wochen passiert. [Folienwechsel durch Marc]
+Übergabe: PATRICK behält das Wort: „… was in diesen sechs Wochen passiert.“
+Folie 3: Nach der Messe zerfällt die Liste in Excel, Postfächer und Notizzettel (Patrick / Marc, 1:39)
+C – Complication
+PATRICK:  Nach der Messe zerfällt die Liste. Ein Teil landet in Excel, ein Teil in den Postfächern, der Rest auf Notizzetteln. Eine Visitenkarte liegt im Kofferraum. Eine Notiz steckt im falschen Postfach. Ein Kollege ist im Urlaub. Jeder Einzelne denkt: Darum kümmert sich bestimmt jemand anderes. [Pause] Das Ergebnis: Von 60 Messeanfragen haben 20 nach sechs Wochen noch keinen Anruf bekommen. [betonen] Zwanzig Menschen, die freiwillig an den Stand gekommen sind. Daraus entstehen drei Probleme. Erstens: Niemand weiß genau, wer zuständig ist. Zweitens: Der Forecast kostet jeden Freitag drei Stunden Sucharbeit. Drittens: Das Team ist skeptisch. Noch ein Fehlstart, und das Vertrauen ist weg. [Pause] Marc, was heißt das in Euro?
+MARC:  Wir haben es durchgerechnet. Hartwig ist auf drei Messen im Jahr. Pro Messe bleiben 20 Kontakte ohne Anruf. Das sind 60 offene Kontakte im Jahr. Bei 25 Prozent Abschlusschance und 10.000 Euro Auftragswert [Pause] bleiben rund 150.000 Euro Umsatz pro Jahr liegen. [betonen] Das ist ein Potenzial, kein nachgewiesener Verlust. Aber die Größenordnung ist klar: Das ist kein Kleinkram. Dazu kommt der Forecast. Weil niemand den Stand der Kontakte kennt, ist heute etwa die Hälfte davon geschätzt.
+PATRICK:  [Blick zur Jury] Und das Geld ist nicht einmal der größte Schmerz. Hartwig muss der Geschäftsführung erklären, warum aus der Messe so wenig wird. [langsam] Auf dem Spiel steht seine Glaubwürdigkeit. [Pause] André, was braucht er also?
+Übergabe: PATRICK → ANDRÉ: „André, was braucht er also?“ [Folienwechsel durch Marc]
+Folie 4: Kein Messe-Lead geht mehr verloren … (André / Marc, 1:26)
+R – Resolution
+ANDRÉ:  Stellen Sie sich vor, Sie sind Jens Hartwig. [Pause] Kein Messe-Lead geht mehr verloren. Ihr Forecast ist freitags fertig. Und Ihr Team arbeitet diesmal wirklich damit. [Pause] Das ist unser Versprechen. Dahinter stehen drei Nutzen. Erstens Sicherheit: Jeder Kontakt bekommt automatisch einen Verantwortlichen und einen nächsten Schritt. Zweitens Überblick: Pipeline und Forecast liegen live vor, statt drei Stunden Zahlensuche am Freitag. Drittens Einfachheit: schlank, in Stunden startklar. [betonen] Kein zweites Salesforce. [Pause] Für Hartwig heißt das: Am Montag nach der Messe ist jeder Kontakt schon verteilt. Und am Freitag muss er keine Zahlen mehr zusammensuchen. Marc, wie läuft das konkret ab?
+MARC:  In zwei Schritten. Erstens: Am Stand erfasst die App LeadPilot Expo den Kontakt. Direkt, solange das Gespräch noch frisch ist. Zweitens: LeadPilot vergibt einen Verantwortlichen und eine fällige Aufgabe. Weil alle Kontakte und Aufgaben an einem Ort liegen, sind Pipeline und Forecast jederzeit aktuell. Niemand muss sie mehr aus Listen zusammenbauen. [Pause] Technisch ist LeadPilot ein schlankes CRM, gebaut für Messe-Leads. Kein großes System, das man monatelang einführen muss. Für Hartwig ist das entscheidend. Sein Team hat so ein großes System schon einmal liegen lassen. [Pause] Bleibt die Frage: Was kostet das? [Folienwechsel durch Marc]
+Übergabe: MARC behält das Wort: „Was kostet das?“
+Folie 5: Ab 49 € pro Nutzer und Monat, monatlich kündbar (Patrick / Marc, 0:42)
+R – Resolution
+MARC:  Ab 49 Euro pro Nutzer und Monat, monatlich kündbar. Das Starter-Paket deckt Kontakte, Aufgaben und Pipeline ab. Growth kostet 89 Euro und bringt KI-Scoring, Automatisierungen und Reporting dazu. Für Hartwigs sieben Nutzer heißt das: 343 Euro im Monat mit Starter, 623 Euro mit Growth.
+PATRICK:  Zum Vergleich: Auf der Problemfolie standen rund 150.000 Euro im Jahr, die liegen bleiben. Die Expo-App ist ohne Aufpreis dabei. Und es gibt vierzehn Tage Testphase. [betonen] Hartwig muss uns also nicht glauben. Er kann es prüfen. [Pause] André, warum sollte er das bei uns tun und nicht woanders?
+Übergabe: PATRICK → ANDRÉ: „… und nicht woanders?“ [Folienwechsel durch Marc]
+Folie 6: Warum wir: ein durchgängiger Ablauf (André / Marc, 1:12)
+R – Resolution
+ANDRÉ:  Weil jede Alternative nur ein Stück löst. Excel und E-Mail sind vertraut und schnell. Aber niemand sieht, wer zuständig ist und was fällig ist. Ein Scan-Tool erfasst Kontakte. Die Übergabe an den Vertrieb muss man trotzdem selbst organisieren. Und das alte CRM wiederbeleben? Dann müsste Hartwig erst klären, warum es keiner genutzt hat. [Pause] [betonen] Unser Unterschied ist ein durchgängiger Ablauf. Vom Messekontakt bis zur fälligen Aufgabe, mit einem klaren Verantwortlichen. Für Hartwig zählt nicht, wer die meisten Funktionen hat. Für ihn zählt, dass nach der Messe nichts mehr durchrutscht. Marc, woran sieht man, dass das funktioniert?
+MARC:  An drei Zahlen aus unserem Q3-Szenario. Sechzehn zahlende Neukunden. Sechs Tage, bis ein neuer Kunde den ersten Nutzen hat. Und 44 Prozent unserer Angebote werden zu Abschlüssen. [Pause] Die sechs Tage sind uns besonders wichtig. Ein skeptisches Team muss schnell sehen, dass sich der Aufwand lohnt. Sonst passiert dasselbe wie beim alten CRM. Wie wir diese Kunden gewinnen, zeigt André jetzt. [Folienwechsel durch Marc]
+Übergabe: MARC → ANDRÉ: „… zeigt André jetzt.“
+Folie 7: Drei Inhalte begleiten Jens Hartwig zur Entscheidung (André / Patrick, 1:11)
+R2 – Vertriebsstrategie
+ANDRÉ:  Hartwig hat wenig Zeit und wenig Lust auf Verkäufer. Deshalb gehen wir in drei Schritten vor: erst das Problem spürbar machen, dann den Weg zeigen, dann den Beweis anbieten. [Pause] Für Awareness eine LinkedIn-Infografik: „Messe vorbei. Wer ruft jetzt an?“ Mit drei Prüffragen, die er sofort auf seine eigene Liste anwenden kann. Für Consideration eine Workflow-Grafik auf Website und LinkedIn. Vier Schritte, vom Erfassen bis zum Nachfassen. Und für Decision ein Demo-Angebot auf der Landingpage: „Ihre Messe-Liste. 30 Minuten Klarheit.“ [Pause] Warum genau diese drei? Die Infografik trifft ihn, weil er sich in den Fragen wiedererkennt. Die Workflow-Grafik zeigt ihm, dass die Lösung einfach ist. Und das Demo-Angebot nimmt ihm die letzte Unsicherheit, weil er seine eigenen Daten sieht und keine Musterfolien.
+PATRICK:  [Einwurf] Das heißt: Bevor ich ihn anrufe, hat er schon dreimal etwas Nützliches von uns gesehen. Er kennt unsere Sprache, bevor er meine Stimme hört.
+ANDRÉ:  Genau. Und genau dann bist du dran.
+PATRICK:  Dann übernehme ich. [Folienwechsel durch Marc]
+Übergabe: ANDRÉ → PATRICK: „Und genau dann bist du dran.“
+Folie 8: Vier Kontaktversuche in zwölf Tagen (Patrick / Marc, 1:35)
+R2 – Vertriebsstrategie
+PATRICK:  Unser Weg zu Hartwig ist ein Outbound-Mix: vier Kontaktversuche in zwölf Tagen, über drei Kanäle. Jeder hat eine Aufgabe. Die E-Mail liefert den Inhalt. LinkedIn macht aus einem Absender einen Menschen. Und das Telefon klärt in einer Minute, wer zuständig ist. [Pause] An Tag eins eine E-Mail. Wir greifen seine Messevorbereitung auf und bieten eine Demo mit seiner eigenen Liste an. Zum Beispiel so: [Zitat, langsam] „Herr Hartwig, wie viele Ihrer Messekontakte haben heute schon einen nächsten Schritt? In 30 Minuten zeigen wir es Ihnen mit Ihrer eigenen Liste.“ [Pause] An Tag vier eine persönliche Vernetzungsanfrage auf LinkedIn. An Tag acht ein Anruf mit genau einer Frage: Wer ist zuständig? An Tag zwölf eine letzte E-Mail mit den drei Prüffragen als Mehrwert. [betonen] Danach ist Schluss. Antwort, Buchung oder Absage beenden die Folge sofort. Wir nerven nicht. Marc, wie messt ihr, ob das wirkt?
+MARC:  Über die Antwortquote, also Antworten geteilt durch angeschriebene Kontakte. Unser Ziel sind 15 Prozent, im Q3-Szenario liegen wir bei 17. Gemessen wird im CRM. LinkedIn und Telefon sind manuelle Aufgaben, und jeder Versuch wird dort dokumentiert. So sehen wir, welcher Kanal Antworten bringt. Ein Kanal, der dauerhaft keine Antworten bringt, wird angepasst oder gestrichen. Wir entscheiden nach Daten, nicht nach Gefühl. [Pause] Und aus Antworten werden Leads. [Folienwechsel durch Marc]
+Andre: MARC zeig uns mal einem Beispiel wie das aussieht.
+Folie 9: Vom Lead zum Neukunden: zwei Übergaben (Marc / André, 1:31)
+R2 – Vertriebsstrategie
+MARC:  Hier sehen Sie unseren Funnel im dritten Quartal. Oben 650 Leads, unten 16 Neukunden. [Pause] Wichtig sind die zwei orangen Stufen. Das sind die Übergaben zwischen Marketing und Vertrieb. Ein Lead wird zum MQL, wenn er im ICP-Score 80 Punkte erreicht. Dann meldet sich der Vertrieb innerhalb von 24 Stunden. Das sind 210 Leads, also 32 Prozent. Zum SQL wird er nach der Demo. Das sind 75. [Pause] Von diesen 75 starten 58 den Teamtest über vierzehn Tage. Nach einem erfolgreichen Test folgen 36 Angebote. Und daraus werden 16 Neukunden. [Pause] Übrigens: Diesen Ablauf nutzen wir selbst. Wir verkaufen Hartwig nichts, was wir nicht selbst jeden Tag einsetzen. Wie kann sieht das konkret aus?
+ANDRÉ:  Ganz am Anfang steht die Priorisierung. Jeder Lead bekommt hoch, mittel oder niedrig. [betonen] So bekommt ein Vertriebsleiter wie Hartwig sofort Aufmerksamkeit, und ein loser Kontakt wartet. Die zweite wichtige Übergabe ist die Demo. Dort entscheidet sich, ob aus Interesse ein echtes Gespräch wird. Und genau diese Übergaben braucht Hartwig auch in seinem eigenen Team: vom Messestand zum Außendienst, vom Gespräch zur Aufgabe. Content und Outreach sorgen dafür, dass oben genug hineinkommt. Der Funnel sorgt dafür, dass unten nichts verloren geht. [Pause] Also genau das, was wir Hartwig versprechen. Marc, welche Zahl entscheidet am Ende?
+Übergabe: ANDRÉ → MARC: „Welche Zahl entscheidet am Ende?“ [Folienwechsel durch Marc]
+Folie 10: Entscheidend ist die Abschlussrate (Marc / Patrick, 1:13)
+R2 – Vertriebsstrategie
+MARC:  Die Abschlussrate. [Pause] 44 Prozent. Sechzehn von 36 Angeboten werden zu Neukunden. Warum gerade diese Zahl und nicht die Zahl der Leads? Weil Leads allein nichts bezahlen. Erst hier zeigt sich, ob Demo, Teamtest und Angebot zusammen tragen. Daneben beobachten wir vier weitere Werte. Trial-to-Paid liegt bei 27,59 Prozent, das sind 16 Kunden aus 58 Tests. Die Marketingkosten pro Neukunde liegen bei 687,50 Euro, unter dem Ziel von 720 Euro. Die monatliche Kündigungsquote liegt bei 1,45 Prozent. Und neue Kunden haben nach sechs Tagen den ersten Nutzen. [Pause] [Blick zur Jury] Ehrlich gesagt: Die Abschlussrate ist von Q2 auf Q3 leicht gesunken, von 47,1 auf 44,4 Prozent. Genau deshalb steht diese Zahl im Mittelpunkt.
+PATRICK:  Für den Vertrieb heißt das: Der Teamtest ist unser stärkstes Argument. Wer zwei Wochen mit seiner eigenen Liste arbeitet, entscheidet aus Erfahrung, nicht aus einem Versprechen heraus. Und unsere Kosten pro Neukunde liegen unter Plan. Wir gewinnen Kunden also nicht teuer, sondern gezielt. [Pause] Und damit sind wir bei Ihnen. [Folienwechsel durch Marc]
+Übergabe: PATRICK behält das Wort: „Und damit sind wir bei Ihnen.“
+Folie 11: Liste mitbringen, Demo sehen, 14 Tage testen: so gewinnen wir Kunden (Patrick / Marc / André, 0:58)
+CTA – Call to Action
+PATRICK:  [Blick zur Jury, langsamer werden] Erinnern Sie sich an den Montagmorgen mit den sechzig Kontakten? [Pause] Um Kunden wie Jens Hartwig zu überzeugen und im Vertriebsfunnel voranzubringen, ist der Demo-Termin unser Mittel der Wahl. Hartwig bringt seine eigene Messe-Liste mit, eine Excel-Datei genügt. In dreißig Minuten zeigen wir ihm live, welche Kontakte noch ohne nächsten Schritt sind. Keine Musterdaten, sondern seine eigenen. Danach testet sein Team vierzehn Tage, ohne Aufpreis und monatlich kündbar. [Pause] [betonen] Deshalb hat jeder Erstkontakt genau ein Ziel: die Demo. Denn mit ihr wird aus einem Lead ein SQL.
+ANDRÉ:  Drei Schritte also: Liste mitbringen, Demo ansehen, im Team testen. Denn Leads hat Hartwig genug.
+MARC:  Was ihm fehlt, ist der nächste Schritt. Und den richten wir am selben Tag für ihn ein.
+PATRICK:  [langsam, betonen] Messekontakt rein. Nächster Schritt klar. [Pause, lächeln] Vielen Dank. Wir freuen uns auf Ihre Fragen.
+Übergabe: Ende: Patrick schließt, alle drei bleiben im Bild. Q&A beginnt.
+</script>
+
+<script>
+(function () {
+  const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  const fmt = s => esc(s).replace(/\[([^\]]+)\]/g, '<span class="dir">[$1]</span>');
+  const speakerClass = n => {
+    const k = n.toLowerCase().replace("é", "e");
+    return k.startsWith("patrick") ? "patrick" : k.startsWith("andre") ? "andre" : k.startsWith("marc") ? "marc" : "";
+  };
+
+  // Skript parsen
+  const content = document.getElementById("content");
+  const DEFAULT_TEXT = document.getElementById("script").textContent.trim();
+  let words = 0;
+  function build(text) {
+  let html = '<div class="pad-top"></div>', slide = null;
+  words = 0;
+  text.trim().split("\n").forEach(raw => {
+    const line = raw.trim();
+    if (!line) return;
+    let m;
+    if ((m = line.match(/^Folie\s+(\d+):\s*(.*)$/))) {
+      if (slide) html += "</section>";
+      html += `<section class="slide" data-slide="${m[1]}"><h2>Folie ${m[1]} · ${esc(m[2])}</h2>`;
+      slide = m[1];
+    } else if (/^[SCR]2?\s+–|^CTA\s+–/.test(line)) {
+      html += `<div class="phase">${esc(line)}</div>`;
+    } else if ((m = line.match(/^Übergabe:\s*(.*)$/))) {
+      html += `<div class="handover">↪ Übergabe: ${fmt(m[1])}</div>`;
+    } else if ((m = line.match(/^(PATRICK|ANDRÉ|ANDRE|MARC)\s*:\s*(.*)$/i))) {
+      const cls = speakerClass(m[1]);
+      words += m[2].replace(/\[[^\]]*\]/g, "").split(/\s+/).filter(Boolean).length;
+      html += `<div class="say ${cls}"><span class="who">${esc(m[1].toUpperCase().replace("ANDRE", "ANDRÉ"))}</span>${fmt(m[2])}</div>`;
+    } else {
+      html += `<p>${fmt(line)}</p>`;
+    }
+  });
+  html += (slide ? "</section>" : "") + '<div class="pad-bottom"></div>';
+  content.innerHTML = html;
+  }
+
+  // Zustand
+  const root = document.documentElement, body = document.body;
+  const scroller = document.getElementById("scroller"), viewport = document.getElementById("viewport");
+  const speed = document.getElementById("speed"), size = document.getElementById("size");
+  const playBtn = document.getElementById("play");
+  let pos = 0, playing = false, last = 0, elapsed = 0;
+
+  const store = (k, v) => { try { localStorage.setItem("tp_" + k, v); } catch (e) {} };
+  const load = k => { try { return localStorage.getItem("tp_" + k); } catch (e) { return null; } };
+  if (load("speed")) speed.value = load("speed");
+  if (load("size")) size.value = load("size");
+  if (load("mirror") === "1") viewport.classList.add("mirror");
+
+  const markerY = () => window.innerHeight * 0.38;
+  const maxPos = () => Math.max(0, scroller.offsetHeight - markerY() - 40);
+  const textHeight = () => {
+    const top = content.querySelector(".pad-top"), pads = content.querySelector(".pad-bottom");
+    return pads.offsetTop - top.offsetHeight;
+  };
+  // Pixel pro Sekunde aus Wörtern pro Minute ableiten
+  const pxPerSec = () => (textHeight() / Math.max(1, words)) * (speed.value / 60);
+
+  function render() {
+    pos = Math.min(Math.max(0, pos), maxPos());
+    scroller.style.transform = `translateY(${-pos}px)`;
+    // aktuelle Folie bestimmen
+    let cur = 1;
+    content.querySelectorAll(".slide").forEach(s => { if (s.offsetTop - markerY() <= pos + 2) cur = +s.dataset.slide; });
+    document.getElementById("slideNo").textContent = cur;
+    const t = Math.floor(elapsed);
+    document.getElementById("clock").textContent = Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0");
+  }
+
+  function frame(ts) {
+    if (!playing) return;
+    const dt = last ? (ts - last) / 1000 : 0;
+    last = ts;
+    pos += pxPerSec() * dt;
+    elapsed += dt;
+    if (pos >= maxPos()) setPlaying(false);
+    render();
+    requestAnimationFrame(frame);
+  }
+
+  function setPlaying(on) {
+    playing = on;
+    body.classList.toggle("playing", on);
+    playBtn.textContent = on ? "❚❚ Pause" : "▶ Start";
+    if (on) { last = 0; requestAnimationFrame(frame); }
+  }
+
+  function jump(dir) {
+    const slides = [...content.querySelectorAll(".slide")].map(s => s.offsetTop - markerY());
+    if (dir > 0) { const n = slides.find(y => y > pos + 5); if (n !== undefined) pos = n; }
+    else { const p = slides.filter(y => y < pos - 5).pop(); pos = p !== undefined ? p : 0; }
+    render();
+  }
+
+  function updateLabels() {
+    document.getElementById("speedVal").textContent = speed.value + " W/min";
+    document.getElementById("sizeVal").textContent = size.value + " px";
+  }
+  function setSize(v) {
+    const ratio = pos / Math.max(1, scroller.offsetHeight);
+    size.value = Math.min(110, Math.max(28, v));
+    root.style.setProperty("--font", size.value + "px");
+    pos = ratio * scroller.offsetHeight; // Leseposition beim Umskalieren halten
+    store("size", size.value); updateLabels(); render();
+  }
+  function setSpeed(v) { speed.value = Math.min(220, Math.max(60, v)); store("speed", speed.value); updateLabels(); }
+  function toggleMirror() { viewport.classList.toggle("mirror"); store("mirror", viewport.classList.contains("mirror") ? "1" : "0"); }
+  function toggleFull() {
+    if (!document.fullscreenElement) document.documentElement.requestFullscreen?.(); else document.exitFullscreen?.();
+  }
+  function reset() { pos = 0; elapsed = 0; setPlaying(false); render(); }
+
+  playBtn.onclick = () => setPlaying(!playing);
+  document.getElementById("prev").onclick = () => jump(-1);
+  document.getElementById("next").onclick = () => jump(1);
+  document.getElementById("reset").onclick = reset;
+  document.getElementById("mirror").onclick = toggleMirror;
+  document.getElementById("full").onclick = toggleFull;
+  speed.oninput = () => setSpeed(+speed.value);
+  size.oninput = () => setSize(+size.value);
+
+  // Editor
+  const editor = document.getElementById("editor"), editorText = document.getElementById("editorText");
+  const currentText = () => load("text") || DEFAULT_TEXT;
+  function openEditor() { setPlaying(false); editorText.value = currentText(); editor.classList.add("open"); editorText.focus(); }
+  function closeEditor() { editor.classList.remove("open"); }
+  document.getElementById("edit").onclick = openEditor;
+  document.getElementById("editCancel").onclick = closeEditor;
+  document.getElementById("editApply").onclick = () => {
+    const t = editorText.value.trim();
+    if (!t) return;
+    store("text", t); build(t); pos = 0; elapsed = 0; render(); closeEditor();
+  };
+  document.getElementById("editReset").onclick = () => {
+    if (!confirm("Alle Änderungen verwerfen und den Originaltext laden?")) return;
+    try { localStorage.removeItem("tp_text"); } catch (e) {}
+    editorText.value = DEFAULT_TEXT;
+  };
+  document.getElementById("editExport").onclick = () => {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([editorText.value], { type: "text/plain;charset=utf-8" }));
+    a.download = "Teleprompter-Text.txt"; a.click(); URL.revokeObjectURL(a.href);
+  };
+
+  document.addEventListener("keydown", e => {
+    if (e.target.tagName === "TEXTAREA") { if (e.key === "Escape") closeEditor(); return; }
+    if (e.target.tagName === "INPUT" && e.key !== " ") return;
+    switch (e.key) {
+      case " ": e.preventDefault(); setPlaying(!playing); break;
+      case "ArrowUp": e.preventDefault(); setSpeed(+speed.value + 5); break;
+      case "ArrowDown": e.preventDefault(); setSpeed(+speed.value - 5); break;
+      case "ArrowRight": case "PageDown": e.preventDefault(); jump(1); break;
+      case "ArrowLeft": case "PageUp": e.preventDefault(); jump(-1); break;
+      case "+": case "=": setSize(+size.value + 4); break;
+      case "-": setSize(+size.value - 4); break;
+      case "m": case "M": toggleMirror(); break;
+      case "f": case "F": toggleFull(); break;
+      case "r": case "R": reset(); break;
+    }
+  });
+  viewport.addEventListener("wheel", e => { e.preventDefault(); pos += e.deltaY; render(); }, { passive: false });
+  viewport.addEventListener("click", () => setPlaying(!playing));
+
+  // Steuerleiste beim Abspielen ausblenden, bei Mausbewegung zeigen
+  let idleTimer;
+  const wake = () => { body.classList.remove("idle"); clearTimeout(idleTimer); idleTimer = setTimeout(() => body.classList.add("idle"), 2500); };
+  document.addEventListener("mousemove", wake);
+  window.addEventListener("resize", render);
+
+  build(currentText());
+  root.style.setProperty("--font", size.value + "px");
+  updateLabels(); render(); wake();
+})();
+</script>
+</body>
+</html>
