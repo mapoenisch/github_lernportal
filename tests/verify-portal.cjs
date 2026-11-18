@@ -90,6 +90,12 @@ function check(doc, quiz, label) {
   }
   const compact = portal.CONTENT.kompakt;
   const styledCompact = portal.styleLesson(compact, '#E4694B');
+  const comparison = compact.sections.find(section => section.pill === '13 · Frameworks im Überblick');
+  const table = portal.styleBlock(comparison.blocks.find(block => block.t === 'table'), '#E4694B');
+  for (const {style} of [...table.head, ...table.rows.flatMap(row => row.cells)]) {
+    assert.equal(style.minWidth, 0, 'Tabellenspalten dürfen durch lange Wörter nicht breiter werden');
+    assert.equal(style.overflowWrap, 'anywhere', 'Lange Begriffe müssen in der Spalte umbrechen können');
+  }
   assert.equal(compact.sections.length, 18);
   assert.ok(compact.hero.chips.includes('17 Abschnitte + Glossar'));
   assert.equal(portal.COMPACT.length, compact.sections.length);
