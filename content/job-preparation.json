@@ -1,0 +1,4303 @@
+{
+  "groups": {
+    "4.1": "Lebenslauf & Sales-Karriere",
+    "4.2": "Sales-Interview",
+    "4.3": "Abschluss"
+  },
+  "lessons": [
+    {
+      "id": "4.1.1",
+      "title": "CV-Basics und Aufbau",
+      "hero": {
+        "eyebrow": "Kapitel 4.1.1 · Lektion 1",
+        "title": "CV-Basics und Aufbau",
+        "desc": "Baue deinen Lebenslauf so auf, dass Recruiter deine aktuelle Tätigkeit und die passenden Erfahrungen schnell finden.",
+        "chips": [
+          "Modul 4 · Lebenslauf & Sales-Karriere",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Der erste Blick",
+          "pill": "01 · Der erste Blick",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Recruiter suchen zunächst Anhaltspunkte für die Passung zur Stelle. Die aktuelle Tätigkeit und relevante Erfahrung sollten auf den ersten Blick erkennbar sein."
+            },
+            {
+              "t": "checklist",
+              "items": [
+                {
+                  "title": "Gegenwart",
+                  "text": "Was machst du aktuell?"
+                },
+                {
+                  "title": "Erfahrung",
+                  "text": "Welche Stationen belegen die Anforderungen?"
+                },
+                {
+                  "title": "Rahmen",
+                  "text": "Sind Aufgaben, Zeiträume und Arbeitgeber schnell zuzuordnen?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Stationen richtig ordnen",
+          "pill": "02 · Stationen richtig ordnen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Sortiere Berufserfahrung und Bildungsstationen innerhalb ihrer Rubriken von der neuesten zur ältesten. Gib Monat und Jahr in einem einheitlichen Format an."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Rubrik",
+                "Typischer Inhalt"
+              ],
+              "rows": [
+                [
+                  "Berufserfahrung",
+                  "Zeitraum, Rolle, Arbeitgeber und ausgewählte Tätigkeiten"
+                ],
+                [
+                  "Ausbildung und Weiterbildung",
+                  "Berufsabschluss, relevante Weiterbildung und Status"
+                ],
+                [
+                  "Zusatzqualifikationen",
+                  "IT, Sprachen und stellenrelevante Zertifikate"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Angaben bewusst auswählen",
+          "pill": "03 · Angaben bewusst auswählen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Name und erreichbare Kontaktdaten gehören in den Kopf. Entscheide bei Foto und weiteren persönlichen Angaben anhand der Bewerbungssituation, was du aufnehmen möchtest."
+            },
+            {
+              "t": "note",
+              "text": "Die Beispielvorlage zeigt eine mögliche Anordnung. Passe Rubriken und Umfang an deinen beruflichen Weg und die Anzeige an."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Lesefluss prüfen",
+          "pill": "04 · Lesefluss prüfen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Verwende kurze Tätigkeitsbeschreibungen, deutliche Überschriften und ausreichend Abstand. Wiederhole den gleichen Aufbau für vergleichbare Stationen."
+            },
+            {
+              "t": "checklist",
+              "items": [
+                {
+                  "title": "Schnelltest",
+                  "text": "Lass jemanden den CV überfliegen. Welche Rolle und welche zwei Stärken bleiben hängen?"
+                },
+                {
+                  "title": "Datei öffnen",
+                  "text": "Prüfe nach dem Export, ob Umbrüche, Kontaktdaten und Zeiträume sauber dargestellt sind."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Der erste Blick",
+                  "text": "Im oberen Teil des CV sollten Zielrichtung und aktuelle Station erkennbar sein."
+                },
+                {
+                  "title": "Stationen richtig ordnen",
+                  "text": "Die jüngste Station steht innerhalb jeder Rubrik zuerst."
+                },
+                {
+                  "title": "Angaben bewusst auswählen",
+                  "text": "Eine klare Kontaktzeile erleichtert Rückfragen."
+                },
+                {
+                  "title": "Lesefluss prüfen",
+                  "text": "Ein Fremdcheck zeigt, ob Gewichtung und Reihenfolge funktionieren."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Einen Basis-CV strukturieren",
+              "goals": [
+                "Sortiere deine Stationen nach Datum.",
+                "Prüfe deine Kontaktdaten und kennzeichne eine laufende Weiterbildung.",
+                "Lass den ersten Eindruck von einer anderen Person testen."
+              ]
+            }
+          ]
+        }
+      ],
+      "materials": [
+        "4.1.1 CV Tag 1 - CV Basics - Musterbeispiel.pdf",
+        "4.1.1 CV Tag 1 - CV Basics - Task Sheet.pdf",
+        "4.1.1 CV Tag 1 - CV Basics- Präsentation.pdf"
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Vier Fragen zu den vier Abschnitten dieser Lektion.",
+        "questions": [
+          {
+            "question": "Welche Information sollte beim ersten Überfliegen auffallen?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Eine vollständige Liste aller Hobbys."
+              },
+              {
+                "id": "B",
+                "text": "Der früheste Schulabschluss."
+              },
+              {
+                "id": "C",
+                "text": "Die Beweggründe hinter jedem Arbeitgeberwechsel."
+              },
+              {
+                "id": "D",
+                "text": "Die aktuelle Tätigkeit und die für die Stelle relevante Erfahrung."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Stell dir vor, jemand gleicht deinen CV mit der Anzeige ab."
+          },
+          {
+            "question": "Wie ordnest du drei Stationen innerhalb der Berufserfahrung?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Mit der neuesten Station beginnend."
+              },
+              {
+                "id": "B",
+                "text": "In der Reihenfolge der Firmennamen."
+              },
+              {
+                "id": "C",
+                "text": "Nach der Länge der Betriebszugehörigkeit."
+              },
+              {
+                "id": "D",
+                "text": "Mit der ersten Ausbildung beginnend."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Die zeitliche Reihenfolge soll den heutigen Stand schnell zeigen."
+          },
+          {
+            "question": "Was gehört in eine verständliche Kontaktzeile?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Die Kontaktdaten deiner bisherigen Führungskräfte."
+              },
+              {
+                "id": "B",
+                "text": "Der Link zu einer internen Projektablage."
+              },
+              {
+                "id": "C",
+                "text": "Dein Name und Kontaktdaten, unter denen du erreichbar bist."
+              },
+              {
+                "id": "D",
+                "text": "Deine persönliche Gehaltsuntergrenze."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Die Angaben sollen eine Einladung ermöglichen."
+          },
+          {
+            "question": "Wie prüfst du, ob dein Layout schnell erfassbar ist?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Du blendest alle Überschriften zur Prüfung aus."
+              },
+              {
+                "id": "B",
+                "text": "Jemand überfliegt den Export und nennt Rolle und relevante Stärken."
+              },
+              {
+                "id": "C",
+                "text": "Du zählst die Zeichen in allen Absätzen."
+              },
+              {
+                "id": "D",
+                "text": "Du sortierst die Bulletpoints nach Länge."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Ein kurzer Fremdblick prüft die Leseprioritäten."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.1.2",
+      "title": "Sales-Karrierepfade zur Orientierung",
+      "hero": {
+        "eyebrow": "Kapitel 4.1.2 · Lektion 2",
+        "title": "Sales-Karrierepfade zur Orientierung",
+        "desc": "Ordne Vertriebsstellen nach Produkt, Kundschaft und Verkaufsart ein und entwickle eine Hypothese für deinen Einstieg.",
+        "chips": [
+          "Modul 4 · Lebenslauf & Sales-Karriere",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Was den Vertriebsalltag prägt",
+          "pill": "01 · Was den Vertriebsalltag prägt",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Die gleiche Stellenbezeichnung kann für sehr verschiedene Aufgaben stehen. Produktkomplexität, Verkaufszyklus, Kundengröße und Anzahl der Beteiligten verraten mehr über den Alltag."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Einfacher Kauf",
+                  "text": "Ein überschaubares Produkt und wenige Entscheider erlauben oft kurze Gespräche."
+                },
+                {
+                  "title": "Komplexer Kauf",
+                  "text": "Bei mehreren Beteiligten brauchst du Zeit für Bedarf, Nutzen und interne Abstimmung."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Die vier Sales-Achsen",
+          "pill": "02 · Die vier Sales-Achsen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Ordne ein Angebot auf vier voneinander unabhängigen Achsen ein. Ein Startup kann zum Beispiel mit Enterprise-Kunden arbeiten und vor allem Inbound-Anfragen erhalten."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Achse",
+                "Worauf du achtest"
+              ],
+              "rows": [
+                [
+                  "Startup und Corporate",
+                  "Aufgabenbreite, Prozessreife und Abstimmung"
+                ],
+                [
+                  "SMB und Enterprise",
+                  "Kundengröße, Entscheidungswege und Deal-Zyklus"
+                ],
+                [
+                  "Transaktional und strategisch",
+                  "Taktung, Beratungstiefe und Lösungsumfang"
+                ],
+                [
+                  "Outbound und Inbound",
+                  "Aktive Ansprache oder Bearbeitung eingehender Nachfrage"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Eigene Vorlieben einordnen",
+          "pill": "03 · Eigene Vorlieben einordnen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Hunter-Rollen betonen häufig Neukundengewinnung und Abschlüsse. Farmer-Rollen setzen stärker auf Bestandsbeziehungen und deren Entwicklung. Viele Rollen mischen beides."
+            },
+            {
+              "t": "note",
+              "text": "Erinnere dich an eine Situation mit Ablehnung und eine mit längerfristiger Betreuung. Welche hat dir Energie gegeben und warum?"
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Eine Rollen-Hypothese testen",
+          "pill": "04 · Eine Rollen-Hypothese testen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Kombiniere eine belegte Stärke mit einem gewünschten Lernfeld und einer passenden Umgebung. Prüfe die Hypothese anhand von Stellenbeschreibungen und Gesprächen."
+            },
+            {
+              "t": "flow",
+              "cols": 2,
+              "steps": [
+                {
+                  "num": "01",
+                  "title": "Stärke",
+                  "text": "Nenne ein Beispiel aus deiner Praxis."
+                },
+                {
+                  "num": "02",
+                  "title": "Umfeld",
+                  "text": "Wähle Tempo und Struktur, die zu dir passen."
+                },
+                {
+                  "num": "03",
+                  "title": "Lernziel",
+                  "text": "Benenne die Aufgabe, die du häufiger üben willst."
+                },
+                {
+                  "num": "04",
+                  "title": "Abgleich",
+                  "text": "Vergleiche die Hypothese mit konkreten Tätigkeiten."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Was den Vertriebsalltag prägt",
+                  "text": "Vergleiche den konkreten Verkaufsprozess hinter dem Jobtitel."
+                },
+                {
+                  "title": "Die vier Sales-Achsen",
+                  "text": "Unternehmensgröße, Kundensegment, Verkaufsart und Herkunft der Leads beschreiben unterschiedliche Dinge."
+                },
+                {
+                  "title": "Eigene Vorlieben einordnen",
+                  "text": "Formuliere deine Vorlieben anhand konkreter Aufgaben."
+                },
+                {
+                  "title": "Eine Rollen-Hypothese testen",
+                  "text": "Eine Rollen-Hypothese ist prüfbar und darf sich ändern."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Deinen Einstieg im Vertrieb begründen",
+              "goals": [
+                "Ordne zwei Beispielstellen auf den vier Achsen ein.",
+                "Formuliere eine Stärke und ein Lernziel.",
+                "Schreibe in zwei Sätzen, welche Startrolle du prüfen willst."
+              ]
+            }
+          ]
+        }
+      ],
+      "materials": [
+        "4.1.2 Sales ist nicht gleich Sales - Karrierepfade - Präsentation.pdf",
+        "4.1.2 Sales ist nicht gleich Sales - Karrierepfade - Task Sheet.pdf"
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Vier Fragen zu den vier Abschnitten dieser Lektion.",
+        "questions": [
+          {
+            "question": "Was lässt sich aus dem Titel „Sales Manager“ allein ableiten?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Die Rolle enthält immer Personalverantwortung."
+              },
+              {
+                "id": "B",
+                "text": "Der Kunde kommt ausschließlich über Inbound."
+              },
+              {
+                "id": "C",
+                "text": "Die Rolle umfasst in jedem Unternehmen den ganzen Verkaufszyklus."
+              },
+              {
+                "id": "D",
+                "text": "Der Titel gibt eine grobe Richtung. Aufgaben und Kunden musst du zusätzlich prüfen."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Der gleiche Jobtitel kann in verschiedenen Geschäftsmodellen vorkommen."
+          },
+          {
+            "question": "Welche Achse beschreibt die Größe der Zielkunden?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Startup und Corporate."
+              },
+              {
+                "id": "B",
+                "text": "Outbound und Inbound."
+              },
+              {
+                "id": "C",
+                "text": "SMB und Enterprise."
+              },
+              {
+                "id": "D",
+                "text": "Transaktional und strategisch."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Überlege, welche Achse sich direkt auf kleine oder große Kundenunternehmen bezieht."
+          },
+          {
+            "question": "Welche Aufgabe passt besonders gut zu einer Farmer-Rolle?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Inaktive Zielaccounts zum ersten Mal anrufen."
+              },
+              {
+                "id": "B",
+                "text": "Ein Outbound-Gebiet mit neuen Leads aufbauen."
+              },
+              {
+                "id": "C",
+                "text": "Erstkontakte für neue Zielsegmente gewinnen."
+              },
+              {
+                "id": "D",
+                "text": "Bestehende Kundenbeziehungen entwickeln."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Denk an die Phase nach dem ersten Abschluss."
+          },
+          {
+            "question": "Wie prüfst du deine Rollen-Hypothese?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Du entscheidest allein nach dem bekanntesten Firmennamen."
+              },
+              {
+                "id": "B",
+                "text": "Du legst zuerst einen endgültigen Titel für deine ganze Laufbahn fest."
+              },
+              {
+                "id": "C",
+                "text": "Du wählst nach der größten Zahl an verfügbaren Stellen."
+              },
+              {
+                "id": "D",
+                "text": "Du vergleichst Lernziel und Stärken mit den tatsächlichen Aufgaben in Anzeigen und Gesprächen."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Eine Hypothese soll sich an konkreten Beobachtungen messen lassen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.1.3",
+      "title": "CV-Lücken und Stellenanzeigen",
+      "hero": {
+        "eyebrow": "Kapitel 4.1.3 · Lektion 3",
+        "title": "CV-Lücken und Stellenanzeigen",
+        "desc": "Erkläre berufliche Übergänge knapp und nutze Muss- und Kann-Kriterien, um deinen Lebenslauf auf eine Stelle zuzuschneiden.",
+        "chips": [
+          "Modul 4 · Lebenslauf & Sales-Karriere",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Lücken nachvollziehbar machen",
+          "pill": "01 · Lücken nachvollziehbar machen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Prüfe deine Chronologie auf offen gebliebene Zeiträume. Beschreibe relevante Phasen kurz und wahrheitsgemäß, zum Beispiel als Weiterbildung oder berufliche Neuorientierung."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Situation",
+                "Mögliche Darstellung, wenn zutreffend"
+              ],
+              "rows": [
+                [
+                  "Vollzeit-Weiterbildung",
+                  "Titel, Anbieter, Zeitraum und relevante Inhalte"
+                ],
+                [
+                  "Neuorientierung",
+                  "Zeitraum und sachliche Bezeichnung der Phase"
+                ],
+                [
+                  "Familienphase",
+                  "Zeitraum und knappe Angabe in deinem gewählten Umfang"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Den Übergang ins Heute erklären",
+          "pill": "02 · Den Übergang ins Heute erklären",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Bereite bei Wechseln oder längeren Pausen einen kurzen, sachlichen Übergang zur Zielrolle vor. Du entscheidest, welche persönlichen Details du offenlegst."
+            },
+            {
+              "t": "flow",
+              "cols": 2,
+              "steps": [
+                {
+                  "num": "01",
+                  "title": "Zeitraum benennen",
+                  "text": "Beschreibe die Phase in einem Satz."
+                },
+                {
+                  "num": "02",
+                  "title": "Relevanz herausarbeiten",
+                  "text": "Nenne einen konkreten Baustein, etwa ein Kursprojekt."
+                },
+                {
+                  "num": "03",
+                  "title": "Ausblick geben",
+                  "text": "Verknüpfe ihn mit der Aufgabe, die du übernehmen willst."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Muss und Kann unterscheiden",
+          "pill": "03 · Muss und Kann unterscheiden",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Markiere ausdrücklich geforderte Voraussetzungen und zusätzlich gewünschte Merkmale getrennt. Achte auf den Wortlaut und die Aufgaben, denn manche Anzeigen formulieren Prioritäten indirekt."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Muss",
+                  "text": "Beispiel: „Deutsch auf C1-Niveau erforderlich“. Suche einen ehrlichen Nachweis."
+                },
+                {
+                  "title": "Kann",
+                  "text": "Beispiel: „Erfahrung mit Salesforce von Vorteil“. Prüfe, wie nah deine Erfahrung heranreicht."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Passung mit Nachweisen zeigen",
+          "pill": "04 · Passung mit Nachweisen zeigen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Ordne jeder wichtigen Anforderung ein Beispiel aus Berufspraxis oder Weiterbildung zu. Kennzeichne Lernstand und Erfahrung präzise."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Anforderung",
+                "Beleg und Formulierung"
+              ],
+              "rows": [
+                [
+                  "CRM-Pflege",
+                  "Im Kurs Deals in HubSpot angelegt und ihren Status gepflegt."
+                ],
+                [
+                  "Angebote nachfassen",
+                  "In einer früheren Rolle offene Angebote telefonisch geklärt und Folgetermine vereinbart."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Lücken nachvollziehbar machen",
+                  "text": "Ein klar benannter Zeitraum erleichtert das Lesen."
+                },
+                {
+                  "title": "Den Übergang ins Heute erklären",
+                  "text": "Ein plausibler Übergang verbindet Vergangenheit und heutige Motivation."
+                },
+                {
+                  "title": "Muss und Kann unterscheiden",
+                  "text": "Muss-Kriterien zuerst bewerten. Kann-Kriterien können dein Profil stärken."
+                },
+                {
+                  "title": "Passung mit Nachweisen zeigen",
+                  "text": "Ein Praxisbeispiel macht eine behauptete Stärke überprüfbar."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Eine Anzeige und deinen CV abgleichen",
+              "goals": [
+                "Markiere eine unklare Phase in deinem CV und formuliere eine sachliche Angabe.",
+                "Ordne vier Anforderungen als Muss oder Kann ein.",
+                "Schreibe zu zwei Anforderungen einen passenden Beleg."
+              ]
+            }
+          ]
+        }
+      ],
+      "materials": [
+        "4.1.3 CV Tag 2 - CV Lücken - Task Sheet(1).pdf",
+        "4.1.3 CV Tag 2 - CV Stellenanzeige - Task Sheet(2).pdf",
+        "4.1.3 CV Tag 2 - Wachstum - Präsentation.pdf"
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Vier Fragen zu den vier Abschnitten dieser Lektion.",
+        "questions": [
+          {
+            "question": "Wie gehst du mit einer belegbaren Vollzeit-Weiterbildung zwischen zwei Stellen um?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Du verlängerst die frühere Anstellung bis zum Beginn der nächsten."
+              },
+              {
+                "id": "B",
+                "text": "Du ersetzt sie durch einen erfundenen Arbeitgeber."
+              },
+              {
+                "id": "C",
+                "text": "Du führst sie mit Zeitraum, Titel und passenden Lerninhalten auf."
+              },
+              {
+                "id": "D",
+                "text": "Du führst sie ohne Zeitbezug bei den Hobbys auf."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Die Angabe soll erklären, was du in diesem Zeitraum tatsächlich gemacht hast."
+          },
+          {
+            "question": "Was macht die Erklärung eines Branchenwechsels nachvollziehbar?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Eine kurze Beschreibung der Entscheidung und ihres Bezugs zur heutigen Zielrolle."
+              },
+              {
+                "id": "B",
+                "text": "Eine ausführliche Aufzählung privater Ereignisse."
+              },
+              {
+                "id": "C",
+                "text": "Ein neues Datum für die vorherige Station."
+              },
+              {
+                "id": "D",
+                "text": "Eine Liste sämtlicher ehemaliger Teammitglieder."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Die Erklärung soll einen verständlichen Übergang zur Gegenwart schaffen."
+          },
+          {
+            "question": "„HubSpot-Kenntnisse von Vorteil“. Wie ordnest du das ein?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Als zwingendes Muss-Kriterium."
+              },
+              {
+                "id": "B",
+                "text": "Als Angaben zur Vergütung."
+              },
+              {
+                "id": "C",
+                "text": "Als Nachweis für Teamführung."
+              },
+              {
+                "id": "D",
+                "text": "Als Kann-Kriterium."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "„Von Vorteil“ signalisiert einen Wunsch."
+          },
+          {
+            "question": "Du hast nur im Kurs mit Salesforce gearbeitet. Wie formulierst du das passend?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Salesforce-Grundkenntnisse aus der Weiterbildung, ergänzt um eine konkrete Übung."
+              },
+              {
+                "id": "B",
+                "text": "Mehrjährige Salesforce-Praxis bei einem früheren Arbeitgeber."
+              },
+              {
+                "id": "C",
+                "text": "Salesforce-Administration in Produktionsumgebungen."
+              },
+              {
+                "id": "D",
+                "text": "Führung eines Salesforce-Teams."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Nenne den Rahmen, in dem du das System tatsächlich verwendet hast."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.1.4",
+      "title": "Rollen und Karrierepfade im Detail",
+      "hero": {
+        "eyebrow": "Kapitel 4.1.4 · Lektion 4",
+        "title": "Rollen und Karrierepfade im Detail",
+        "desc": "Vergleiche die Verantwortung in Sales-Rollen und wähle eine Startposition, die zu deiner Lernkurve passt.",
+        "chips": [
+          "Modul 4 · Lebenslauf & Sales-Karriere",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Rollen im Verkaufszyklus",
+          "pill": "01 · Rollen im Verkaufszyklus",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Sales Development gewinnt und qualifiziert Kontakte. Inbound Sales bearbeitet vorhandenes Interesse. Account Executives führen qualifizierte Chancen typischerweise bis zur Entscheidung."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Rolle",
+                "Typischer Schwerpunkt"
+              ],
+              "rows": [
+                [
+                  "SDR / BDR",
+                  "Prospecting, Qualifizierung und Übergabe"
+                ],
+                [
+                  "Inbound Sales",
+                  "Anfragen einordnen und passende nächste Schritte klären"
+                ],
+                [
+                  "Account Executive",
+                  "Discovery, Präsentation, Verhandlung und Abschluss"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Bestand, Partner und Prozesse",
+          "pill": "02 · Bestand, Partner und Prozesse",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Key Account Management entwickelt wichtige Kundenbeziehungen. Customer Success fördert Nutzung und Kundenerfolg. Partner Management befähigt Vertriebspartner, Sales Operations verbessert Prozesse und Daten."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "KAM und Customer Success",
+                  "text": "Account-Plan und Ausbau können mit Onboarding, Nutzung und Zielerreichung verzahnt sein."
+                },
+                {
+                  "title": "Partner Management und Sales Ops",
+                  "text": "Ein Team arbeitet am Vertrieb über Partner, das andere an Abläufen, Werkzeugen und Auswertungen."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Lernkurven und mögliche Pfade",
+          "pill": "03 · Lernkurven und mögliche Pfade",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Ein Einstieg mit Qualifizierung kann in eine Abschlussrolle führen. Aus der Praxis sind auch Wege in Führung, Sales Operations, Customer Success oder das Partnergeschäft möglich."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Interesse",
+                "Frage im Interview"
+              ],
+              "rows": [
+                [
+                  "Closing",
+                  "Ab wann führe ich Deals bis zum Abschluss?"
+                ],
+                [
+                  "Sales Operations",
+                  "Welche Pipeline- oder Datenprobleme soll das Team lösen?"
+                ],
+                [
+                  "Customer Success",
+                  "Wie messen wir Kundennutzen nach dem Start?"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Rollenpräferenz konkretisieren",
+          "pill": "04 · Rollenpräferenz konkretisieren",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Der Rollenpräferenz-Canvas verbindet Tempo, Verantwortung, Abschlussart, Kundengröße und Kanal. Leite daraus eine plausible Startrolle ab."
+            },
+            {
+              "t": "note",
+              "text": "Prüfe, ob du bei der Stelle das gewünschte Handwerk lernst. Frage nach Einarbeitung, Feedback und dem tatsächlichen Spielraum."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Rollen im Verkaufszyklus",
+                  "text": "Kläre in der Anzeige, wer akquiriert, qualifiziert und abschließt."
+                },
+                {
+                  "title": "Bestand, Partner und Prozesse",
+                  "text": "Bei einer hybriden Stelle lohnt sich eine Frage nach den Zuständigkeiten."
+                },
+                {
+                  "title": "Lernkurven und mögliche Pfade",
+                  "text": "Suche nach Verantwortung, Coaching und Gelegenheiten für Wiederholung."
+                },
+                {
+                  "title": "Rollenpräferenz konkretisieren",
+                  "text": "Formuliere, woran du eine geeignete Stelle erkennst."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Deine Startrolle auswählen",
+              "goals": [
+                "Notiere bevorzugtes Tempo, Kundengröße und Kanal.",
+                "Vergleiche zwei Rollen nach ihren typischen Ergebnissen.",
+                "Formuliere eine Frage zur Lernkurve für das Interview."
+              ]
+            }
+          ]
+        }
+      ],
+      "materials": [
+        "4.1.4 Rollen & Karrierepfade im Detail - Präsentation.pdf",
+        "4.1.4 Rollen & Karrierepfade im Detail - Task Sheet.pdf"
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Vier Fragen zu den vier Abschnitten dieser Lektion.",
+        "questions": [
+          {
+            "question": "Welche Aufgabe liegt typischerweise beim Account Executive?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Eine qualifizierte Chance durch Verhandlung bis zur Entscheidung führen."
+              },
+              {
+                "id": "B",
+                "text": "Ausschließlich Listen für die Erstansprache erstellen."
+              },
+              {
+                "id": "C",
+                "text": "Die Einführung des Produkts nach dem Kauf verantworten."
+              },
+              {
+                "id": "D",
+                "text": "Die Datenqualität des ganzen CRM administrieren."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Achte auf die Verantwortung für den Abschluss."
+          },
+          {
+            "question": "Welches Ziel passt besonders zu Customer Success?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Ausschließlich Erstkontakte recherchieren."
+              },
+              {
+                "id": "B",
+                "text": "Die Nutzung fördern und den Kundenerfolg nach dem Kauf begleiten."
+              },
+              {
+                "id": "C",
+                "text": "Das Provisionsschema für Vertriebler definieren."
+              },
+              {
+                "id": "D",
+                "text": "Neue Vertriebspartner als Vertriebskanal gewinnen."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Der Kunde arbeitet bereits mit dem Produkt."
+          },
+          {
+            "question": "Was hilft dir bei der Entscheidung zwischen zwei Einstiegsstellen?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Die Zahl der Silben im Jobtitel vergleichen."
+              },
+              {
+                "id": "B",
+                "text": "Sich ausschließlich an der Größe des Firmenlogos orientieren."
+              },
+              {
+                "id": "C",
+                "text": "Die erwartete Verantwortung, das Coaching und das gewünschte Lernfeld vergleichen."
+              },
+              {
+                "id": "D",
+                "text": "Nur auf die Teambezeichnung achten."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Bewerte, welche Tätigkeiten du in der Rolle regelmäßig übst."
+          },
+          {
+            "question": "Was gehört in einen Rollenpräferenz-Canvas?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nur Gehaltsziel und Urlaubswunsch."
+              },
+              {
+                "id": "B",
+                "text": "Zahl der Folien in der Unternehmenspräsentation."
+              },
+              {
+                "id": "C",
+                "text": "Tempo, Verantwortung, Abschlussart, Kundengröße und Kanal."
+              },
+              {
+                "id": "D",
+                "text": "Private Referenzen und vollständige Schulnoten."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Beschreibe, wie du im Alltag verkaufen möchtest."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.1.5",
+      "title": "Stärken und übertragbare Erfahrung",
+      "hero": {
+        "eyebrow": "Kapitel 4.1.5 · Lektion 5",
+        "title": "Stärken und übertragbare Erfahrung",
+        "desc": "Übersetze Tätigkeiten in konkrete Fähigkeiten und zeige, wo deine Erfahrung der Zielrolle hilft.",
+        "chips": [
+          "Modul 4 · Lebenslauf & Sales-Karriere",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Tätigkeiten konkret formulieren",
+          "pill": "01 · Tätigkeiten konkret formulieren",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "„Kundenberatung“ lässt offen, welche Aufgaben du gelöst hast. Benenne die Situation und den konkreten Beitrag, zum Beispiel Bedarf erfragen, Optionen vergleichen und eine Empfehlung erklären."
+            },
+            {
+              "t": "quote",
+              "text": "Beispiel: Kundenbedarf im Gespräch geklärt, passende Produkte verglichen und die Auswahl begründet."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Übertragbare Fähigkeiten erkennen",
+          "pill": "02 · Übertragbare Fähigkeiten erkennen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Auch Service, Organisation oder Auftragsabwicklung können Erfahrungen für Sales liefern. Prüfe jeweils, welche Handlung aus der alten Rolle zu einer Aufgabe der Zielstelle passt."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Bisherige Aufgabe",
+                "Übertragbare Fähigkeit"
+              ],
+              "rows": [
+                [
+                  "Reklamation aufnehmen",
+                  "Ursache erfragen, Optionen klären und verbindlich nachhalten"
+                ],
+                [
+                  "Termine koordinieren",
+                  "Priorisieren, Rückfragen beantworten und Zusagen verfolgen"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Transfer-Checkliste anlegen",
+          "pill": "03 · Transfer-Checkliste anlegen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Trage eine Anforderung der Anzeige neben eine konkrete Situation, die zugehörige Fähigkeit und eine passende Formulierung ein. So erkennst du auch, wo du noch keinen belastbaren Beleg hast."
+            },
+            {
+              "t": "flow",
+              "cols": 2,
+              "steps": [
+                {
+                  "num": "01",
+                  "title": "Anforderung",
+                  "text": "Was braucht die Stelle?"
+                },
+                {
+                  "num": "02",
+                  "title": "Erfahrung",
+                  "text": "Wann hast du Vergleichbares getan?"
+                },
+                {
+                  "num": "03",
+                  "title": "Fähigkeit",
+                  "text": "Was zeigt dein Verhalten?"
+                },
+                {
+                  "num": "04",
+                  "title": "CV-Punkt",
+                  "text": "Wie beschreibst du es knapp?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Relevante Punkte auswählen",
+          "pill": "04 · Relevante Punkte auswählen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Gib passenden Stationen mehr Raum und kürze Details ohne Bezug zur Stelle. Für einen älteren Job kann eine Zeile genügen, wenn die neueren Stationen die Eignung bereits erklären."
+            },
+            {
+              "t": "checklist",
+              "items": [
+                {
+                  "title": "Gewichten",
+                  "text": "Setze den relevantesten Tätigkeitsnachweis an den Anfang."
+                },
+                {
+                  "title": "Verdichten",
+                  "text": "Streiche Wiederholungen und Formulierungen, die keine neue Information liefern."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Tätigkeiten konkret formulieren",
+                  "text": "Ein aussagekräftiger CV-Punkt beginnt mit beobachtbarem Handeln."
+                },
+                {
+                  "title": "Übertragbare Fähigkeiten erkennen",
+                  "text": "Ein Rollenwechsel wird mit passenden Handlungsbelegen verständlich."
+                },
+                {
+                  "title": "Transfer-Checkliste anlegen",
+                  "text": "Eine Transfer-Checkliste verbindet Anforderung, Beleg und Formulierung."
+                },
+                {
+                  "title": "Relevante Punkte auswählen",
+                  "text": "Die stärksten Belege stehen dort, wo man sie zuerst liest."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Deine Erfahrung neu beschreiben",
+              "goals": [
+                "Wähle drei Tätigkeiten aus deinem CV.",
+                "Mappe sie auf Aufgaben aus einer konkreten Anzeige.",
+                "Formuliere zwei relevante Bulletpoints mit aktivem Verb."
+              ]
+            }
+          ]
+        }
+      ],
+      "materials": [
+        "4.1.5 CV Tag 3 - Stärken - Präsentation.pdf",
+        "4.1.5 CV Tag 3 - Task Sheet.pdf"
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Vier Fragen zu den vier Abschnitten dieser Lektion.",
+        "questions": [
+          {
+            "question": "Welcher CV-Punkt beschreibt die Tätigkeit am besten?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Bedarf im Kundengespräch erfragt, Angebote verglichen und eine Empfehlung begründet."
+              },
+              {
+                "id": "B",
+                "text": "Kundenberatung im Laden."
+              },
+              {
+                "id": "C",
+                "text": "Zuständigkeit für verschiedene Dinge."
+              },
+              {
+                "id": "D",
+                "text": "Hohe Beratungskompetenz und exzellente Skills."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Suche eine Formulierung, die konkrete Handlungen zeigt."
+          },
+          {
+            "question": "Welche Erfahrung lässt sich gut auf Kundenbetreuung übertragen?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Die Länge eines Arbeitswegs kennen."
+              },
+              {
+                "id": "B",
+                "text": "Eine Reklamation klären, eine Lösung abstimmen und beim Kunden nachfassen."
+              },
+              {
+                "id": "C",
+                "text": "Die Berufsbezeichnung eines Kollegen nennen."
+              },
+              {
+                "id": "D",
+                "text": "Die Öffnungszeiten des früheren Arbeitgebers notieren."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Achte auf Verhalten in einer Kundensituation."
+          },
+          {
+            "question": "Was gehört neben der Anforderung in die Transfer-Checkliste?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Die gewünschten Leistungen des neuen Arbeitgebers."
+              },
+              {
+                "id": "B",
+                "text": "Eine Lücke, die du mit einem neuen Jobtitel füllst."
+              },
+              {
+                "id": "C",
+                "text": "Die Liste der anderen Bewerber."
+              },
+              {
+                "id": "D",
+                "text": "Eine tatsächliche Situation, die belegte Fähigkeit und ein passender CV-Satz."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Leite das Formulieren aus der Erfahrung ab."
+          },
+          {
+            "question": "Welche Station verdient im CV die meisten Details?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Die Station mit den stärksten Belegen für die Aufgaben der Zielstelle."
+              },
+              {
+                "id": "B",
+                "text": "Immer die älteste Station."
+              },
+              {
+                "id": "C",
+                "text": "Die Station mit dem längsten Namen."
+              },
+              {
+                "id": "D",
+                "text": "Immer die Station, in der das Gehalt am höchsten war."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Der verfügbare Platz soll der Passung dienen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.1.6",
+      "title": "Dein Lebenslauf für den Berufseinstieg",
+      "hero": {
+        "eyebrow": "Kapitel 4.1.6 · Lektion 6",
+        "title": "Dein Lebenslauf für den Berufseinstieg",
+        "desc": "Vergleiche Arbeitgeber und Vertriebsaufgaben und bereite eine passende, versandfertige CV-Version vor.",
+        "chips": [
+          "Modul 4 · Lebenslauf & Sales-Karriere",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Arbeitgeber nach Vertriebsaufgaben vergleichen",
+          "pill": "01 · Arbeitgeber nach Vertriebsaufgaben vergleichen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Der Marktüberblick aus dem Kurs zeigt Vertriebsumfelder wie Software, Energie und Dienstleistungen. Vergleiche, was verkauft wird, wer kauft und wo im Verkaufsprozess die Rolle einsteigt."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Beispielumfeld",
+                "Frage für deinen Vergleich"
+              ],
+              "rows": [
+                [
+                  "Softwareplattform",
+                  "Wie werden Leads gewonnen und an den Abschluss übergeben?"
+                ],
+                [
+                  "Dienstleistung mit Beratung",
+                  "Welche Fragen musst du vor einem Angebot klären?"
+                ],
+                [
+                  "Außendienst",
+                  "Wie viel Zeit entfällt auf Termine vor Ort?"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Partnernetzwerk einordnen",
+          "pill": "02 · Partnernetzwerk einordnen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Ein Vermittlungskontakt kann dir passende Rollen vorstellen. Im Kursmaterial genannte Firmen und Ausschreibungen gehören zum damaligen Stand."
+            },
+            {
+              "t": "note",
+              "text": "Kläre vor einer Weitergabe deines CV, wer ihn erhält und welche Fassung du dafür verwenden willst."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Eine zielgerichtete Version erstellen",
+          "pill": "03 · Eine zielgerichtete Version erstellen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Nutze deinen Basis-CV und priorisiere für jede ausgewählte Ausschreibung die passenden Tätigkeiten, Werkzeuge und Ergebnisse. Speichere die Fassung mit einem eindeutigen Dateinamen."
+            },
+            {
+              "t": "flow",
+              "cols": 2,
+              "steps": [
+                {
+                  "num": "01",
+                  "title": "Ziel auswählen",
+                  "text": "Lege die konkrete Rolle fest."
+                },
+                {
+                  "num": "02",
+                  "title": "Anforderungen lesen",
+                  "text": "Markiere die Kerntätigkeiten."
+                },
+                {
+                  "num": "03",
+                  "title": "Belege zuordnen",
+                  "text": "Schiebe passende Erfahrungen nach vorn."
+                },
+                {
+                  "num": "04",
+                  "title": "Export prüfen",
+                  "text": "Öffne die richtige Fassung vor dem Versand."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Übergabe vorbereiten",
+          "pill": "04 · Übergabe vorbereiten",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Prüfe Betreff, Empfänger, Anhang und gewünschtes Dateiformat. Halte in einer Bewerbungsliste fest, welche Fassung du wann an wen übermittelt hast."
+            },
+            {
+              "t": "checklist",
+              "items": [
+                {
+                  "title": "Anweisung lesen",
+                  "text": "Richte deinen Versand nach der konkreten Ausschreibung oder Kursaufgabe."
+                },
+                {
+                  "title": "Gespräch vorbereiten",
+                  "text": "Bewahre Anzeige und eingereichten CV für spätere Rückfragen auf."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Arbeitgeber nach Vertriebsaufgaben vergleichen",
+                  "text": "Produkt, Kundentyp und Zuständigkeit erklären mehr als die Branche allein."
+                },
+                {
+                  "title": "Partnernetzwerk einordnen",
+                  "text": "Prüfe das aktuelle Angebot beim Arbeitgeber oder beim vermittelnden Kontakt."
+                },
+                {
+                  "title": "Eine zielgerichtete Version erstellen",
+                  "text": "Ein Basis-CV spart Arbeit. Der zugeschnittene CV zeigt relevante Belege zuerst."
+                },
+                {
+                  "title": "Übergabe vorbereiten",
+                  "text": "Saubere Übergabe erleichtert Rückfragen und Nachfassen."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Eine Bewerbung versandfertig machen",
+              "goals": [
+                "Vergleiche zwei Rollen anhand der tatsächlichen Vertriebsaufgaben.",
+                "Erstelle eine passende CV-Version und prüfe die Datei.",
+                "Notiere Empfänger, Stelle und den vorgesehenen Versandweg."
+              ]
+            }
+          ]
+        }
+      ],
+      "materials": [
+        "4.1.6 Dein Lebenslauf - Task Sheet.pdf",
+        "4.1.6 Partnerunternehmen & offene Stellen – Marktüberblick - Präsentation.pdf"
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Vier Fragen zu den vier Abschnitten dieser Lektion.",
+        "questions": [
+          {
+            "question": "Was vergleichst du, um den Alltag zweier Sales-Rollen einzuschätzen?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Angebot, Kundentyp und Verantwortung im Verkaufsprozess."
+              },
+              {
+                "id": "B",
+                "text": "Nur die Anzahl der Beschäftigten des Arbeitgebers."
+              },
+              {
+                "id": "C",
+                "text": "Nur das Wort „Sales“ im Jobtitel."
+              },
+              {
+                "id": "D",
+                "text": "Nur die Entfernung zum Büro."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Betrachte, was du an wen verkaufst und welche Phase du betreust."
+          },
+          {
+            "question": "Wie nutzt du eine frühere Partnerpräsentation sinnvoll?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Als verbindliche Liste heute verfügbarer Stellen."
+              },
+              {
+                "id": "B",
+                "text": "Als Orientierung über Rollen, deren aktuelle Verfügbarkeit du separat prüfst."
+              },
+              {
+                "id": "C",
+                "text": "Als Zusage eines Gesprächs für jedes Profil."
+              },
+              {
+                "id": "D",
+                "text": "Als aktuellen Beleg für ein konkretes Gehalt."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Kursunterlagen bilden den damaligen Stand ab."
+          },
+          {
+            "question": "Wie unterscheidet sich die fertige Bewerbungsversion vom Basis-CV?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Sie enthält grundsätzlich weniger wahre Stationen."
+              },
+              {
+                "id": "B",
+                "text": "Sie priorisiert die wichtigsten Belege für eine konkrete Stelle."
+              },
+              {
+                "id": "C",
+                "text": "Sie übernimmt jede Anforderung wörtlich als eigene Fähigkeit."
+              },
+              {
+                "id": "D",
+                "text": "Sie verzichtet immer auf Datumsangaben."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Die Grundlage bleibt dieselbe, die Gewichtung ändert sich."
+          },
+          {
+            "question": "Was prüfst du unmittelbar vor dem Versand?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nur die Seitenzahl des Basis-CV."
+              },
+              {
+                "id": "B",
+                "text": "Die Zahl der Kontakte im Partnernetzwerk."
+              },
+              {
+                "id": "C",
+                "text": "Ob alle Versionen im gleichen Ordner liegen."
+              },
+              {
+                "id": "D",
+                "text": "Empfänger, Betreff und die tatsächlich angehängte CV-Version."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Gehe die Angaben durch, die beim Empfänger ankommen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.1.7",
+      "title": "Erfolge sichtbar machen und ATS",
+      "hero": {
+        "eyebrow": "Kapitel 4.1.7 · Lektion 7",
+        "title": "Erfolge sichtbar machen und ATS",
+        "desc": "Beschreibe überprüfbare Wirkung und gestalte deinen Lebenslauf so, dass Menschen und Bewerbermanagementsysteme ihn gut lesen können.",
+        "chips": [
+          "Modul 4 · Lebenslauf & Sales-Karriere",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Von der Aufgabe zur Wirkung",
+          "pill": "01 · Von der Aufgabe zur Wirkung",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Eine Tätigkeit erklärt, wofür du zuständig warst. Mit Umfang, Häufigkeit oder Ergebnis zeigst du, wie groß dein Beitrag war und was sich durch ihn verändert hat."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Perspektive",
+                "Passende Angaben"
+              ],
+              "rows": [
+                [
+                  "Umfang",
+                  "Größe des Portfolios, Gebiets oder Projekts"
+                ],
+                [
+                  "Häufigkeit",
+                  "Angebote, Beratungen oder Vorgänge pro Zeitraum"
+                ],
+                [
+                  "Wirkung",
+                  "Zeitersparnis, gewonnene Kunden oder reduzierte Fehler"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Zahlen ehrlich belegen",
+          "pill": "02 · Zahlen ehrlich belegen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Nutze nachvollziehbare Werte aus Berichten, Zählungen oder eigenen Unterlagen. Falls dir belastbare Zahlen fehlen, beschreibe Verantwortung, Komplexität und beobachtbares Ergebnis."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Mit Messung",
+                  "text": "Beispiel: Die Antwortzeit sank im Pilotteam von zwei Tagen auf einen Tag."
+                },
+                {
+                  "title": "Ohne Messung",
+                  "text": "Beispiel: Eine Vertretungsregel eingeführt und offene Anfragen bei der Übergabe zugeordnet."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "ATS-freundlich formatieren",
+          "pill": "03 · ATS-freundlich formatieren",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Ein Applicant Tracking System verwaltet Bewerbungen und kann Angaben aus Lebensläufen auslesen. Standardüberschriften, echte Textzeichen und einheitliche Datumsformate erleichtern die Verarbeitung."
+            },
+            {
+              "t": "checklist",
+              "items": [
+                {
+                  "title": "Dateiformat",
+                  "text": "Befolge die Vorgabe der Anzeige. Wenn ein PDF gewünscht ist, exportiere es mit auswählbarem Text."
+                },
+                {
+                  "title": "Lesereihenfolge",
+                  "text": "Kopiere den Text probehalber in einen Editor und schau, ob Stationen und Datumsangaben zusammenbleiben."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Suchbegriffe im Kontext verwenden",
+          "pill": "04 · Suchbegriffe im Kontext verwenden",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Übernimm Begriffe aus der Ausschreibung, wenn sie zu deinen Erfahrungen passen. Nenne etwa „Lead-Qualifizierung“ dort, wo du erklären kannst, wie du tatsächlich qualifiziert hast."
+            },
+            {
+              "t": "note",
+              "text": "Beschreibe Kurskenntnisse und Berufspraxis mit ihrem tatsächlichen Umfang. Der Lebenslauf sollte die gleichen Rückfragen aushalten wie dein Interview."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Von der Aufgabe zur Wirkung",
+                  "text": "Wähle die Kennzahl, die den Beitrag verständlich macht."
+                },
+                {
+                  "title": "Zahlen ehrlich belegen",
+                  "text": "Bei Prozenten gehören Bezugsgröße und Zeitraum zur Aussage."
+                },
+                {
+                  "title": "ATS-freundlich formatieren",
+                  "text": "Ein einfacher Export verbessert die Voraussetzungen fürs Parsing. Systeme unterscheiden sich."
+                },
+                {
+                  "title": "Suchbegriffe im Kontext verwenden",
+                  "text": "Ein passender Begriff wirkt stärker mit einem konkreten Beleg."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Zwei Ergebnisse und die Datei prüfen",
+              "goals": [
+                "Ergänze zwei Bulletpoints mit überprüfbarer Wirkung oder Verantwortung.",
+                "Vereinheitliche die Datumsangaben.",
+                "Kopiere den Text aus dem Export in einen Editor und prüfe die Reihenfolge."
+              ]
+            }
+          ]
+        }
+      ],
+      "materials": [
+        "4.1.7 CV Tag 4 - Erfolge sichtbar machen - ATS Systeme Task Sheet2.pdf",
+        "4.1.7 CV Tag 4 - Erfolge sichtbar machen - Erfolge Task Sheet1.pdf",
+        "4.1.7 CV Tag 4 - Erfolge sichtbar machen - Präsentation.pdf"
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Vier Fragen zu den vier Abschnitten dieser Lektion.",
+        "questions": [
+          {
+            "question": "Welche Angabe macht eine Wirkung besonders gut nachvollziehbar?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Ein möglichst hoher Prozentwert ohne Kontext."
+              },
+              {
+                "id": "B",
+                "text": "Ein belegtes Ergebnis mit Bezugsgröße und Zeitraum."
+              },
+              {
+                "id": "C",
+                "text": "Die Summe der Erfolge aller früheren Kollegen."
+              },
+              {
+                "id": "D",
+                "text": "Eine lange Liste von Tätigkeitsverben."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Der Leser soll verstehen, worauf sich der Wert bezieht."
+          },
+          {
+            "question": "Du hast keine verlässliche Zahl zur Zeitersparnis. Was ist sinnvoll?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Setze einen branchenüblichen Mittelwert als eigenes Ergebnis ein."
+              },
+              {
+                "id": "B",
+                "text": "Rechne mit einem plausiblen Fantasiewert."
+              },
+              {
+                "id": "C",
+                "text": "Streiche jede Beschreibung der Verbesserung."
+              },
+              {
+                "id": "D",
+                "text": "Beschreibe konkret, was du am Ablauf verbessert und beobachtet hast."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Auch ein belegbarer qualitativer Beitrag ist aussagekräftig."
+          },
+          {
+            "question": "Was verbessert die maschinelle Lesbarkeit eines Text-PDFs?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Gerasterte Bildschirmfotos jeder Seite."
+              },
+              {
+                "id": "B",
+                "text": "Grafische Symbole für alle Kontaktdaten."
+              },
+              {
+                "id": "C",
+                "text": "Balkendiagramme statt ausgeschriebener Kenntnisse."
+              },
+              {
+                "id": "D",
+                "text": "Standardüberschriften, konsistente Daten und eine nachvollziehbare Textreihenfolge."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Prüfe, ob Text und Abschnitte beim Kopieren verständlich bleiben."
+          },
+          {
+            "question": "Wann übernimmst du einen Begriff aus der Anzeige?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Wenn er eine tatsächliche Erfahrung oder Kenntnis präzise bezeichnet."
+              },
+              {
+                "id": "B",
+                "text": "Immer, auch ohne Bezug zur eigenen Erfahrung."
+              },
+              {
+                "id": "C",
+                "text": "Nur, wenn er dreimal in der Anzeige steht."
+              },
+              {
+                "id": "D",
+                "text": "Nur in einer separaten Wortliste am Ende."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Verknüpfe den Begriff mit einem Beleg."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.2.1",
+      "title": "Jobinterview-Basics und Vertrauen",
+      "hero": {
+        "eyebrow": "Kapitel 4.2.1 · Lektion 1",
+        "title": "Jobinterview-Basics und Vertrauen",
+        "desc": "Bereite Rückfragen zu deiner Erfahrung vor und beantworte Zweifel mit Beispielen, die für die Stelle zählen.",
+        "chips": [
+          "Modul 4 · Sales-Interview",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Was die Gegenseite klären will",
+          "pill": "01 · Was die Gegenseite klären will",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Im Interview prüft das Unternehmen, wie du mit Aufgaben, Kunden und Lernanforderungen umgehen wirst. Du prüfst gleichzeitig, ob Rolle, Team und Arbeitsweise zu dir passen."
+            },
+            {
+              "t": "checklist",
+              "items": [
+                {
+                  "title": "Leistung",
+                  "text": "Welche konkrete Aufgabe hast du schon bewältigt?"
+                },
+                {
+                  "title": "Lernfähigkeit",
+                  "text": "Wie hast du dir zuletzt etwas Neues erarbeitet?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Fragen beim Quereinstieg",
+          "pill": "02 · Fragen beim Quereinstieg",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Wenn dir Branchenerfahrung fehlt, belege übertragbare Arbeitsschritte. Wer im Service eine Reklamation geklärt hat, kann daran Fragetechnik, Lösungsorientierung und Verbindlichkeit zeigen."
+            },
+            {
+              "t": "quote",
+              "text": "In meiner Servicerolle habe ich erst das Anliegen geklärt, dann die Lösung mit dem Team abgestimmt und den Kunden über den nächsten Schritt informiert."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Erfahrene Bewerber und Veränderungen",
+          "pill": "03 · Erfahrene Bewerber und Veränderungen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Bei langjähriger Erfahrung entstehen andere Rückfragen, etwa zu Motivation, Zusammenarbeit oder Anpassung an neue Prozesse. Nenne einen Fall, in dem du deine Arbeitsweise verändert und das Ergebnis überprüft hast."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Veränderung",
+                  "text": "Welches Werkzeug oder Verfahren war für dich neu?"
+                },
+                {
+                  "title": "Umsetzung",
+                  "text": "Wie hast du es gelernt und im Alltag eingesetzt?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Schwächen und Wissenslücken ansprechen",
+          "pill": "04 · Schwächen und Wissenslücken ansprechen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Benenne eine tatsächliche Entwicklungsaufgabe, erläutere deine nächsten Schritte und belege sie, wenn du bereits damit begonnen hast."
+            },
+            {
+              "t": "flow",
+              "cols": 2,
+              "steps": [
+                {
+                  "num": "01",
+                  "title": "Einordnen",
+                  "text": "Sag, welche Erfahrung du bereits hast."
+                },
+                {
+                  "num": "02",
+                  "title": "Lücke benennen",
+                  "text": "Grenze ab, was dir noch fehlt."
+                },
+                {
+                  "num": "03",
+                  "title": "Lernschritt erklären",
+                  "text": "Beschreibe, wie du dich einarbeitest."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Was die Gegenseite klären will",
+                  "text": "Ein gutes Gespräch beantwortet Fragen auf beiden Seiten."
+                },
+                {
+                  "title": "Fragen beim Quereinstieg",
+                  "text": "Bereite pro wichtiger Aufgabe ein passendes Beispiel vor."
+                },
+                {
+                  "title": "Erfahrene Bewerber und Veränderungen",
+                  "text": "Auch viel Praxis braucht aktuelle Belege für Lernfähigkeit."
+                },
+                {
+                  "title": "Schwächen und Wissenslücken ansprechen",
+                  "text": "Zeige, wo du heute stehst und wie du weiterlernst."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Drei Rückfragen vorbereiten",
+              "goals": [
+                "Leite aus der Anzeige zwei wahrscheinliche Rückfragen ab.",
+                "Wähle pro Frage einen Nachweis.",
+                "Übe eine Antwort auf eine Wissenslücke."
+              ]
+            }
+          ]
+        }
+      ],
+      "materials": [
+        "4.2.1 Jobinterview Tag 1 - Basics - Präsentation.pdf",
+        "4.2.1 Jobinterview Tag 1 - Basics - Task Sheet.pdf"
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Vier Fragen zu den vier Abschnitten dieser Lektion.",
+        "questions": [
+          {
+            "question": "Was soll ein Interview zusätzlich zur fachlichen Eignung klären?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Ob der Lebenslauf optisch länger als ein anderer ist."
+              },
+              {
+                "id": "B",
+                "text": "Wie beide Seiten Aufgaben, Arbeitsweise und Zusammenarbeit einschätzen."
+              },
+              {
+                "id": "C",
+                "text": "Ob die Gesprächsfragen auswendig gelernt wurden."
+              },
+              {
+                "id": "D",
+                "text": "Ob alle Stationen minutengenau erzählt werden können."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Auch du triffst eine Entscheidung über die Rolle."
+          },
+          {
+            "question": "Wie belegst du beim Quereinstieg deine Eignung für Kundenbetreuung?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Du listest Zertifikate ohne Bezug zur Aufgabe auf."
+              },
+              {
+                "id": "B",
+                "text": "Du verschiebst die Antwort auf die Gehaltsrunde."
+              },
+              {
+                "id": "C",
+                "text": "Du schilderst einen vergleichbaren Fall und erklärst deinen Beitrag."
+              },
+              {
+                "id": "D",
+                "text": "Du wiederholst den Titel der ausgeschriebenen Stelle."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Zeige ein bereits erprobtes Verhalten."
+          },
+          {
+            "question": "Was ist ein starker Beleg für Anpassungsfähigkeit?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Die lange Dauer deiner bisherigen Beschäftigung allein."
+              },
+              {
+                "id": "B",
+                "text": "Ein konkreter Fall, in dem du eine neue Arbeitsweise gelernt und eingesetzt hast."
+              },
+              {
+                "id": "C",
+                "text": "Eine allgemeine Aussage über die Geschwindigkeit von Veränderungen."
+              },
+              {
+                "id": "D",
+                "text": "Die Anzahl der Programme in deinem alten Unternehmen."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Suche nach einem nachvollziehbaren Lernschritt."
+          },
+          {
+            "question": "Deine Erfahrung mit einem CRM beschränkt sich auf einen Kurs. Wie antwortest du?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Du beschreibst deine Übungen und erklärst, wie du dich in den betrieblichen Ablauf einarbeitest."
+              },
+              {
+                "id": "B",
+                "text": "Du nennst einen ähnlichen Programmnamen, ohne auf die Frage einzugehen."
+              },
+              {
+                "id": "C",
+                "text": "Du bezeichnest den Kurs als mehrjährige Berufspraxis."
+              },
+              {
+                "id": "D",
+                "text": "Du antwortest nur mit einer Rückfrage zum Gehalt."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Der Gesprächspartner soll deinen Lernstand einschätzen können."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.2.2",
+      "title": "Sales-Interviews und Auswahlformate",
+      "hero": {
+        "eyebrow": "Kapitel 4.2.2 · Lektion 2",
+        "title": "Sales-Interviews und Auswahlformate",
+        "desc": "Erkenne, was Selbstpräsentation, Rollenspiel und Fallstudie im Vertriebsinterview jeweils sichtbar machen.",
+        "chips": [
+          "Modul 4 · Sales-Interview",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Ein Interview als Arbeitsprobe",
+          "pill": "01 · Ein Interview als Arbeitsprobe",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Im Sales-Interview zeigt dein Verhalten, wie du mit Gesprächsdruck, unbekannten Informationen und einem klaren Ziel umgehst. Strukturiere deine Antworten und reagiere auf Rückfragen."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Struktur",
+                  "text": "Mach es leicht, dem Gedankengang zu folgen."
+                },
+                {
+                  "title": "Haltung",
+                  "text": "Höre zu, bleib verbindlich und frage nach, wenn etwas unklar bleibt."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Argumentation in der Selbstpräsentation",
+          "pill": "02 · Argumentation in der Selbstpräsentation",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Verbinde deinen beruflichen Hintergrund, ein belegbares Beispiel und den Nutzen für die Zielrolle. Eine kurze Pause nach dem Schluss gibt Raum für die nächste Frage."
+            },
+            {
+              "t": "flow",
+              "cols": 2,
+              "steps": [
+                {
+                  "num": "01",
+                  "title": "Profil",
+                  "text": "Sag, wofür du beruflich stehst."
+                },
+                {
+                  "num": "02",
+                  "title": "Beispiel",
+                  "text": "Nenne eine relevante Handlung mit Ergebnis."
+                },
+                {
+                  "num": "03",
+                  "title": "Bezug",
+                  "text": "Verbinde das Beispiel mit der Rolle."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Bedarf im Rollenspiel erfragen",
+          "pill": "03 · Bedarf im Rollenspiel erfragen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Vereinbare einen kurzen Gesprächsrahmen und nutze offene Fragen. Fasse den Bedarf in eigenen Worten zusammen, bevor du eine Lösung vorschlägst."
+            },
+            {
+              "t": "checklist",
+              "items": [
+                {
+                  "title": "Eröffnen",
+                  "text": "Kläre Ziel und verfügbare Zeit."
+                },
+                {
+                  "title": "Vertiefen",
+                  "text": "Frage nach Anlass, Auswirkung und Entscheidung."
+                },
+                {
+                  "title": "Vereinbaren",
+                  "text": "Fasse zusammen und schlage einen konkreten nächsten Schritt vor."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Die Fallstudie strukturieren",
+          "pill": "04 · Die Fallstudie strukturieren",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Kläre Auftrag und Erfolgskriterium. Trenne gegebene Informationen von Annahmen, entscheide dich für eine begründete Priorität und nenne, wie du sie prüfen würdest."
+            },
+            {
+              "t": "note",
+              "text": "Wenn dir beispielsweise die Ausgangsquote eines Funnels fehlt, kennzeichne das bei der Diagnose und nenne die Daten, die du prüfen würdest."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Ein Interview als Arbeitsprobe",
+                  "text": "Im Gespräch zählt auch, wie du zu einer Antwort kommst."
+                },
+                {
+                  "title": "Argumentation in der Selbstpräsentation",
+                  "text": "Wähle Belege, die zur ausgeschriebenen Aufgabe passen."
+                },
+                {
+                  "title": "Bedarf im Rollenspiel erfragen",
+                  "text": "Der passende nächste Schritt entsteht aus dem bestätigten Bedarf."
+                },
+                {
+                  "title": "Die Fallstudie strukturieren",
+                  "text": "Eine Fallstudie macht Annahmen und Entscheidungen transparent."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Eine kurze Arbeitsprobe vorbereiten",
+              "goals": [
+                "Schreibe eine Vorstellung für eine Zielrolle.",
+                "Formuliere vier offene Fragen für ein Discovery-Rollenspiel.",
+                "Erkläre in einer Fallstudie eine Annahme und ihren Prüfweg."
+              ]
+            }
+          ]
+        }
+      ],
+      "materials": [
+        "4.2.2 Sales-Interviews - Präsentation.pdf",
+        "4.2.2 Sales-Interviews - Task Sheet.pdf"
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Vier Fragen zu den vier Abschnitten dieser Lektion.",
+        "questions": [
+          {
+            "question": "Was können Interviewer an einer Sales-Arbeitsprobe beobachten?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Ausschließlich, wie viele Kundennamen du kennst."
+              },
+              {
+                "id": "B",
+                "text": "Ob du bereits jede Produktfunktion gelernt hast."
+              },
+              {
+                "id": "C",
+                "text": "Welche private Verkaufserfahrung im Team am längsten zurückliegt."
+              },
+              {
+                "id": "D",
+                "text": "Wie du Fragen stellst, Informationen einordnest und einen nächsten Schritt formulierst."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Die Probe bildet einen Ausschnitt aus dem Arbeitsalltag ab."
+          },
+          {
+            "question": "Welche Reihenfolge gibt einer kurzen Selbstpräsentation einen roten Faden?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Hobbys, Arbeitgeberliste, Schulnoten."
+              },
+              {
+                "id": "B",
+                "text": "Profil, relevanter Beleg, Nutzen für die Zielrolle."
+              },
+              {
+                "id": "C",
+                "text": "Gehalt, Vertragsform, Eintrittsdatum."
+              },
+              {
+                "id": "D",
+                "text": "Produktdemo, Einwand, Preisnachlass."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Die Vorstellung soll deine Passung belegen."
+          },
+          {
+            "question": "Wie reagierst du im Rollenspiel auf „Wir verlieren zu viele Anfragen“?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Du stellst sofort das teuerste Paket vor."
+              },
+              {
+                "id": "B",
+                "text": "Du fragst, wo die Anfragen verloren gehen und welche Auswirkungen das hat."
+              },
+              {
+                "id": "C",
+                "text": "Du versprichst vor der Analyse eine neue Abschlussquote."
+              },
+              {
+                "id": "D",
+                "text": "Du fragst als Erstes nach der Lieferadresse."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Kläre das Problem, bevor du eine Lösung vorschlägst."
+          },
+          {
+            "question": "Dir fehlen Zahlen für eine Fallstudie. Was tust du?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Du ergänzt plausible Zahlen und behandelst sie als gegeben."
+              },
+              {
+                "id": "B",
+                "text": "Du lässt die Bewertungskriterien weg und gibst eine Empfehlung."
+              },
+              {
+                "id": "C",
+                "text": "Du nennst die Lücke, kennzeichnest Annahmen und sagst, welche Daten du prüfen würdest."
+              },
+              {
+                "id": "D",
+                "text": "Du wiederholst nur den Aufgabentext."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Interviewer wollen deinen Entscheidungsweg nachvollziehen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.2.3",
+      "title": "Selbstpräsentation mit Nutzenbezug",
+      "hero": {
+        "eyebrow": "Kapitel 4.2.3 · Lektion 3",
+        "title": "Selbstpräsentation mit Nutzenbezug",
+        "desc": "Wähle passende Erfahrungen aus und verbinde sie mit dem Beitrag, den du in der ausgeschriebenen Rolle leisten kannst.",
+        "chips": [
+          "Modul 4 · Sales-Interview",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Die Zielrolle zuerst lesen",
+          "pill": "01 · Die Zielrolle zuerst lesen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Beginne mit den wichtigsten Tätigkeiten aus der Anzeige. Wenn ein Inside-Sales-Team viele Angebote nachfasst, ist ein belegbares Beispiel zu Wiedervorlagen und Kundengesprächen relevant."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Mögliche Aufgabe",
+                "Geeignete Erfahrung"
+              ],
+              "rows": [
+                [
+                  "Angebote nachfassen",
+                  "Offene Rückfragen klären und Folgetermine abstimmen"
+                ],
+                [
+                  "Bestand entwickeln",
+                  "Bedarf wiederkehrender Kunden erkennen und passende Ergänzungen anbieten"
+                ],
+                [
+                  "Reklamationen bearbeiten",
+                  "Ursache erheben, internen Lösungsweg abstimmen und Rückmeldung geben"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Erfahrung und Stärke verbinden",
+          "pill": "02 · Erfahrung und Stärke verbinden",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Beschreibe, was du in einer konkreten Situation getan hast. Leite die Stärke aus der Handlung ab, zum Beispiel Organisation aus einer verlässlichen Nachverfolgung mehrerer Vorgänge."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Ausgangslage",
+                  "text": "Welche Aufgabe hat dich gefordert?"
+                },
+                {
+                  "title": "Beitrag",
+                  "text": "Welche Handlung würde eine andere Person aus dem Team bestätigen?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Nutzen für den Arbeitgeber erklären",
+          "pill": "03 · Nutzen für den Arbeitgeber erklären",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Mach den Bezug zur Zielrolle ausdrücklich. Aus „Ich habe Angebote nachgefasst“ wird ein Beitrag zur Pflege offener Chancen, wenn die ausgeschriebene Rolle genau das braucht."
+            },
+            {
+              "t": "flow",
+              "cols": 2,
+              "steps": [
+                {
+                  "num": "01",
+                  "title": "Erfahrung",
+                  "text": "In welchem Umfeld hast du gearbeitet?"
+                },
+                {
+                  "num": "02",
+                  "title": "Stärke",
+                  "text": "Was hast du nachweislich gut gelöst?"
+                },
+                {
+                  "num": "03",
+                  "title": "Nutzen",
+                  "text": "Bei welcher Zielaufgabe hilft dieser Beitrag?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Die Kurzvorstellung laut üben",
+          "pill": "04 · Die Kurzvorstellung laut üben",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Schreibe Stichpunkte und sprich die Vorstellung frei. Kürze Lebenslaufdetails, die deinen Kernpunkt verwässern, und teste, ob jemand den Nutzen in eigenen Worten wiedergeben kann."
+            },
+            {
+              "t": "checklist",
+              "items": [
+                {
+                  "title": "Einstieg",
+                  "text": "Nenne kurz deinen Hintergrund und die Zielrichtung."
+                },
+                {
+                  "title": "Schluss",
+                  "text": "Mach den Bezug zur Aufgabe hörbar und lass Raum für eine Rückfrage."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Die Zielrolle zuerst lesen",
+                  "text": "Die Aufgaben der Zielrolle bestimmen deine Schwerpunkte."
+                },
+                {
+                  "title": "Erfahrung und Stärke verbinden",
+                  "text": "Ein konkretes Beispiel macht die Stärke glaubwürdig."
+                },
+                {
+                  "title": "Nutzen für den Arbeitgeber erklären",
+                  "text": "Beende das Beispiel mit seiner Bedeutung für die Rolle."
+                },
+                {
+                  "title": "Die Kurzvorstellung laut üben",
+                  "text": "Eine Probe zeigt, welche Details du kürzen kannst."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Eine eigene Selbstpräsentation schreiben",
+              "goals": [
+                "Wähle drei Schwerpunkte aus der Anzeige.",
+                "Ordne jedem Schwerpunkt eine konkrete Erfahrung zu.",
+                "Sprich deinen Entwurf frei und kürze nach Feedback."
+              ]
+            }
+          ]
+        }
+      ],
+      "materials": [
+        "4.2.3 Jobinterview Tag 2 - Selbstpräsentation - Präsentation.pdf",
+        "4.2.3 Jobinterview Tag 2 - Selbstpräsentation - Task Sheet.pdf"
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Vier Fragen zu den vier Abschnitten dieser Lektion.",
+        "questions": [
+          {
+            "question": "Was markierst du zuerst in der Stellenausschreibung?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Die wichtigsten Aufgaben, für die du eine passende Erfahrung belegen kannst."
+              },
+              {
+                "id": "B",
+                "text": "Die am häufigsten verwendeten Adjektive."
+              },
+              {
+                "id": "C",
+                "text": "Nur den Markennamen."
+              },
+              {
+                "id": "D",
+                "text": "Alle Punkte aus dem Abschnitt zu Zusatzleistungen."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Suche nach dem, was du im Job tun würdest."
+          },
+          {
+            "question": "Wie wirkt „Ich bin gut organisiert“ überzeugender?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Du wiederholst die Eigenschaft mit zwei Synonymen."
+              },
+              {
+                "id": "B",
+                "text": "Du erläuterst, wie du mehrere offene Vorgänge priorisiert und nachgehalten hast."
+              },
+              {
+                "id": "C",
+                "text": "Du nennst das Organisationsvermögen des gesamten Teams."
+              },
+              {
+                "id": "D",
+                "text": "Du streichst die Verbindung zu beruflicher Erfahrung."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Ein Zuhörer soll sich eine Handlung vorstellen können."
+          },
+          {
+            "question": "Welcher Abschluss eines Beispiels zeigt Nutzen für Inside Sales?",
+            "options": [
+              {
+                "id": "A",
+                "text": "„Deshalb habe ich diesen Kurs ausgewählt.“"
+              },
+              {
+                "id": "B",
+                "text": "„Meinen ersten Job habe ich nach der Schule begonnen.“"
+              },
+              {
+                "id": "C",
+                "text": "„So kann ich offene Angebote im Blick behalten und Rückfragen rechtzeitig klären.“"
+              },
+              {
+                "id": "D",
+                "text": "„Bei meinem alten Arbeitgeber waren viele Leute beschäftigt.“"
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Verbinde die Handlung mit der Tätigkeit der Zielrolle."
+          },
+          {
+            "question": "Wie prüfst du deine Selbstpräsentation?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Du liest sie ausschließlich still vom Bildschirm ab."
+              },
+              {
+                "id": "B",
+                "text": "Du sortierst alle Beispiele nach Arbeitgebername."
+              },
+              {
+                "id": "C",
+                "text": "Du fügst zu jeder CV-Station eine weitere Geschichte an."
+              },
+              {
+                "id": "D",
+                "text": "Du sprichst sie frei vor und lässt den Kernnutzen in eigenen Worten wiedergeben."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Entscheidend ist, was beim Zuhörer hängen bleibt."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.2.4",
+      "title": "Interview-Training und Auswahlverfahren",
+      "hero": {
+        "eyebrow": "Kapitel 4.2.4 · Lektion 4",
+        "title": "Interview-Training und Auswahlverfahren",
+        "desc": "Bereite dich auf die einzelnen Auswahlrunden vor und trainiere Kurzvorstellung, Stressfragen und eigene Rückfragen.",
+        "chips": [
+          "Modul 4 · Sales-Interview",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Auswahlrunden unterscheiden",
+          "pill": "01 · Auswahlrunden unterscheiden",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Ein erstes Gespräch klärt Grundlagen. Das Fachgespräch prüft Arbeitsweise und Leistungen. Rollenspiel oder Fallstudie können hinzukommen, bevor das Unternehmen eine Entscheidung und ein Angebot bespricht."
+            },
+            {
+              "t": "flow",
+              "cols": 2,
+              "steps": [
+                {
+                  "num": "01",
+                  "title": "Screening",
+                  "text": "Rolle, Motivation und Rahmenbedingungen klären."
+                },
+                {
+                  "num": "02",
+                  "title": "Fachrunde",
+                  "text": "Erfahrungen und Herangehensweise anhand von Beispielen erläutern."
+                },
+                {
+                  "num": "03",
+                  "title": "Arbeitsprobe",
+                  "text": "Verkaufsgespräch oder Fallaufgabe durchführen."
+                },
+                {
+                  "num": "04",
+                  "title": "Abschlussrunde",
+                  "text": "Zusammenarbeit und nächste Schritte besprechen."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Den 60-Sekunden-Pitch aufbauen",
+          "pill": "02 · Den 60-Sekunden-Pitch aufbauen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Nenne deinen Hintergrund, eine belegbare Stärke und deinen Bezug zur ausgeschriebenen Stelle. Übe einen Einstieg, der auch nach einer Unterbrechung verständlich bleibt."
+            },
+            {
+              "t": "note",
+              "text": "Stoppe die Zeit beim Lautsprechen. Kürze zuerst Stationen und Details, die dein stärkstes Beispiel nicht erklären."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Unter Druck sachlich bleiben",
+          "pill": "03 · Unter Druck sachlich bleiben",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Nimm dir bei einer Stressfrage einen Moment Zeit. Kläre die Frage bei Bedarf und antworte mit einem konkreten Beispiel oder einem begründeten Vorgehen."
+            },
+            {
+              "t": "quote",
+              "text": "Bei „Verkaufe mir diesen Stift“ könntest du fragen, wofür die Person einen Stift braucht und was am bisherigen Modell stört."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Eigene Fragen stellen und nachfassen",
+          "pill": "04 · Eigene Fragen stellen und nachfassen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Frage nach Einarbeitung, Zielmessung und Zusammenarbeit. Am Ende klärst du den nächsten Schritt und hältst unmittelbar danach fest, was du gelernt hast."
+            },
+            {
+              "t": "checklist",
+              "items": [
+                {
+                  "title": "Einarbeitung",
+                  "text": "Was soll ich nach den ersten drei Monaten eigenständig können?"
+                },
+                {
+                  "title": "Ziele",
+                  "text": "Welche Ergebnisse erwartet ihr und an welchen Daten messt ihr sie?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Auswahlrunden unterscheiden",
+                  "text": "Bereite pro Runde die passenden Belege vor."
+                },
+                {
+                  "title": "Den 60-Sekunden-Pitch aufbauen",
+                  "text": "Ein kurzer Pitch braucht einen klaren Schwerpunkt."
+                },
+                {
+                  "title": "Unter Druck sachlich bleiben",
+                  "text": "Der Gesprächspartner kann deine Ruhe und Struktur beobachten."
+                },
+                {
+                  "title": "Eigene Fragen stellen und nachfassen",
+                  "text": "Gute Rückfragen helfen dir, die tatsächliche Arbeitsweise zu beurteilen."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Eine Interviewrunde simulieren",
+              "goals": [
+                "Übe deine Vorstellung in 60 Sekunden.",
+                "Beantworte eine Stressfrage in zwei oder drei Sätzen.",
+                "Formuliere zwei eigene Fragen zum Team und zur Zielmessung."
+              ]
+            }
+          ]
+        }
+      ],
+      "materials": [
+        "4.2.4 Interview-Training & Auswahlverfahren - Task Sheet.pdf",
+        "4.2.4 Interview-Training & Hiring-Prozess - Präsentation.pdf"
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Vier Fragen zu den vier Abschnitten dieser Lektion.",
+        "questions": [
+          {
+            "question": "Wo ist eine Live-Simulation eines Kundengesprächs am ehesten zu erwarten?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Beim Abgleich der Kontaktdaten im ersten Screening."
+              },
+              {
+                "id": "B",
+                "text": "In der automatischen Eingangsbestätigung."
+              },
+              {
+                "id": "C",
+                "text": "In einer Arbeitsprobe oder einem Rollenspiel."
+              },
+              {
+                "id": "D",
+                "text": "Bei der Unterschrift unter den Vertrag."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Die Runde soll praktisches Verhalten sichtbar machen."
+          },
+          {
+            "question": "Was gehört in die 60-Sekunden-Kurzvorstellung?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Ein berufliches Profil, ein belegbarer Beitrag und der Bezug zur Rolle."
+              },
+              {
+                "id": "B",
+                "text": "Alle früheren Stationen mit vollständiger Tätigkeitsliste."
+              },
+              {
+                "id": "C",
+                "text": "Ein ausführlicher Bericht über die Unternehmensgeschichte."
+              },
+              {
+                "id": "D",
+                "text": "Ausschließlich Eintrittstermin und Gehaltsforderung."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Der Zuhörer soll schnell verstehen, warum deine Erfahrung passt."
+          },
+          {
+            "question": "„Verkaufe mir diesen Stift!“ Was ist ein sinnvoller Einstieg?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Du fragst, wofür die Person einen Stift braucht und was ihr bei der Nutzung wichtig ist."
+              },
+              {
+                "id": "B",
+                "text": "Du nennst einen Preis und verlangst sofort eine Entscheidung."
+              },
+              {
+                "id": "C",
+                "text": "Du beschreibst zuerst alle Farben des Stiftes."
+              },
+              {
+                "id": "D",
+                "text": "Du legst ohne Nachfrage einen Großkundenrabatt fest."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Auch in einer kurzen Simulation lässt sich Bedarf klären."
+          },
+          {
+            "question": "Welche Frage liefert dir Information über die tatsächliche Rolle?",
+            "options": [
+              {
+                "id": "A",
+                "text": "„Welche Farbe hat das Unternehmenslogo?“"
+              },
+              {
+                "id": "B",
+                "text": "„Woran erkennt ihr nach den ersten drei Monaten, dass ich gut eingearbeitet bin?“"
+              },
+              {
+                "id": "C",
+                "text": "„Wie viele Seiten hat eure Website?“"
+              },
+              {
+                "id": "D",
+                "text": "„Welchen Schreibtisch benutzt mein Vorgänger?“"
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Suche eine Frage nach beobachtbaren Erwartungen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.2.5",
+      "title": "STAR-Methode für Interviewantworten",
+      "hero": {
+        "eyebrow": "Kapitel 4.2.5 · Lektion 5",
+        "title": "STAR-Methode für Interviewantworten",
+        "desc": "Strukturiere Beispiele mit Situation, Aufgabe, Handlung und Ergebnis, damit dein eigener Beitrag nachvollziehbar wird.",
+        "chips": [
+          "Modul 4 · Sales-Interview",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Verhaltensfragen erkennen",
+          "pill": "01 · Verhaltensfragen erkennen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Fragen wie „Erzähl von einer schwierigen Kundensituation“ verlangen ein konkretes Erlebnis. Wähle eine Episode, die die gefragte Fähigkeit sichtbar macht."
+            },
+            {
+              "t": "checklist",
+              "items": [
+                {
+                  "title": "Kundenkonflikt",
+                  "text": "Wann hast du zuerst die Ursache geklärt?"
+                },
+                {
+                  "title": "Zeitdruck",
+                  "text": "Wie hast du Aufgaben neu priorisiert?"
+                },
+                {
+                  "title": "Lernen",
+                  "text": "Wie hast du eine Rückmeldung umgesetzt?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Situation und Aufgabe trennen",
+          "pill": "02 · Situation und Aufgabe trennen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Situation beschreibt den Rahmen. Task benennt, was du darin erreichen oder lösen solltest. Beides bleibt kurz, damit Zeit für deine Handlung und das Ergebnis bleibt."
+            },
+            {
+              "t": "table",
+              "head": [
+                "STAR-Teil",
+                "Leitfrage"
+              ],
+              "rows": [
+                [
+                  "Situation",
+                  "Was war passiert und unter welchen Bedingungen?"
+                ],
+                [
+                  "Task",
+                  "Welches Ziel oder Problem lag in deiner Verantwortung?"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Handlung und Ergebnis belegen",
+          "pill": "03 · Handlung und Ergebnis belegen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Unter Action beschreibst du deine eigenen Entscheidungen und Schritte. Result erklärt die beobachtbare Wirkung und gegebenenfalls, was du daraus gelernt hast."
+            },
+            {
+              "t": "flow",
+              "cols": 2,
+              "steps": [
+                {
+                  "num": "01",
+                  "title": "Situation",
+                  "text": "Zwei dringende Aufträge fehlten in der Übergabeliste."
+                },
+                {
+                  "num": "02",
+                  "title": "Task",
+                  "text": "Die Bearbeitung bis Feierabend absichern."
+                },
+                {
+                  "num": "03",
+                  "title": "Action",
+                  "text": "Status geklärt, Zuständigkeiten abgestimmt und die Übergabeliste ergänzt."
+                },
+                {
+                  "num": "04",
+                  "title": "Result",
+                  "text": "Beide Aufträge wurden übernommen und am selben Tag bestätigt."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Antworten eingrenzen und vertiefen",
+          "pill": "04 · Antworten eingrenzen und vertiefen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Übe deine Beispiele in kurzer Form. Wenn eine Frage sehr persönlich oder unklar ist, kannst du höflich nach dem Bezug zur Position fragen und selbst entscheiden, wie viel du erläuterst."
+            },
+            {
+              "t": "note",
+              "text": "Ein glaubwürdiges Resultat kann ein bestätigter Folgetermin, ein vermiedener Fehler oder eine beobachtbare Verbesserung sein."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Verhaltensfragen erkennen",
+                  "text": "Bau dir einen Vorrat an tatsächlichen Situationen auf."
+                },
+                {
+                  "title": "Situation und Aufgabe trennen",
+                  "text": "Kontext und Verantwortung beantworten verschiedene Fragen."
+                },
+                {
+                  "title": "Handlung und Ergebnis belegen",
+                  "text": "Dein Beitrag und seine Wirkung sollen getrennt erkennbar sein."
+                },
+                {
+                  "title": "Antworten eingrenzen und vertiefen",
+                  "text": "Eine klare Antwort lässt sich auf Nachfrage mit Details vertiefen."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Zwei STAR-Beispiele vorbereiten",
+              "goals": [
+                "Wähle eine Kunden- und eine Drucksituation.",
+                "Notiere Situation, Aufgabe, eigene Handlung und Ergebnis.",
+                "Sprich beide Antworten laut und lass dich zu deinem Beitrag befragen."
+              ]
+            }
+          ]
+        }
+      ],
+      "materials": [
+        "4.2.5 Jobinterview Tag 3 - STAR Methode Präsentation.pdf",
+        "4.2.5 Jobinterview Tag 3 - STAR Methode Task Sheet.pdf"
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Vier Fragen zu den vier Abschnitten dieser Lektion.",
+        "questions": [
+          {
+            "question": "Wie beantwortest du „Erzähl von einem schwierigen Kundenfall“?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Du erklärst allgemein, wie andere Kollegen oft vorgehen."
+              },
+              {
+                "id": "B",
+                "text": "Du wählst eine tatsächlich erlebte Situation mit deinem Beitrag und ihrer Wirkung."
+              },
+              {
+                "id": "C",
+                "text": "Du listest nur die Eigenschaften auf, die dir wichtig sind."
+              },
+              {
+                "id": "D",
+                "text": "Du wechselst zur Beschreibung des Produkts."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Die Frage zielt auf früheres Verhalten."
+          },
+          {
+            "question": "Was gehört unter „Task“?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Die allgemeine Unternehmensbeschreibung."
+              },
+              {
+                "id": "B",
+                "text": "Die vollständige Reihenfolge deiner Schritte."
+              },
+              {
+                "id": "C",
+                "text": "Das Ziel oder Problem, für das du in der Situation verantwortlich warst."
+              },
+              {
+                "id": "D",
+                "text": "Das gemessene Ergebnis nach der Umsetzung."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Die Aufgabe liegt zeitlich zwischen Ausgangslage und Handlung."
+          },
+          {
+            "question": "Welcher Satz beschreibt „Action“?",
+            "options": [
+              {
+                "id": "A",
+                "text": "„Der Kunde wartete seit zwei Tagen.“"
+              },
+              {
+                "id": "B",
+                "text": "„Meine Aufgabe war, eine Antwort bis Feierabend zu sichern.“"
+              },
+              {
+                "id": "C",
+                "text": "„Der Kunde bestätigte die neue Lösung am folgenden Morgen.“"
+              },
+              {
+                "id": "D",
+                "text": "„Ich habe die Anfrage priorisiert, den Status geklärt und eine Rückmeldung vereinbart.“"
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Hier geht es um das, was du tatsächlich getan hast."
+          },
+          {
+            "question": "Wie kannst du eine unklare persönliche Frage eingrenzen?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Du fragst höflich, welchen Bezug die Frage zur Position hat."
+              },
+              {
+                "id": "B",
+                "text": "Du beginnst sofort mit der ältesten beruflichen Station."
+              },
+              {
+                "id": "C",
+                "text": "Du rätst, auf welche Kennzahl die Frage zielt."
+              },
+              {
+                "id": "D",
+                "text": "Du beantwortest vorsorglich alle denkbaren Varianten."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Eine Rückfrage hilft dir, den beruflichen Zusammenhang zu verstehen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.2.6",
+      "title": "Gehalt, Marktwert und Vergütungsmodelle",
+      "hero": {
+        "eyebrow": "Kapitel 4.2.6 · Lektion 6",
+        "title": "Gehalt, Marktwert und Vergütungsmodelle",
+        "desc": "Vergleiche Gehaltsangebote anhand von Fixum, variabler Vergütung und Zielbedingungen und bereite eine begründete Verhandlung vor.",
+        "chips": [
+          "Modul 4 · Sales-Interview",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Fixgehalt, Variable und OTE verstehen",
+          "pill": "01 · Fixgehalt, Variable und OTE verstehen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Das Fixgehalt ist die feste Vergütung. Variable Zahlung hängt von vereinbarten Bedingungen ab. On-Target Earnings (OTE) bezeichnet die Gesamtvergütung bei 100 % Zielerreichung nach dem jeweiligen Modell."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Begriff",
+                "Beispielrechnung"
+              ],
+              "rows": [
+                [
+                  "Fixgehalt",
+                  "45.000 € pro Jahr"
+                ],
+                [
+                  "Variable bei 100 %",
+                  "15.000 € pro Jahr"
+                ],
+                [
+                  "OTE",
+                  "60.000 € pro Jahr bei 100 % Zielerreichung"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Auszahlung und Zielbedingungen prüfen",
+          "pill": "02 · Auszahlung und Zielbedingungen prüfen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Erfrage Berechnungsgrundlage, Auszahlungszeitpunkt und Ramp-up in der Einarbeitung. Die Auszahlung kann von Schwellen, Staffelung und Deckelung abhängen."
+            },
+            {
+              "t": "checklist",
+              "items": [
+                {
+                  "title": "Quote",
+                  "text": "Wie viele Personen im Team erreichen das Ziel und in welchem Zeitraum?"
+                },
+                {
+                  "title": "Mechanik",
+                  "text": "Was genau löst eine Auszahlung aus und wann wird sie fällig?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Den eigenen Marktwert recherchieren",
+          "pill": "03 · Den eigenen Marktwert recherchieren",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Vergleiche Quellen für ähnliche Rollen nach Region, Erfahrungsniveau, Segment und Aufgaben. Halte getrennt fest, ob eine Angabe nur das Fixum oder die Zielvergütung meint."
+            },
+            {
+              "t": "note",
+              "text": "Nutze mehrere datierte Angaben und erkläre im Gespräch, welche Verantwortung und welchen nachweisbaren Beitrag du mitbringst."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Mit drei Zielen verhandeln",
+          "pill": "04 · Mit drei Zielen verhandeln",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Lege eine gewünschte Vergütung, deine interne Untergrenze und eine Alternative fest. Je nach Situation kommen ein früher Gehaltsreview, Weiterbildung oder ein anderes Fix-Variabel-Verhältnis infrage."
+            },
+            {
+              "t": "flow",
+              "cols": 2,
+              "steps": [
+                {
+                  "num": "01",
+                  "title": "Wunschziel",
+                  "text": "Formuliere und begründe deine Forderung."
+                },
+                {
+                  "num": "02",
+                  "title": "Untergrenze",
+                  "text": "Kläre vorab, welches Paket sich für dich rechnet."
+                },
+                {
+                  "num": "03",
+                  "title": "Alternative",
+                  "text": "Überlege, was bei kleinerem Spielraum einen Unterschied macht."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Fixgehalt, Variable und OTE verstehen",
+                  "text": "OTE ist ein Zielwert. Frage, was das Team tatsächlich erreicht."
+                },
+                {
+                  "title": "Auszahlung und Zielbedingungen prüfen",
+                  "text": "Vergleiche Angebote auch bei einer schwächeren Zielerreichung."
+                },
+                {
+                  "title": "Den eigenen Marktwert recherchieren",
+                  "text": "Eine vergleichbare Rolle ist aussagekräftiger als das bisherige Gehalt allein."
+                },
+                {
+                  "title": "Mit drei Zielen verhandeln",
+                  "text": "Deine Untergrenze dient deiner eigenen Entscheidung."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Zwei fiktive Angebote vergleichen",
+              "goals": [
+                "Berechne das OTE aus Fixum und Zielvariable.",
+                "Notiere zwei Fragen zur Auszahlung und Einarbeitung.",
+                "Lege Wunschziel, Untergrenze und Alternative für ein Übungsgespräch fest."
+              ]
+            }
+          ]
+        }
+      ],
+      "materials": [
+        "4.2.6 Jobinterview Tag 4 - Präsentation.pdf",
+        "4.2.6 Jobinterview Tag 4 - Task Sheet.pdf"
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Vier Fragen zu den vier Abschnitten dieser Lektion.",
+        "questions": [
+          {
+            "question": "Ein Angebot nennt 45.000 € Fixum und 15.000 € Variable bei 100 %. Was ist das OTE?",
+            "options": [
+              {
+                "id": "A",
+                "text": "45.000 € pro Jahr einschließlich aller Boni."
+              },
+              {
+                "id": "B",
+                "text": "15.000 € pro Monat."
+              },
+              {
+                "id": "C",
+                "text": "60.000 € pro Jahr bei 100 % Zielerreichung."
+              },
+              {
+                "id": "D",
+                "text": "60.000 € garantiertes Fixgehalt."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Addiere das Jahresfixum und die Variable bei Zielerreichung."
+          },
+          {
+            "question": "Was musst du für eine Schätzung unterhalb von 100 % Zielerreichung wissen?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Welches CRM die Personalabteilung verwendet."
+              },
+              {
+                "id": "B",
+                "text": "Wie viele Kundentermine bei einem anderen Arbeitgeber üblich sind."
+              },
+              {
+                "id": "C",
+                "text": "Ob die Auszahlung linear ist und welche Schwellen oder Staffelungen gelten."
+              },
+              {
+                "id": "D",
+                "text": "Ob die Stelle im Titel das Wort „Sales“ enthält."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Variable Vergütung kann von einer Auszahlungsregel abhängen."
+          },
+          {
+            "question": "Welche Gehaltsdaten eignen sich besonders gut für den Vergleich?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Ein einzelner Spitzenwert aus einer anderen Rolle."
+              },
+              {
+                "id": "B",
+                "text": "Dein früheres Gehalt als einzige Referenz."
+              },
+              {
+                "id": "C",
+                "text": "Datierte Angaben zu ähnlichen Aufgaben, Region und Erfahrung mit klarer Basis."
+              },
+              {
+                "id": "D",
+                "text": "Eine Mischung aus Monatsfixum und Jahres-OTE ohne Umrechnung."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Vergleiche dieselbe Art von Vergütung unter ähnlichen Bedingungen."
+          },
+          {
+            "question": "Wofür legst du eine Untergrenze fest?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Damit du genau diesen Betrag zuerst forderst."
+              },
+              {
+                "id": "B",
+                "text": "Damit du jede variable Vergütung aus dem Gespräch streichen kannst."
+              },
+              {
+                "id": "C",
+                "text": "Damit du selbst entscheiden kannst, ab welchem Gesamtpaket ein Angebot tragfähig ist."
+              },
+              {
+                "id": "D",
+                "text": "Damit du bei jeder Verhandlung denselben Betrag zustimmst."
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Wunschziel und persönliche Entscheidungsgrenze erfüllen verschiedene Funktionen."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.2.7",
+      "title": "Mock Interviews und Auswahl-Simulation",
+      "hero": {
+        "eyebrow": "Kapitel 4.2.7 · Lektion 7",
+        "title": "Mock Interviews und Auswahl-Simulation",
+        "desc": "Übe ein Auswahlgespräch mit festen Rollen, kriterienbasiertem Feedback und einer zweiten Runde.",
+        "chips": [
+          "Modul 4 · Sales-Interview",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Die Simulation vorbereiten",
+          "pill": "01 · Die Simulation vorbereiten",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Legt eine konkrete Zielrolle fest und verteilt die Rollen Bewerber, Interviewer und Beobachter. Erstellt einen kurzen Ablauf und wählt vorab, welche Verhaltensweisen ihr beobachten wollt."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Rolle",
+                "Verantwortung"
+              ],
+              "rows": [
+                [
+                  "Bewerber",
+                  "Kurzvorstellung, Beispiele und eigene Fragen vorbereiten"
+                ],
+                [
+                  "Interviewer",
+                  "Nachfragen stellen und die Runde zeitlich steuern"
+                ],
+                [
+                  "Beobachter",
+                  "Konkrete Aussagen und Reaktionen für das Feedback festhalten"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Interview und Rolle spielen",
+          "pill": "02 · Interview und Rolle spielen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Startet mit der Vorstellung. Nutzt dann individuelle Rückfragen, eine Herausforderung aus dem Vertriebsalltag und Raum für Fragen zur Stelle."
+            },
+            {
+              "t": "flow",
+              "cols": 2,
+              "steps": [
+                {
+                  "num": "01",
+                  "title": "Einstieg",
+                  "text": "Stell deine Passung in kurzer Form vor."
+                },
+                {
+                  "num": "02",
+                  "title": "Vertiefung",
+                  "text": "Belege eine Erfahrung und reagiere auf Rückfragen."
+                },
+                {
+                  "num": "03",
+                  "title": "Arbeitsprobe",
+                  "text": "Kläre Bedarf in einem Gespräch oder strukturiere eine Fallfrage."
+                },
+                {
+                  "num": "04",
+                  "title": "Abschluss",
+                  "text": "Stell eine Rückfrage und vereinbare das Ende der Runde."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Feedback anhand von Kriterien geben",
+          "pill": "03 · Feedback anhand von Kriterien geben",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Unterscheidet Marktfit, Performance und Potenzial. Bewertet die erkennbare Passung, das Verhalten im Gespräch und die Lernfähigkeit anhand beobachtbarer Beispiele."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Kriterium",
+                "Beobachtungsfrage"
+              ],
+              "rows": [
+                [
+                  "Marktfit",
+                  "Passen Motivation und Beispiele zu den Aufgaben?"
+                ],
+                [
+                  "Performance",
+                  "Sind Struktur, Fragen und Reaktionen verständlich?"
+                ],
+                [
+                  "Potenzial",
+                  "Wie geht die Person mit Rückfragen und Entwicklungsimpulsen um?"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Feedback in einen Versuch übersetzen",
+          "pill": "04 · Feedback in einen Versuch übersetzen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Vergleiche deine Selbsteinschätzung mit dem, was andere beobachtet haben. Wähle eine Änderung und teste sie in einer kurzen zweiten Runde."
+            },
+            {
+              "t": "note",
+              "text": "Beispiel: Fasse vor dem Lösungsvorschlag den Bedarf in einem Satz zusammen und lass ihn im Rollenspiel bestätigen."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Die Simulation vorbereiten",
+                  "text": "Alle Beteiligten brauchen die gleiche Stellenbeschreibung und klare Aufgaben."
+                },
+                {
+                  "title": "Interview und Rolle spielen",
+                  "text": "Die Simulation soll eine echte Entscheidungssituation abbilden."
+                },
+                {
+                  "title": "Feedback anhand von Kriterien geben",
+                  "text": "Belege Feedback mit einer konkreten Stelle aus dem Gespräch."
+                },
+                {
+                  "title": "Feedback in einen Versuch übersetzen",
+                  "text": "Ein klarer Fokus erleichtert den Vergleich zwischen zwei Versuchen."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Ein Interview in Dreiergruppen üben",
+              "goals": [
+                "Legt Rolle und Bewertungskriterien fest.",
+                "Spielt Vorstellung, Rückfragen und Arbeitsprobe durch.",
+                "Wiederholt eine Stelle mit genau einer Änderung."
+              ]
+            }
+          ]
+        }
+      ],
+      "materials": [
+        "4.2.7 Auswahl-Simulation & Mock Interviews - Präsentation.pdf",
+        "4.2.7 Auswahl-Simulation & Mock Interviews - Task Sheet.pdf"
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Vier Fragen zu den vier Abschnitten dieser Lektion.",
+        "questions": [
+          {
+            "question": "Welche Aufgabe übernimmt der Beobachter?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Er notiert konkrete Aussagen und Verhaltensweisen für das Feedback."
+              },
+              {
+                "id": "B",
+                "text": "Er beantwortet schwierige Fragen für den Bewerber."
+              },
+              {
+                "id": "C",
+                "text": "Er verändert während der Antwort die Stellenanforderungen."
+              },
+              {
+                "id": "D",
+                "text": "Er entscheidet über einen realen Arbeitsvertrag."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Die Beobachtung soll nach der Runde belegbar sein."
+          },
+          {
+            "question": "Wann passt eine Arbeitsprobe in die Simulation?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Erst nach mehreren Wochen und ohne Bezug zur Zielrolle."
+              },
+              {
+                "id": "B",
+                "text": "Nur, wenn kein Interviewer teilnehmen kann."
+              },
+              {
+                "id": "C",
+                "text": "Ausschließlich, um Wissen über die Buchhaltung abzufragen."
+              },
+              {
+                "id": "D",
+                "text": "Nach Einstieg und Vertiefung, wenn ihr zusätzlich Verhalten in einer Sales-Situation üben wollt."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Die Probe ergänzt Antworten über Erfahrung durch beobachtbares Verhalten."
+          },
+          {
+            "question": "Woran machst du „Marktfit“ in dieser Übung fest?",
+            "options": [
+              {
+                "id": "A",
+                "text": "An der Menge der aufgelisteten Arbeitgeber."
+              },
+              {
+                "id": "B",
+                "text": "Daran, wie gut Motivation und gezeigte Erfahrung zu den Aufgaben der Zielrolle passen."
+              },
+              {
+                "id": "C",
+                "text": "An der Zahl der Bonusfragen im Rollenspiel."
+              },
+              {
+                "id": "D",
+                "text": "An der Lautstärke der Stimme allein."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Der Begriff beschreibt Passung zur konkreten Rolle."
+          },
+          {
+            "question": "Was machst du nach konkretem Feedback am besten?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Du wechselst alle Rollen und Bewertungskriterien gleichzeitig."
+              },
+              {
+                "id": "B",
+                "text": "Du testest einen klaren Verbesserungsschritt in einer zweiten Runde."
+              },
+              {
+                "id": "C",
+                "text": "Du notierst nur die Gesamtwertung und lässt die Beispiele weg."
+              },
+              {
+                "id": "D",
+                "text": "Du ersetzt die Simulation durch das Ablesen der richtigen Antworten."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Im nächsten Versuch soll eine Veränderung beobachtbar sein."
+          }
+        ]
+      }
+    },
+    {
+      "id": "4.3.1",
+      "title": "Abschluss und finaler CV-Check",
+      "hero": {
+        "eyebrow": "Kapitel 4.3.1 · Lektion 1",
+        "title": "Abschluss und finaler CV-Check",
+        "desc": "Prüfe vor der Bewerbung Zielrichtung, relevante Erfahrung, Erfolge, roten Faden und Lesbarkeit deines Lebenslaufs.",
+        "chips": [
+          "Modul 4 · Abschluss",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Zielposition und Erfahrung abgleichen",
+          "pill": "01 · Zielposition und Erfahrung abgleichen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Lies die Zielanzeige und dann deinen CV wie ein Recruiter. Markiere, wo die wichtigsten Anforderungen tatsächlich belegt sind und ob diese Stellen beim Überfliegen auffallen."
+            },
+            {
+              "t": "checklist",
+              "items": [
+                {
+                  "title": "Zielposition",
+                  "text": "Ist die berufliche Richtung klar?"
+                },
+                {
+                  "title": "Passende Erfahrung",
+                  "text": "Sind die wichtigsten Tätigkeiten ausreichend konkret beschrieben?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Transfer und roten Faden prüfen",
+          "pill": "02 · Transfer und roten Faden prüfen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Erkläre Wechsel und relevante Zeiträume sachlich. Bei einer neuen Branche sollte sichtbar sein, welche bisherigen Fähigkeiten dir bei den neuen Aufgaben helfen."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Zeitachse",
+                  "text": "Stationen und Übergänge passen in eine verständliche Chronologie."
+                },
+                {
+                  "title": "Quereinstieg",
+                  "text": "Ein Praxisbeispiel zeigt, wo eine vertraute Fähigkeit in der Zielrolle gebraucht wird."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Nachvollziehbare Ergebnisse zeigen",
+          "pill": "03 · Nachvollziehbare Ergebnisse zeigen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Nutze Umfang, Häufigkeit, Eigenverantwortung, Schwierigkeit oder Wirkung, um einen Beitrag greifbar zu machen. Wähle die Angaben, die du sicher erläutern kannst."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Prüfpunkt",
+                "Frage"
+              ],
+              "rows": [
+                [
+                  "Umfang und Häufigkeit",
+                  "Wie viele Fälle, Kunden oder Vorgänge in welchem Zeitraum?"
+                ],
+                [
+                  "Verantwortung und Schwierigkeit",
+                  "Was lag bei dir und was war anspruchsvoll?"
+                ],
+                [
+                  "Wirkung",
+                  "Was hat sich verändert und woran erkennst du es?"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Export und Abgabe prüfen",
+          "pill": "04 · Export und Abgabe prüfen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Öffne die Datei, die du tatsächlich versenden willst. Prüfe Kontaktzeile, Daten und Umbrüche, kontrolliere den Anschluss an die Stellenanzeige und teste bei einem Text-PDF die Kopierreihenfolge."
+            },
+            {
+              "t": "flow",
+              "cols": 2,
+              "steps": [
+                {
+                  "num": "01",
+                  "title": "Passung",
+                  "text": "Zielposition und Belege prüfen."
+                },
+                {
+                  "num": "02",
+                  "title": "Fakten",
+                  "text": "Daten, Aussagen und Kontaktdaten verifizieren."
+                },
+                {
+                  "num": "03",
+                  "title": "Export",
+                  "text": "Lesbarkeit, Seitenumbrüche und Dateiname kontrollieren."
+                },
+                {
+                  "num": "04",
+                  "title": "Ablage",
+                  "text": "Version zusammen mit der Ausschreibung speichern."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Zielposition und Erfahrung abgleichen",
+                  "text": "Die angestrebte Rolle und passende Belege sollten schnell erkennbar sein."
+                },
+                {
+                  "title": "Transfer und roten Faden prüfen",
+                  "text": "Der Leser soll deinen Weg ohne Rätsel nachvollziehen können."
+                },
+                {
+                  "title": "Nachvollziehbare Ergebnisse zeigen",
+                  "text": "Ein guter Beleg erklärt den Beitrag, den du persönlich geleistet hast."
+                },
+                {
+                  "title": "Export und Abgabe prüfen",
+                  "text": "Kontrolliere die tatsächliche Versandfassung."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Deinen finalen CV gegenlesen",
+              "goals": [
+                "Arbeite die sechs Punkte der Kurscheckliste ab.",
+                "Ändere zwei vage Aussagen in konkrete Belege.",
+                "Lass die fertige Fassung kurz von einer anderen Person prüfen."
+              ]
+            }
+          ]
+        }
+      ],
+      "materials": [
+        "4.3.1 Abschluss Tag 9 - Präsentation.pdf",
+        "4.3.1 Finale CV Checkliste.pdf"
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Vier Fragen zu den vier Abschnitten dieser Lektion.",
+        "questions": [
+          {
+            "question": "Was sollte ein Leser beim Überfliegen der Bewerbung erkennen?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Was in jeder früheren Stelle dein Eintrittsgehalt war."
+              },
+              {
+                "id": "B",
+                "text": "Welche Schrift dein letztes Zeugnis verwendet."
+              },
+              {
+                "id": "C",
+                "text": "Die genaue Reihenfolge aller Kurstermine."
+              },
+              {
+                "id": "D",
+                "text": "Welche Zielposition du anstrebst und welche Erfahrungen dazu passen."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Suche den Bezug zwischen deiner Bewerbung und dem Aufgabenprofil."
+          },
+          {
+            "question": "Wie machst du einen Quereinstieg nachvollziehbar?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Du löschst alle Stationen außerhalb der Zielbranche."
+              },
+              {
+                "id": "B",
+                "text": "Du passt frühere Berufsbezeichnungen an die Anzeige an."
+              },
+              {
+                "id": "C",
+                "text": "Du legst nur eine Liste besuchter Vorlesungen bei."
+              },
+              {
+                "id": "D",
+                "text": "Du zeigst an einem belegten Beispiel, wie eine frühere Fähigkeit bei einer Zielaufgabe hilft."
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Die alte Tätigkeit gibt den Beleg für eine neue Aufgabe."
+          },
+          {
+            "question": "Welche Frage hilft dir, Wirkung sichtbar zu machen?",
+            "options": [
+              {
+                "id": "A",
+                "text": "„Welches Adjektiv klingt am eindrucksvollsten?“"
+              },
+              {
+                "id": "B",
+                "text": "„Kann ich dieselbe Zahl bei mehreren Arbeitgebern verwenden?“"
+              },
+              {
+                "id": "C",
+                "text": "„Was hat sich durch meinen Beitrag verändert und woran kann ich das zeigen?“"
+              },
+              {
+                "id": "D",
+                "text": "„Welche Schriftart lässt die Zahl größer wirken?“"
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Beobachtbare Veränderungen stützen die Aussage."
+          },
+          {
+            "question": "Welche Datei prüfst du für die Freigabe?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Den tatsächlichen Export für die konkrete Bewerbung."
+              },
+              {
+                "id": "B",
+                "text": "Ausschließlich den ursprünglichen Rohentwurf."
+              },
+              {
+                "id": "C",
+                "text": "Das Beispiel-PDF aus dem Kurs."
+              },
+              {
+                "id": "D",
+                "text": "Nur ein Bildschirmfoto der ersten Seite."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Spätere Umbrüche und der Anhang können sich vom Entwurf unterscheiden."
+          }
+        ]
+      }
+    }
+  ],
+  "compact": [
+    {
+      "title": "Key Accounts, Customer Support & Pitch",
+      "blocks": [
+        {
+          "t": "heading",
+          "text": "Key Accounts entwickeln"
+        },
+        {
+          "t": "checklist",
+          "items": [
+            {
+              "title": "Account-Plan",
+              "text": "Bewerte Umsatzpotenzial, strategische Passung und Risiko. Halte Ziele, Beteiligte, Maßnahmen und Reviewtermine fest."
+            },
+            {
+              "title": "Erwartungen",
+              "text": "Kläre Zuständigkeiten, Entscheidungsspielraum und Fristen. SCQA hilft, Sachlage, Problem, Frage und Antwort zu ordnen."
+            },
+            {
+              "title": "Kennzahlen",
+              "text": "Definiere Zeitraum und Basis für Bestandserlöse, Ausbau und Abwanderung. Prüfe Nutzung und offene Risiken als frühe Signale."
+            }
+          ]
+        },
+        {
+          "t": "golink",
+          "to": "2.7.7",
+          "label": "2.7.7 · KPIs im KAM",
+          "sub": "Kennzahlen, Ziele und Maßnahmen im Account-Plan"
+        },
+        {
+          "t": "heading",
+          "text": "Service und Customer Success"
+        },
+        {
+          "t": "table",
+          "head": [
+            "Bereich",
+            "Was du prüfst"
+          ],
+          "rows": [
+            [
+              "Help Desk und Ticketing",
+              "Kanal, Ursache, Dringlichkeit, zugewiesene Person und nächstes Update im selben Vorgang dokumentieren."
+            ],
+            [
+              "Wissensdatenbank",
+              "Häufige Fragen in getestete Anleitungen überführen, Verantwortliche festlegen und Artikel aktuell halten."
+            ],
+            [
+              "Customer Success",
+              "Beim Start Kundenziele vereinbaren, Nutzung beobachten und rechtzeitig bei Abweichungen unterstützen."
+            ],
+            [
+              "Feedback",
+              "CSAT erfasst Zufriedenheit nach einer Interaktion, CES den empfundenen Aufwand. NPS erfasst die Bereitschaft zur Weiterempfehlung."
+            ]
+          ]
+        },
+        {
+          "t": "golink",
+          "to": "2.7.12",
+          "label": "2.7.12 · Ticketing und Fall-Management",
+          "sub": "Zuständigkeit, Status und Eskalation im Help Desk"
+        },
+        {
+          "t": "golink",
+          "to": "2.7.14",
+          "label": "2.7.14 · Kundenfeedback und Erfolgsmessung",
+          "sub": "Service- und Bindungskennzahlen einordnen"
+        },
+        {
+          "t": "heading",
+          "text": "Kunden-Pitch und Team-Pitch"
+        },
+        {
+          "t": "flow",
+          "cols": 2,
+          "steps": [
+            {
+              "num": "01",
+              "title": "Kundenproblem",
+              "text": "Ausgangslage und Entscheidungshürde mit der Zielgruppe abgleichen."
+            },
+            {
+              "num": "02",
+              "title": "Botschaft",
+              "text": "Mit Situation, Complication und Resolution eine Lösung herleiten."
+            },
+            {
+              "num": "03",
+              "title": "Präsentation",
+              "text": "Pro Folie eine Aussage belegen, den Vortrag proben und den nächsten Schritt benennen."
+            },
+            {
+              "num": "04",
+              "title": "Vertriebsstrategie",
+              "text": "Content, Outreach und Funnel-Übergänge verzahnen. Jede Kennzahl braucht Zeitraum, Zähler und Bezugsgröße."
+            }
+          ]
+        },
+        {
+          "t": "golink",
+          "to": "2.8.3",
+          "label": "2.8.3 · Die Präsentation gestalten",
+          "sub": "Storyline, Folien und Handlungsaufforderung"
+        },
+        {
+          "t": "golink",
+          "to": "2.9.4",
+          "label": "2.9.4 · Lead Management und Erfolgsmessung",
+          "sub": "Funnel-Übergänge und Kennzahlen im Team-Pitch"
+        }
+      ]
+    },
+    {
+      "title": "Lebenslauf & Sales-Karriere",
+      "blocks": [
+        {
+          "t": "heading",
+          "text": "Sales-Rollen vergleichen"
+        },
+        {
+          "t": "table",
+          "head": [
+            "Frage",
+            "Woran du es erkennst"
+          ],
+          "rows": [
+            [
+              "Welches Umfeld passt?",
+              "Startup und Corporate unterscheiden sich häufig bei Aufgabenbreite und Prozessreife."
+            ],
+            [
+              "Wer kauft?",
+              "SMB und Enterprise unterscheiden sich oft bei Entscheidungswegen und Verkaufszyklus."
+            ],
+            [
+              "Wie wird verkauft?",
+              "Transaktional oder strategisch beschreibt Beratungstiefe. Outbound oder Inbound beschreibt, woher das Interesse kommt."
+            ],
+            [
+              "Wofür bin ich verantwortlich?",
+              "SDR/BDR qualifizieren, AE führen zum Abschluss, KAM entwickeln Schlüsselkunden, Customer Success begleitet Kundenerfolg. Aufgaben variieren je Stelle."
+            ]
+          ]
+        },
+        {
+          "t": "golink",
+          "to": "4.1.4",
+          "label": "4.1.4 · Rollen und Karrierepfade im Detail",
+          "sub": "Verantwortung, Lernkurve und Rollenpräferenz"
+        },
+        {
+          "t": "heading",
+          "text": "Eine Stellenanzeige in CV-Belege übersetzen"
+        },
+        {
+          "t": "flow",
+          "cols": 2,
+          "steps": [
+            {
+              "num": "01",
+              "title": "Anforderungen",
+              "text": "Muss und Kann markieren und die wichtigsten Aufgaben priorisieren."
+            },
+            {
+              "num": "02",
+              "title": "Transfer",
+              "text": "Pro Aufgabe einen belegbaren Beitrag aus Beruf oder Weiterbildung auswählen."
+            },
+            {
+              "num": "03",
+              "title": "Wirkung",
+              "text": "Tätigkeit mit Umfang, Häufigkeit, Verantwortung oder Ergebnis konkretisieren."
+            },
+            {
+              "num": "04",
+              "title": "Versandfassung",
+              "text": "Jüngste Station zuerst, Übergänge verständlich, wichtige Punkte schnell sichtbar."
+            }
+          ]
+        },
+        {
+          "t": "golink",
+          "to": "4.1.3",
+          "label": "4.1.3 · CV-Lücken und Stellenanzeigen",
+          "sub": "Chronologie, Muss- und Kann-Kriterien"
+        },
+        {
+          "t": "golink",
+          "to": "4.1.5",
+          "label": "4.1.5 · Stärken und übertragbare Erfahrung",
+          "sub": "Die Transfer-Checkliste anwenden"
+        },
+        {
+          "t": "heading",
+          "text": "ATS und Lesbarkeit prüfen"
+        },
+        {
+          "t": "note",
+          "text": "Verwende klare Abschnittsüberschriften, einheitliche Datumsangaben und relevante Suchbegriffe im Zusammenhang. Prüfe das Dateiformat der Anzeige. Bei einem Text-PDF hilft Kopieren in einen Editor, um die Reihenfolge zu kontrollieren."
+        },
+        {
+          "t": "golink",
+          "to": "4.1.7",
+          "label": "4.1.7 · Erfolge sichtbar machen und ATS",
+          "sub": "Zahlen belegen und maschinelle Lesbarkeit verbessern"
+        }
+      ]
+    },
+    {
+      "title": "Sales-Interview & Gehalt",
+      "blocks": [
+        {
+          "t": "heading",
+          "text": "Selbstpräsentation und STAR"
+        },
+        {
+          "t": "table",
+          "head": [
+            "Format",
+            "Aufbau"
+          ],
+          "rows": [
+            [
+              "Selbstpräsentation",
+              "Beruflicher Hintergrund → konkrete Stärke oder Erfahrung → Nutzen für die Zielrolle."
+            ],
+            [
+              "STAR-Antwort",
+              "Situation → eigene Aufgabe (Task) → eigene Handlung (Action) → beobachtbares Ergebnis (Result)."
+            ],
+            [
+              "Entwicklungsfeld",
+              "Lernstand ehrlich benennen und einen konkreten nächsten Entwicklungsschritt erklären."
+            ]
+          ]
+        },
+        {
+          "t": "golink",
+          "to": "4.2.3",
+          "label": "4.2.3 · Selbstpräsentation mit Nutzenbezug",
+          "sub": "Passende Belege auswählen und laut üben"
+        },
+        {
+          "t": "golink",
+          "to": "4.2.5",
+          "label": "4.2.5 · STAR-Methode für Interviewantworten",
+          "sub": "Verhaltensfragen anhand eines konkreten Beispiels beantworten"
+        },
+        {
+          "t": "heading",
+          "text": "Auswahlrunden und Rollenspiele"
+        },
+        {
+          "t": "checklist",
+          "items": [
+            {
+              "title": "Screening und Fachrunde",
+              "text": "Rahmen, Motivation und Fachbelege vorbereiten. Eigene Fragen zu Einarbeitung und Zielen stellen."
+            },
+            {
+              "title": "Rollenspiel",
+              "text": "Rahmen setzen, offen fragen, Bedarf zusammenfassen und nächsten Schritt vereinbaren."
+            },
+            {
+              "title": "Fallstudie",
+              "text": "Auftrag klären, Annahmen benennen, Empfehlung begründen und Erfolgskriterium festlegen."
+            },
+            {
+              "title": "Mock Interview",
+              "text": "Passung, Auftreten und Lernfähigkeit anhand beobachtbarer Situationen besprechen. Eine Änderung im zweiten Versuch testen."
+            }
+          ]
+        },
+        {
+          "t": "golink",
+          "to": "4.2.7",
+          "label": "4.2.7 · Mock Interviews und Auswahl-Simulation",
+          "sub": "Feste Rollen, Beobachtung und zweite Runde"
+        },
+        {
+          "t": "heading",
+          "text": "Vergütung vergleichen und verhandeln"
+        },
+        {
+          "t": "note",
+          "text": "OTE bezeichnet Fixum plus variable Vergütung bei 100 % Zielerreichung. Frage nach Auszahlungsregeln, Einarbeitung und tatsächlicher Zielerreichung. Recherchiere vergleichbare Rollen und lege Wunschziel, persönliche Untergrenze und Alternative fest."
+        },
+        {
+          "t": "golink",
+          "to": "4.2.6",
+          "label": "4.2.6 · Gehalt, Marktwert und Vergütungsmodelle",
+          "sub": "Angebote berechnen und Gehaltsgespräch vorbereiten"
+        }
+      ]
+    },
+    {
+      "title": "Finaler Bewerbungscheck",
+      "blocks": [
+        {
+          "t": "heading",
+          "text": "Sechs Fragen zum CV"
+        },
+        {
+          "t": "checklist",
+          "items": [
+            {
+              "title": "Zielposition",
+              "text": "Erkennt man, welche Rolle du anstrebst?"
+            },
+            {
+              "title": "Passung",
+              "text": "Stehen die Belege für die wichtigsten Aufgaben weit genug vorn?"
+            },
+            {
+              "title": "Transfer",
+              "text": "Wird klar, welche Erfahrungen beim Wechsel ins neue Aufgabenfeld helfen?"
+            },
+            {
+              "title": "Erfolge",
+              "text": "Sind Beitrag und Wirkung belegt?"
+            },
+            {
+              "title": "Roter Faden",
+              "text": "Sind Stationen, Übergänge und Zeiträume verständlich?"
+            },
+            {
+              "title": "Übersicht",
+              "text": "Sind Überschriften, Datumsangaben und Seitenumbrüche gut lesbar?"
+            }
+          ]
+        },
+        {
+          "t": "heading",
+          "text": "Vor dem Gespräch und Versand"
+        },
+        {
+          "t": "checklist",
+          "items": [
+            {
+              "title": "Versand",
+              "text": "Empfänger, Dateiformat und tatsächlich angehängte Fassung kontrollieren."
+            },
+            {
+              "title": "Gespräch",
+              "text": "Kurzvorstellung, zwei STAR-Beispiele, eigene Fragen und nächsten Schritt vorbereiten."
+            },
+            {
+              "title": "Ablage",
+              "text": "Anzeige und eingereichte Fassung zur späteren Vorbereitung zusammen ablegen."
+            }
+          ]
+        },
+        {
+          "t": "golink",
+          "to": "4.3.1",
+          "label": "4.3.1 · Abschluss und finaler CV-Check",
+          "sub": "Schlussprüfung, Kurscheckliste und Wissenscheck"
+        }
+      ]
+    }
+  ]
+}
