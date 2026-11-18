@@ -49,6 +49,60 @@ function check(doc, quiz, label) {
   const group=portal.CURR.find(m=>m.id==='m2').groups;
   assert.equal(group.find(g=>g.id==='2.8').title,'Kunden-Pitch');
   assert.equal(group.find(g=>g.id==='2.9').title,'Team-Pitch');
+  const moduleFour = portal.CURR.find(m => m.id === 'm4');
+  assert.ok(moduleFour, label + ': Modul 4 fehlt');
+  const moduleFourGroups = [['4.1', 7], ['4.2', 7], ['4.3', 1]];
+  assert.deepEqual(Array.from(moduleFour.groups, g => g.id), moduleFourGroups.map(([id]) => id));
+  for (const [groupId, count] of moduleFourGroups) {
+    const lessons = moduleFour.groups.find(g => g.id === groupId).lessons;
+    assert.deepEqual(Array.from(lessons, l => l.id), Array.from({length: count}, (_, i) => groupId + '.' + (i + 1)));
+    for (const {id} of lessons) {
+      const {sections} = portal.CONTENT[id];
+      const quiz = portal.state.quizData[id];
+      assert.equal(sections.length, 6, id);
+      assert.equal(quiz.questions.length, 4, id);
+      for (const question of quiz.questions) {
+        assert.equal(new Set(question.options.map(o => o.id)).size, 4, id);
+        assert.equal(new Set(question.options.map(o => o.text)).size, 4, id);
+        assert.ok(question.options.some(o => o.id === question.correctAnswer) && question.hint, id);
+      }
+      for (const block of sections.flatMap(s => s.blocks)) {
+        const rendered = portal.styleBlock(block, '#E4694B');
+        assert.ok(rendered && !(rendered.isNote && !rendered.text), id + ': ' + block.t);
+      }
+      const originals = sections.at(-1).blocks.filter(b => b.t === 'button');
+      assert.ok(originals.length >= 2, id);
+      for (const {href} of originals) {
+        assert.ok(href.startsWith('assets/kurs/' + id + '/') && fs.existsSync(path.join(root, href)), href);
+        assert.ok(materials.some(m => m.path === href), href);
+        assert.doesNotMatch(href, /MeinCV|Transfer-Checkliste|SoftwareOne|Lösungen?/i);
+      }
+      portal.select(id);
+      assert.equal(portal.renderVals().hasQuiz, true, id);
+      quiz.questions.forEach((question, i) => portal.selectQuizAnswer(i, question.correctAnswer));
+      portal.submitQuiz();
+      assert.equal(portal.state.quizSubmitted, true, id);
+      assert.equal(portal.renderVals().quiz.resultScoreText, '4 von 4 Antworten richtig', id);
+      portal.select(id);
+      assert.equal(Object.keys(portal.state.quizAnswers).length, 0, id);
+      assert.equal(portal.state.quizSubmitted, false, id);
+    }
+  }
+  const compact = portal.CONTENT.kompakt;
+  const styledCompact = portal.styleLesson(compact, '#E4694B');
+  assert.equal(compact.sections.length, 18);
+  assert.ok(compact.hero.chips.includes('18 Abschnitte'));
+  assert.equal(portal.COMPACT.length, compact.sections.length);
+  for (const [index, entry] of portal.COMPACT.entries()) {
+    assert.equal(entry.id, styledCompact.sections[index].id);
+    const headings = styledCompact.sections[index].blocks.filter(b => b.isHeading);
+    assert.deepEqual(Array.from(entry.subs), Array.from(headings, b => b.text));
+    headings.forEach((heading, i) => assert.equal(heading.anchorId, entry.id + '-h' + i));
+  }
+  for (const block of compact.sections.slice(14).flatMap(s => s.blocks).filter(b => b.t === 'golink')) {
+    assert.ok(all.some(l => l.id === block.to), block.to);
+    assert.ok(portal.CONTENT[block.to], block.to);
+  }
   const project=portal.CONTENT.projekt.sections.flatMap(s=>s.blocks);
   assert.ok(!JSON.stringify(portal.CONTENT['2.8.6']).includes('.pptx'), 'Kunden-Pitch nur als PDF');
   assert.ok(!project.some(b=>b.href?.includes('2.8.6')&&b.href.endsWith('.pptx')));
@@ -58,7 +112,7 @@ function check(doc, quiz, label) {
     assert.ok(fs.existsSync(path.join(root,b.href)),b.href);
     if(/\.(pptx|docx|xlsx|md)$/.test(b.href))assert.equal(portal.styleBlock(b,'#E4694B').onOpen,undefined,'Office must not open in iframe');
   }
-  console.log(label+': 20 Lektionen, 80 Fragen, Quizabgabe/Reset, Renderer, Navigation, Projektlinks und bestehende Fortschritte geprüft.');
+  console.log(label+': 20 bestehende und 15 neue Lektionen, 140 Quizfragen, 18 Kompaktabschnitte, Projektlinks und Fortschritt geprüft.');
   return portal;
 }
 check(read('Lernportal.dc.html'),read('quizData.js'),'DC-Quelle');
