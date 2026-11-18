@@ -197,6 +197,10 @@ def build(source_root):
             code = code.replace(anchor,js+anchor)
             code = code.replace('onOpen: isPdf ? undefined', 'onOpen: (isPdf || b.download) ? undefined')
             code = code.replace('isButton:true, label:b.label', "isButton:true, resourceLabel:b.resourceLabel || 'Zusatzmaterial · Infografik', label:b.label")
+            code = code.replace(
+                "flex: i === 0 ? '0 0 34%' : '1 1 0', paddingRight:",
+                "flex: i === 0 ? '0 0 34%' : '1 1 0', minWidth:0, overflowWrap:'anywhere', paddingRight:",
+            )
             return m[1]+code+m[3]
         # Nur die feste Beschriftung im Template ersetzen, nicht den Default im JS.
         doc=doc.replace('>Zusatzmaterial · Infografik</', '>{{ b.resourceLabel }}</')

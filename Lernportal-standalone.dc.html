@@ -7599,10 +7599,10 @@ class Component extends DCLogic {
     return map[tone] || map.teal;
   }
   thStyle(i, n) {
-    return { flex: i === 0 ? '0 0 34%' : '1 1 0', paddingRight: i < n - 1 ? '16px' : '0', font:"700 11px 'Archivo',sans-serif", letterSpacing:'.08em', textTransform:'uppercase', color:'#9AA0AC' };
+    return { flex: i === 0 ? '0 0 34%' : '1 1 0', minWidth:0, overflowWrap:'anywhere', paddingRight: i < n - 1 ? '16px' : '0', font:"700 11px 'Archivo',sans-serif", letterSpacing:'.08em', textTransform:'uppercase', color:'#9AA0AC' };
   }
   tdStyle(i, n) {
-    const base = { flex: i === 0 ? '0 0 34%' : '1 1 0', paddingRight: i < n - 1 ? '16px' : '0' };
+    const base = { flex: i === 0 ? '0 0 34%' : '1 1 0', minWidth:0, overflowWrap:'anywhere', paddingRight: i < n - 1 ? '16px' : '0' };
     if (i === 0) return { ...base, font:"700 14px/1.4 'Archivo',sans-serif", color:'#14171E' };
     return { ...base, font:"400 13.5px/1.5 'Public Sans',sans-serif", color:'#565C69' };
   }
