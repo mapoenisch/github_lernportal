@@ -91,8 +91,23 @@ function check(doc, quiz, label) {
   const compact = portal.CONTENT.kompakt;
   const styledCompact = portal.styleLesson(compact, '#E4694B');
   assert.equal(compact.sections.length, 18);
-  assert.ok(compact.hero.chips.includes('18 Abschnitte'));
+  assert.ok(compact.hero.chips.includes('17 Abschnitte + Glossar'));
   assert.equal(portal.COMPACT.length, compact.sections.length);
+  assert.deepEqual(Array.from(portal.COMPACT.slice(0, -1), entry => entry.code),
+    Array.from({length: 17}, (_, index) => String(index + 1).padStart(2, '0')));
+  const glossaryNav = portal.COMPACT.at(-1);
+  const glossary = compact.sections.at(-1);
+  assert.equal(glossaryNav.title, 'Glossar');
+  assert.equal(glossaryNav.code, '');
+  assert.equal(glossary.title, 'Glossar');
+  assert.equal(glossary.pill, 'Glossar');
+  assert.equal(glossary.eyebrow, '');
+  assert.deepEqual(Array.from(glossaryNav.subs), ['Definitionen', 'Modelle', 'Kennzahlen']);
+  assert.ok(!compact.sections.some(section => section.title === 'Prüfungswissen kompakt'));
+  const glossaryEntries = glossary.blocks.flatMap(block => block.items || []);
+  for (const title of ['SaaS', 'Customer Success', 'ATS (Applicant Tracking System)', 'STAR-Methode', 'Net Revenue Retention (NRR)', 'On-Target Earnings (OTE)']) {
+    assert.ok(glossaryEntries.some(item => item.title === title), title);
+  }
   for (const [index, entry] of portal.COMPACT.entries()) {
     assert.equal(entry.id, styledCompact.sections[index].id);
     const headings = styledCompact.sections[index].blocks.filter(b => b.isHeading);

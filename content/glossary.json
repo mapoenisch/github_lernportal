@@ -1,0 +1,49 @@
+{
+  "Definitionen": [
+    ["Account-Plan", "Arbeitsplan für einen Schlüsselkunden mit Zielen, Entscheidern, Chancen, Risiken, Verantwortlichen und Überprüfungsterminen."],
+    ["Action Title", "Folienüberschrift, die die Aussage der Folie in einem Satz auf den Punkt bringt."],
+    ["ATS (Applicant Tracking System)", "System zur Verwaltung von Bewerbungen. Je nach Produkt kann es Angaben aus Lebensläufen auslesen und für die Suche aufbereiten."],
+    ["Customer Success", "Proaktive Begleitung nach dem Kauf. Das Team vereinbart Kundenziele, fördert die Nutzung und reagiert früh auf Risiken."],
+    ["Help Desk und Ticket", "Der Help Desk bündelt Serviceanfragen. Ein Ticket hält Anliegen, Priorität, Status, Zuständigkeit und den nächsten Schritt fest."],
+    ["Inbound und Outbound", "Inbound bearbeitet eingehendes Interesse. Outbound spricht ausgewählte potenzielle Kunden aktiv an."],
+    ["Key Account Management (KAM)", "Planung und Entwicklung der Beziehungen zu ausgewählten Schlüsselkunden."],
+    ["Mock Interview", "Übungsgespräch mit Bewerber, Interviewer und Beobachter. Rückmeldungen beziehen sich auf konkrete Situationen und liefern einen Ansatz für die Wiederholung."],
+    ["Muss- und Kann-Kriterien", "Muss-Kriterien sind ausdrücklich geforderte Voraussetzungen. Kann-Kriterien sind erwünscht und können die Bewerbung stärken."],
+    ["Omnichannel-Support", "Kundenservice über mehrere verbundene Kanäle. Der Fallverlauf bleibt bei einem Kanalwechsel für das Team verfügbar."],
+    ["Partner Management", "Vertriebspartner gewinnen, befähigen und bei der gemeinsamen Marktbearbeitung unterstützen."],
+    ["Sales Operations", "Unterstützt den Vertrieb bei Prozessen, Systemen, Datenqualität und Auswertungen."],
+    ["Sales Pipeline", "Übersicht der Verkaufschancen nach Phase. Betrag, erwartetes Abschlussdatum und nächster Schritt helfen bei der Steuerung."],
+    ["Screening", "Erste Auswahlrunde, in der Unternehmen und Bewerber meist Motivation, Profil und Rahmenbedingungen abgleichen."],
+    ["SMB und Enterprise", "SMB bezeichnet kleine und mittlere Unternehmen. Enterprise bezeichnet Großkunden, bei denen typischerweise mehr Beteiligte am Kauf mitwirken."],
+    ["Verkaufs-Arbeitsprobe", "Rollenspiel oder Fallstudie im Auswahlverfahren. Sichtbar werden etwa Fragetechnik, Gesprächsführung und der Umgang mit unvollständigen Informationen."],
+    ["Wissensdatenbank und Self-Service", "Eine Wissensdatenbank sammelt geprüfte Anleitungen und Antworten. Self-Service hilft Kunden, häufige Anliegen selbst zu lösen."]
+  ],
+  "Modelle": [
+    ["Customer Journey für Content", "Awareness macht ein Problem sichtbar. Consideration hilft beim Vergleich möglicher Lösungen. In der Decision-Phase unterstützt Content eine konkrete Entscheidung."],
+    ["Die vier Sales-Achsen", "Startup oder Corporate, SMB oder Enterprise, transaktional oder strategisch sowie Outbound oder Inbound. Die vier Achsen beschreiben das Vertriebsumfeld unabhängig voneinander."],
+    ["Drei Ziele im Gehaltsgespräch", "Wunschziel begründen, die persönliche Untergrenze für die eigene Entscheidung kennen und eine Alternative vorbereiten, etwa einen frühen Gehaltsreview."],
+    ["Health Score", "Zusammengesetzter Indikator für den Zustand einer Kundenbeziehung. Nutzung, Feedback, Supportsignale oder Vertragsdaten können einfließen. Gewichte und Schwellenwerte legt das Team fest."],
+    ["Lead-Scoring und Routing", "Scoring priorisiert Leads anhand definierter Signale wie Passung und Verhalten. Routing weist Leads nach Regeln einer zuständigen Person oder einem Team zu."],
+    ["Rollenpräferenz-Canvas", "Tempo, Verantwortung, Abschlussart, Kundengröße und Vertriebskanal vergleichen, um eine konkrete Startrolle zu prüfen."],
+    ["SCQA", "Situation beschreibt die Ausgangslage, Complication die Hürde, Question die daraus folgende Frage und Answer die vorgeschlagene Antwort."],
+    ["SCR für den Pitch", "Situation, Complication, Resolution. Der Pitch führt von der Ausgangslage über die zentrale Hürde zur Lösung."],
+    ["Selbstpräsentation im Interview", "Beruflichen Hintergrund, belegbare Erfahrung oder Stärke und ihren Nutzen für die Zielrolle verbinden."],
+    ["STAR-Methode", "Situation, Task, Action, Result. Nenne Rahmen, eigene Aufgabe, eigene Handlung und beobachtbares Ergebnis."],
+    ["Transfer-Checkliste", "Anforderung der Stelle, belegte Erfahrung, daraus erkennbare Fähigkeit und passende CV-Formulierung einander zuordnen."]
+  ],
+  "Kennzahlen": [
+    ["Angebotsabschlussquote", "Gewonnene Angebote ÷ alle gewerteten Angebote × 100. Lege Zeitraum, Angebotsgruppe und den Umgang mit offenen Angeboten fest."],
+    ["Customer Effort Score (CES)", "Erfasst den empfundenen Aufwand für ein Kundenanliegen. Dokumentiere Skala und Auswertungsregel, damit die Richtung des Werts eindeutig ist."],
+    ["Customer Satisfaction Score (CSAT)", "Misst Zufriedenheit, oft nach einer konkreten Interaktion. Bei einer Top-Box-Auswertung teilst du die Anzahl als zufrieden gewerteter Antworten durch alle gültigen Antworten und multiplizierst mit 100."],
+    ["Erstreaktionszeit", "Zeit vom Eingang eines Tickets bis zur ersten qualifizierten Antwort. Lege fest, ob die Messung nach Kalender- oder Servicezeiten erfolgt."],
+    ["Gewichtete Pipeline", "Summe aus Dealbetrag × Abschlusswahrscheinlichkeit je offener Verkaufschance im betrachteten Zeitraum."],
+    ["Gross Revenue Retention (GRR)", "Wiederkehrender Startumsatz abzüglich Kündigungen und Reduktionen, geteilt durch den Startumsatz derselben Kundengruppe × 100."],
+    ["Lösungszeit", "Zeit vom Eingang eines Tickets bis zu seiner Lösung. Definiere, wie Warte- oder Pausenstatus behandelt werden."],
+    ["Net Promoter Score (NPS)", "Anteil der Promotoren (9–10) minus Anteil der Detraktoren (0–6). Passive (7–8) zählen bei beiden Anteilen zur Basis aller gültigen Antworten. Die Skala reicht von −100 bis +100."],
+    ["Net Revenue Retention (NRR)", "Wie GRR gerechnet, zusätzlich mit Expansion aus derselben Ausgangskundengruppe im Zähler. Neukundenumsatz bleibt außerhalb der Berechnung."],
+    ["On-Target Earnings (OTE)", "Fixgehalt plus variable Vergütung bei 100 % Zielerreichung, jeweils für denselben Zeitraum."],
+    ["Pipeline Coverage", "Offener Pipeline-Wert ÷ Umsatzziel für denselben Zeitraum. Der Wert zeigt, wie viel offene Pipeline im Verhältnis zum Ziel vorhanden ist."],
+    ["Win Rate", "Gewonnene Deals ÷ (gewonnene + verlorene Deals) × 100. Offene Deals bleiben bei dieser Definition außerhalb des Nenners."],
+    ["Zielerreichung", "Tatsächliches Ergebnis ÷ vereinbartes Ziel × 100. Wie daraus Provision entsteht, hängt von den Auszahlungsregeln ab."]
+  ]
+}
