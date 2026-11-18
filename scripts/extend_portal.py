@@ -149,6 +149,7 @@ def build(source_root):
         'project': project_sections,
         'job': {'id': 'm4', 'label': 'Modul 4', 'title': 'Arbeitsmarktvorbereitung', 'weeks': '', 'groups': job_groups},
         'compact': job['compact'],
+        'glossary': json.loads((ROOT / 'content/glossary.json').read_text()),
     }
     js = '    '+START+'    const continuation = '+json.dumps(payload,ensure_ascii=False,separators=(',',':'))+';\n'
     js += '''    const moduleTwo = this.CURR.find(m => m.id === 'm2');
@@ -159,6 +160,8 @@ def build(source_root):
     this.CONTENT.projekt.hero.desc += ' Die abschließenden Projektetappen zeigen den Kunden-Pitch und die gemeinsame Team-Vertriebsstrategie mit vollständigen Decks und Dossier.';
     this.CURR.push(continuation.job);
     const compact = this.CONTENT.kompakt;
+    const glossary = compact.sections.pop();
+    this.COMPACT.pop();
     for (const { title, blocks } of continuation.compact) {
       const index = compact.sections.length;
       const code = String(index + 1).padStart(2, '0');
@@ -167,8 +170,18 @@ def build(source_root):
       this.COMPACT.push({ id: 'sec' + index, code, title, subs: blocks.filter(b => b.t === 'heading').map(b => b.text) });
     }
     const compactCount = compact.sections.length;
-    compact.hero.desc = compactCount + ' aufklappbare Abschnitte zum Nachschlagen vor Prüfungen und Bewerbungsgesprächen.';
-    compact.hero.chips[0] = compactCount + ' Abschnitte';
+    compact.hero.desc = compactCount + ' aufklappbare Abschnitte und ein Glossar zum Nachschlagen vor Prüfungen und Bewerbungsgesprächen.';
+    compact.hero.chips[0] = compactCount + ' Abschnitte + Glossar';
+    const glossaryHeadings = glossary.blocks.filter(b => b.t === 'heading');
+    const glossaryLists = glossary.blocks.filter(b => b.items);
+    for (const [index, [title, entries]] of Object.entries(continuation.glossary).entries()) {
+      glossaryHeadings[index].text = title;
+      const list = glossaryLists[index];
+      list.items.push(...entries.map(([entry, text]) => ({ title: entry, text })));
+      list.items.sort((a, b) => a.title.localeCompare(b.title, 'de'));
+    }
+    compact.sections.push({ ...glossary, title: 'Glossar', eyebrow: '', pill: 'Glossar' });
+    this.COMPACT.push({ id: 'sec' + compactCount, code: '', title: 'Glossar', subs: glossaryHeadings.map(b => b.text) });
     const overview = compact.sections[0].blocks.find(b => b.t === 'checklist');
     overview.items.push(
       { title: 'Key Accounts, Customer Support & Pitch', text: 'Bestandskunden entwickeln, Support organisieren und eine Vertriebsstrategie präsentieren.' },
