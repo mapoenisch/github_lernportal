@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Top Recruiting Discovery-Call</title>
+<meta name="description" content="Visueller Gesprächsleitfaden für den Inbound-Discovery-Call mit Frau Keller (Top Recruiting GmbH)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#131a24; --ink-2:#4a5568; --ink-3:#6b7686;
+    --paper:#eef1f6; --surface:#ffffff; --surface-2:#f5f7fa;
+    --navy:#1c3557; --navy-deep:#0f2038;
+    --teal:#2f7a6d; --teal-soft:#e4efec;
+    --signal:#d6482c; --signal-soft:#fbe7e1;
+    --line:rgba(19,26,36,.12); --line-strong:rgba(19,26,36,.22);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#e7ebf1; --ink-2:#aab4c4; --ink-3:#7c8898;
+      --paper:#0a0e14; --surface:#121926; --surface-2:#0f1520;
+      --navy:#89aad6; --navy-deep:#1c3557;
+      --teal:#5cb8a4; --teal-soft:#132621;
+      --signal:#f0805f; --signal-soft:#2c1712;
+      --line:rgba(231,235,241,.14); --line-strong:rgba(231,235,241,.24);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#e7ebf1; --ink-2:#aab4c4; --ink-3:#7c8898;
+    --paper:#0a0e14; --surface:#121926; --surface-2:#0f1520;
+    --navy:#89aad6; --navy-deep:#1c3557;
+    --teal:#5cb8a4; --teal-soft:#132621;
+    --signal:#f0805f; --signal-soft:#2c1712;
+    --line:rgba(231,235,241,.14); --line-strong:rgba(231,235,241,.24);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Work Sans",system-ui,sans-serif;
+    padding:40px 20px 64px;
+  }
+  .wrap{max-width:760px; margin:0 auto;}
+  .eyebrow{
+    font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:600;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--signal);
+    display:flex; align-items:center; gap:10px; margin-bottom:14px;
+  }
+  .eyebrow::before{content:""; width:22px; height:2px; background:var(--signal); display:inline-block;}
+  h1{
+    font-family:"Fraunces",Georgia,serif; font-weight:600; font-size:clamp(28px,5.4vw,40px);
+    line-height:1.12; letter-spacing:-.01em; margin:0 0 10px; text-wrap:balance; color:var(--ink);
+  }
+  .lede{
+    color:var(--ink-2); font-size:15.5px; line-height:1.55; max-width:56ch; margin:0 0 6px;
+  }
+  .context-row{
+    display:flex; flex-wrap:wrap; gap:8px; margin-top:18px;
+  }
+  .chip{
+    font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:500;
+    background:var(--surface); border:1px solid var(--line); color:var(--ink-2);
+    padding:6px 11px; border-radius:5px;
+  }
+  .chip b{color:var(--ink); font-weight:600;}
+
+  .flow{margin-top:52px;}
+  .step{display:flex; gap:22px;}
+  .marker{display:flex; flex-direction:column; align-items:center; width:52px; flex:none;}
+  .dot{
+    width:44px; height:44px; border-radius:50%; background:var(--navy-deep);
+    color:#fff; display:flex; align-items:center; justify-content:center;
+    font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:14px;
+    border:1px solid var(--line-strong); flex:none;
+  }
+  .stem{width:2px; flex:1; background:var(--line-strong); margin-top:6px; min-height:20px;}
+  .step:last-child .stem{display:none;}
+
+  .content{flex:1; min-width:0; padding-bottom:40px;}
+  .phase-name{
+    font-family:"Fraunces",Georgia,serif; font-weight:600; font-size:22px; margin:2px 0 4px; color:var(--ink);
+  }
+  .phase-goal{
+    color:var(--teal); font-size:13.5px; font-weight:600; margin:0 0 14px;
+  }
+  .kern{list-style:none; margin:0 0 16px; padding:0; display:grid; gap:7px;}
+  .kern li{
+    font-size:14px; line-height:1.5; color:var(--ink-2); padding-left:16px; position:relative;
+  }
+  .kern li::before{
+    content:""; position:absolute; left:0; top:8px; width:6px; height:6px; background:var(--navy); border-radius:50%;
+  }
+
+  .oton{
+    background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--signal);
+    border-radius:4px; padding:14px 16px; margin-top:4px;
+  }
+  .oton .who{
+    font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:600; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--signal); display:block; margin-bottom:6px;
+  }
+  .oton p{margin:0; font-size:14.5px; line-height:1.55; color:var(--ink); font-style:italic;}
+
+  .callout{
+    margin-top:44px; background:var(--navy-deep); color:#f2f5fa; border-radius:10px;
+    padding:26px 28px; position:relative; overflow:hidden;
+  }
+  .callout .eyebrow2{
+    font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600; letter-spacing:.12em;
+    text-transform:uppercase; color:#8fb0da; margin:0 0 10px;
+  }
+  .callout p{margin:0; font-size:16px; line-height:1.6; font-family:"Fraunces",Georgia,serif; font-weight:500; text-wrap:balance;}
+
+  .tiles{
+    margin-top:28px; display:grid; grid-template-columns:repeat(2,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:8px; overflow:hidden;
+  }
+  .tile{background:var(--surface); padding:16px 18px;}
+  .tile .label{
+    font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:600; letter-spacing:.07em;
+    text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:6px;
+  }
+  .tile .value{font-size:14px; line-height:1.45; color:var(--ink); font-weight:500;}
+
+  footer{
+    margin-top:48px; padding-top:20px; border-top:1px solid var(--line);
+    display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--ink-3);
+  }
+
+  @media (max-width:480px){
+    .tiles{grid-template-columns:1fr;}
+    .marker{width:40px;}
+    .dot{width:36px;height:36px;font-size:12px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="eyebrow">Inbound Discovery Call</div>
+  <h1>Top Recruiting GmbH → Frau Keller</h1>
+  <p class="lede">Gesprächsleitfaden für das Erstgespräch mit einer Inbound-Anfrage: Head of HR, sechs parallel offene Stellen, Demo-Anfrage nach Whitepaper-Download.</p>
+  <div class="context-row">
+    <span class="chip">Produkt: <b>cloudbasiertes ATS</b></span>
+    <span class="chip">Lead: <b>Whitepaper „Time-to-Hire senken“</b></span>
+    <span class="chip">Zeitrahmen: <b>10 Minuten</b></span>
+  </div>
+
+  <div class="flow">
+
+    <div class="step">
+      <div class="marker"><div class="dot">01</div><div class="stem"></div></div>
+      <div class="content">
+        <div class="phase-name">Opening</div>
+        <p class="phase-goal">Ziel: Vertrauen aufbauen, Anlass benennen, Rahmen setzen</p>
+        <ul class="kern">
+          <li>Anlass konkret benennen (Whitepaper-Download, Demo-Anfrage)</li>
+          <li>Agenda in einem Satz: Ziel + Zeitrahmen</li>
+          <li>Erlaubnis aktiv einholen, bevor es weitergeht</li>
+        </ul>
+        <div class="oton">
+          <span class="who">Marc</span>
+          <p>„Ich möchte in den nächsten zehn Minuten verstehen, wie Ihr Recruiting-Prozess aktuell läuft und wo es hakt. Ist das so in Ordnung?“</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="marker"><div class="dot">02</div><div class="stem"></div></div>
+      <div class="content">
+        <div class="phase-name">Bedarfsanalyse</div>
+        <p class="phase-goal">Ziel: Das Bedürfnis hinter dem Bedürfnis finden, BANT klären</p>
+        <ul class="kern">
+          <li>Kontext- vor Problemfragen, dann vertiefen</li>
+          <li>Verifizieren statt annehmen – bewusst zusammenfassen</li>
+          <li>Erst mit Bestätigung der Kundin abschließen</li>
+        </ul>
+        <div class="oton">
+          <span class="who">Frau Keller</span>
+          <p>„Dann bleibt es liegen, bis ich nachhake. Bei sechs offenen Stellen gleichzeitig kommt das ständig vor.“</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="marker"><div class="dot">03</div><div class="stem"></div></div>
+      <div class="content">
+        <div class="phase-name">Präsentation</div>
+        <p class="phase-goal">Ziel: Lösung passgenau auf den erhobenen Bedarf spiegeln</p>
+        <ul class="kern">
+          <li>Nur 2–3 Punkte, die vorher wirklich genannt wurden</li>
+          <li>Feature direkt mit Impact verknüpfen, kein Feature-Dump</li>
+          <li>Mit Verifizierungsfrage abschließen</li>
+        </ul>
+        <div class="oton">
+          <span class="who">Marc</span>
+          <p>„Sie hatten eben gesagt, dass es vor allem hängen bleibt, wenn der Fachbereich nicht reagiert. Genau da setzt unser System an …“</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="marker"><div class="dot">04</div></div>
+      <div class="content">
+        <div class="phase-name">Next Steps</div>
+        <p class="phase-goal">Ziel: Verbindlichkeit schaffen</p>
+        <ul class="kern">
+          <li>Konkretes Datum + Uhrzeit, kein „ich melde mich“</li>
+          <li>Give &amp; Get: Marc bereitet vor, Kundin liefert Zahlen</li>
+          <li>Termin direkt im Gespräch fixieren</li>
+        </ul>
+        <div class="oton">
+          <span class="who">Marc</span>
+          <p>„Dann würde ich direkt einen Termin fest machen: Passt Ihnen eher Dienstag um 10 Uhr oder Donnerstag am Nachmittag?“</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout">
+    <p class="eyebrow2">Echtes Bedürfnis</p>
+    <p>Frau Keller will nicht mehr Bewerbungen – sie will, dass keine mehr im internen Abstimmungsprozess liegen bleibt, damit sie ihre offenen Stellen bis Jahresende besetzt und das gegenüber der Geschäftsführung belegen kann.</p>
+  </div>
+
+  <div class="tiles">
+    <div class="tile"><span class="label">Was passiert</span><div class="value">20-min. Live-Demo mit echten Zahlen</div></div>
+    <div class="tile"><span class="label">Wer ist verantwortlich</span><div class="value">Marc bereitet vor · Keller liefert Bewerbungszahlen</div></div>
+    <div class="tile"><span class="label">Bis wann</span><div class="value">5 Werktage, vor dem GF-Jour-fixe</div></div>
+    <div class="tile"><span class="label">Erwartetes Ergebnis</span><div class="value">Interne Entscheidung, ob GF einbezogen wird</div></div>
+  </div>
+
+  <footer>
+    <span>Task Sheet 2.8.2 · Gesprächsphasen</span>
+    <span>Top Recruiting GmbH · Frau Keller</span>
+  </footer>
+</div>
+</body>
+</html>

@@ -16,7 +16,9 @@
     ["Screening", "Erste Auswahlrunde, in der Unternehmen und Bewerber meist Motivation, Profil und Rahmenbedingungen abgleichen."],
     ["SMB und Enterprise", "SMB bezeichnet kleine und mittlere Unternehmen. Enterprise bezeichnet Großkunden, bei denen typischerweise mehr Beteiligte am Kauf mitwirken."],
     ["Verkaufs-Arbeitsprobe", "Rollenspiel oder Fallstudie im Auswahlverfahren. Sichtbar werden etwa Fragetechnik, Gesprächsführung und der Umgang mit unvollständigen Informationen."],
-    ["Wissensdatenbank und Self-Service", "Eine Wissensdatenbank sammelt geprüfte Anleitungen und Antworten. Self-Service hilft Kunden, häufige Anliegen selbst zu lösen."]
+    ["Wissensdatenbank und Self-Service", "Eine Wissensdatenbank sammelt geprüfte Anleitungen und Antworten. Self-Service hilft Kunden, häufige Anliegen selbst zu lösen."],
+    ["Impliziter und expliziter Pain", "Ein impliziter Pain beschreibt einen Zustand oder ein Gefühl („läuft nicht optimal“). Ein expliziter Pain nennt eine messbare Konsequenz in Euro, Zeit oder Zahl und treibt Kaufentscheidungen."],
+    ["Give & Get", "Prinzip für verbindliche nächste Schritte: Der Verkäufer gibt etwas, etwa eine Custom Demo oder ROI-Analyse, und der Kunde investiert ebenfalls, etwa mit internen Zahlen oder Zugang zu Entscheidern."]
   ],
   "Modelle": [
     ["Customer Journey für Content", "Awareness macht ein Problem sichtbar. Consideration hilft beim Vergleich möglicher Lösungen. In der Decision-Phase unterstützt Content eine konkrete Entscheidung."],
@@ -29,7 +31,8 @@
     ["SCR für den Pitch", "Situation, Complication, Resolution. Der Pitch führt von der Ausgangslage über die zentrale Hürde zur Lösung."],
     ["Selbstpräsentation im Interview", "Beruflichen Hintergrund, belegbare Erfahrung oder Stärke und ihren Nutzen für die Zielrolle verbinden."],
     ["STAR-Methode", "Situation, Task, Action, Result. Nenne Rahmen, eigene Aufgabe, eigene Handlung und beobachtbares Ergebnis."],
-    ["Transfer-Checkliste", "Anforderung der Stelle, belegte Erfahrung, daraus erkennbare Fähigkeit und passende CV-Formulierung einander zuordnen."]
+    ["Transfer-Checkliste", "Anforderung der Stelle, belegte Erfahrung, daraus erkennbare Fähigkeit und passende CV-Formulierung einander zuordnen."],
+    ["SPIN Selling", "Fragetechnik nach Neil Rackham mit vier Fragearten: Situation, Problem, Implication und Need-Payoff. SPIN entwickelt im Gespräch Bedarf und Kaufbereitschaft und ergänzt Qualifizierungsframeworks wie BANT."]
   ],
   "Kennzahlen": [
     ["Angebotsabschlussquote", "Gewonnene Angebote ÷ alle gewerteten Angebote × 100. Lege Zeitraum, Angebotsgruppe und den Umgang mit offenen Angeboten fest."],

@@ -1,0 +1,487 @@
+<title>Postmortem Q3 Cockpit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --ink:#161C2B; --surface:#1E2637; --raised:#28324a; --edge:#38425c;
+  --text:#EEF0F6; --dim:#98A1B8; --faint:#6B7590;
+  --accent:#7B34FF; --accent-soft:#2A1B54;
+  --hot:#F4544F; --warm:#8E63FF; --cold:#5E7E99; --amber:#E8A33D; --go:#3FBF8F;
+  --paper:#FFFFFF;
+  --radius:10px;
+  --f-disp:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Figtree","Helvetica Neue",Arial,sans-serif;
+}
+:root[data-theme="light"]{
+  --ink:#F4F2F9; --surface:#FFFFFF; --raised:#F0EDF8; --edge:#DCD7EA;
+  --text:#1B2233; --dim:#5B6478; --faint:#8892A6;
+  --accent:#670BFF; --accent-soft:#EAE0FB;
+}
+@media(prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    --ink:#F4F2F9; --surface:#FFFFFF; --raised:#F0EDF8; --edge:#DCD7EA;
+    --text:#1B2233; --dim:#5B6478; --faint:#8892A6;
+    --accent:#670BFF; --accent-soft:#EAE0FB;
+  }
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ink); color:var(--text);
+  font-family:var(--f-body); font-size:15px; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:var(--f-disp); text-wrap:balance; margin:0}
+button{font-family:inherit; color:inherit; cursor:pointer; border:none; background:none}
+button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+/* ---------- Kopfleiste ---------- */
+.top{
+  position:sticky; top:0; z-index:20; background:var(--surface);
+  border-bottom:1px solid var(--edge); padding:10px 20px;
+  display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+}
+.brand{font-family:var(--f-disp); font-weight:700; font-size:15px; letter-spacing:.02em}
+.brand span{color:var(--accent)}
+.clockwrap{display:flex; align-items:center; gap:10px; margin-left:auto}
+.elapsed{
+  font-family:var(--f-disp); font-weight:600; font-size:20px;
+  font-variant-numeric:tabular-nums; letter-spacing:.01em;
+}
+.elapsed small{font-size:12px; color:var(--faint); font-weight:500}
+.ghost{
+  border:1px solid var(--edge); border-radius:99px; padding:5px 13px;
+  font-size:12.5px; font-weight:600; color:var(--dim); transition:.15s;
+}
+.ghost:hover{border-color:var(--accent); color:var(--text)}
+.ghost[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:#fff}
+.bar{position:absolute; left:0; bottom:-1px; height:2px; background:var(--accent); transition:width .4s}
+
+/* ---------- Grundraster ---------- */
+.wrap{display:grid; grid-template-columns:268px 1fr; gap:0; min-height:calc(100vh - 53px)}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}}
+
+/* ---------- Ablauf links ---------- */
+.rail{border-right:1px solid var(--edge); padding:16px 12px; background:var(--surface)}
+.rail h2{font-size:10.5px; letter-spacing:.13em; color:var(--faint); text-transform:uppercase; margin:0 0 10px 8px}
+.step{
+  width:100%; text-align:left; display:grid; grid-template-columns:52px 1fr;
+  gap:9px; padding:8px; border-radius:8px; align-items:start; transition:.14s;
+  border-left:3px solid transparent;
+}
+.step:hover{background:var(--raised)}
+.step[aria-current="true"]{background:var(--accent-soft); border-left-color:var(--accent)}
+.step .t{font-family:var(--f-disp); font-size:11.5px; font-weight:600; color:var(--faint); font-variant-numeric:tabular-nums; padding-top:2px}
+.step[aria-current="true"] .t{color:var(--accent)}
+.step .n{display:block; font-size:13.5px; font-weight:600; line-height:1.3}
+.step .m{display:block; font-size:10.5px; color:var(--faint); margin-top:2px}
+.step.done .n{color:var(--dim)}
+
+/* ---------- Bühne rechts ---------- */
+.stage{padding:22px 26px 40px; max-width:960px}
+.mode{
+  display:inline-block; font-size:10px; font-weight:700; letter-spacing:.13em;
+  padding:4px 11px; border-radius:99px; text-transform:uppercase; margin-bottom:11px;
+}
+.mode.fall{background:var(--accent); color:#fff}
+.mode.brief{background:var(--raised); color:var(--dim); border:1px solid var(--edge)}
+.mode.anchor{background:var(--go); color:#08231A}
+.stage h1{font-size:31px; font-weight:700; line-height:1.15; margin-bottom:5px}
+.range{font-size:13px; color:var(--faint); font-variant-numeric:tabular-nums; margin-bottom:20px}
+
+.say{
+  background:var(--raised); border-left:3px solid var(--accent);
+  border-radius:0 var(--radius) var(--radius) 0; padding:15px 18px; margin-bottom:18px;
+}
+.say .lab{font-size:9.5px; font-weight:700; letter-spacing:.13em; color:var(--accent); text-transform:uppercase; margin-bottom:6px}
+.say p{margin:0 0 8px; font-size:16.5px; line-height:1.45}
+.say p:last-child{margin-bottom:0}
+.say em{color:var(--amber); font-style:italic; font-size:14px; display:block; margin-top:8px}
+
+.cols{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:18px}
+@media(max-width:760px){.cols{grid-template-columns:1fr}}
+.blk h3{font-size:10px; font-weight:700; letter-spacing:.13em; color:var(--faint); text-transform:uppercase; margin-bottom:8px}
+.blk ul{margin:0; padding-left:17px}
+.blk li{margin-bottom:5px; font-size:14px}
+.blk li::marker{color:var(--accent)}
+.slides{display:flex; flex-wrap:wrap; gap:6px}
+.pill{
+  font-family:var(--f-disp); font-size:11.5px; font-weight:600;
+  background:var(--raised); border:1px solid var(--edge);
+  padding:4px 9px; border-radius:6px; color:var(--dim);
+}
+.pill.own{background:var(--accent-soft); border-color:var(--accent); color:var(--accent)}
+:root[data-theme="light"] .pill.own{color:var(--accent)}
+
+/* ---------- Timer ---------- */
+.timer{
+  background:var(--surface); border:1px solid var(--edge); border-radius:var(--radius);
+  padding:20px 22px; margin-bottom:18px; display:grid;
+  grid-template-columns:auto 1fr; gap:24px; align-items:center;
+}
+@media(max-width:640px){.timer{grid-template-columns:1fr}}
+.clock{
+  font-family:var(--f-disp); font-size:62px; font-weight:700; line-height:1;
+  font-variant-numeric:tabular-nums; letter-spacing:-.02em; transition:color .3s;
+}
+.clock.half{color:var(--amber)}
+.clock.end{color:var(--hot)}
+.tctl{display:flex; gap:8px; margin-top:11px}
+.tbtn{
+  background:var(--accent); color:#fff; border-radius:7px; padding:8px 17px;
+  font-size:13.5px; font-weight:600; transition:.15s;
+}
+.tbtn:hover{filter:brightness(1.12)}
+.tbtn.sec{background:var(--raised); color:var(--dim); border:1px solid var(--edge)}
+.cues{display:grid; gap:8px}
+.cue{
+  display:grid; grid-template-columns:66px 1fr; gap:11px; align-items:center;
+  font-size:13px; padding:8px 11px; border-radius:7px; background:var(--raised);
+  opacity:.5; transition:.3s;
+}
+.cue.live{opacity:1; background:var(--accent-soft); box-shadow:inset 0 0 0 1px var(--accent)}
+.cue b{font-family:var(--f-disp); font-size:12px; color:var(--amber); font-variant-numeric:tabular-nums}
+
+/* ---------- Panels ---------- */
+.tabs{display:flex; gap:6px; margin:26px 0 14px; border-bottom:1px solid var(--edge); flex-wrap:wrap}
+.tab{padding:8px 14px; font-size:13.5px; font-weight:600; color:var(--faint); border-bottom:2px solid transparent; margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--text); border-bottom-color:var(--accent)}
+.tab:hover{color:var(--dim)}
+
+table{width:100%; border-collapse:collapse; font-size:13.5px}
+.scroll{overflow-x:auto}
+th{
+  text-align:left; font-family:var(--f-disp); font-size:10px; font-weight:700;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--faint);
+  padding:7px 9px; border-bottom:1px solid var(--edge); white-space:nowrap;
+}
+td{padding:9px; border-bottom:1px solid var(--edge); vertical-align:top}
+tr:last-child td{border-bottom:none}
+.tag{
+  display:inline-block; font-family:var(--f-disp); font-size:10px; font-weight:700;
+  letter-spacing:.09em; padding:3px 9px; border-radius:99px; color:#fff; white-space:nowrap;
+}
+.tag.hot{background:var(--hot)} .tag.warm{background:var(--warm)} .tag.cold{background:var(--cold)}
+.lead-name{font-weight:600; white-space:nowrap}
+.lead-id{font-family:var(--f-disp); font-size:11.5px; color:var(--faint); font-variant-numeric:tabular-nums}
+.trap{color:var(--amber); font-size:11.5px; font-weight:600; display:block; margin-top:3px}
+
+/* ---------- Punkte ---------- */
+.teams{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px}
+.team{background:var(--surface); border:1px solid var(--edge); border-radius:var(--radius); padding:15px; text-align:center}
+.team .nm{font-size:12px; color:var(--faint); font-weight:600; margin-bottom:7px}
+.team .sc{font-family:var(--f-disp); font-size:38px; font-weight:700; font-variant-numeric:tabular-nums; line-height:1}
+.team .btns{display:flex; gap:6px; justify-content:center; margin-top:10px}
+.team .btns button{
+  width:34px; height:30px; border-radius:6px; background:var(--raised);
+  border:1px solid var(--edge); font-size:16px; font-weight:600; color:var(--dim);
+}
+.team .btns button:hover{border-color:var(--accent); color:var(--text)}
+.lead-hint{font-size:12.5px; color:var(--faint); margin-top:12px}
+
+.q{border-bottom:1px solid var(--edge); padding:11px 0; display:grid; grid-template-columns:26px 1fr auto; gap:12px; align-items:baseline}
+.q:last-child{border-bottom:none}
+.q .num{font-family:var(--f-disp); font-size:12px; color:var(--faint); font-variant-numeric:tabular-nums}
+.q .a{font-weight:600; color:var(--go); font-size:13.5px; text-align:right}
+
+.nav{display:flex; gap:10px; margin-top:26px; padding-top:18px; border-top:1px solid var(--edge)}
+.nav button{
+  flex:1; padding:12px; border-radius:8px; background:var(--raised);
+  border:1px solid var(--edge); font-weight:600; font-size:14px; transition:.15s;
+}
+.nav button:hover:not(:disabled){border-color:var(--accent)}
+.nav button:disabled{opacity:.35; cursor:default}
+.hidden{display:none}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header class="top">
+  <div class="brand">Postmortem Q3 · <span>Cockpit</span></div>
+  <button class="ghost" id="themeBtn">Hell</button>
+  <div class="clockwrap">
+    <div class="elapsed" id="elapsed">00:00 <small>/ 90:00</small></div>
+    <button class="ghost" id="sessionBtn" aria-pressed="false">Session starten</button>
+  </div>
+  <div class="bar" id="bar" style="width:0"></div>
+</header>
+
+<div class="wrap">
+  <nav class="rail" aria-label="Ablauf">
+    <h2>Ablauf</h2>
+    <div id="rail"></div>
+  </nav>
+
+  <main class="stage">
+    <div id="block"></div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-panel="leads">Lead-Auflösungen</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="score">Punkte</button>
+      <button class="tab" role="tab" aria-selected="false" data-panel="quiz">Quiz</button>
+    </div>
+    <section id="leads" role="tabpanel"></section>
+    <section id="score" role="tabpanel" class="hidden"></section>
+    <section id="quiz" role="tabpanel" class="hidden"></section>
+
+    <div class="nav">
+      <button id="prev">← Vorheriger Block</button>
+      <button id="next">Nächster Block →</button>
+    </div>
+  </main>
+</div>
+
+<script>
+const BLOCKS = [
+ {t:"0–8",   min:0,  mode:"fall",  name:"Fall-Eröffnung",
+  say:["Metriq hat letztes Quartal 240 Leads bekommen und elf Deals verloren. Vier davon an denselben Wettbewerber.",
+       "Die Vertriebsleitung will wissen, was schiefgelaufen ist – und ihr seid die Task Force, die das aufklärt. In 90 Minuten legt ihr einen Bericht vor."],
+  hint:"Kein Smalltalk, kein „heute wiederholen wir“. Direkt mit den Zahlen einsteigen.",
+  todo:["Q3-Bilanz zeigen und kurz wirken lassen","Auftrag ansagen","Team-Aufstellung: zwei Fragen in den Chat"],
+  slides:[["Slide 1–4","own"]]},
+
+ {t:"8–13",  min:8,  mode:"fall",  name:"Runde 0: Bauchgefühl",
+  say:["Drei Leads. 60 Sekunden pro Lead. Heiß, warm oder kalt – in den Chat, ohne Begründung."],
+  hint:"KEINE Auflösung. Mehrheitsmeinung sichtbar notieren und stehen lassen.",
+  todo:["L-01, L-02, L-03 nacheinander zeigen","Abstimmung im Chat einsammeln","Ergebnis auf der Notiz-Slide festhalten"],
+  slides:[["Slide 5–9","own"]],
+  bridge:{a:"Wenn uneinig: „Ihr habt gerade drei Leads mit dem Bauch bewertet und seid euch bei zweien uneinig. Genau das passiert bei Metriq jeden Tag.“",
+          b:"Wenn einig: „Ihr seid euch bemerkenswert einig. Behaltet das im Kopf – ich komme in 30 Minuten darauf zurück.“"}},
+
+ {t:"13–25", min:13, mode:"brief", name:"Briefing 1: Das Werkzeug",
+  say:["Das sind die Werkzeuge, die euch gerade gefehlt haben."],
+  hint:"Beim ICP auf die Metriq-Slide umschalten. Ab hier ist das der Maßstab.",
+  todo:["6 Phasen im Überblick (3 Min)","ICP allgemein, dann Metriq-ICP (3 Min)","BANT (2 Min)","MEDDIC kurz (2 Min)","Verhalten & Interesse (2 Min)"],
+  slides:[["Slide 10 · Prozess","x"],["Slide 11 · ICP","x"],["Slide 12 · Metriq-ICP","own"],["Slide 13 · BANT","x"],["Slide 14 · MEDDIC","x"],["Slide 15 · Verhalten","x"]]},
+
+ {t:"25–42", min:25, mode:"fall",  name:"Runde 1: Triage",
+  say:["Acht Leads, zwölf Minuten. Jeder Lead bekommt eine Einordnung und einen Satz Begründung.",
+       "Ihr braucht nicht alle acht perfekt – aber ihr braucht für jeden eine Position."],
+  hint:"Handout muss vorher im Chat sein. Rollen verteilen die Teams selbst.",
+  todo:["Auftrag + Rollen zeigen (3 Min)","Breakouts öffnen, 12 Min","Zwischenansagen per Broadcast","Zurückholen, Matrix ausfüllen (2 Min)"],
+  slides:[["Slide 16–19","own"]],
+  timer:{sec:720, cues:[[360,"Halbzeit – ihr solltet bei Lead 4 sein"],[600,"Noch zwei Minuten, einigt euch auf die Begründungen"]]}},
+
+ {t:"42–47", min:42, mode:"fall",  name:"Auflösung Runde 1",
+  say:["Vor 35 Minuten habt ihr L-01 für heiß gehalten und L-02 für kalt. Mit ICP und BANT kommt ihr zum genauen Gegenteil.",
+       "Das ist kein Zufall – das ist der Unterschied zwischen Engagement und Fit."],
+  hint:"Reihenfolge: L-05 als Maßstab (30 s) → L-01 und L-02 im Doppel (2,5 Min) → L-07 (1 Min) → L-06 und L-08 (1 Min).",
+  todo:["Runde-0-Notiz danebenlegen","Punkte vergeben: 1 pro Treffer, 2 für L-01/L-02 mit Begründung","Scoreboard füllen"],
+  slides:[["Slide 20–22","own"]]},
+
+ {t:"47–52", min:47, mode:"brief", name:"Briefing 2: Ordnung im Stapel",
+  say:["Ihr habt gerade segmentiert, ohne es so zu nennen."],
+  hint:"Straff: sechs Slides in fünf Minuten. Slide 24 ist nur eine Übersicht – die kannst du in 15 Sekunden nehmen. Direkt an die eigene Arbeit der Teams anknüpfen.",
+  todo:["Heiß/warm/kalt (1 Min)","Segmentierung: Persona, Branche, Größe (2 Min)","Kaufphase und Lifecycle Stages (1 Min)","MQL vs. SQL (1 Min)"],
+  slides:[["Slide 23 · heiß/warm/kalt","x"],["Slide 24–26 · Segmentierung","x"],["Slide 27 · Kaufphase","x"],["Slide 28 · MQL/SQL","x"]]},
+
+ {t:"52–65", min:52, mode:"fall",  name:"Runde 2: Der Rettungsplan",
+  say:["Miriam Voss ist der Deal, den Metriq am dümmsten verloren hat. Sie war fast fertig, nur das Budget fehlte.",
+       "Der zuständige Kollege hat sie auf kalt gesetzt und nie wieder angefasst. Ihr baut den Plan, der sie bis Q1 warm hält."],
+  hint:"Alle Teams arbeiten an L-04, damit die Pläne vergleichbar sind.",
+  todo:["Auftrag zeigen (3 Min)","Breakouts, 9 Min","Zurückholen"],
+  slides:[["Slide 29–30","own"]],
+  timer:{sec:540, cues:[[300,"Halbzeit – habt ihr schon einen Touchpoint fertig?"]]}},
+
+ {t:"65–72", min:65, mode:"fall",  name:"Share-out",
+  say:["90 Sekunden pro Team. Nach jedem Plan kommentiere ich mit genau einem Begriff."],
+  hint:"Hier lieferst du Briefing 3 nebenbei mit. Blogartikel → Awareness. Case Study → Decision. Zu früher Pitch → „Was passiert, wenn sie im November eine Angebots-Mail bekommt?“",
+  todo:["4 Teams à 90 Sekunden","Je einen Framework-Begriff einwerfen","Plenum wählt den besten Plan","Punkte vergeben"],
+  slides:[["Slide 31","own"]]},
+
+ {t:"72–77", min:72, mode:"brief", name:"Briefing 3: Handwerk",
+  say:["Ihr habt gerade selbst einen Fahrplan gebaut. So sieht einer aus, der sich bewährt hat."],
+  hint:"Der 30-Tage-Fahrplan wirkt hier stark, weil sie direkt vergleichen können.",
+  todo:["Buyer's Journey und passende Inhalte (2 Min)","30-Tage-Nurturing-Fahrplan (2 Min)","Do's, Don'ts, 80/20-Regel (1 Min)"],
+  slides:[["Slide 32–33 · Journey","x"],["Slide 34 · 30-Tage-Plan","x"],["Slide 35–36 · Do's & Don'ts","x"]]},
+
+ {t:"77–85", min:77, mode:"anchor", name:"HubSpot live",
+  say:["Alles, was ihr in den letzten 40 Minuten auf Papier gemacht habt, ist hier ein Feld.",
+       "Das Werkzeug nimmt euch die Arbeit ab – aber nicht die Entscheidung."],
+  hint:"Nicht frei herumklicken. Genau das zeigen, was sie auf Papier gemacht haben.",
+  todo:["Kontakt anlegen, der L-02 entspricht","Lifecycle Stage: Lead → MQL → SQL","Aktivitätshistorie – hier hätte man L-08 gefunden","Lead Scoring – hätte L-01 falsch bewertet","Workflow für die Nurturing-Sequenz","Puffer: LeadPilot zeigen, wenn Zeit bleibt"],
+  slides:[["HubSpot-Sandbox","x"]]},
+
+ {t:"85–90", min:85, mode:"fall",  name:"Urteil & Quiz",
+  say:["Metriq hat nicht elf Deals verloren, weil das Produkt schlecht war.",
+       "Sondern weil niemand einen Prozess hatte."],
+  hint:"Erst Quiz, dann Siegerteam, dann die Auflösung der Q3-Zahlen als Schlusspunkt.",
+  todo:["Kahoot, 10 Fragen (3 Min)","Punkte zusammenzählen, Siegerteam","Q3-Zahlen auflösen","Recap-Slide 47 aus dem Original"],
+  slides:[["Slide 37 · Urteil","own"],["Slide 38 · Recap","x"]]},
+];
+
+const LEADS = [
+ {id:"L-01",n:"Reinhardt",v:"cold",u:"KALT",w:"2.100 MA, eigene BI-Abteilung, CTO ist nicht Economic Buyer. „Marktübersicht“ = Benchmarking.",l:"Engagement ist kein Fit.",trap:1},
+ {id:"L-02",n:"Kaltenbach",v:"hot",u:"HEISS",w:"Perfekter ICP-Fit. Die Frage nach der Einführungsdauer ist ein Kaufsignal ersten Ranges.",l:"Ein Signal schlägt zehn Klicks.",trap:1},
+ {id:"L-03",n:"Peters",v:"cold",u:"KALT",w:"Werkstudent, 8-Personen-Startup, kein Vertriebsteam, kein CRM, keine Autorität.",l:"Freundlichkeit ist kein Kaufsignal."},
+ {id:"L-04",n:"Voss",v:"warm",u:"WARM",w:"Fit ja, Autorität ja, Nutzen ja – nur das Timing fehlt. Weder disqualifizieren noch pitchen.",l:"Hier beginnt Nurturing."},
+ {id:"L-05",n:"Osterkamp",v:"hot",u:"HEISS",w:"BANT vollständig. Mehrere Personen derselben Firma registriert = Buying Center aktiv.",l:"So sieht ein echter SQL aus."},
+ {id:"L-06",n:"Ahrens",v:"warm",u:"WARM",w:"Firma passt perfekt. Nina ist Champion, nicht Economic Buyer. Über sie den Zugang aufbauen.",l:"Champion ≠ Economic Buyer."},
+ {id:"L-07",n:"Lohmann",v:"cold",u:"KALT",w:"Kein CRM – Metriq zieht seine Daten daraus. Dazu Vertriebsteam mit 8 unter der ICP-Grenze.",l:"K.-o.-Kriterium, kein Skalenpunkt."},
+ {id:"L-08",n:"Meissner",v:"hot",u:"HEISS",w:"War vor zwei Jahren Ansprechpartnerin bei einem Bestandskunden und hat Metriq dort eingeführt.",l:"Kein Score erfasst das – nur die CRM-Historie."},
+];
+
+const QUIZ = [
+ ["Wofür steht das T in BANT?","Timing"],
+ ["Fünf Whitepaper geladen, Firma außerhalb des ICP. Einordnung?","Kalt"],
+ ["MQL oder SQL: Angebot angefordert, Budget bestätigt?","SQL"],
+ ["Welche Phase braucht Case Studies und Testimonials?","Decision"],
+ ["Wer ist im MEDDIC der Economic Buyer?","Wer über das Budget entscheidet"],
+ ["Wie viel Prozent der Leads sind beim Erstkontakt nicht kaufbereit?","Rund 50 %"],
+ ["Unterschied Qualifizierung und Segmentierung?","Einzelbewertung vs. Gruppierung"],
+ ["Faustregel Mehrwert zu Werbung im Nurturing?","80 zu 20"],
+ ["Perfekter Fit, Budget erst nächstes Jahr. Was tun?","Nurturing bis zum Budgetzyklus"],
+ ["30 bis 50 % der Verkäufe gehen an wen?","Den, der zuerst reagiert"],
+];
+
+const $ = (s,r)=> (r||document).querySelector(s);
+let cur = 0, tInt = null, tLeft = 0, tRun = false, sStart = null, sInt = null;
+
+/* ---------- Ablaufleiste ---------- */
+function drawRail(){
+  $("#rail").innerHTML = BLOCKS.map((b,i)=>
+    '<button class="step'+(i<cur?' done':'')+'" data-i="'+i+'"'+(i===cur?' aria-current="true"':'')+'>'+
+    '<span class="t">'+b.t+'</span><span><span class="n">'+b.name+'</span>'+
+    '<span class="m">'+({fall:"Fall",brief:"Vorlesung",anchor:"Anker"})[b.mode]+'</span></span></button>').join("");
+  $("#rail").querySelectorAll(".step").forEach(el=>
+    el.onclick = ()=>{ cur = +el.dataset.i; drawRail(); drawBlock(); window.scrollTo({top:0,behavior:"smooth"}); });
+}
+
+/* ---------- Aktiver Block ---------- */
+function drawBlock(){
+  const b = BLOCKS[cur];
+  stopTimer();
+  const modeLabel = {fall:"Fall-Modus",brief:"Vorlesung",anchor:"Anker"}[b.mode];
+  const modeCls   = {fall:"fall",brief:"brief",anchor:"anchor"}[b.mode];
+  let h = '<span class="mode '+modeCls+'">'+modeLabel+'</span>'+
+    '<h1>'+b.name+'</h1><div class="range">Minute '+b.t+'</div>'+
+    '<div class="say"><div class="lab">So steigst du ein</div>'+
+    b.say.map(s=>'<p>'+s+'</p>').join("")+
+    (b.hint?'<em>'+b.hint+'</em>':'')+'</div>';
+
+  if(b.bridge){
+    h += '<div class="cols"><div class="blk"><h3>Überleitung A</h3><p style="font-size:14px;margin:0">'+b.bridge.a+'</p></div>'+
+         '<div class="blk"><h3>Überleitung B</h3><p style="font-size:14px;margin:0">'+b.bridge.b+'</p></div></div>';
+  }
+
+  if(b.timer){
+    h += '<div class="timer"><div><div class="clock" id="clock">'+fmt(b.timer.sec)+'</div>'+
+      '<div class="tctl"><button class="tbtn" id="tStart">Start</button>'+
+      '<button class="tbtn sec" id="tReset">Zurücksetzen</button></div></div>'+
+      '<div class="cues">'+b.timer.cues.map((c,i)=>
+        '<div class="cue" data-at="'+c[0]+'" id="cue'+i+'"><b>'+fmt(c[0])+'</b><span>'+c[1]+'</span></div>').join("")+
+      '</div></div>';
+  }
+
+  h += '<div class="cols"><div class="blk"><h3>Deine Schritte</h3><ul>'+
+       b.todo.map(t=>'<li>'+t+'</li>').join("")+'</ul></div>'+
+       '<div class="blk"><h3>Material</h3><div class="slides">'+
+       b.slides.map(s=>'<span class="pill'+(s[1]==="own"?" own":"")+'">'+s[0]+'</span>').join("")+
+       '</div></div></div>';
+
+  $("#block").innerHTML = h;
+
+  if(b.timer){
+    tLeft = b.timer.sec;
+    $("#tStart").onclick = toggleTimer;
+    $("#tReset").onclick = ()=>{ stopTimer(); tLeft = b.timer.sec; paintTimer(); };
+  }
+  $("#prev").disabled = cur===0;
+  $("#next").disabled = cur===BLOCKS.length-1;
+}
+
+/* ---------- Breakout-Timer ---------- */
+const fmt = s => String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
+function paintTimer(){
+  const c = $("#clock"); if(!c) return;
+  const b = BLOCKS[cur], total = b.timer.sec, gone = total - tLeft;
+  c.textContent = fmt(tLeft);
+  c.className = "clock" + (tLeft<=120 ? " end" : (gone>=b.timer.cues[0][0] ? " half" : ""));
+  b.timer.cues.forEach((cue,i)=>{
+    const el = $("#cue"+i); if(el) el.classList.toggle("live", gone>=cue[0]);
+  });
+}
+function toggleTimer(){
+  if(tRun){ stopTimer(); return; }
+  tRun = true; $("#tStart").textContent = "Pause";
+  tInt = setInterval(()=>{ if(tLeft>0){ tLeft--; paintTimer(); } else stopTimer(); },1000);
+}
+function stopTimer(){
+  clearInterval(tInt); tRun = false;
+  const s = $("#tStart"); if(s) s.textContent = "Start";
+}
+
+/* ---------- Sessionuhr ---------- */
+$("#sessionBtn").onclick = function(){
+  if(sStart){ clearInterval(sInt); sStart=null; sInt=null;
+    this.textContent="Session starten"; this.setAttribute("aria-pressed","false"); return; }
+  sStart = Date.now(); this.textContent="Läuft"; this.setAttribute("aria-pressed","true");
+  sInt = setInterval(()=>{
+    const s = Math.floor((Date.now()-sStart)/1000);
+    $("#elapsed").innerHTML = fmt(s)+' <small>/ 90:00</small>';
+    $("#bar").style.width = Math.min(100, s/5400*100)+"%";
+  },1000);
+};
+
+/* ---------- Panels ---------- */
+function drawLeads(){
+  $("#leads").innerHTML = '<div class="scroll"><table><thead><tr><th>Lead</th><th>Urteil</th>'+
+    '<th>Warum</th><th>Lehrpunkt</th></tr></thead><tbody>'+
+    LEADS.map(l=>'<tr><td><span class="lead-id">'+l.id+'</span><br><span class="lead-name">'+l.n+'</span>'+
+      (l.trap?'<span class="trap">Falle · 2 Punkte</span>':'')+'</td>'+
+      '<td><span class="tag '+l.v+'">'+l.u+'</span></td><td>'+l.w+'</td>'+
+      '<td style="color:var(--dim)">'+l.l+'</td></tr>').join("")+'</tbody></table></div>';
+}
+function drawScore(){
+  let pts;
+  try{ pts = JSON.parse(localStorage.getItem("pmq3")||"[0,0,0,0]"); }catch(e){ pts=[0,0,0,0]; }
+  if(!Array.isArray(pts)||pts.length!==4) pts=[0,0,0,0];
+  const save = ()=>{ try{ localStorage.setItem("pmq3",JSON.stringify(pts)); }catch(e){} };
+  $("#score").innerHTML = '<div class="teams">'+pts.map((p,i)=>
+    '<div class="team"><div class="nm">Team '+(i+1)+'</div><div class="sc" id="sc'+i+'">'+p+'</div>'+
+    '<div class="btns"><button data-t="'+i+'" data-d="-1" aria-label="Team '+(i+1)+' minus">−</button>'+
+    '<button data-t="'+i+'" data-d="1" aria-label="Team '+(i+1)+' plus">+</button></div></div>').join("")+
+    '</div><p class="lead-hint">Maximal 10 Punkte in Runde 1: acht Einordnungen plus je einer für L-01 und L-02 mit tragfähiger Begründung. Runde 2 und Quiz kommen obendrauf.</p>';
+  $("#score").querySelectorAll("button").forEach(btn=>{
+    btn.onclick = ()=>{
+      const t = +btn.dataset.t;
+      pts[t] = Math.max(0, pts[t] + (+btn.dataset.d));
+      $("#sc"+t).textContent = pts[t]; save();
+    };
+  });
+}
+function drawQuiz(){
+  $("#quiz").innerHTML = QUIZ.map((q,i)=>
+    '<div class="q"><span class="num">'+String(i+1).padStart(2,"0")+'</span>'+
+    '<span>'+q[0]+'</span><span class="a">'+q[1]+'</span></div>').join("");
+}
+document.querySelectorAll(".tab").forEach(tab=>{
+  tab.onclick = ()=>{
+    document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected", t===tab));
+    ["leads","score","quiz"].forEach(p=> $("#"+p).classList.toggle("hidden", p!==tab.dataset.panel));
+  };
+});
+
+/* ---------- Navigation ---------- */
+$("#prev").onclick = ()=>{ if(cur>0){ cur--; drawRail(); drawBlock(); } };
+$("#next").onclick = ()=>{ if(cur<BLOCKS.length-1){ cur++; drawRail(); drawBlock(); } };
+document.addEventListener("keydown", e=>{
+  if(e.target.tagName==="BUTTON"&&e.key===" ") return;
+  if(e.key==="ArrowRight") $("#next").click();
+  if(e.key==="ArrowLeft")  $("#prev").click();
+});
+
+/* ---------- Theme ---------- */
+function isLight(){
+  const st = document.documentElement.getAttribute("data-theme");
+  if(st) return st==="light";
+  return window.matchMedia("(prefers-color-scheme: light)").matches;
+}
+function labelTheme(){ $("#themeBtn").textContent = isLight() ? "Dunkel" : "Hell"; }
+$("#themeBtn").onclick = ()=>{
+  document.documentElement.setAttribute("data-theme", isLight()?"dark":"light");
+  labelTheme();
+};
+labelTheme();
+
+drawRail(); drawBlock(); drawLeads(); drawScore(); drawQuiz();
+</script>

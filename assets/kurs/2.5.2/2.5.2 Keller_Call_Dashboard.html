@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keller Call-Dashboard</title>
+<meta name="description" content="Klickbares Call-Assist-Dashboard für den Discovery-Call mit Frau Keller (Top Recruiting GmbH) – durchklickbar während des Videocalls">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#131a24; --ink-2:#4a5568; --ink-3:#6b7686;
+    --paper:#eef1f6; --surface:#ffffff; --surface-2:#f5f7fa;
+    --navy:#1c3557; --navy-deep:#0f2038; --navy-tint:#e3ebf4;
+    --teal:#2f7a6d; --teal-soft:#e4efec;
+    --signal:#d6482c; --signal-soft:#fbe7e1;
+    --line:rgba(19,26,36,.13); --line-strong:rgba(19,26,36,.24);
+    --bubble-me:#1c3557; --bubble-me-text:#f4f7fb;
+    --bubble-them:#eef1f6; --bubble-them-text:#131a24;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#e7ebf1; --ink-2:#aab4c4; --ink-3:#7c8898;
+      --paper:#0a0e14; --surface:#121926; --surface-2:#0f1520;
+      --navy:#89aad6; --navy-deep:#1c3557; --navy-tint:#1a2636;
+      --teal:#5cb8a4; --teal-soft:#132621;
+      --signal:#f0805f; --signal-soft:#2c1712;
+      --line:rgba(231,235,241,.14); --line-strong:rgba(231,235,241,.26);
+      --bubble-me:#2c476e; --bubble-me-text:#f2f6fb;
+      --bubble-them:#1a212c; --bubble-them-text:#e7ebf1;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#e7ebf1; --ink-2:#aab4c4; --ink-3:#7c8898;
+    --paper:#0a0e14; --surface:#121926; --surface-2:#0f1520;
+    --navy:#89aad6; --navy-deep:#1c3557; --navy-tint:#1a2636;
+    --teal:#5cb8a4; --teal-soft:#132621;
+    --signal:#f0805f; --signal-soft:#2c1712;
+    --line:rgba(231,235,241,.14); --line-strong:rgba(231,235,241,.26);
+    --bubble-me:#2c476e; --bubble-me-text:#f2f6fb;
+    --bubble-them:#1a212c; --bubble-them-text:#e7ebf1;
+  }
+
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{height:100%;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Work Sans",system-ui,sans-serif;
+    display:flex; flex-direction:column;
+  }
+  .app{max-width:640px; margin:0 auto; width:100%; display:flex; flex-direction:column; min-height:100%;}
+
+  /* Stepper */
+  .stepper{
+    position:sticky; top:env(safe-area-inset-top,0px); z-index:10;
+    background:var(--paper); padding:16px 20px 10px; border-bottom:1px solid var(--line);
+  }
+  .stepper-top{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:12px;}
+  .app-name{
+    font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--signal);
+  }
+  .lead-tag{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--ink-3);}
+  .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:6px;}
+  .step-btn{
+    border:none; background:var(--surface-2); color:var(--ink-3); border:1px solid var(--line);
+    border-radius:7px; padding:9px 6px 8px; cursor:pointer; font-family:"Work Sans",sans-serif;
+    text-align:left; transition:background .15s, color .15s, border-color .15s;
+  }
+  .step-btn .n{font-family:"IBM Plex Mono",monospace; font-size:10px; font-weight:600; display:block; opacity:.8;}
+  .step-btn .t{font-size:11.5px; font-weight:600; display:block; margin-top:2px; line-height:1.2;}
+  .step-btn.active{background:var(--navy-deep); color:#fff; border-color:var(--navy-deep);}
+  .step-btn.done{background:var(--teal-soft); color:var(--teal); border-color:var(--teal);}
+  .step-btn.done .n{opacity:1;}
+
+  /* Main */
+  main{flex:1; padding:22px 20px 120px; overflow-y:auto;}
+  .panel{display:none;}
+  .panel.active{display:block; animation:fade .25s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);}}
+
+  .panel-head{margin-bottom:18px;}
+  .panel-eyebrow{
+    font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--teal); margin:0 0 6px;
+  }
+  .panel-title{
+    font-family:"Fraunces",Georgia,serif; font-weight:600; font-size:clamp(24px,6vw,30px);
+    margin:0 0 8px; letter-spacing:-.01em; text-wrap:balance;
+  }
+  .panel-goal{font-size:14.5px; color:var(--ink-2); line-height:1.5; margin:0; max-width:52ch;}
+
+  .checklist{
+    margin:18px 0 22px; padding:14px 16px; background:var(--surface); border:1px solid var(--line);
+    border-radius:8px; display:grid; gap:8px;
+  }
+  .checklist .ci{font-size:13px; color:var(--ink-2); padding-left:18px; position:relative; line-height:1.45;}
+  .checklist .ci::before{content:"—"; position:absolute; left:0; color:var(--navy); font-weight:600;}
+
+  .thread{display:grid; gap:10px; margin-top:6px;}
+  .msg{max-width:88%; padding:12px 15px; border-radius:14px; font-size:14.5px; line-height:1.5;}
+  .msg .spk{
+    display:block; font-family:"IBM Plex Mono",monospace; font-size:10px; font-weight:600;
+    letter-spacing:.06em; text-transform:uppercase; opacity:.65; margin-bottom:4px;
+  }
+  .msg.me{background:var(--bubble-me); color:var(--bubble-me-text); justify-self:start; border-bottom-left-radius:4px;}
+  .msg.them{background:var(--bubble-them); color:var(--bubble-them-text); justify-self:end; border-bottom-right-radius:4px; border:1px solid var(--line);}
+  .msg.note{
+    background:transparent; border:1px dashed var(--line-strong); color:var(--ink-3);
+    justify-self:center; text-align:center; font-size:12.5px; max-width:100%; border-radius:8px;
+  }
+
+  .callout{
+    margin-top:22px; background:var(--navy-deep); color:#f2f5fa; border-radius:10px; padding:20px 22px;
+  }
+  .callout .lbl{font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:#8fb0da; margin:0 0 8px;}
+  .callout p{margin:0; font-size:15px; line-height:1.55; font-family:"Fraunces",Georgia,serif; font-weight:500;}
+
+  .tiles{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:18px;}
+  .tile{background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:13px 14px;}
+  .tile .l{font-family:"IBM Plex Mono",monospace; font-size:10px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:5px;}
+  .tile .v{font-size:13px; color:var(--ink); font-weight:500; line-height:1.4;}
+
+  /* Intro panel */
+  .intro-chips{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 24px;}
+  .chip{font-family:"IBM Plex Mono",monospace; font-size:11.5px; background:var(--surface); border:1px solid var(--line); color:var(--ink-2); padding:7px 12px; border-radius:6px;}
+  .chip b{color:var(--ink);}
+  .start-btn{
+    display:inline-flex; align-items:center; gap:8px; background:var(--signal); color:#fff; border:none;
+    padding:13px 22px; border-radius:8px; font-family:"Work Sans",sans-serif; font-weight:600; font-size:14.5px;
+    cursor:pointer;
+  }
+  .start-btn:hover{filter:brightness(1.06);}
+
+  /* Bottom nav */
+  .navbar{
+    position:fixed; left:0; right:0; bottom:0; z-index:10;
+    padding:12px 20px calc(14px + env(safe-area-inset-bottom,0px));
+    background:linear-gradient(to top, var(--paper) 60%, transparent);
+  }
+  .navbar-inner{
+    max-width:640px; margin:0 auto; display:flex; gap:10px; align-items:center;
+    background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:8px;
+    box-shadow:0 8px 24px rgba(19,26,36,.14);
+  }
+  .nav-btn{
+    flex:1; border:none; background:transparent; color:var(--ink); font-family:"Work Sans",sans-serif;
+    font-weight:600; font-size:14px; padding:11px 14px; border-radius:8px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; gap:6px;
+  }
+  .nav-btn.primary{background:var(--navy-deep); color:#fff;}
+  .nav-btn:disabled{opacity:.35; cursor:default;}
+  .nav-btn:not(:disabled):hover{background:var(--navy-tint);}
+  .nav-btn.primary:not(:disabled):hover{filter:brightness(1.1); background:var(--navy-deep);}
+
+  @media (max-width:420px){
+    .step-btn .t{display:none;}
+    .msg{max-width:94%;}
+    .tiles{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="stepper">
+    <div class="stepper-top">
+      <span class="app-name">Call-Assist</span>
+      <span class="lead-tag">Top Recruiting → Keller</span>
+    </div>
+    <div class="steps" id="steps"></div>
+  </div>
+
+  <main id="main">
+
+    <section class="panel active" data-panel="0">
+      <div class="panel-head">
+        <p class="panel-eyebrow">Vor dem Call</p>
+        <h1 class="panel-title">Discovery-Call mit Frau Keller</h1>
+        <p class="panel-goal">Inbound-Lead: Demo-Anfrage nach Download des Whitepapers „Time-to-Hire senken“. Head of HR, sechs Stellen parallel offen. Zeitrahmen: 10 Minuten.</p>
+      </div>
+      <div class="intro-chips">
+        <span class="chip">Produkt: <b>cloudbasiertes ATS</b></span>
+        <span class="chip">Rolle: <b>Head of HR</b></span>
+        <span class="chip">Ziel: <b>Demo-Termin fixieren</b></span>
+      </div>
+      <div class="checklist">
+        <div class="ci">Vier Phasen: Opening → Bedarfsanalyse → Präsentation → Next Steps</div>
+        <div class="ci">Jede Phase endet mit einer kleinen Bestätigung, bevor es weitergeht</div>
+        <div class="ci">Präsentation greift nur auf, was in der Bedarfsanalyse genannt wurde</div>
+      </div>
+      <button class="start-btn" onclick="go(1)">Call starten →</button>
+    </section>
+
+    <section class="panel" data-panel="1">
+      <div class="panel-head">
+        <p class="panel-eyebrow">Phase 1 / 4</p>
+        <h1 class="panel-title">Opening</h1>
+        <p class="panel-goal">Vertrauen aufbauen, Anlass benennen, Rahmen setzen.</p>
+      </div>
+      <div class="thread">
+        <div class="msg me"><span class="spk">Marc</span>Guten Tag Frau Keller, hier ist Marc Pönisch von Top Recruiting. Vielen Dank für Ihre Demo-Anfrage über unsere Website – ich habe gesehen, dass Sie sich vorher unser Whitepaper zur Time-to-Hire angeschaut haben. Passt es Ihnen gerade, oder rufe ich ungünstig an?</div>
+        <div class="msg them"><span class="spk">Frau Keller</span>Nein, passt gut, ich habe gerade eine Viertelstunde.</div>
+        <div class="msg me"><span class="spk">Marc</span>Gut, dann mache ich es kurz: Ich möchte in den nächsten zehn Minuten verstehen, wie Ihr Recruiting-Prozess aktuell läuft und wo es hakt. Danach zeige ich Ihnen nur das, was für Sie wirklich relevant ist. Ist das so in Ordnung?</div>
+        <div class="msg them"><span class="spk">Frau Keller</span>Ja, gerne.</div>
+      </div>
+      <div class="checklist">
+        <div class="ci">Anlass konkret benennen, keine Floskel</div>
+        <div class="ci">Agenda + Zeitrahmen in einem Satz</div>
+        <div class="ci">Erlaubnis aktiv einholen</div>
+      </div>
+    </section>
+
+    <section class="panel" data-panel="2">
+      <div class="panel-head">
+        <p class="panel-eyebrow">Phase 2 / 4</p>
+        <h1 class="panel-title">Bedarfsanalyse</h1>
+        <p class="panel-goal">Das Bedürfnis hinter dem Bedürfnis finden, BANT klären.</p>
+      </div>
+      <div class="thread">
+        <div class="msg me"><span class="spk">Marc</span>Wie läuft bei Ihnen aktuell eine Bewerbung ab, vom Eingang bis zur Zusage?</div>
+        <div class="msg them"><span class="spk">Frau Keller</span>Ehrlich gesagt ziemlich chaotisch. Wir haben ein altes ATS, aber die Fachbereiche antworten trotzdem oft per Mail, und dann tippe ich das händisch nach.</div>
+        <div class="msg me"><span class="spk">Marc</span>Was passiert, wenn mehrere Bewerbungen gleichzeitig reinkommen und der Fachbereich gerade nicht reagiert?</div>
+        <div class="msg them"><span class="spk">Frau Keller</span>Dann bleibt es liegen, bis ich nachhake. Bei sechs offenen Stellen gleichzeitig kommt das ständig vor.</div>
+        <div class="msg me"><span class="spk">Marc</span>Verlieren Sie dadurch schon mal gute Kandidatinnen oder Kandidaten an andere Unternehmen?</div>
+        <div class="msg them"><span class="spk">Frau Keller</span>Ja, letzten Monat zwei. Beide hatten woanders schon unterschrieben.</div>
+        <div class="msg me"><span class="spk">Marc</span>Gibt es einen Zeitpunkt, bis zu dem eine Lösung stehen sollte, und wer würde am Ende mitentscheiden?</div>
+        <div class="msg them"><span class="spk">Frau Keller</span>Bis Jahresende wäre gut. Entscheiden würde ich mit unserer Geschäftsführung zusammen.</div>
+        <div class="msg me"><span class="spk">Marc</span>Wenn ich zusammenfasse: Das Problem ist nicht die Zahl der Bewerbungen, sondern dass die Rückmeldung beim Fachbereich hängen bleibt. Richtig?</div>
+        <div class="msg them"><span class="spk">Frau Keller</span>Ja, genau.</div>
+      </div>
+      <div class="callout">
+        <p class="lbl">Echtes Bedürfnis</p>
+        <p>Keine Bewerbung darf mehr im internen Abstimmungsprozess liegen bleiben – bis Jahresende, belegbar für die Geschäftsführung.</p>
+      </div>
+    </section>
+
+    <section class="panel" data-panel="3">
+      <div class="panel-head">
+        <p class="panel-eyebrow">Phase 3 / 4</p>
+        <h1 class="panel-title">Präsentation</h1>
+        <p class="panel-goal">Lösung passgenau auf den erhobenen Bedarf spiegeln – nur relevante Punkte.</p>
+      </div>
+      <div class="thread">
+        <div class="msg me"><span class="spk">Marc</span>Sie hatten eben gesagt, dass es vor allem hängen bleibt, wenn der Fachbereich nicht reagiert. Genau da setzt unser System an: Jede Bewerbung bekommt automatisch einen nächsten fälligen Schritt und eine Erinnerung an die verantwortliche Person.</div>
+        <div class="msg me"><span class="spk">Marc</span>Sie tippen aktuell vieles händisch nach, weil Mail und ATS nebeneinanderlaufen. Bei uns läuft die komplette Bewerbung in einem System – ein Blick genügt.</div>
+        <div class="msg me"><span class="spk">Marc</span>Und weil Sie bis Jahresende belastbare Zahlen für Ihre Geschäftsführung brauchen: Unser Reporting zeigt Time-to-Hire und Engpässe automatisch. Macht das für Ihre Situation Sinn?</div>
+        <div class="msg them"><span class="spk">Frau Keller</span>Nein, das trifft genau, was uns fehlt.</div>
+      </div>
+      <div class="checklist">
+        <div class="ci">Nur die 2–3 Punkte ansprechen, die vorher genannt wurden</div>
+        <div class="ci">Jeder Punkt beginnt mit einem Zitat aus der Bedarfsanalyse</div>
+        <div class="ci">Mit einer Verifizierungsfrage abschließen</div>
+      </div>
+    </section>
+
+    <section class="panel" data-panel="4">
+      <div class="panel-head">
+        <p class="panel-eyebrow">Phase 4 / 4</p>
+        <h1 class="panel-title">Next Steps</h1>
+        <p class="panel-goal">Verbindlichkeit schaffen – konkret, mit Give &amp; Get.</p>
+      </div>
+      <div class="tiles">
+        <div class="tile"><span class="l">Was</span><div class="v">20-Min-Demo mit echten Zahlen</div></div>
+        <div class="tile"><span class="l">Wer</span><div class="v">Marc bereitet vor · Keller liefert Bewerbungszahlen</div></div>
+        <div class="tile"><span class="l">Bis wann</span><div class="v">5 Werktage, vor GF-Jour-fixe</div></div>
+        <div class="tile"><span class="l">Ergebnis</span><div class="v">Entscheidung: GF einbeziehen?</div></div>
+      </div>
+      <div class="thread" style="margin-top:20px;">
+        <div class="msg me"><span class="spk">Marc</span>Ich bereite die Demo mit Ihren echten Zahlen vor, dafür bräuchte ich kurz die ungefähre Zahl an Bewerbungen pro Monat. Dann würde ich direkt einen Termin fest machen: Passt Ihnen eher Dienstag um 10 Uhr oder Donnerstag am Nachmittag?</div>
+        <div class="msg them"><span class="spk">Frau Keller</span>Donnerstag Nachmittag passt besser.</div>
+        <div class="msg me"><span class="spk">Marc</span>Gut, dann trage ich Donnerstag, 14 Uhr ein und schicke Ihnen die Einladung gleich im Anschluss. Passt das so?</div>
+        <div class="msg them"><span class="spk">Frau Keller</span>Ja, passt.</div>
+      </div>
+      <div class="checklist" style="margin-top:20px;">
+        <div class="ci">Datum + Uhrzeit wirklich aussprechen, nicht andeuten</div>
+        <div class="ci">Einladung noch im Gespräch ankündigen</div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="navbar">
+    <div class="navbar-inner">
+      <button class="nav-btn" id="prevBtn" onclick="go(current-1)">← Zurück</button>
+      <button class="nav-btn primary" id="nextBtn" onclick="go(current+1)">Weiter →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  var labels = ["Start","Opening","Bedarf","Präsent.","Next Steps"];
+  var current = 0;
+  var stepsEl = document.getElementById('steps');
+
+  function renderSteps(){
+    stepsEl.innerHTML = "";
+    for(var i=1;i<=4;i++){
+      var b = document.createElement('button');
+      b.className = 'step-btn' + (i===current?' active':'') + (i<current?' done':'');
+      b.innerHTML = '<span class="n">'+String(i).padStart(2,'0')+'</span><span class="t">'+labels[i]+'</span>';
+      b.onclick = (function(idx){ return function(){ go(idx); }; })(i);
+      stepsEl.appendChild(b);
+    }
+  }
+
+  function go(n){
+    if(n<0) n=0;
+    if(n>4) n=4;
+    current = n;
+    document.querySelectorAll('.panel').forEach(function(p){
+      p.classList.toggle('active', p.getAttribute('data-panel') === String(n));
+    });
+    document.getElementById('prevBtn').disabled = (n===0);
+    document.getElementById('nextBtn').disabled = (n===4);
+    document.getElementById('nextBtn').textContent = (n===4) ? 'Fertig' : 'Weiter →';
+    renderSteps();
+    document.getElementById('main').scrollTo({top:0, behavior:'instant'});
+    try{ localStorage.setItem('kellerCallStep', String(n)); }catch(e){}
+  }
+
+  document.addEventListener('keydown', function(e){
+    if(e.key==='ArrowRight') go(current+1);
+    if(e.key==='ArrowLeft') go(current-1);
+  });
+
+  (function init(){
+    var saved = 0;
+    try{ saved = parseInt(localStorage.getItem('kellerCallStep')||'0',10) || 0; }catch(e){}
+    go(saved);
+  })();
+</script>
+</body>
+</html>

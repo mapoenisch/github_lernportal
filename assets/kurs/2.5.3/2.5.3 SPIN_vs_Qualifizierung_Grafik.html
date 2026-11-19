@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SPIN vs. Qualifizierung</title>
+<meta name="description" content="Gegenüberstellung SPIN Selling und Qualifizierungsframeworks (BANT, MEDDIC) nach Ziel, Fokus und Einsatz, Task Sheet 2.8.3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#131a24; --ink-2:#4a5568; --ink-3:#6b7686;
+    --paper:#eef1f6; --surface:#ffffff; --surface-2:#f5f7fa;
+    --navy:#1c3557; --navy-soft:#e3e9f2;
+    --teal:#2f7a6d; --teal-soft:#e4efec;
+    --signal:#d6482c; --signal-soft:#fbe7e1;
+    --line:rgba(19,26,36,.12); --line-strong:rgba(19,26,36,.22);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#e7ebf1; --ink-2:#aab4c4; --ink-3:#7c8898;
+      --paper:#0a0e14; --surface:#121926; --surface-2:#0f1520;
+      --navy:#89aad6; --navy-soft:#16233a;
+      --teal:#5cb8a4; --teal-soft:#132621;
+      --signal:#f0805f; --signal-soft:#2c1712;
+      --line:rgba(231,235,241,.14); --line-strong:rgba(231,235,241,.24);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#e7ebf1; --ink-2:#aab4c4; --ink-3:#7c8898;
+    --paper:#0a0e14; --surface:#121926; --surface-2:#0f1520;
+    --navy:#89aad6; --navy-soft:#16233a;
+    --teal:#5cb8a4; --teal-soft:#132621;
+    --signal:#f0805f; --signal-soft:#2c1712;
+    --line:rgba(231,235,241,.14); --line-strong:rgba(231,235,241,.24);
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--paper); color:var(--ink);
+    font-family:"Work Sans",system-ui,sans-serif; padding:40px 16px 64px;}
+  .wrap{max-width:900px; margin:0 auto;}
+  .eyebrow{font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:600;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--signal);
+    display:flex; align-items:center; gap:10px; margin-bottom:14px;}
+  .eyebrow::before{content:""; width:22px; height:2px; background:var(--signal);}
+  h1{font-family:"Fraunces",Georgia,serif; font-weight:600; font-size:clamp(28px,5vw,40px);
+    line-height:1.12; margin:0 0 10px; text-wrap:balance;}
+  .lede{color:var(--ink-2); font-size:15.5px; line-height:1.55; max-width:60ch; margin:0;}
+
+  .grid{margin-top:40px; display:grid; grid-template-columns:130px 1fr 1fr; gap:0;
+    background:var(--surface); border:1px solid var(--line); border-radius:10px; overflow:hidden;}
+  .cell{padding:18px 20px; border-top:1px solid var(--line); font-size:15px; line-height:1.5;}
+  .head{border-top:none; padding:22px 20px 18px;}
+  .head .tag{font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600;
+    letter-spacing:.12em; text-transform:uppercase; opacity:.8;}
+  .head h2{font-family:"Fraunces",Georgia,serif; font-size:24px; font-weight:600; margin:4px 0 4px;}
+  .head p{margin:0; font-size:14px; opacity:.9; font-style:italic;}
+  .spin.head{background:var(--teal); color:#fff;}
+  .qual.head{background:var(--navy); color:#fff;}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .head{color:#0a0e14;} }
+  :root[data-theme="dark"] .head{color:#0a0e14;}
+  .corner{border-top:none; background:var(--surface-2);}
+  .label{font-family:"IBM Plex Mono",monospace; font-size:12px; font-weight:600;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); background:var(--surface-2);}
+  .spin:not(.head){background:var(--teal-soft);}
+  .qual:not(.head){background:var(--navy-soft);}
+  .cell b{font-weight:600;}
+  .key{display:block; font-weight:600; margin-bottom:2px;}
+
+  .bridge{margin-top:28px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .card{background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--signal);
+    border-radius:8px; padding:16px 18px; font-size:14.5px; line-height:1.5;}
+  .card .n{font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600; color:var(--signal);
+    letter-spacing:.12em; display:block; margin-bottom:6px;}
+  .risk{margin-top:28px; display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .risk div{background:var(--signal-soft); border-radius:8px; padding:16px 18px; font-size:14.5px; line-height:1.5;}
+  .risk b{display:block; margin-bottom:4px;}
+  h3{font-family:"Fraunces",Georgia,serif; font-weight:600; font-size:20px; margin:44px 0 0;}
+  .foot{margin-top:36px; color:var(--ink-3); font-size:13px;}
+
+  @media (max-width:680px){
+    .grid{grid-template-columns:1fr 1fr;}
+    .corner{display:none;}
+    .label{grid-column:1 / -1;}
+    .cell{padding:14px; font-size:14px;}
+    .bridge,.risk{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Task Sheet 2.8.3 · Aufgabe 1</div>
+  <h1>SPIN vs. Qualifizierung</h1>
+  <p class="lede">Zwei Werkzeuge, zwei Jobs. SPIN baut den Bedarf auf, Qualifizierung prüft, ob sich der Deal lohnt. Beispiel: Top Recruiting GmbH, ATS für wachsende HR-Teams.</p>
+
+  <div class="grid" role="table" aria-label="Gegenüberstellung SPIN und Qualifizierung">
+    <div class="cell corner"></div>
+    <div class="cell head spin"><span class="tag">Gesprächsführung</span><h2>SPIN Selling</h2><p>„Wie schaffe ich Kaufbereitschaft?“</p></div>
+    <div class="cell head qual"><span class="tag">BANT · MEDDIC</span><h2>Qualifizierung</h2><p>„Sollen wir hier Zeit investieren?“</p></div>
+
+    <div class="cell label">Ziel</div>
+    <div class="cell spin"><span class="key">Bedarf entwickeln</span>Aus „läuft nicht optimal“ wird ein Problem mit Preis, das der Kunde selbst lösen will.</div>
+    <div class="cell qual"><span class="key">Fit prüfen</span>Lohnt sich die Opportunity, und kann der Kunde überhaupt kaufen?</div>
+
+    <div class="cell label">Fokus</div>
+    <div class="cell spin"><span class="key">Fragen & Gesprächsverlauf</span>Situation → Problem → Implication → Need-Payoff. Dynamisch, baut auf Antworten auf.</div>
+    <div class="cell qual"><span class="key">Kriterien</span>Budget, Entscheider, Bedarf, Timeline. Bei MEDDIC dazu Metrics, Prozess, Champion. Eher Checkliste.</div>
+
+    <div class="cell label">Einsatz</div>
+    <div class="cell spin"><span class="key">Discovery & Bedarfsanalyse</span>Vor allem bei komplexen, teuren Deals mit mehreren Stakeholdern.</div>
+    <div class="cell qual"><span class="key">Lead-Bewertung & Pipeline</span>Vor jeder größeren Investition an Zeit: Demo, Angebot, Forecast.</div>
+  </div>
+
+  <h3>Nur eins von beiden?</h3>
+  <div class="risk">
+    <div><b>Nur SPIN</b>Tolles Gespräch, echter Schmerz. Und dann gibt es kein Budget oder der Gesprächspartner entscheidet nichts.</div>
+    <div><b>Nur Qualifizierung</b>Alle Felder ausgefüllt, aber der Kunde hat keinen Grund, jetzt zu handeln. Fühlt sich an wie ein Verhör.</div>
+  </div>
+
+  <h3>Warum man beides braucht</h3>
+  <div class="bridge">
+    <div class="card"><span class="n">01</span>SPIN erzeugt Dringlichkeit. Qualifizierung prüft, ob daraus ein Kauf werden kann.</div>
+    <div class="card"><span class="n">02</span>Qualifizierung schützt die eigene Zeit. SPIN sorgt dafür, dass die Zeit auch etwas bringt.</div>
+    <div class="card"><span class="n">03</span>Der Kunde merkt vom Framework nichts. Er erlebt ein Gespräch über sein Problem.</div>
+  </div>
+
+  <p class="foot">Marc Pönisch · Bedarfsanalyse Deep Dive, Tag 3 SPIN Selling</p>
+</div>
+</body>
+</html>

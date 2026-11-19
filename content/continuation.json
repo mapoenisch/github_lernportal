@@ -1,6 +1,1491 @@
 {
   "lessons": [
     {
+      "id": "2.5.1",
+      "title": "Fundament: Bedürfnis, Rapport & Opening",
+      "hero": {
+        "eyebrow": "Kapitel 2.5.1 · Lektion 1",
+        "title": "Fundament: Bedürfnis, Rapport & Opening",
+        "desc": "Tag 1 des Deep-Dive-Workshops: Du lernst, was exzellente Seller anders machen, wie du das Bedürfnis hinter dem Bedürfnis aufdeckst und wie ein Gespräch in den ersten Minuten Vertrauen und Struktur bekommt.",
+        "chips": [
+          "Modul 2 · Bedarfsanalyse Deep Dive",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Was Top-Seller anders machen",
+          "pill": "01 · Was Top-Seller anders machen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Durchschnittliche Seller pitchen viel, reden mehr als sie zuhören und drängen auf den schnellen Abschluss. Top-Seller hören aktiv zu, stellen durchdachte Fragen und werden als Partner wahrgenommen, der Lösungen statt Produkte verkauft."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Durchschnittliche Seller",
+                "Top-Seller"
+              ],
+              "rows": [
+                [
+                  "Pitchen produktfokussiert",
+                  "Hören aktiv zu und stellen durchdachte Fragen"
+                ],
+                [
+                  "Werden als Verkäufer wahrgenommen",
+                  "Werden als Partner wahrgenommen"
+                ],
+                [
+                  "Präsentieren Features",
+                  "Verkaufen Lösungen"
+                ],
+                [
+                  "Emotional abhängig vom Ergebnis",
+                  "Emotional unabhängig und professionell"
+                ],
+                [
+                  "Drängen auf schnelle Abschlüsse",
+                  "Denken in langfristigen Beziehungen"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Das Bedürfnis hinter dem Bedürfnis",
+          "pill": "02 · Das Bedürfnis hinter dem Bedürfnis",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Oberflächliche Anforderungen führen selten zu Kaufentscheidungen. Erst wenn du von der genannten Anforderung über Funktion und Ergebnis bis zum eigentlichen Nutzen fragst, verstehst du, was der Kunde wirklich kauft."
+            },
+            {
+              "t": "flow",
+              "cols": 2,
+              "steps": [
+                {
+                  "num": "01",
+                  "title": "Hammer",
+                  "text": "Das Werkzeug, das der Kunde nennt."
+                },
+                {
+                  "num": "02",
+                  "title": "Nagel in der Wand",
+                  "text": "Die Funktion, die er braucht."
+                },
+                {
+                  "num": "03",
+                  "title": "Bild an der Wand",
+                  "text": "Das Ergebnis, das er sehen will."
+                },
+                {
+                  "num": "04",
+                  "title": "Schönere Wohnung",
+                  "text": "Der Nutzen dahinter."
+                },
+                {
+                  "num": "05",
+                  "title": "Mehr Freunde zu Besuch",
+                  "text": "Das wahre Bedürfnis."
+                }
+              ]
+            },
+            {
+              "t": "note",
+              "text": "Leitfragen für jede Ebene: Warum ist das ein Problem? Für wen? Was passiert, wenn es ungelöst bleibt? Was kostet das an Zeit, Geld oder Risiko, und wie viel davon?"
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Charisma & Rapport",
+          "pill": "03 · Charisma & Rapport",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Rapport ist die unsichtbare Verbindung aus Gemeinsamkeiten, Vertrauen, Wohlfühlen und Verstandenwerden. Du baust sie mit echtem Lächeln, modulierter Stimme, offener Körpersprache und aktivem Zuhören auf."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Lächeln",
+                  "text": "Authentisch und einladend. Ein echtes Lächeln hört man auch am Telefon."
+                },
+                {
+                  "title": "Stimme",
+                  "text": "Tempo, Tonhöhe und Lautstärke variieren, um Interesse zu halten."
+                },
+                {
+                  "title": "Körpersprache",
+                  "text": "Eine aufrechte Haltung macht die Stimme selbstbewusster, Gestik unterstützt den Ausdruck – auch am Telefon."
+                },
+                {
+                  "title": "Aktives Zuhören",
+                  "text": "Nicken, Paraphrasieren und gezielte Rückfragen zeigen echtes Interesse."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Vier Gesprächsphasen und das Opening",
+          "pill": "04 · Vier Gesprächsphasen und das Opening",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Ein Verkaufsgespräch folgt vier Phasen: Opening, Bedarfsanalyse, Präsentation und Next Steps. Das Herzstück ist die Bedarfsanalyse; das Opening schafft Rapport, nennt die Agenda und macht den Wert des Gesprächs klar."
+            },
+            {
+              "t": "flow",
+              "cols": 4,
+              "steps": [
+                {
+                  "num": "01",
+                  "title": "Opening",
+                  "text": "Erster Eindruck, Agenda und Wert des Gesprächs."
+                },
+                {
+                  "num": "02",
+                  "title": "Bedarfsanalyse",
+                  "text": "Probleme und Herausforderungen identifizieren – die wichtigste Phase."
+                },
+                {
+                  "num": "03",
+                  "title": "Präsentation",
+                  "text": "Die maßgeschneiderte Lösung zeigen."
+                },
+                {
+                  "num": "04",
+                  "title": "Next Steps",
+                  "text": "Verbindlichkeit schaffen."
+                }
+              ]
+            },
+            {
+              "t": "note",
+              "text": "Das Opening sollte nur ein bis drei Minuten dauern. Komm schnell zur Bedarfsanalyse. Fallbeispiel im Workshop ist die Top Recruiting GmbH, ein Anbieter cloudbasierter Bewerbermanagement-Software (ATS)."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Was Top-Seller anders machen",
+                  "text": "Durchschnittliche Seller pitchen viel, reden mehr als sie zuhören und drängen auf den schnellen Abschluss. Top-Seller hören aktiv zu, stellen durchdachte Fragen und werden als Partner wahrgenommen, der Lösungen statt Produkte verkauft."
+                },
+                {
+                  "title": "Das Bedürfnis hinter dem Bedürfnis",
+                  "text": "Oberflächliche Anforderungen führen selten zu Kaufentscheidungen. Erst wenn du von der genannten Anforderung über Funktion und Ergebnis bis zum eigentlichen Nutzen fragst, verstehst du, was der Kunde wirklich kauft."
+                },
+                {
+                  "title": "Charisma & Rapport",
+                  "text": "Rapport ist die unsichtbare Verbindung aus Gemeinsamkeiten, Vertrauen, Wohlfühlen und Verstandenwerden. Du baust sie mit echtem Lächeln, modulierter Stimme, offener Körpersprache und aktivem Zuhören auf."
+                },
+                {
+                  "title": "Vier Gesprächsphasen und das Opening",
+                  "text": "Ein Verkaufsgespräch folgt vier Phasen: Opening, Bedarfsanalyse, Präsentation und Next Steps. Das Herzstück ist die Bedarfsanalyse; das Opening schafft Rapport, nennt die Agenda und macht den Wert des Gesprächs klar."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Need behind the need für ein ATS",
+              "goals": [
+                "Formuliere zu „Unsere Time-to-Hire ist zu hoch“ eine Kette aus drei bis fünf Folgefragen bis zum echten Bedürfnis.",
+                "Schreibe ein Opening in drei bis fünf Sätzen mit Rapport, Agenda und Mehrwert.",
+                "Teste es im Rollenspiel und prüfe: Klingt es nach Gespräch oder nach Pitch?"
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe, wie du die Inhalte aus „Fundament: Bedürfnis, Rapport & Opening“ anwendest. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Ein Interessent sagt: „Wir brauchen ein neues Bewerbermanagement-Tool.“ Was ist der beste nächste Schritt?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nachfragen, warum das gerade jetzt wichtig ist und was das aktuelle Vorgehen kostet."
+              },
+              {
+                "id": "B",
+                "text": "Sofort die drei stärksten Features vorstellen."
+              },
+              {
+                "id": "C",
+                "text": "Den Preis nennen, damit keine Zeit verloren geht."
+              },
+              {
+                "id": "D",
+                "text": "Einen Demo-Termin vorschlagen, ohne weitere Fragen zu stellen."
+              }
+            ],
+            "correctAnswer": "A",
+            "hint": "Denk an das Hammer-Beispiel: Die genannte Anforderung ist nur die oberste Ebene."
+          },
+          {
+            "question": "Welche Gesprächsphase gilt im Workshop als Herzstück?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Das Opening"
+              },
+              {
+                "id": "B",
+                "text": "Die Bedarfsanalyse"
+              },
+              {
+                "id": "C",
+                "text": "Die Präsentation"
+              },
+              {
+                "id": "D",
+                "text": "Die Next Steps"
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Ohne sie sind alle nachfolgenden Phasen weniger wirkungsvoll."
+          },
+          {
+            "question": "Was gehört nicht zwingend in ein starkes Opening?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Rapport aufbauen"
+              },
+              {
+                "id": "B",
+                "text": "Die Agenda nennen"
+              },
+              {
+                "id": "C",
+                "text": "Den Wert des Gesprächs klarstellen"
+              },
+              {
+                "id": "D",
+                "text": "Eine vollständige Produktdemo"
+              }
+            ],
+            "correctAnswer": "D",
+            "hint": "Das Opening soll kurz sein und zur Bedarfsanalyse überleiten."
+          },
+          {
+            "question": "Warum zählt Körpersprache auch am Telefon?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Weil der Kunde per Video mitschaut."
+              },
+              {
+                "id": "B",
+                "text": "Weil Haltung und Lächeln die Stimme hörbar verändern."
+              },
+              {
+                "id": "C",
+                "text": "Weil sie die Gesprächsdauer verkürzt."
+              },
+              {
+                "id": "D",
+                "text": "Sie zählt am Telefon nicht."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Aufrechte Haltung führt zu einer selbstbewussteren Stimme."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.5.2",
+      "title": "Gesprächsphasen: Zuhören, Fragen & Give and Get",
+      "hero": {
+        "eyebrow": "Kapitel 2.5.2 · Lektion 2",
+        "title": "Gesprächsphasen: Zuhören, Fragen & Give and Get",
+        "desc": "Tag 2 vertieft die vier Gesprächsphasen: aktives Zuhören auf drei Ebenen, offene und geschlossene Fragen, BANT in der Bedarfsanalyse, eine passgenaue Präsentation und verbindliche nächste Schritte.",
+        "chips": [
+          "Modul 2 · Bedarfsanalyse Deep Dive",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Drei Ebenen des Zuhörens",
+          "pill": "01 · Drei Ebenen des Zuhörens",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Beim internen Zuhören bist du bei deinen eigenen Gedanken. Fokussiertes Zuhören richtet die volle Aufmerksamkeit auf Worte und Emotionen des Gegenübers, globales Zuhören nimmt zusätzlich Kontext und nonverbale Signale wahr. Ziel ist Ebene 2 oder 3."
+            },
+            {
+              "t": "cards",
+              "cols": 3,
+              "items": [
+                {
+                  "title": "Level 1 · Intern",
+                  "text": "Fokus auf eigene Gedanken, Gefühle und Reaktionen."
+                },
+                {
+                  "title": "Level 2 · Fokussiert",
+                  "text": "Volle Aufmerksamkeit auf die Botschaft des Gegenübers."
+                },
+                {
+                  "title": "Level 3 · Global",
+                  "text": "Bewusstsein für Sprecher, Kontext und nonverbale Signale."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Offen fragen, überleiten, verifizieren",
+          "pill": "02 · Offen fragen, überleiten, verifizieren",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Offene W-Fragen geben Raum zum Nachdenken und decken tiefere Einblicke auf; geschlossene Fragen verifizieren Fakten. Überleitungen halten den Gesprächsfluss, Verifizieren sichert ein gemeinsames Verständnis."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Technik",
+                "Beispiel",
+                "Wirkung"
+              ],
+              "rows": [
+                [
+                  "Offene Frage",
+                  "„Wie läuft euer aktueller Prozess ab?“",
+                  "Ausführliche Antworten, tiefere Einblicke"
+                ],
+                [
+                  "Geschlossene Frage",
+                  "„Nutzt ihr ein ATS?“",
+                  "Schnelle Fakten, begrenzt den Dialog"
+                ],
+                [
+                  "Überleiten",
+                  "„Damit ich besser verstehe …“",
+                  "Natürlicher Fluss statt Verhör"
+                ],
+                [
+                  "Verifizieren",
+                  "„Wenn ich das richtig verstehe, dann …“",
+                  "Zeigt Zuhören, vermeidet Missverständnisse"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Bedarfsanalyse mit BANT",
+          "pill": "03 · Bedarfsanalyse mit BANT",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "BANT liefert die Fakten der Bedarfsanalyse: Budget, Authority, Need und Timeline. Offene Fragen decken Pain Points auf, geschlossene Fragen prüfen die BANT-Kriterien."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Budget",
+                  "text": "Wie hoch ist das verfügbare Budget, gibt es Engpässe?"
+                },
+                {
+                  "title": "Authority",
+                  "text": "Wer entscheidet und wer muss zustimmen?"
+                },
+                {
+                  "title": "Need",
+                  "text": "Welches Problem soll gelöst werden, was passiert, wenn nicht?"
+                },
+                {
+                  "title": "Timeline",
+                  "text": "Bis wann muss die Lösung stehen, gibt es Fristen?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Präsentation und Next Steps",
+          "pill": "04 · Präsentation und Next Steps",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Eine gute Präsentation ist keine Standard-Demo: Sie zeigt nur, was in der Bedarfsanalyse relevant wurde, und fragt regelmäßig nach. Am Ende schafft das Give-and-Get-Prinzip Verbindlichkeit – du gibst etwas, der Kunde investiert ebenfalls."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Custom Demo",
+                  "text": "Du erstellst sie, der Kunde bringt den CFO zum nächsten Termin."
+                },
+                {
+                  "title": "ROI-Analyse",
+                  "text": "Du rechnest, der Kunde teilt interne Zahlen."
+                },
+                {
+                  "title": "Testlauf",
+                  "text": "Du bietest ihn an, der Kunde sagt den Abschluss bei Erfolg zu."
+                }
+              ]
+            },
+            {
+              "t": "note",
+              "text": "Ein guter Next Step beantwortet: Was passiert, wer ist verantwortlich, bis wann und welches Ergebnis hat der Kunde davon? Im SDR-Szenario ist das meist ein Termin mit dem Account Executive, kein Abschluss."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Drei Ebenen des Zuhörens",
+                  "text": "Beim internen Zuhören bist du bei deinen eigenen Gedanken. Fokussiertes Zuhören richtet die volle Aufmerksamkeit auf Worte und Emotionen des Gegenübers, globales Zuhören nimmt zusätzlich Kontext und nonverbale Signale wahr. Ziel ist Ebene 2 oder 3."
+                },
+                {
+                  "title": "Offen fragen, überleiten, verifizieren",
+                  "text": "Offene W-Fragen geben Raum zum Nachdenken und decken tiefere Einblicke auf; geschlossene Fragen verifizieren Fakten. Überleitungen halten den Gesprächsfluss, Verifizieren sichert ein gemeinsames Verständnis."
+                },
+                {
+                  "title": "Bedarfsanalyse mit BANT",
+                  "text": "BANT liefert die Fakten der Bedarfsanalyse: Budget, Authority, Need und Timeline. Offene Fragen decken Pain Points auf, geschlossene Fragen prüfen die BANT-Kriterien."
+                },
+                {
+                  "title": "Präsentation und Next Steps",
+                  "text": "Eine gute Präsentation ist keine Standard-Demo: Sie zeigt nur, was in der Bedarfsanalyse relevant wurde, und fragt regelmäßig nach. Am Ende schafft das Give-and-Get-Prinzip Verbindlichkeit – du gibst etwas, der Kunde investiert ebenfalls."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Einen Gesprächsleitfaden bauen",
+              "goals": [
+                "Beschreibe Ziel und typische Fehler jeder der vier Phasen in zwei bis drei Stichpunkten.",
+                "Entwickle acht bis zwölf Fragen für die Bedarfsanalyse mit Kontext-, Problem- und Vertiefungsfragen.",
+                "Lege einen Next Step fest, bei dem der Kunde selbst eine Aufgabe übernimmt."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe, wie du die Inhalte aus „Gesprächsphasen: Zuhören, Fragen & Give and Get“ anwendest. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Welche Frage ist offen?",
+            "options": [
+              {
+                "id": "A",
+                "text": "„Nutzt ihr bereits ein CRM?“"
+              },
+              {
+                "id": "B",
+                "text": "„Wie läuft euer Bewerbungsprozess heute ab?“"
+              },
+              {
+                "id": "C",
+                "text": "„Ist das Budget freigegeben?“"
+              },
+              {
+                "id": "D",
+                "text": "„Entscheidet ihr bis Ende Juni?“"
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Offene Fragen beginnen meist mit einem W-Wort und lassen sich nicht mit Ja oder Nein beantworten."
+          },
+          {
+            "question": "Was beschreibt fokussiertes Zuhören (Level 2)?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Du planst schon deine nächste Antwort."
+              },
+              {
+                "id": "B",
+                "text": "Du richtest die volle Aufmerksamkeit auf Worte und Emotionen des Gegenübers."
+              },
+              {
+                "id": "C",
+                "text": "Du achtest nur auf Zahlen."
+              },
+              {
+                "id": "D",
+                "text": "Du hörst zu, bis du pitchen kannst."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Level 1 ist bei dir selbst, Level 3 nimmt zusätzlich den Kontext wahr."
+          },
+          {
+            "question": "Was ist ein Beispiel für Give and Get?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Du schickst ungefragt eine Broschüre."
+              },
+              {
+                "id": "B",
+                "text": "Du erstellst eine ROI-Analyse, der Kunde teilt dafür interne Zahlen."
+              },
+              {
+                "id": "C",
+                "text": "Du gewährst sofort Rabatt."
+              },
+              {
+                "id": "D",
+                "text": "Du wartest, bis der Kunde sich meldet."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Beide Seiten investieren etwas – das zeigt echtes Commitment."
+          },
+          {
+            "question": "Wodurch zeichnet sich eine gute Präsentation nach der Bedarfsanalyse aus?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Sie zeigt alle Funktionen vollständig."
+              },
+              {
+                "id": "B",
+                "text": "Sie greift die genannten Pains auf und prüft regelmäßig, ob das Problem gelöst ist."
+              },
+              {
+                "id": "C",
+                "text": "Sie dauert mindestens eine Stunde."
+              },
+              {
+                "id": "D",
+                "text": "Sie vermeidet Rückfragen, um nicht zu unterbrechen."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Gesprächsgerecht, Wettbewerb kennen, verifizieren."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.5.3",
+      "title": "SPIN Selling: Situation & Problem",
+      "hero": {
+        "eyebrow": "Kapitel 2.5.3 · Lektion 3",
+        "title": "SPIN Selling: Situation & Problem",
+        "desc": "Tag 3 führt in SPIN Selling ein: woher die Methode stammt, wofür die vier Buchstaben stehen, wie sie sich von Qualifizierungsframeworks unterscheidet und wie du implizite von expliziten Schmerzaussagen trennst.",
+        "chips": [
+          "Modul 2 · Bedarfsanalyse Deep Dive",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Was ist SPIN Selling?",
+          "pill": "01 · Was ist SPIN Selling?",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "SPIN ist eine Fragetechnik von Neil Rackham, entwickelt aus zwölf Jahren Forschung und über 35.000 analysierten Verkaufsgesprächen. Statt Kriterien abzuhaken, führst du den Kunden durch Fragen selbst zur Lösung."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "S · Situation",
+                  "text": "Versteht die aktuelle Lage."
+                },
+                {
+                  "title": "P · Problem",
+                  "text": "Identifiziert Schwierigkeiten und Unzufriedenheiten."
+                },
+                {
+                  "title": "I · Implication",
+                  "text": "Macht die Konsequenzen des Problems klar."
+                },
+                {
+                  "title": "N · Need-Payoff",
+                  "text": "Lässt den Kunden den Wert der Lösung beschreiben."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "SPIN und Qualifizierungsframeworks",
+          "pill": "02 · SPIN und Qualifizierungsframeworks",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "BANT oder MEDDIC prüfen statisch, ob sich eine Opportunity lohnt. SPIN entwickelt im Gespräch Bedarf und Kaufbereitschaft. Du brauchst beides: Das eine beantwortet „Investieren wir Zeit?“, das andere „Wie entsteht Kaufbereitschaft?“"
+            },
+            {
+              "t": "table",
+              "head": [
+                "",
+                "Qualifizierung (BANT, MEDDIC)",
+                "SPIN Selling"
+              ],
+              "rows": [
+                [
+                  "Ziel",
+                  "Fit und Opportunity prüfen",
+                  "Bedarf schaffen und entwickeln"
+                ],
+                [
+                  "Fokus",
+                  "Kriterien",
+                  "Gesprächsführung"
+                ],
+                [
+                  "Charakter",
+                  "Statisch, checkbox-orientiert",
+                  "Dynamisch, fragenbasiert"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Implizite und explizite Pains",
+          "pill": "03 · Implizite und explizite Pains",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Kunden starten fast immer mit impliziten Pains, also einem Zustand oder Gefühl. Kaufentscheidungen treiben erst explizite Pains mit einer konkreten, idealerweise bezifferten Konsequenz in Euro, Zeit oder Zahl."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Impliziter Pain",
+                "Expliziter Pain"
+              ],
+              "rows": [
+                [
+                  "„Das System ist manchmal etwas langsam.“",
+                  "„Jede unbesetzte Entwicklerstelle kostet uns rund 10.000 € im Monat.“"
+                ],
+                [
+                  "„Das Reporting ist mühsam.“",
+                  "„Unsere Time-to-Hire liegt bei 60 statt 30 Tagen – dadurch verschieben wir zwei Projekte pro Quartal.“"
+                ]
+              ]
+            },
+            {
+              "t": "note",
+              "text": "Merksatz: Impliziter Schmerz ist ein Zustand. Expliziter Schmerz hat meistens einen Preis. Bei Großkunden mit mehr Stakeholdern, höherer Investition und längerem Prozess musst du implizite Pains zu expliziten entwickeln."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Situations- und Problemfragen",
+          "pill": "04 · Situations- und Problemfragen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Situationsfragen klären den Kontext, wirken in großer Zahl aber wie ein Verhör. Recherchiere vorher und stelle nur, was du nicht anders herausfinden kannst. Problemfragen decken Schwierigkeiten auf – der erste, aber noch nicht ausreichende Schritt."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Situation",
+                  "text": "„Welches ATS nutzt ihr aktuell?“ – Test: Könnte ich das googeln?"
+                },
+                {
+                  "title": "Problem",
+                  "text": "„Wo verliert ihr im Prozess am meisten Zeit?“ – Test: Führt die Frage zu einem echten Schmerzpunkt?"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Was ist SPIN Selling?",
+                  "text": "SPIN ist eine Fragetechnik von Neil Rackham, entwickelt aus zwölf Jahren Forschung und über 35.000 analysierten Verkaufsgesprächen. Statt Kriterien abzuhaken, führst du den Kunden durch Fragen selbst zur Lösung."
+                },
+                {
+                  "title": "SPIN und Qualifizierungsframeworks",
+                  "text": "BANT oder MEDDIC prüfen statisch, ob sich eine Opportunity lohnt. SPIN entwickelt im Gespräch Bedarf und Kaufbereitschaft. Du brauchst beides: Das eine beantwortet „Investieren wir Zeit?“, das andere „Wie entsteht Kaufbereitschaft?“"
+                },
+                {
+                  "title": "Implizite und explizite Pains",
+                  "text": "Kunden starten fast immer mit impliziten Pains, also einem Zustand oder Gefühl. Kaufentscheidungen treiben erst explizite Pains mit einer konkreten, idealerweise bezifferten Konsequenz in Euro, Zeit oder Zahl."
+                },
+                {
+                  "title": "Situations- und Problemfragen",
+                  "text": "Situationsfragen klären den Kontext, wirken in großer Zahl aber wie ein Verhör. Recherchiere vorher und stelle nur, was du nicht anders herausfinden kannst. Problemfragen decken Schwierigkeiten auf – der erste, aber noch nicht ausreichende Schritt."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Ein Verkaufsgespräch analysieren",
+              "goals": [
+                "Markiere in einem Gesprächstranskript alle Situations- und Problemfragen.",
+                "Finde drei Stellen, an denen der Verkäufer an der Oberfläche bleibt.",
+                "Formuliere drei bessere Situations- und fünf bessere Problemfragen."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe, wie du die Inhalte aus „SPIN Selling: Situation & Problem“ anwendest. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Welche Aussage ist ein expliziter Pain?",
+            "options": [
+              {
+                "id": "A",
+                "text": "„Die Abstimmung mit der Fachabteilung könnte besser laufen.“"
+              },
+              {
+                "id": "B",
+                "text": "„Wir geben jährlich 80.000 € extra für Headhunter aus, weil unsere Pipeline nicht reicht.“"
+              },
+              {
+                "id": "C",
+                "text": "„Wir sind mit unserem Tool nicht richtig zufrieden.“"
+              },
+              {
+                "id": "D",
+                "text": "„Unser Prozess fühlt sich chaotisch an.“"
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Explizit heißt: eine messbare Konsequenz mit Zahl, Euro oder Zeit."
+          },
+          {
+            "question": "Wofür steht das I in SPIN?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Information"
+              },
+              {
+                "id": "B",
+                "text": "Implication"
+              },
+              {
+                "id": "C",
+                "text": "Integration"
+              },
+              {
+                "id": "D",
+                "text": "Investment"
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Diese Fragen machen die Konsequenzen eines Problems sichtbar."
+          },
+          {
+            "question": "Wie verhält sich SPIN zu BANT?",
+            "options": [
+              {
+                "id": "A",
+                "text": "SPIN ersetzt BANT vollständig."
+              },
+              {
+                "id": "B",
+                "text": "BANT prüft den Fit, SPIN entwickelt im Gespräch den Bedarf – man braucht beides."
+              },
+              {
+                "id": "C",
+                "text": "Beide sind identisch."
+              },
+              {
+                "id": "D",
+                "text": "BANT wird nur im Outbound genutzt."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Qualifizierung ist statisch, SPIN ist Gesprächsführung."
+          },
+          {
+            "question": "Was ist die Faustregel für Situationsfragen?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Möglichst viele stellen, damit das Bild vollständig ist."
+              },
+              {
+                "id": "B",
+                "text": "Nur stellen, was du nicht vorher recherchieren kannst."
+              },
+              {
+                "id": "C",
+                "text": "Ganz darauf verzichten."
+              },
+              {
+                "id": "D",
+                "text": "Erst am Ende des Gesprächs stellen."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Zu viele Situationsfragen langweilen und wirken wie ein Verhör."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.5.4",
+      "title": "SPIN Deep Dive: Implication & Need-Payoff",
+      "hero": {
+        "eyebrow": "Kapitel 2.5.4 · Lektion 4",
+        "title": "SPIN Deep Dive: Implication & Need-Payoff",
+        "desc": "Tag 4 vertieft die beiden wirkungsvollsten SPIN-Kategorien, verbindet SPIN mit BANT und bereitet auf die Zertifizierung an Tag 5 vor: ein vollständiges, aufgezeichnetes Qualifizierungsgespräch.",
+        "chips": [
+          "Modul 2 · Bedarfsanalyse Deep Dive",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Implication-Fragen",
+          "pill": "01 · Implication-Fragen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Implication-Fragen machen aus einem impliziten Pain einen expliziten. Der Trick: Nimm ein Problem und frage nach dem Warum (Konsequenzen) und dem Wie viel (Kosten, Zahlen). So entsteht Dringlichkeit, der Schmerz wird messbar und der Kunde kann die Investition intern rechtfertigen."
+            },
+            {
+              "t": "flow",
+              "cols": 4,
+              "steps": [
+                {
+                  "num": "01",
+                  "title": "Problem aufgreifen",
+                  "text": "„Unser System ist nicht integriert.“"
+                },
+                {
+                  "num": "02",
+                  "title": "Konsequenz",
+                  "text": "„Wie wirkt sich das auf andere Abteilungen aus?“"
+                },
+                {
+                  "num": "03",
+                  "title": "Zahl",
+                  "text": "„Wie viel Zeit kostet euch das pro Woche?“"
+                },
+                {
+                  "num": "04",
+                  "title": "Sekundäre Effekte",
+                  "text": "„Wie viele Stellen bleiben dadurch unbesetzt?“"
+                }
+              ]
+            },
+            {
+              "t": "note",
+              "text": "Wenn der Kunde sagt „Das rechnet bei uns niemand“, leite die Zahl gemeinsam her: Menge, Häufigkeit und Wert Schritt für Schritt erfragen, statt eine Zahl vorzugeben."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Need-Payoff-Fragen",
+          "pill": "02 · Need-Payoff-Fragen",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Need-Payoff-Fragen lassen den Kunden selbst beschreiben, welchen Wert eine Lösung hätte. Menschen glauben sich selbst mehr, der Kunde übernimmt Ownership, und nach den schweren Implication-Fragen entsteht positive Energie."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Beispiel",
+                  "text": "„Wenn ihr die Time-to-Fill halbieren könntet, welche Auswirkungen hätte das auf euren Alltag?“"
+                },
+                {
+                  "title": "Prüfkriterium",
+                  "text": "Endet die Antwort mit einem Vorteil in den eigenen Worten des Kunden? Dann hat die Frage funktioniert."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "SPIN und BANT als Team",
+          "pill": "03 · SPIN und BANT als Team",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "SPIN ist keine Alternative zu BANT, sondern die Methode, um die BANT-Informationen zu bekommen. Implication-Fragen rechtfertigen das Budget und schaffen Dringlichkeit, Problemfragen decken den Need auf."
+            },
+            {
+              "t": "table",
+              "head": [
+                "BANT-Kriterium",
+                "Beitrag von SPIN"
+              ],
+              "rows": [
+                [
+                  "Budget",
+                  "Implication-Fragen quantifizieren den Schmerz und rechtfertigen das Budget."
+                ],
+                [
+                  "Authority",
+                  "Situations-, Problem- und Implication-Fragen helfen, Entscheider zu identifizieren."
+                ],
+                [
+                  "Need",
+                  "Problemfragen decken Bedarf auf, Implication-Fragen geben ihm Gewicht."
+                ],
+                [
+                  "Timeline",
+                  "Implication-Fragen schaffen Dringlichkeit für schnellere Entscheidungen."
+                ]
+              ]
+            },
+            {
+              "t": "note",
+              "text": "SPIN ersetzt nicht die Gesprächsphasen. Die Struktur Opening, Bedarfsanalyse, Präsentation, Next Steps bleibt; SPIN arbeitet vor allem in der Bedarfsanalyse."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Zertifizierung und Beobachter-Scorecard",
+          "pill": "04 · Zertifizierung und Beobachter-Scorecard",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "An Tag 5 führst du zu zweit ein vollständiges, aufgezeichnetes Qualifizierungsgespräch. Bestanden ist es ab 80 Prozent; geprüft werden Rapport, Gesprächsphasen, Techniken und SPIN. Die Beobachter-Scorecard zeigt, worauf es ankommt."
+            },
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Opening",
+                  "text": "Erster Satz handelt vom Kunden, Agenda und Wert sind ausgesprochen."
+                },
+                {
+                  "title": "Bedarfsanalyse",
+                  "text": "Erste Problemfrage nach höchstens drei Situationsfragen, mindestens eine Konsequenz mit Zahl, Kunde formuliert den Nutzen selbst."
+                },
+                {
+                  "title": "Präsentation",
+                  "text": "Startet erst nach der Need-Payoff-Antwort und greift Kundenaussagen auf."
+                },
+                {
+                  "title": "Next Steps",
+                  "text": "Was, wer, bis wann – und der Kunde übernimmt eine Aufgabe."
+                }
+              ]
+            },
+            {
+              "t": "note",
+              "text": "Lesehilfe der Scorecard: Viele S, kaum P und I wirkt wie ein Verhör. Keine I-Fragen heißt, der Pain bleibt implizit. Keine N-Fragen heißt, der Verkäufer muss den Nutzen selbst verkaufen."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Implication-Fragen",
+                  "text": "Implication-Fragen machen aus einem impliziten Pain einen expliziten. Der Trick: Nimm ein Problem und frage nach dem Warum (Konsequenzen) und dem Wie viel (Kosten, Zahlen). So entsteht Dringlichkeit, der Schmerz wird messbar und der Kunde kann die Investition intern rechtfertigen."
+                },
+                {
+                  "title": "Need-Payoff-Fragen",
+                  "text": "Need-Payoff-Fragen lassen den Kunden selbst beschreiben, welchen Wert eine Lösung hätte. Menschen glauben sich selbst mehr, der Kunde übernimmt Ownership, und nach den schweren Implication-Fragen entsteht positive Energie."
+                },
+                {
+                  "title": "SPIN und BANT als Team",
+                  "text": "SPIN ist keine Alternative zu BANT, sondern die Methode, um die BANT-Informationen zu bekommen. Implication-Fragen rechtfertigen das Budget und schaffen Dringlichkeit, Problemfragen decken den Need auf."
+                },
+                {
+                  "title": "Zertifizierung und Beobachter-Scorecard",
+                  "text": "An Tag 5 führst du zu zweit ein vollständiges, aufgezeichnetes Qualifizierungsgespräch. Bestanden ist es ab 80 Prozent; geprüft werden Rapport, Gesprächsphasen, Techniken und SPIN. Die Beobachter-Scorecard zeigt, worauf es ankommt."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Dein SPIN-Skript",
+              "goals": [
+                "Ergänze deinen Leitfaden um zwei bis drei Situations-, fünf bis sieben Problem-, vier bis sechs Implication- und zwei bis drei Need-Payoff-Fragen.",
+                "Schreibe zu jeder Frage eine realistische Kundenantwort.",
+                "Übe im Dreier-Rollenspiel und lass dich anhand der Beobachter-Scorecard bewerten."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe, wie du die Inhalte aus „SPIN Deep Dive: Implication & Need-Payoff“ anwendest. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Ein Kunde sagt: „Unser Prozess dauert manchmal etwas lange.“ Welche Frage ist eine Implication-Frage?",
+            "options": [
+              {
+                "id": "A",
+                "text": "„Welches System nutzt ihr?“"
+              },
+              {
+                "id": "B",
+                "text": "„Was bedeutet das für eure offenen Stellen und die Produktivität der Teams?“"
+              },
+              {
+                "id": "C",
+                "text": "„Wie groß ist euer Team?“"
+              },
+              {
+                "id": "D",
+                "text": "„Darf ich Ihnen unsere Lösung zeigen?“"
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Implication-Fragen fragen nach Konsequenzen und Kosten."
+          },
+          {
+            "question": "Warum sollen Kunden die Vorteile selbst formulieren?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Weil es dem Verkäufer Zeit spart."
+              },
+              {
+                "id": "B",
+                "text": "Weil Menschen sich selbst mehr glauben und Ownership entsteht."
+              },
+              {
+                "id": "C",
+                "text": "Weil Verkäufer keine Vorteile nennen dürfen."
+              },
+              {
+                "id": "D",
+                "text": "Weil es die Gesprächsdauer verdoppelt."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Das ist der Kern der Need-Payoff-Fragen."
+          },
+          {
+            "question": "Was zeigt die Beobachter-Scorecard, wenn ein Gespräch null Implication-Fragen enthält?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Das Gespräch war besonders effizient."
+              },
+              {
+                "id": "B",
+                "text": "Der Pain bleibt implizit."
+              },
+              {
+                "id": "C",
+                "text": "Der Kunde hat keine Probleme."
+              },
+              {
+                "id": "D",
+                "text": "Das Opening war zu lang."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Ohne Konsequenzen und Zahlen bleibt es bei „läuft nicht optimal“."
+          },
+          {
+            "question": "Wo setzt du SPIN im Verkaufsgespräch vor allem ein?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Im Opening"
+              },
+              {
+                "id": "B",
+                "text": "In der Bedarfsanalyse"
+              },
+              {
+                "id": "C",
+                "text": "Nur in der Präsentation"
+              },
+              {
+                "id": "D",
+                "text": "Erst nach dem Abschluss"
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "SPIN ist eine Fragetechnik, kein Gesprächsablauf."
+          }
+        ]
+      }
+    },
+    {
+      "id": "2.6.3",
+      "title": "Recap: Lead Management",
+      "hero": {
+        "eyebrow": "Kapitel 2.6.3 · Lektion 3",
+        "title": "Recap: Lead Management",
+        "desc": "Diese Wiederholung fasst das Lead Management zusammen: die sechs Phasen vom ersten Kontakt bis zum Abschluss, Qualifizierung mit BANT, MEDDIC und ICP, Segmentierung und die Einteilung in heiß, warm und kalt sowie Lead Nurturing entlang der Buyer’s Journey.",
+        "chips": [
+          "Modul 2 · HubSpot Prüfungsvorbereitung",
+          "Lektion + Wissenscheck"
+        ]
+      },
+      "sections": [
+        {
+          "eyebrow": "Abschnitt 01",
+          "title": "Der Lead-Management-Prozess",
+          "pill": "01 · Der Lead-Management-Prozess",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Lead Management ist ein strukturierter Prozess vom ersten Kontakt bis zum Kauf. Jeder Lead bekommt die passende Behandlung zum richtigen Zeitpunkt. Wer zuerst reagiert, gewinnt: 30 bis 50 Prozent der Verkäufe gehen an den schnellsten Anbieter."
+            },
+            {
+              "t": "flow",
+              "cols": 3,
+              "steps": [
+                {
+                  "num": "01",
+                  "title": "Lead-Generierung",
+                  "text": "Interessenten über Content, Webinare, Social Media oder Messen gewinnen."
+                },
+                {
+                  "num": "02",
+                  "title": "Qualifizierung",
+                  "text": "Prüfen, ob der Lead relevant und kaufbereit ist."
+                },
+                {
+                  "num": "03",
+                  "title": "Lead Nurturing",
+                  "text": "Noch nicht kaufbereite Leads mit Mehrwert pflegen."
+                },
+                {
+                  "num": "04",
+                  "title": "Lead Scoring",
+                  "text": "Leads nach Verhalten und Eigenschaften mit Punkten bewerten."
+                },
+                {
+                  "num": "05",
+                  "title": "Routing & Übergabe",
+                  "text": "Heiße Leads automatisch an den passenden Vertriebler geben."
+                },
+                {
+                  "num": "06",
+                  "title": "Abschluss",
+                  "text": "Der Lead wird Kunde und geht an Customer Success über."
+                }
+              ]
+            },
+            {
+              "t": "note",
+              "text": "Ein Lead ist kein Kunde, aber auch kein Fremder mehr – wie ein Messebesucher, der an deinem Stand stehen bleibt. Ein CRM bündelt Kontakte, macht Aktivitäten sichtbar und automatisiert, braucht aber eine klare Strategie."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 02",
+          "title": "Leads qualifizieren",
+          "pill": "02 · Leads qualifizieren",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Qualifizierung klärt, ob ein Interessent wirklich ein potenzieller Kunde ist. Die Kriterien kommen aus Frameworks wie BANT oder MEDDIC, aus dem Ideal Customer Profile und aus Verhalten und Interessen des Leads."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Kriterium",
+                "Leitfrage"
+              ],
+              "rows": [
+                [
+                  "BANT",
+                  "Budget, Autorität, Nutzen, Timing – passt die Opportunity?"
+                ],
+                [
+                  "MEDDIC",
+                  "Metrics, Economic Buyer, Decision Criteria, Decision Process, Identify Pain, Champion"
+                ],
+                [
+                  "ICP",
+                  "Passen Branche, Größe, Standort, Budget und Pain Points zum idealen Kunden?"
+                ],
+                [
+                  "Verhalten",
+                  "Preisseite, Downloads, Demo-Anfragen: Wie stark ist das Engagement?"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 03",
+          "title": "Segmentieren und priorisieren",
+          "pill": "03 · Segmentieren und priorisieren",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Qualifizierung bewertet einzelne Leads, Segmentierung plant Strategien pro Gruppe – nach Persona, Branche und Unternehmensgröße oder Kaufphase. Die Einteilung in heiß, warm und kalt zeigt jedem sofort, wo der Fokus liegt."
+            },
+            {
+              "t": "cards",
+              "cols": 3,
+              "items": [
+                {
+                  "title": "Heiß",
+                  "text": "Starker ICP-Fit und klares Kaufsignal: sofort an den Vertrieb."
+                },
+                {
+                  "title": "Warm",
+                  "text": "Passt grundsätzlich, aber etwas fehlt noch: weiter pflegen."
+                },
+                {
+                  "title": "Kalt",
+                  "text": "Kein Fit oder kein echtes Interesse: nicht aktiv verfolgen."
+                }
+              ]
+            },
+            {
+              "t": "note",
+              "text": "Ein K.-o.-Kriterium ist kein Punkt auf einer Skala. Fehlt etwa die technische Voraussetzung für dein Produkt, bleibt der Lead kalt – egal wie aktiv er ist."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Abschnitt 04",
+          "title": "Lead Nurturing entlang der Buyer’s Journey",
+          "pill": "04 · Lead Nurturing entlang der Buyer’s Journey",
+          "blocks": [
+            {
+              "t": "lead",
+              "text": "Rund die Hälfte aller neuen Leads ist beim Erstkontakt noch nicht kaufbereit. Nurturing führt MQLs mit passenden Inhalten zu SQLs: edukativ in Awareness, vergleichend in Consideration, vertrauensbildend in Decision."
+            },
+            {
+              "t": "table",
+              "head": [
+                "Phase",
+                "Inhalte",
+                "Ziel"
+              ],
+              "rows": [
+                [
+                  "Awareness",
+                  "Blogartikel, Infografiken, Whitepaper",
+                  "Problembewusstsein schaffen"
+                ],
+                [
+                  "Consideration",
+                  "Webinare, Checklisten, Fallbeispiele",
+                  "Lösungswege aufzeigen"
+                ],
+                [
+                  "Decision",
+                  "Case Studies, Demos, Testimonials",
+                  "Kaufhürden abbauen"
+                ]
+              ]
+            },
+            {
+              "t": "note",
+              "text": "Do’s: 80 Prozent hilfreicher Content, höchstens 20 Prozent Werbung, im B2B ein bis zwei Touchpoints pro Woche, Call-to-Actions dosieren. Don’ts: planlos senden und nicht messen, was wirkt."
+            }
+          ]
+        },
+        {
+          "eyebrow": "Zusammenfassung",
+          "title": "Recap & Aufgabe",
+          "pill": "Recap & Aufgabe",
+          "blocks": [
+            {
+              "t": "cards",
+              "cols": 2,
+              "items": [
+                {
+                  "title": "Der Lead-Management-Prozess",
+                  "text": "Lead Management ist ein strukturierter Prozess vom ersten Kontakt bis zum Kauf. Jeder Lead bekommt die passende Behandlung zum richtigen Zeitpunkt. Wer zuerst reagiert, gewinnt: 30 bis 50 Prozent der Verkäufe gehen an den schnellsten Anbieter."
+                },
+                {
+                  "title": "Leads qualifizieren",
+                  "text": "Qualifizierung klärt, ob ein Interessent wirklich ein potenzieller Kunde ist. Die Kriterien kommen aus Frameworks wie BANT oder MEDDIC, aus dem Ideal Customer Profile und aus Verhalten und Interessen des Leads."
+                },
+                {
+                  "title": "Segmentieren und priorisieren",
+                  "text": "Qualifizierung bewertet einzelne Leads, Segmentierung plant Strategien pro Gruppe – nach Persona, Branche und Unternehmensgröße oder Kaufphase. Die Einteilung in heiß, warm und kalt zeigt jedem sofort, wo der Fokus liegt."
+                },
+                {
+                  "title": "Lead Nurturing entlang der Buyer’s Journey",
+                  "text": "Rund die Hälfte aller neuen Leads ist beim Erstkontakt noch nicht kaufbereit. Nurturing führt MQLs mit passenden Inhalten zu SQLs: edukativ in Awareness, vergleichend in Consideration, vertrauensbildend in Decision."
+                }
+              ]
+            },
+            {
+              "t": "task",
+              "label": "Deine Lernübung",
+              "title": "Acht Leads einschätzen",
+              "goals": [
+                "Gleiche jeden Lead mit dem ICP ab: passt, teilweise oder passt nicht.",
+                "Prüfe mit BANT, welches Kriterium fehlt, und lies das stärkste Verhaltenssignal.",
+                "Ordne jeden Lead als heiß, warm oder kalt ein und begründe es in einem Satz."
+              ]
+            }
+          ]
+        }
+      ],
+      "quiz": {
+        "title": "Wissenscheck",
+        "intro": "Prüfe, wie du die Inhalte aus „Recap: Lead Management“ anwendest. Nutze bei Bedarf die Hinweise.",
+        "questions": [
+          {
+            "question": "Was unterscheidet Segmentierung von Qualifizierung?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Nichts, beide Begriffe meinen dasselbe."
+              },
+              {
+                "id": "B",
+                "text": "Qualifizierung bewertet einzelne Leads, Segmentierung plant die Ansprache pro Gruppe."
+              },
+              {
+                "id": "C",
+                "text": "Segmentierung findet erst nach dem Abschluss statt."
+              },
+              {
+                "id": "D",
+                "text": "Qualifizierung gilt nur für Bestandskunden."
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Eine Frage betrifft den einzelnen Lead, die andere Gruppen mit gemeinsamen Merkmalen."
+          },
+          {
+            "question": "Ein Lead passt perfekt zum ICP und hat gerade eine Demo angefragt. Wie stufst du ihn ein?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Kalt"
+              },
+              {
+                "id": "B",
+                "text": "Warm"
+              },
+              {
+                "id": "C",
+                "text": "Heiß"
+              },
+              {
+                "id": "D",
+                "text": "Gar nicht, erst nach dem Kauf"
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "Starker Fit plus klares Kaufsignal heißt: sofort an den Vertrieb."
+          },
+          {
+            "question": "Welcher Inhalt passt am besten zur Decision-Phase?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Ein allgemeiner Blogartikel"
+              },
+              {
+                "id": "B",
+                "text": "Eine Infografik zum Problem"
+              },
+              {
+                "id": "C",
+                "text": "Eine Case Study oder Demo"
+              },
+              {
+                "id": "D",
+                "text": "Ein Branchennewsletter"
+              }
+            ],
+            "correctAnswer": "C",
+            "hint": "In dieser Phase sucht der Lead letzte Argumente und Beweise."
+          },
+          {
+            "question": "Wofür steht das C in MEDDIC?",
+            "options": [
+              {
+                "id": "A",
+                "text": "Customer"
+              },
+              {
+                "id": "B",
+                "text": "Champion"
+              },
+              {
+                "id": "C",
+                "text": "Contract"
+              },
+              {
+                "id": "D",
+                "text": "Close"
+              }
+            ],
+            "correctAnswer": "B",
+            "hint": "Gemeint ist die Person, die intern für dein Produkt eintritt."
+          }
+        ]
+      }
+    },
+    {
       "id": "2.7.6",
       "title": "Kommunikation & Konfliktmanagement im KAM",
       "hero": {
