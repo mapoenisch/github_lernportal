@@ -221,6 +221,90 @@ def apply_search_template(doc):
         raise ValueError('Such-Anker im Template fehlt')
     return doc.replace(glyph, glyph + SEARCH_TEMPLATE.replace('onClick=', on_click + '='))
 
+# Glossar: eigener Punkt in der Seitenleiste und hervorgehobener Abschnitt auf der Kompaktseite.
+GLOSSARY_NAV = """    // BEGIN GLOSSAR-NAV
+    const glossaryEntry = this.COMPACT.find(g => g.glossary);
+    const glossaryOpen = !!openGroups['nav-glossar'];
+    const glossaryActive = active === 'kompakt' && !!glossaryEntry && !!(this.state.compactOpen || {})[glossaryEntry.id];
+    const glossaryNav = {
+      open: glossaryOpen,
+      caret: glossaryOpen ? '▾' : '▸',
+      rowStyle: { display:'flex', alignItems:'center', gap:'9px', width:'100%', textAlign:'left', border:0, cursor:'pointer', padding:'8px 10px', borderRadius:'8px', background: glossaryActive ? 'rgba(255,255,255,0.08)' : 'transparent', boxShadow: glossaryActive ? ('inset 2px 0 0 ' + accent) : 'none' },
+      onClick: () => {
+        if (!glossaryEntry) return;
+        if (glossaryOpen && glossaryActive) { this.toggleNav('nav-glossar'); return; }
+        this.setState(s => ({ openGroups: { ...s.openGroups, 'nav-glossar': true } }));
+        this.selectCompactSection(glossaryEntry.id, 0);
+      },
+      subs: (glossaryEntry ? glossaryEntry.subs : []).map((title, si) => ({ title, onClick: () => this.selectCompactSection(glossaryEntry.id, si) })),
+    };
+    // END GLOSSAR-NAV
+"""
+
+GLOSSARY_STYLE = [
+    ("      const sid = 'sec' + i;\n      const open = isAcc",
+     "      const sid = 'sec' + i;\n      const isGlossary = isAcc && !!s.glossary;\n      const open = isAcc"),
+    ("anchorStyle:{ scrollMarginTop:'88px', marginTop: i === 0 ? '56px' : '64px' },",
+     "anchorStyle:{ scrollMarginTop:'88px', marginTop: i === 0 ? '56px' : (isGlossary ? '96px' : '64px') },"),
+    ("hasEyebrow:!!s.eyebrow, eyebrow:s.eyebrow || '',",
+     "hasEyebrow:!!s.eyebrow || isGlossary, eyebrow: isGlossary ? 'Nachschlagewerk · Begriffe von A bis Z' : (s.eyebrow || ''),"),
+    ("isAcc ? { font:\"800 22px/1.25 'Archivo',sans-serif\", color:'#14171E',",
+     "isAcc ? { font:\"800 22px/1.25 'Archivo',sans-serif\", color: isGlossary ? '#ffffff' : '#14171E',"),
+    ("background:'#fff', border:'1px solid #E4E1D9', borderRadius:'16px', padding:'20px 24px' }",
+     "background: isGlossary ? '#123E45' : '#fff', border: isGlossary ? '1px solid #123E45' : '1px solid #E4E1D9', borderRadius:'16px', padding: isGlossary ? '24px 24px' : '20px 24px' }"),
+    ("borderRadius:'9px', background:'#F5F4F0', color:'#565C69'",
+     "borderRadius:'9px', background: isGlossary ? 'rgba(255,255,255,.14)' : '#F5F4F0', color: isGlossary ? '#ffffff' : '#565C69'"),
+]
+
+def apply_glossary(code):
+    code = re.sub(r'    // BEGIN GLOSSAR-NAV\n.*?    // END GLOSSAR-NAV\n', '', code, flags=re.S)
+    anchor = '    const hubLessons = '
+    if code.count(anchor) != 1:
+        raise ValueError('Glossar-Anker hubLessons fehlt')
+    code = code.replace(anchor, GLOSSARY_NAV + anchor)
+    code = code.replace('groups: this.COMPACT.map(g => {', 'groups: this.COMPACT.filter(g => !g.glossary).map(g => {')
+    if 'glossaryNav,\n' not in code:
+        code = code.replace('      compactNav,\n', '      compactNav,\n      glossaryNav,\n')
+    for old, new in GLOSSARY_STYLE:
+        if new not in code:
+            if code.count(old) != 1:
+                raise ValueError('Glossar-Stil-Anker fehlt: ' + old[:40])
+            code = code.replace(old, new)
+    return code
+
+GLOSSARY_TEMPLATE = """      <!-- BEGIN GLOSSAR-NAV -->
+      <div style="margin:20px 10px 12px;height:1px;background:rgba(255,255,255,.09)"></div>
+      <div style="padding:2px 10px 8px;display:flex;align-items:baseline;gap:8px">
+        <span style="font:800 11px/1 'Archivo',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#E4694B">Glossar</span>
+        <span style="font:600 11px/1 'Public Sans',sans-serif;color:#666B79">· Begriffe nachschlagen</span>
+      </div>
+      <button onClick="{{ glossaryNav.onClick }}" style="{{ glossaryNav.rowStyle }}" style-hover="background:rgba(255,255,255,0.05)">
+        <span style="flex:0 0 auto;width:26px;height:26px;border-radius:8px;background:rgba(127,199,185,.16);display:flex;align-items:center;justify-content:center;font:800 10px 'Archivo',sans-serif;color:#7FC7B9;letter-spacing:-.02em">A–Z</span>
+        <span style="flex:1;font:700 13px/1.35 'Public Sans',sans-serif;color:#C7CAD2">Alle Begriffe von A bis Z</span>
+        <span style="color:#5A5F6B;font-size:10px;flex:0 0 auto">{{ glossaryNav.caret }}</span>
+      </button>
+      <sc-if value="{{ glossaryNav.open }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:2px 0 4px 0;margin:2px 0 4px 22px;border-left:1px solid rgba(255,255,255,.08)">
+          <sc-for list="{{ glossaryNav.subs }}" as="gs" hint-placeholder-count="3">
+            <button onClick="{{ gs.onClick }}" style="display:flex;align-items:center;width:100%;text-align:left;border:0;background:transparent;cursor:pointer;padding:7px 10px;border-radius:8px;margin-top:1px;font:500 12.5px/1.35 'Public Sans',sans-serif;color:#AEB3BE" style-hover="background:rgba(255,255,255,0.05);color:#fff">
+              <span style="flex:1;min-width:0">{{ gs.title }}</span>
+            </button>
+          </sc-for>
+        </div>
+      </sc-if>
+      <!-- END GLOSSAR-NAV -->
+"""
+
+def apply_glossary_template(doc):
+    doc = re.sub(r'      <!-- BEGIN GLOSSAR-NAV -->\n.*?      <!-- END GLOSSAR-NAV -->\n', '', doc, flags=re.S)
+    anchor = '      <div style="height:12px"></div>\n    </nav>'
+    if doc.count(anchor) != 1:
+        raise ValueError('Glossar-Anker im Template fehlt')
+    bundled = 'sc-camel-on-change="{{ onSearch }}"' in doc
+    block = GLOSSARY_TEMPLATE.replace('onClick=', 'sc-camel-on-click=') if bundled else GLOSSARY_TEMPLATE
+    return doc.replace(anchor, block + anchor)
+
+
 def build(source_root):
     data = json.loads((ROOT / 'content/continuation.json').read_text())
     job = json.loads((ROOT / 'content/job-preparation.json').read_text())
@@ -352,8 +436,8 @@ def build(source_root):
       list.items.push(...entries.map(([entry, text]) => ({ title: entry, text })));
       list.items.sort((a, b) => a.title.localeCompare(b.title, 'de'));
     }
-    compact.sections.push({ ...glossary, title: 'Glossar', eyebrow: '', pill: 'Glossar' });
-    this.COMPACT.push({ id: 'sec' + compactCount, code: '', title: 'Glossar', subs: glossaryHeadings.map(b => b.text) });
+    compact.sections.push({ ...glossary, title: 'Glossar', eyebrow: '', pill: 'Glossar', glossary: true });
+    this.COMPACT.push({ id: 'sec' + compactCount, code: '', title: 'Glossar', glossary: true, subs: glossaryHeadings.map(b => b.text) });
     const overview = compact.sections[0].blocks.find(b => b.t === 'checklist');
     overview.items.push(
       { title: 'Key Accounts, Customer Support & Pitch', text: 'Bestandskunden entwickeln, Support organisieren und eine Vertriebsstrategie präsentieren.' },
@@ -375,12 +459,14 @@ def build(source_root):
                 "flex: i === 0 ? '0 0 34%' : '1 1 0', minWidth:0, overflowWrap:'anywhere', paddingRight:",
             )
             code = apply_search(code)
+            code = apply_glossary(code)
             return m[1]+code+m[3]
         # Nur die feste Beschriftung im Template ersetzen, nicht den Default im JS.
         doc=doc.replace('>Zusatzmaterial · Infografik</', '>{{ b.resourceLabel }}</')
         doc=doc.replace('>· {{ mod.weeks }}</', '>{{ mod.weeksLabel }}</')
         doc=doc.replace('weeks:mod.weeks, groups', "weeksLabel: mod.weeks ? '· ' + mod.weeks : '', groups")
         doc=apply_search_template(doc)
+        doc=apply_glossary_template(doc)
         return SCRIPT.sub(update,doc,count=1)
     for f in ['Lernportal.dc.html','Lernportal-standalone.dc.html']:
         p=ROOT/f;p.write_text(transform(p.read_text()))
