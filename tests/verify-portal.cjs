@@ -47,6 +47,9 @@ function check(doc, quiz, label) {
     for(const section of raw.sections)for(const block of section.blocks)assert.ok(portal.styleBlock(block,'#E4694B'),lesson.id+': unknown block '+block.t);
   }
   const group=portal.CURR.find(m=>m.id==='m2').groups;
+  assert.deepEqual(Array.from(group, g => g.id), ['2.1','2.2','2.3','2.4','2.5','2.6','2.7','2.8','2.9'], label + ': Gruppenreihenfolge Modul 2');
+  assert.deepEqual(Array.from(group.find(g => g.id === '2.5').lessons, l => l.id), ['2.5.1','2.5.2','2.5.3','2.5.4']);
+  assert.deepEqual(Array.from(group.find(g => g.id === '2.6').lessons, l => l.id), ['2.6.1','2.6.2','2.6.3','2.6.4']);
   assert.equal(group.find(g=>g.id==='2.8').title,'Kunden-Pitch');
   assert.equal(group.find(g=>g.id==='2.9').title,'Team-Pitch');
   const moduleFour = portal.CURR.find(m => m.id === 'm4');
@@ -133,7 +136,29 @@ function check(doc, quiz, label) {
     assert.ok(fs.existsSync(path.join(root,b.href)),b.href);
     if(/\.(pptx|docx|xlsx|md)$/.test(b.href))assert.equal(portal.styleBlock(b,'#E4694B').onOpen,undefined,'Office must not open in iframe');
   }
-  console.log(label+': 20 bestehende und 15 neue Lektionen, 140 Quizfragen, 18 Kompaktabschnitte, Projektlinks und Fortschritt geprüft.');
+  // Volltextsuche über Lektionen, HubSpot, Kompakt und Glossar.
+  assert.match(doc, /placeholder="Alle Inhalte durchsuchen …"/);
+  assert.match(doc, /(onKeyDown|sc-camel-on-key-down)="\{\{ onSearchKey \}\}"/);
+  assert.match(doc, /(onClick|sc-camel-on-click)="\{\{ r\.onClick \}\}"/);
+  if (doc.includes('sc-camel-on-change="{{ onSearch }}"')) assert.ok(!doc.includes(' onClick="{{ onSearchClear }}"'), label + ': Bundle braucht sc-camel-Attribute');
+  const hits = q => Array.from(portal.searchHits(q), h => h.entry);
+  assert.ok(hits('star methode').some(e => e.lessonId === '4.2.5'), 'Suche: Modul 4');
+  assert.ok(hits('Buying Center').some(e => e.label === 'Glossar'), 'Suche: Glossar');
+  assert.ok(hits('ubergabe').some(e => e.lessonId === '2.4.2'), 'Suche: Umlaute');
+  assert.ok(hits('daten importieren').some(e => e.lessonId === 'hub-2.3.2'), 'Suche: HubSpot');
+  assert.ok(hits('gehalt').some(e => e.label.startsWith('Kompakt')), 'Suche: Kompakt');
+  assert.ok(hits('saas').some(e => e.lessonId === '1.1.2'), 'Suche: Modul 1');
+  assert.ok(hits('spin selling').some(e => e.lessonId === '2.5.3'), 'Suche: Bedarfsanalyse Deep Dive');
+  assert.equal(hits('xyzqq').length, 0);
+  portal.setState({ query: 'star methode' });
+  const searchView = portal.renderVals();
+  assert.ok(searchView.searchHasQuery && searchView.searchResults.length > 0);
+  const visible = searchView.modules.flatMap(m => m.groups.flatMap(g => g.lessons.map(l => l.id)));
+  assert.ok(visible.includes('4.2.5') && visible.length < all.length, 'Seitenleiste filtert nach Treffern');
+  searchView.searchResults[0].onClick();
+  assert.equal(portal.state.query, '');
+  assert.equal(portal.state.activeLessonId, '4.2.5');
+  console.log(label+': '+data.lessons.length+' Fortsetzungs- und 15 Modul-4-Lektionen, '+(data.lessons.length+15)*4+' Quizfragen, 18 Kompaktabschnitte, Projektlinks, Suche und Fortschritt geprüft.');
   return portal;
 }
 check(read('Lernportal.dc.html'),read('quizData.js'),'DC-Quelle');

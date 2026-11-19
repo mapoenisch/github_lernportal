@@ -62,6 +62,165 @@ def module_four_materials(source_root, lessons, provenance):
             })
     return resources
 
+# Volltextsuche: durchsucht Lektionen, HubSpot, Unternehmensprojekt, Kompakt und Glossar.
+SEARCH_START = '  // BEGIN SUCHE\n'
+SEARCH_END = '  // END SUCHE\n'
+SEARCH_METHODS = SEARCH_START + r'''  searchFold(text) {
+    let out = '';
+    const map = [];
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i];
+      const f = c < '\u0080' ? c.toLowerCase() : c.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/ß/g, 'ss');
+      for (let k = 0; k < f.length; k++) { out += f[k]; map.push(i); }
+    }
+    return { out, map };
+  }
+  searchText(value, out) {
+    const skip = { t:1, tone:1, icon:1, href:1, src:1, cols:1, maxW:1, id:1, to:1, mono:1, download:1, num:1 };
+    if (typeof value === 'string') {
+      if (!/^(assets\/|data:|https?:|#)/.test(value)) out.push(value);
+    } else if (Array.isArray(value)) {
+      value.forEach(v => this.searchText(v, out));
+    } else if (value && typeof value === 'object') {
+      for (const k of Object.keys(value)) if (!skip[k]) this.searchText(value[k], out);
+    }
+    return out;
+  }
+  searchIndex() {
+    if (this._searchIndex) return this._searchIndex;
+    const entries = [];
+    const add = (entry, parts) => {
+      const text = parts.filter(Boolean).join(' · ').replace(/\s+/g, ' ');
+      entries.push(Object.assign(entry, { text, fold: this.searchFold(text), titleFold: this.searchFold(entry.title + ' ' + entry.code).out }));
+    };
+    const lessonText = id => { const c = this.CONTENT[id] || {}; return this.searchText([c.hero, c.sections], []); };
+    for (const mod of this.CURR) for (const grp of mod.groups) for (const l of grp.lessons) {
+      add({ label: mod.label + ' · ' + l.id, code: l.id, title: l.title, lessonId: l.id, go: () => this.select(l.id) }, lessonText(l.id));
+    }
+    for (const h of this.HUB) {
+      add({ label: 'HubSpot · ' + h.code, code: h.code, title: h.title, lessonId: h.id, go: () => this.select(h.id) }, lessonText(h.id));
+    }
+    if (this.CONTENT.projekt) add({ label: 'Unternehmensprojekt', code: 'LeadPilot', title: 'Meine Geschäftsidee – Entwicklung', go: () => this.select('projekt') }, lessonText('projekt'));
+    const kompakt = this.CONTENT.kompakt;
+    (kompakt ? kompakt.sections : []).forEach((sec, i) => {
+      const sid = 'sec' + i;
+      if (sec.title !== 'Glossar') {
+        const code = (this.COMPACT[i] || {}).code || '';
+        add({ label: 'Kompakt' + (code ? ' · ' + code : ''), code, title: sec.title, go: () => this.selectCompactSection(sid, 0) }, this.searchText(sec.blocks, []));
+        return;
+      }
+      let heading = -1;
+      for (const b of sec.blocks) {
+        if (b.t === 'heading') { heading++; continue; }
+        const hi = Math.max(heading, 0);
+        for (const item of (b.items || [])) {
+          add({ label: 'Glossar', code: '', title: item.title, go: () => this.selectCompactSection(sid, hi) }, [item.title, item.text]);
+        }
+      }
+    });
+    this._searchIndex = entries;
+    return entries;
+  }
+  searchHits(query) {
+    const terms = this.searchFold(query).out.split(/\s+/).filter(Boolean);
+    if (!terms.length) return [];
+    const hits = [];
+    this.searchIndex().forEach((e, order) => {
+      if (!terms.every(t => e.titleFold.includes(t) || e.fold.out.includes(t))) return;
+      hits.push({ e, order, score: terms.filter(t => e.titleFold.includes(t)).length });
+    });
+    hits.sort((a, b) => b.score - a.score || a.order - b.order);
+    return hits.map(({ e }) => {
+      let pre = e.text.slice(0, 140), hit = '', post = e.text.length > 140 ? '…' : '';
+      for (const t of terms) {
+        const pos = e.fold.out.indexOf(t);
+        if (pos < 0) continue;
+        const from = e.fold.map[pos], to = e.fold.map[pos + t.length - 1] + 1;
+        const start = Math.max(0, from - 60), end = Math.min(e.text.length, to + 90);
+        pre = (start > 0 ? '…' : '') + e.text.slice(start, from);
+        hit = e.text.slice(from, to);
+        post = e.text.slice(to, end) + (end < e.text.length ? '…' : '');
+        break;
+      }
+      return { entry: e, pre, hit, post };
+    });
+  }
+''' + SEARCH_END
+
+SEARCH_VALS = r'''      searchHasQuery: q.length > 0,
+      searchSummary: q.length < 2 ? 'Mindestens zwei Zeichen eingeben' : (searchHits.length ? (searchHits.length === 1 ? '1 Treffer' : searchHits.length + ' Treffer') + (searchHits.length > 40 ? ' · die ersten 40' : '') : 'Keine Treffer für „' + this.state.query.trim() + '“'),
+      searchResults: searchHits.slice(0, 40).map((h, i) => ({ key: i, label: h.entry.label, title: h.entry.title, pre: h.pre, hit: h.hit, post: h.post, onClick: () => { this.setState({ query: '' }); h.entry.go(); } })),
+      onSearchClear: () => this.setState({ query: '' }),
+      onSearchKey: (e) => {
+        if (e.key === 'Escape') this.setState({ query: '' });
+        if (e.key === 'Enter' && searchHits.length) { this.setState({ query: '' }); searchHits[0].entry.go(); }
+      },
+'''
+
+def apply_search(code):
+    code = re.sub(r'  // BEGIN SUCHE\n.*?  // END SUCHE\n', '', code, flags=re.S)
+    anchor = '  select(id) {\n'
+    if code.count(anchor) != 1:
+        raise ValueError('Such-Anker select(id) fehlt oder ist mehrdeutig')
+    code = code.replace(anchor, SEARCH_METHODS + anchor)
+    code = re.sub(r'    const searchHits = q\.length >= 2 .*?\n    const searchIds = .*?\n', '', code)
+    code = code.replace(
+        "    const q = (this.state.query || '').trim().toLowerCase();\n",
+        "    const q = (this.state.query || '').trim().toLowerCase();\n"
+        "    const searchHits = q.length >= 2 ? this.searchHits(q) : [];\n"
+        "    const searchIds = new Set(searchHits.map(h => h.entry.lessonId).filter(Boolean));\n",
+    )
+    code = code.replace(
+        'grp.lessons.filter(l => !q || l.title.toLowerCase().includes(q) || l.id.toLowerCase().includes(q))',
+        'grp.lessons.filter(l => q.length < 2 || searchIds.has(l.id))',
+    )
+    code = code.replace(
+        'const hubLessons = this.HUB.map(h => {',
+        'const hubLessons = this.HUB.filter(h => q.length < 2 || searchIds.has(h.id)).map(h => {',
+    )
+    old_vals = '      onSearch: (e) => this.setState({ query: e.target.value }),\n'
+    if code.count(old_vals) != 1:
+        raise ValueError('Such-Anker onSearch fehlt')
+    code = re.sub(r'(      onSearch: \(e\) => this\.setState\(\{ query: e\.target\.value \}\),\n)(?:      searchHasQuery:.*?\n      \},\n)?',
+                  lambda m: m[1] + SEARCH_VALS, code, count=1, flags=re.S)
+    return code
+
+SEARCH_TEMPLATE = '''        <!-- BEGIN SUCHE -->
+        <sc-if value="{{ searchHasQuery }}" hint-placeholder-val="{{ false }}">
+          <div>
+            <button onClick="{{ onSearchClear }}" title="Suche leeren" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);width:26px;height:26px;border:0;border-radius:7px;background:transparent;color:#9AA0AC;cursor:pointer;font:600 18px/1 'Public Sans',sans-serif" style-hover="background:#F0EEE8;color:#1A1D24">×</button>
+            <div style="position:absolute;top:48px;right:0;width:460px;max-width:calc(100vw - 32px);max-height:70vh;overflow-y:auto;background:#fff;border:1px solid #E4E1D9;border-radius:14px;box-shadow:0 18px 40px rgba(20,23,30,.14);padding:8px;z-index:40">
+              <div style="padding:8px 10px 6px;font:800 11px/1.3 'Archivo',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#9AA0AC">{{ searchSummary }}</div>
+              <sc-for list="{{ searchResults }}" as="r" hint-placeholder-count="3">
+                <button onClick="{{ r.onClick }}" style="display:block;width:100%;text-align:left;border:0;background:transparent;cursor:pointer;padding:10px;border-radius:10px" style-hover="background:#F5F4F0">
+                  <span style="display:block;font:800 10.5px/1 'Archivo',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#E4694B;margin-bottom:6px">{{ r.label }}</span>
+                  <span style="display:block;font:700 14px/1.35 'Archivo',sans-serif;color:#14171E">{{ r.title }}</span>
+                  <span style="display:block;margin-top:4px;font:400 12.5px/1.5 'Public Sans',sans-serif;color:#565C69">{{ r.pre }}<span style="background:#FBE3DA;color:#14171E;border-radius:3px;padding:0 2px">{{ r.hit }}</span>{{ r.post }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+        <!-- END SUCHE -->
+'''
+
+def apply_search_template(doc):
+    doc = re.sub(r'        <!-- BEGIN SUCHE -->\n.*?        <!-- END SUCHE -->\n', '', doc, flags=re.S)
+    # Im HTML-Bundle stehen camelCase-Attribute als sc-camel-on-… (z. B. onClick → sc-camel-on-click).
+    bundled = 'sc-camel-on-change="{{ onSearch }}"' in doc
+    on_change, on_key, on_click = (('sc-camel-on-change', 'sc-camel-on-key-down', 'sc-camel-on-click') if bundled
+                                   else ('onChange', 'onKeyDown', 'onClick'))
+    doc = doc.replace(
+        f'<input value="{{{{ query }}}}" {on_change}="{{{{ onSearch }}}}" placeholder="Lektionen durchsuchen …" style="width:100%;height:40px;padding:0 14px 0 38px;',
+        f'<input value="{{{{ query }}}}" {on_change}="{{{{ onSearch }}}}" {on_key}="{{{{ onSearchKey }}}}" placeholder="Alle Inhalte durchsuchen …" style="width:100%;height:40px;padding:0 36px 0 38px;',
+    )
+    if 'placeholder="Alle Inhalte durchsuchen …"' not in doc:
+        raise ValueError('Suchfeld im Template nicht gefunden')
+    glyph = '''pointer-events:none">⌕</span>\n'''
+    if doc.count(glyph) != 1:
+        raise ValueError('Such-Anker im Template fehlt')
+    return doc.replace(glyph, glyph + SEARCH_TEMPLATE.replace('onClick=', on_click + '='))
+
 def build(source_root):
     data = json.loads((ROOT / 'content/continuation.json').read_text())
     job = json.loads((ROOT / 'content/job-preparation.json').read_text())
@@ -70,11 +229,13 @@ def build(source_root):
     ids = {l['id'] for l in lessons}
     resources = {}
     provenance = []
-    for folder in sorted(source_root.iterdir()):
+    # Die Kursordner liegen je nach Stand direkt im Quellordner oder unter „2. Modul“.
+    candidates = [*source_root.iterdir(), *((source_root / '2. Modul').iterdir() if (source_root / '2. Modul').is_dir() else [])]
+    for folder in sorted(candidates):
         if not folder.is_dir():
             continue
         name = unicodedata.normalize('NFC', folder.name)
-        match = re.match(r'(2\.[789]\.\d+)\b', name)
+        match = re.match(r'(2\.[5-9]\.\d+)\b', name)
         code = '2.8.6' if name == '2.8 Kunden-Pitch' else '2.9.5' if name == '2.9 Team-Pitch' else match[1] if match else None
         if code not in ids:
             continue
@@ -146,6 +307,9 @@ def build(source_root):
     payload = {
         'lessons': content, 'groups': groups,
         'kam': [{'id': l['id'], 'title': l['title']} for l in lessons if l['id'].startswith('2.7.')],
+        'bedarf': {'id': '2.5', 'code': '2.5', 'title': 'Bedarfsanalyse Deep Dive',
+                   'lessons': [{'id': l['id'], 'title': l['title']} for l in lessons if l['id'].startswith('2.5.')]},
+        'recap': [{'id': l['id'], 'title': l['title']} for l in lessons if l['id'].startswith('2.6.')],
         'project': project_sections,
         'job': {'id': 'm4', 'label': 'Modul 4', 'title': 'Arbeitsmarktvorbereitung', 'weeks': '', 'groups': job_groups},
         'compact': job['compact'],
@@ -155,6 +319,14 @@ def build(source_root):
     js += '''    const moduleTwo = this.CURR.find(m => m.id === 'm2');
     moduleTwo.groups.find(g => g.id === '2.7').lessons.push(...continuation.kam);
     moduleTwo.groups.push(...continuation.groups);
+    // 2.5 vor die HubSpot-Prüfungsvorbereitung, 2.6.3 zwischen 2.6.2 und 2.6.4 einsortieren.
+    const recapIndex = moduleTwo.groups.findIndex(g => g.id === '2.6');
+    moduleTwo.groups.splice(recapIndex, 0, continuation.bedarf);
+    const recapLessons = moduleTwo.groups[recapIndex + 1].lessons;
+    for (const l of continuation.recap) {
+      const at = recapLessons.findIndex(x => x.id > l.id);
+      recapLessons.splice(at < 0 ? recapLessons.length : at, 0, l);
+    }
     Object.assign(this.CONTENT, continuation.lessons);
     this.CONTENT.projekt.sections.push(...continuation.project);
     this.CONTENT.projekt.hero.desc += ' Die abschließenden Projektetappen zeigen den Kunden-Pitch und die gemeinsame Team-Vertriebsstrategie mit vollständigen Decks und Dossier.';
@@ -192,6 +364,7 @@ def build(source_root):
     def transform(doc):
         def update(m):
             code = re.sub(r'    // BEGIN KURS-FORTSETZUNG\n.*?    // END KURS-FORTSETZUNG\n', '', m[2], flags=re.S)
+            code = re.sub(r'  // BEGIN SUCHE\n.*?  // END SUCHE\n', '', code, flags=re.S)
             anchor = '  }\n\n  select(id) {'
             if code.count(anchor)!=1:raise ValueError('Konstruktor-Anker fehlt oder ist mehrdeutig')
             code = code.replace(anchor,js+anchor)
@@ -201,11 +374,13 @@ def build(source_root):
                 "flex: i === 0 ? '0 0 34%' : '1 1 0', paddingRight:",
                 "flex: i === 0 ? '0 0 34%' : '1 1 0', minWidth:0, overflowWrap:'anywhere', paddingRight:",
             )
+            code = apply_search(code)
             return m[1]+code+m[3]
         # Nur die feste Beschriftung im Template ersetzen, nicht den Default im JS.
         doc=doc.replace('>Zusatzmaterial · Infografik</', '>{{ b.resourceLabel }}</')
         doc=doc.replace('>· {{ mod.weeks }}</', '>{{ mod.weeksLabel }}</')
         doc=doc.replace('weeks:mod.weeks, groups', "weeksLabel: mod.weeks ? '· ' + mod.weeks : '', groups")
+        doc=apply_search_template(doc)
         return SCRIPT.sub(update,doc,count=1)
     for f in ['Lernportal.dc.html','Lernportal-standalone.dc.html']:
         p=ROOT/f;p.write_text(transform(p.read_text()))
