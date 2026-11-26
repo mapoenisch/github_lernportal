@@ -2,7 +2,7 @@
 
 <!-- impeccable:product-schema 1 -->
 
-Scope: Dieses Repository enthält zwei Oberflächen. Das **DBA Lernportal** (Root: `index.html`, `Lernportal.dc.html`) und den **Zertifizierungstrainer** (`zertifizierungstrainer/`), eine eigenständige App mit eigenem Design, die über den untersten Eintrag der Portal-Seitenleiste erreichbar ist. Dieser Produktrecord beschreibt vor allem den Zertifizierungstrainer; die visuelle Welt des Portals ist in `readme.md` dokumentiert und gilt nicht für den Trainer.
+Scope: Dieses Repository enthält zwei Oberflächen. Das **DBA Lernportal** (Root: `index.html`, `Lernportal.dc.html`) und den **Zertifizierungstrainer** (`zertifizierungstrainer/`), eine eigenständige App mit eigenem Design, die über den untersten Eintrag der Portal-Seitenleiste erreichbar ist. Dieser Produktrecord beschreibt vor allem den Zertifizierungstrainer; die visuelle Welt des Portals ist in `docs/designsystem-lernportal.md` dokumentiert und gilt nicht für den Trainer.
 
 ## Platform
 

@@ -140,4 +140,19 @@ assert.equal(reloaded.state().runs[0].session.i, 1);
 reloaded.click('leave');
 assert.equal(reloaded.state().runs[0].log.length, 1);
 
+// Frühere Durchläufe bleiben bis zur bestätigten Auswahl vollständig erhalten.
+const oldRun = { ...storedRun, endedAt: day(0) };
+const oldStorage = { [key]: state([oldRun]) };
+const oldTrainer = trainer(oldStorage);
+assert.match(oldTrainer.box.innerHTML, /Lernstand exportieren/);
+assert.match(oldTrainer.box.innerHTML, /Aus Browser entfernen/);
+oldTrainer.ctx.confirm = () => false;
+oldTrainer.click('delete-run', { id: oldRun.id });
+assert.equal(oldTrainer.state().runs.length, 1);
+oldTrainer.ctx.confirm = () => true;
+oldTrainer.click('delete-run', { id: oldRun.id });
+assert.equal(JSON.parse(oldStorage[key]).runs.length, 0);
+assert.ok(D.terms.find(t => t.nr === 17).crit.length > 1);
+for (const nr of [57, 78]) assert.ok(D.terms.find(t => t.nr === nr).conf.length > 0);
+
 console.log('Zertifizierungstrainer: 139 Begriffe, 598 Fragen, Lernregeln, Import, Wiederherstellung, Tab-Wechsel und Zeitreise geprüft.');

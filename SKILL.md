@@ -4,7 +4,7 @@ description: Use this skill to generate well-branded interfaces and assets for t
 user-invocable: true
 ---
 
-Read `readme.md` in this skill first — it holds the full design guide (content fundamentals, visual foundations, iconography, manifest). Then explore:
+Read `docs/designsystem-lernportal.md` first — it holds the full design guide (content fundamentals, visual foundations, iconography, manifest). Then explore:
 
 - `styles.css` + `tokens/` — link `styles.css` to inherit all CSS custom properties (colors, type scale, spacing, radii, shadows). Never hard-code hexes that already exist as tokens.
 - `guidelines/` — foundation specimen cards (Colors, Type, Spacing, Brand).

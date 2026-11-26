@@ -552,10 +552,14 @@
     <thead><tr><th scope="col">Linie</th><th scope="col">Gestartet</th><th scope="col" class="num">Geprüft</th><th scope="col" class="num">Bestätigt</th><th scope="col">Aktion</th></tr></thead>
     <tbody>${S.runs.slice().reverse().map(past => {
       const pStats = stats(past, analyze(past));
-      return `<tr><td data-label="Linie">${MODES[past.mode].name}${past.endedAt ? ' (beendet ' + fmtDate(past.endedAt) + ')' : ''}</td><td data-label="Gestartet">${fmtDate(past.start)}</td><td class="num" data-label="Geprüft">${pStats.geprueft}/139</td><td class="num" data-label="Bestätigt">${pStats.bestaetigt}</td><td data-label="Aktion"><button class="link" data-action="resume" data-id="${esc(past.id)}">Wieder aufnehmen</button></td></tr>`;
+      return `<tr><td data-label="Linie">${MODES[past.mode].name}${past.endedAt ? ' (beendet ' + fmtDate(past.endedAt) + ')' : ''}</td><td data-label="Gestartet">${fmtDate(past.start)}</td><td class="num" data-label="Geprüft">${pStats.geprueft}/139</td><td class="num" data-label="Bestätigt">${pStats.bestaetigt}</td><td data-label="Aktion"><button class="link" data-action="resume" data-id="${esc(past.id)}">Wieder aufnehmen</button>${past.endedAt ? ` <button class="link" data-action="delete-run" data-id="${esc(past.id)}">Aus Browser entfernen</button>` : ''}</td></tr>`;
     }).join('')}</tbody>
   </table>` : ''}
-  <div class="actions">${importControl()}</div>
+  <div class="actions">
+    ${S.runs.length ? '<button class="btn btn--line" data-action="export">Lernstand exportieren</button>' : ''}
+    ${importControl()}
+  </div>
+  ${S.runs.some(past => past.endedAt) ? '<p class="fine">Exportiere deinen Lernstand, bevor du einen beendeten Durchlauf aus dem Browser entfernst.</p>' : ''}
   <p class="fine">Quelle: ${esc(D.meta.source)}, Glossar‑Nr. 1–139. Dein Lernstand bleibt nur in diesem Browser gespeichert.</p>
 </main>`;
   }
@@ -1067,7 +1071,7 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
     const prev = r.done[L.id];
     if (!L.extraBlock || !prev) {
       const unsure = gaps.length;
-      r.done[L.id] = Object.assign({}, prev || {}, { date: todayStr(), n: L.results.length, gaps: (prev && prev.gaps || []).concat(gaps), summary: `${L.results.filter(Boolean).length} Fragen · ${unsure} unsicher` });
+      r.done[L.id] = Object.assign({}, prev || {}, { date: todayStr(), n: L.results.length, gaps: [...new Set([...(prev?.gaps || []), ...gaps])], summary: `${L.results.filter(Boolean).length} Fragen · ${unsure} unsicher` });
     }
   }
 
@@ -1098,10 +1102,6 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
       if (target) { delete target.endedAt; S.active = target.id; view.tab = 'fahrplan'; save(); render(true); }
       return;
     }
-    if (!r) return;
-    if (a === 'tab') { view.tab = b.dataset.tab; render(); document.querySelector('.tab.is-on')?.focus(); return; }
-    if (a === 'filter') { view.filter = b.dataset.filter; render(); return; }
-    if (a === 'resetfilters') { view.filter = 'alle'; view.cat = '0'; view.query = ''; render(); return; }
     if (a === 'export') {
       const blob = new Blob([JSON.stringify(S, null, 2)], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
@@ -1111,6 +1111,18 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
       setTimeout(() => URL.revokeObjectURL(url), 1000);
       toast('Lernstand exportiert.'); return;
     }
+    if (a === 'delete-run') {
+      const target = S.runs.find(past => past.id === b.dataset.id);
+      if (!target?.endedAt || r) return;
+      if (confirm('Diesen beendeten Durchlauf aus dem Browser entfernen? Exportierte Sicherungen bleiben erhalten.')) {
+        replaceState({ ...S, runs: S.runs.filter(past => past.id !== target.id) });
+      }
+      return;
+    }
+    if (!r) return;
+    if (a === 'tab') { view.tab = b.dataset.tab; render(); document.querySelector('.tab.is-on')?.focus(); return; }
+    if (a === 'filter') { view.filter = b.dataset.filter; render(); return; }
+    if (a === 'resetfilters') { view.filter = 'alle'; view.cat = '0'; view.query = ''; render(); return; }
     if (a === 'openrow') { const id = b.dataset.id; const cur = view.openRow === undefined ? null : view.openRow; view.openRow = cur === id ? null : id; render(); document.querySelector(`[data-action="openrow"][data-id="${id}"]`)?.focus(); return; }
     if (a === 'open') { const nr = +b.dataset.nr; view.open = view.open === nr ? null : nr; render(); document.querySelector(`[data-action="open"][data-nr="${nr}"]`)?.focus(); return; }
     if (a === 'lesson') {

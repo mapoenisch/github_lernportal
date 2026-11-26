@@ -17,4 +17,4 @@ Der Builder fügt außerdem die Volltextsuche oben rechts ein (Lektionen aller M
 
 Das Kunden-Pitchdeck liegt als PDF vor. Die Dateien zum Team-Pitch und das Pitch-Cockpit befinden sich ebenfalls unter `assets/leadpilot/pitch/`. Weitere LeadPilot-Unterlagen sind unter `assets/leadpilot/lektionen/` den jeweiligen Lektionen zugeordnet. Office-Dateien öffnen als Download, lokale HTML-Hilfsmittel im Overlay. Lektionen und Quizdaten sind in den HTML-Bundles eingebettet. Die DBA-Originalunterlagen sind lokal außerhalb des Repositorys archiviert.
 
-Für die Offline-Nutzung öffne `index.html`. Lege den Ordner `assets/` und für den Zertifizierungstrainer auch `zertifizierungstrainer/` daneben. Die früheren HTML-Dateinamen leiten auf die aktuelle Datei weiter.
+Für die Offline-Nutzung öffne `index.html`. Lege den Ordner `assets/` und für den Zertifizierungstrainer auch `zertifizierungstrainer/` daneben. Die früheren HTML-Dateinamen leiten auf die aktuelle Datei weiter. Die DC-Quelle verwendet die lokalen Laufzeit- und Schriftdateien unter `assets/vendor/`.
