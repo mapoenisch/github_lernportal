@@ -402,7 +402,7 @@ def build(source_root):
         {'eyebrow':'Projektarchiv · 2.9','title':'Vollständiges Teamdeck & Dossier','pill':'14 · Team-Pitch','blocks':[
             {'t':'lead','text':'Das finale Deck mit Schlussfolie zeigt die verdichtete Geschichte. Das vollständige Dossier bewahrt die Herleitung zu Persona, Content, Nachrichten, Lead-Priorisierung, Funnel, KPIs und Design. Im Abschluss findest du zusätzlich Teleprompter, Hintergrund und Entwurfsskizzen.'},
             link('2.9.5','Teampitch-Deck final mit Schlussfolie.pptx','Komplettes finales Team-Pitchdeck herunterladen · PowerPoint'),
-            link('2.9.5','Team-Pitch Dossier LeadPilot.docx','Vollständiges Team-Pitch-Dossier herunterladen · Word'),
+            link('2.9.5','Team-Pitch Dossier LeadPilot1.pdf','Vollständiges Team-Pitch-Dossier ansehen · PDF'),
             {'t':'golink','to':'2.9.5','label':'Zu 2.9.5 Pitch-Day 2','sub':'Finalisierung, Generalprobe, vollständige Materialien und Quiz'},
             {'t':'heading','text':'Versionen und Rechenannahmen'},
             {'t':'note','text':'Das finale Teamdeck hat zwölf Folien; im Dossier steht noch die frühere Planung mit 15. Die 150.000-€-Rechnung nutzt ebenfalls verschiedene Annahmen: Kunden-Deck und Dossier rechnen 3 Messen × 2 mögliche Aufträge × 25.000 €, das Teamdeck 60 offene Kontakte × 25 % × 10.000 €. Die Originale bleiben unverändert. Das Ergebnis ist Fallpotenzial, kein nachgewiesener Verlust.'},

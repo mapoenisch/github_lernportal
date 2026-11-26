@@ -130,7 +130,7 @@ function check(doc, quiz, label) {
   const project=portal.CONTENT.projekt.sections.flatMap(s=>s.blocks);
   assert.ok(!JSON.stringify(portal.CONTENT['2.8.6']).includes('.pptx'), 'Kunden-Pitch nur als PDF');
   assert.ok(!project.some(b=>b.href?.includes('2.8.6')&&b.href.endsWith('.pptx')));
-  for(const ending of ['LeadPilot Final Pitch-Deck Weidner.pdf','Teampitch-Deck final mit Schlussfolie.pptx','Team-Pitch Dossier LeadPilot.docx'])assert.ok(project.some(b=>b.href?.endsWith(ending)),ending);
+  for(const ending of ['LeadPilot Final Pitch-Deck Weidner.pdf','Teampitch-Deck final mit Schlussfolie.pptx','Team-Pitch Dossier LeadPilot1.pdf'])assert.ok(project.some(b=>b.href?.endsWith(ending)),ending);
   const links=[...data.lessons.flatMap(l=>portal.CONTENT[l.id].sections.flatMap(s=>s.blocks)),...project].filter(b=>b.t==='button');
   for(const b of links.filter(b=>b.href?.startsWith('assets/kurs/'))){
     assert.ok(fs.existsSync(path.join(root,b.href)),b.href);
