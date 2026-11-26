@@ -7628,6 +7628,15 @@ class Component extends DCLogic {
     // END KURS-FORTSETZUNG
   }
 
+  quizState(id, quizData = this.state.quizData) {
+    const saved = this.state.quizResults[id];
+    const quiz = quizData[id];
+    if (!quiz || !Array.isArray(saved) || saved.length !== quiz.questions.length ||
+        !quiz.questions.every((q, i) => q.options.some(option => option.id === saved[i]))) {
+      return { quizAnswers: {}, quizHints: {}, quizSubmitted: false };
+    }
+    return { quizAnswers: { ...saved }, quizHints: {}, quizSubmitted: true };
+  }
   // BEGIN SUCHE
   searchFold(text) {
     let out = '';
@@ -7710,15 +7719,6 @@ class Component extends DCLogic {
     });
   }
   // END SUCHE
-  quizState(id, quizData = this.state.quizData) {
-    const saved = this.state.quizResults[id];
-    const quiz = quizData[id];
-    if (!quiz || !Array.isArray(saved) || saved.length !== quiz.questions.length ||
-        !quiz.questions.every((q, i) => q.options.some(option => option.id === saved[i]))) {
-      return { quizAnswers: {}, quizHints: {}, quizSubmitted: false };
-    }
-    return { quizAnswers: { ...saved }, quizHints: {}, quizSubmitted: true };
-  }
   select(id) {
     const focusContent = this.state.menuOpen;
     this.setState({ activeLessonId: id, menuOpen: false, ...this.quizState(id) }, () => {

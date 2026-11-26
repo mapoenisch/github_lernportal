@@ -7,16 +7,18 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const read = f => fs.readFileSync(path.join(root, f), 'utf8');
 const data = JSON.parse(read('content/continuation.json'));
-function component(doc, quiz) {
+function component(doc, quiz, storage = {dba_completed_v1:JSON.stringify({'1.1.2':true,'2.7.4':true})}) {
   const code = doc.match(/<script type="text\/x-dc"[^>]*>([\s\S]*?)<\/script>/)[1];
-  const storage = {dba_completed_v1:JSON.stringify({'1.1.2':true,'2.7.4':true})};
-  const context = vm.createContext({window:{},localStorage:{getItem:k=>storage[k],setItem:(k,v)=>storage[k]=v}, React:{createRef:()=>({current:null}),createElement:()=>({})},DCLogic:class { constructor(props){this.props=props} setState(update,cb){Object.assign(this.state,typeof update==='function'?update(this.state):update);if(cb)cb()}},console,setTimeout});
+  const context = vm.createContext({window:{matchMedia:()=>({addEventListener(){}, removeEventListener(){}})},document:{addEventListener(){}, querySelector:()=>null},localStorage:{getItem:k=>storage[k],setItem:(k,v)=>storage[k]=v}, React:{createRef:()=>({current:null}),createElement:()=>({})},DCLogic:class { constructor(props){this.props=props} setState(update,cb){Object.assign(this.state,typeof update==='function'?update(this.state):update);if(cb)cb()}},console,setTimeout});
   vm.runInContext(quiz,context);
   vm.runInContext(code+'\nthis.portal = new Component({accentColor:"#E4694B",showProgress:true,showLessonNumbers:true});',context);
   context.portal.componentDidMount();
   return context.portal;
 }
 function check(doc, quiz, label) {
+  assert.match(doc, /<html lang="de">/);
+  assert.match(doc, /<title>DBA Lernportal<\/title>/);
+  assert.doesNotMatch(doc, /<iframe[^>]+src="\{\{/);
   const portal=component(doc,quiz);
   assert.ok(!doc.includes('assets/kurs/'), label + ': keine Links auf Kursoriginale');
   const all=portal.CURR.flatMap(m=>m.groups.flatMap(g=>g.lessons));
@@ -41,7 +43,8 @@ function check(doc, quiz, label) {
     portal.select(lesson.id);
     q.questions.forEach((question,i)=>portal.selectQuizAnswer(i,question.correctAnswer));
     portal.submitQuiz();assert.equal(portal.state.quizSubmitted,true);
-    portal.select(lesson.id);assert.equal(Object.keys(portal.state.quizAnswers).length,0);assert.equal(portal.state.quizSubmitted,false);
+    portal.select(lesson.id);assert.equal(portal.state.quizSubmitted,true);
+    portal.retryQuiz();assert.equal(Object.keys(portal.state.quizAnswers).length,0);assert.equal(portal.state.quizSubmitted,false);
     // Renderer muss alle Blöcke verarbeiten können, nicht bloß die Daten einlesen.
     for(const section of raw.sections)for(const block of section.blocks)assert.ok(portal.styleBlock(block,'#E4694B'),lesson.id+': unknown block '+block.t);
   }
@@ -79,6 +82,8 @@ function check(doc, quiz, label) {
       assert.equal(portal.state.quizSubmitted, true, id);
       assert.equal(portal.renderVals().quiz.resultScoreText, '4 von 4 Antworten richtig', id);
       portal.select(id);
+      assert.equal(portal.state.quizSubmitted, true, id);
+      portal.retryQuiz();
       assert.equal(Object.keys(portal.state.quizAnswers).length, 0, id);
       assert.equal(portal.state.quizSubmitted, false, id);
     }
@@ -154,12 +159,20 @@ function check(doc, quiz, label) {
   return portal;
 }
 check(read('Lernportal.dc.html'),read('quizData.js'),'DC-Quelle');
-assert.equal(read('Lernportal.dc.html'),read('Lernportal-standalone.dc.html'));
+assert.match(read('Lernportal-standalone.dc.html'), /url=\.\/Lernportal\.dc\.html/);
 const bundle=read('index.html');
 const get=kind=>JSON.parse(bundle.match(new RegExp('<script type="__bundler/'+kind+'">([\\s\\S]*?)</script>'))[1]);
 const manifest=get('manifest');
 const item=manifest['d3b9f937-d128-463d-851c-f9ea093629b5'];
 check(get('template'),zlib.gunzipSync(Buffer.from(item.data,'base64')).toString(),'HTML-Bundle');
-assert.equal(bundle,read('DBA Lernportal (offline).html'));
+assert.match(read('DBA Lernportal (offline).html'), /url=\.\/index\.html/);
 assert.ok(!fs.existsSync(path.join(root, 'assets/kurs')));
-console.log('HTML-Paare synchron, keine Kursoriginale im Auslieferungsordner.');
+const storage = {};
+const original = component(read('Lernportal.dc.html'), read('quizData.js'), storage);
+const sample = original.state.quizData['1.1.2'];
+sample.questions.forEach((q, i) => original.selectQuizAnswer(i, q.correctAnswer));
+original.submitQuiz();
+const reloaded = component(read('Lernportal.dc.html'), read('quizData.js'), storage);
+assert.equal(reloaded.state.quizSubmitted, true);
+assert.equal(reloaded.renderVals().quiz.resultScoreText, sample.questions.length + ' von ' + sample.questions.length + ' Antworten richtig');
+console.log('Weiterleitungen, gespeicherte Quiz-Auswertung und Wiederholen geprüft.');

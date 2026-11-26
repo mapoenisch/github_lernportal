@@ -13,6 +13,8 @@ python3 scripts/extend_portal.py
 node tests/verify-portal.cjs
 ```
 
-Der Builder fügt außerdem die Volltextsuche oben rechts ein (Lektionen aller Module, HubSpot, Unternehmensprojekt, Kompakt und Glossar; Umlaute werden toleriert, Enter öffnet den ersten Treffer, Escape leert die Suche). Er aktualisiert beide DC-Quellen, die zentrale Quizdatei, `index.html` und die Offline-HTML-Datei. Er übernimmt die vorhandene eingebettete Runtime und Schriften aus `index.html`; diese Grunddatei wird daher weiterhin benötigt. Der Portal-Build verwendet die Inhalte und Dateien aus diesem Repository.
+Der Builder fügt außerdem die Volltextsuche oben rechts ein (Lektionen aller Module, HubSpot, Unternehmensprojekt, Kompakt und Glossar; Umlaute werden toleriert, Enter öffnet den ersten Treffer, Escape leert die Suche). Er aktualisiert die DC-Quelle, die zentrale Quizdatei und das Bundle in `index.html`. Er übernimmt die vorhandene eingebettete Runtime und Schriften aus `index.html`; diese Grunddatei wird daher weiterhin benötigt. Der Portal-Build verwendet die Inhalte und Dateien aus diesem Repository.
 
 Das Kunden-Pitchdeck liegt als PDF vor. Die Dateien zum Team-Pitch und das Pitch-Cockpit befinden sich ebenfalls unter `assets/leadpilot/pitch/`. Weitere LeadPilot-Unterlagen sind unter `assets/leadpilot/lektionen/` den jeweiligen Lektionen zugeordnet. Office-Dateien öffnen als Download, lokale HTML-Hilfsmittel im Overlay. Lektionen und Quizdaten sind in den HTML-Bundles eingebettet. Die DBA-Originalunterlagen sind lokal außerhalb des Repositorys archiviert.
+
+Für die Offline-Nutzung öffne `index.html`. Lege den Ordner `assets/` und für den Zertifizierungstrainer auch `zertifizierungstrainer/` daneben. Die früheren HTML-Dateinamen leiten auf die aktuelle Datei weiter.

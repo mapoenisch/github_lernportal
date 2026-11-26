@@ -287,14 +287,12 @@ def apply_trainer_template(doc):
 
 
 def patch_trainer_nav():
-    for f in ['Lernportal.dc.html', 'Lernportal-standalone.dc.html']:
-        p = ROOT / f
-        p.write_text(apply_trainer_template(p.read_text()))
-    for f in ['index.html', 'DBA Lernportal (offline).html']:
-        p = ROOT / f
-        doc = p.read_text()
-        p.write_text(replace_section(doc, 'template', apply_trainer_template(read_section(doc, 'template'))))
-    print('Trainer-Eintrag in vier HTML-Einstiege gesetzt.')
+    source = ROOT / 'Lernportal.dc.html'
+    source.write_text(apply_trainer_template(source.read_text()))
+    bundle = ROOT / 'index.html'
+    doc = bundle.read_text()
+    bundle.write_text(replace_section(doc, 'template', apply_trainer_template(read_section(doc, 'template'))))
+    print('Trainer-Eintrag in Portalquelle und Bundle gesetzt.')
 
 
 def build():
@@ -428,7 +426,7 @@ def build():
         def update(m):
             code = re.sub(r'    // BEGIN KURS-FORTSETZUNG\n.*?    // END KURS-FORTSETZUNG\n', '', m[2], flags=re.S)
             code = re.sub(r'  // BEGIN SUCHE\n.*?  // END SUCHE\n', '', code, flags=re.S)
-            anchor = '  }\n\n  select(id) {'
+            anchor = '  }\n\n  quizState('
             if code.count(anchor)!=1:raise ValueError('Konstruktor-Anker fehlt oder ist mehrdeutig')
             code = code.replace(anchor,js+anchor)
             code = code.replace('onOpen: isPdf ? undefined', 'onOpen: (isPdf || b.download) ? undefined')
@@ -448,8 +446,8 @@ def build():
         doc=apply_glossary_template(doc)
         doc=apply_trainer_template(doc)
         return SCRIPT.sub(update,doc,count=1)
-    for f in ['Lernportal.dc.html','Lernportal-standalone.dc.html']:
-        p=ROOT/f;p.write_text(transform(p.read_text()))
+    source = ROOT / 'Lernportal.dc.html'
+    source.write_text(transform(source.read_text()))
     # Die bekannte Grundversion enthält dieselbe DC-Komponente plus eingebettete Runtime und Schriften.
     original=(ROOT/'index.html').read_text()
     manifest=read_section(original,'manifest')
@@ -461,12 +459,12 @@ def build():
     manifest[quiz_id]['data']=base64.b64encode(gzip.compress(quiz.encode(),mtime=0)).decode()
     template=transform(read_section(original,'template'))
     bundled=replace_section(replace_section(original,'template',template),'manifest',manifest)
-    for f in ['index.html','DBA Lernportal (offline).html']:(ROOT/f).write_text(bundled)
-    print(f'{len(all_lessons)} Lektionen, {sum(len(l["quiz"]["questions"]) for l in all_lessons)} Quizfragen; vier HTML-Einstiege aktualisiert.')
+    (ROOT/'index.html').write_text(bundled)
+    print(f'{len(all_lessons)} Lektionen, {sum(len(l["quiz"]["questions"]) for l in all_lessons)} Quizfragen; Portalquelle und Bundle aktualisiert.')
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser()
-    parser.add_argument('--nav-only',action='store_true',help='nur den Trainer-Eintrag der Seitenleiste in die vier HTML-Einstiege setzen, ohne Kursmaterial neu einzulesen')
+    parser.add_argument('--nav-only',action='store_true',help='nur den Trainer-Eintrag der Seitenleiste in die Portalquelle und das Bundle setzen, ohne Kursmaterial neu einzulesen')
     args=parser.parse_args()
     if args.nav_only:
         patch_trainer_nav()
