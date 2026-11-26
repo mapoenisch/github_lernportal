@@ -47,7 +47,7 @@ a { color: inherit; text-underline-offset: 3px; }
 .band { background: var(--yellow); border-bottom: 3px solid var(--rule); display: grid; grid-template-columns: var(--brand-w) minmax(0, 1fr) minmax(280px, 24vw); }
 .band--start, .band--lesson { grid-template-columns: var(--brand-w) minmax(0, 1fr); }
 .band__brand { padding: 20px var(--pad) 22px; border-right: 1px solid var(--rule); display: flex; flex-direction: column; gap: 4px; }
-.brand__name { font: 800 var(--s)/1.2 var(--cond); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 14px; }
+.brand__name { font: 800 var(--s)/1.2 var(--cond); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 14px; overflow-wrap: anywhere; }
 .brand__sub { color: var(--ink-2); }
 .backlink { display: inline-flex; align-items: center; gap: 4px; align-self: flex-start; background: none; border: 0; padding: 4px 6px 4px 0; cursor: pointer; font: 700 var(--s)/1 var(--cond); letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; }
 .backlink:hover span { text-decoration: underline; }

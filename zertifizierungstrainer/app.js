@@ -11,36 +11,129 @@
   const GROUP_OF = new Map();
   Object.entries(D.groups).forEach(([g, list]) => list.forEach(nr => GROUP_OF.set(nr, g)));
 
-  const KEY = 'zt.v1';
   const MODES = {
     sprint: { name: '7‑Tage‑Sprint', days: 7, gap: 2 },
     adaptiv: { name: '3‑Wochen‑Trainer', days: 21, gap: 3 },
   };
   const RES = { voll: 'vollständig', teil: 'teilweise', falsch: 'falsch / nicht abrufbar' };
+  const KIND = { erst: 'Erstabruf', wdh: 'Wiederholung', luecke: 'Lückencheck', pruef: 'Prüfungsstil', uebung: 'Übung' };
+
+  // Zeitreise nur auf Loopback und mit eigenem, vom Lernstand getrennten Speicher.
+  const params = new URLSearchParams(location.search);
+  const local = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
+  const offset = local ? Number(params.get('zeitreise')) : 0;
+  const timeOffset = Number.isInteger(offset) && Math.abs(offset) <= 365 ? offset : 0;
+  const KEY = 'zt.v1' + (timeOffset ? '.zeitreise' : '');
 
   /* ---------- Speicher ---------- */
-  let storageCorrupt = false;
-  let S = load();
-  function load() {
-    let raw = null;
-    try { raw = localStorage.getItem(KEY); } catch (e) { return { runs: [], active: null }; }
-    if (!raw) return { runs: [], active: null };
-    try { const s = JSON.parse(raw); if (s && Array.isArray(s.runs)) return s; } catch (e) { /* defekt */ }
-    try { localStorage.setItem(KEY + '.corrupt', raw); } catch (e) { /* voll */ }
-    storageCorrupt = true;
-    return { runs: [], active: null };
+  const empty = () => ({ runs: [], active: null });
+  const object = v => v !== null && typeof v === 'object' && !Array.isArray(v);
+  const text = v => typeof v === 'string';
+  const date = v => text(v) && /^\d{4}-\d{2}-\d{2}$/.test(v) && Number.isFinite(Date.parse(v)) &&
+    new Date(v).toISOString().slice(0, 10) === v;
+  const number = v => Number.isSafeInteger(v);
+  const list = (v, check) => Array.isArray(v) && v.every(check);
+  const lessonId = v => text(v) && /^(s[1-7][12]|a-?\d+(l[12]|x\d+)|g\d+)$/.test(v);
+  const knownTerm = nr => TERM.has(nr);
+  const question = id => Q.has(id);
+  const optionalFlag = v => v == null || typeof v === 'boolean';
+  const indices = (v, nr) => list(v, i => number(i) && i >= 0 && i < TERM.get(nr).crit.length);
+  const result = v => object(v) && knownTerm(v.nr) && Object.hasOwn(RES, v.res) &&
+    (v.miss == null || indices(v.miss, v.nr)) && (v.conf == null || knownTerm(v.conf)) &&
+    optionalFlag(v.indep);
+  const entry = e => result(e) && date(e.d) && number(e.day) && question(e.qid) &&
+    Q.get(e.qid).terms.includes(e.nr) && e.fn === Q.get(e.qid).fn && Object.hasOwn(KIND, e.kind) &&
+    optionalFlag(e.guess) && optionalFlag(e.assisted);
+  const taskValid = t => object(t) && question(t.qid) && knownTerm(t.nr) &&
+    list(t.terms, knownTerm) && t.terms.join() === Q.get(t.qid).terms.join() &&
+    t.terms.includes(t.nr) && Object.hasOwn(KIND, t.kind) && optionalFlag(t.assisted);
+
+  function fixValid(f, t) {
+    if (!object(f) || !t.terms.includes(f.nr) || !optionalFlag(f.done) || !optionalFlag(f.ok)) return false;
+    if (f.type === 'tf') return knownTerm(f.other);
+    if (f.type === 'cloze') return indices([f.i], f.nr) && (f.value == null || text(f.value));
+    return f.type === 'choice' && list(f.opts, knownTerm) && f.opts.includes(f.nr) &&
+      (!f.done || (number(f.pick) && knownTerm(f.opts[f.pick])));
   }
-  function save() {
-    try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { toast('Speichern nicht möglich. Ist der private Modus aktiv?'); }
+
+  function sessionValid(l, mode) {
+    if (!object(l) || l.mode !== mode || !lessonId(l.id) || !text(l.title) ||
+        !list(l.tasks, taskValid) || !list(l.results, x => x === null || result(x)) ||
+        !number(l.i) || l.i < 0 || l.i > l.tasks.length || l.results.length > l.tasks.length ||
+        !['pflicht', 'luecke'].includes(l.phase) || !optionalFlag(l.over) ||
+        !list(l.gleis, g => Object.hasOwn(D.groups, g)) ||
+        (l.held != null && !list(l.held, h => object(h) && knownTerm(h.nr) && date(h.from))) ||
+        (l.extra != null && !['fix', 'luecke', 'vergleich', 'nachpruef', 'pruefcheck'].includes(l.extra)) ||
+        (l.extraCap != null && (!number(l.extraCap) || l.extraCap < 0)) ||
+        (l.extraGroups != null && !list(l.extraGroups, g => Object.hasOwn(D.groups, g))) ||
+        (l.pflichtN != null && (!number(l.pflichtN) || l.pflichtN < 0 || l.pflichtN > l.tasks.length))) return false;
+    const t = l.tasks[l.i];
+    if (!t || l.over || l.ui == null) return true;
+    const u = l.ui;
+    return object(u) && ['ask', 'rate', 'fix'].includes(u.stage) && text(u.notes) && object(u.marks) &&
+      t.terms.every(nr => {
+        const mark = u.marks[nr];
+        return object(mark) && object(mark.has) && optionalFlag(mark.contra) &&
+          (mark.conf === '' || TERM.get(nr).conf.some(other => String(other) === mark.conf));
+      }) && (u.stage !== 'fix' || fixValid(u.fix, t));
+  }
+
+  function parseState(raw) {
+    if (raw === null) return empty();
+    try {
+      const s = JSON.parse(raw);
+      const validRun = r => object(r) && text(r.id) && r.id.length > 0 && Object.hasOwn(MODES, r.mode) &&
+        date(r.start) && (r.endedAt == null || date(r.endedAt)) && list(r.log, entry) &&
+        object(r.done) && Object.entries(r.done).every(([id, d]) => lessonId(id) && object(d) && date(d.date) &&
+          number(d.n) && d.n >= 0 && text(d.summary) && list(d.gaps, knownTerm)) &&
+        object(r.lastQ) && Object.values(r.lastQ).every(question) &&
+        object(r.seen) && Object.values(r.seen).every(v => v === true) &&
+        (r.session == null || sessionValid(r.session, r.mode));
+      if (!object(s) || !list(s.runs, validRun) || new Set(s.runs.map(r => r.id)).size !== s.runs.length ||
+          (s.active !== null && !s.runs.some(r => r.id === s.active))) return null;
+      return { runs: s.runs, active: s.active };
+    } catch {
+      return null;
+    }
+  }
+
+  function read(key) {
+    try { return localStorage.getItem(key); } catch { return null; }
+  }
+  let snapshot = read(KEY);
+  let S = parseState(snapshot);
+  let storageCorrupt = !S;
+  if (storageCorrupt) rememberCorrupt();
+  S ||= empty();
+
+  function rememberCorrupt() {
+    if (snapshot === null || read(KEY + '.corrupt') === snapshot) return;
+    try { localStorage.setItem(KEY + '.corrupt', snapshot); } catch { /* Der Stand bleibt unter KEY erhalten. */ }
+  }
+
+  function save(next = S, backup = false) {
+    try {
+      if (localStorage.getItem(KEY) !== snapshot) {
+        refresh(true);
+        return false;
+      }
+      if (backup && snapshot !== null && !storageCorrupt) localStorage.setItem(KEY + '.backup', snapshot);
+      if (storageCorrupt && snapshot !== null) localStorage.setItem(KEY + '.corrupt', snapshot);
+      const raw = JSON.stringify(next);
+      localStorage.setItem(KEY, raw);
+      snapshot = raw;
+      return true;
+    } catch {
+      toast('Speichern fehlgeschlagen. Prüfe, ob Browserspeicher verfügbar ist.');
+      return false;
+    }
   }
   const run = () => S.runs.find(r => r.id === S.active) || null;
 
   /* ---------- Datum ---------- */
-  // ?zeitreise=N verschiebt „heute“ um N Tage (nur zum Testen).
-  const params = new URLSearchParams(location.search);
-  S.offset = params.has('zeitreise') ? (parseInt(params.get('zeitreise'), 10) || 0) : 0;
   function todayStr() {
-    const d = new Date(); d.setDate(d.getDate() + (S.offset || 0));
+    const d = new Date();
+    d.setDate(d.getDate() + timeOffset);
     return iso(d);
   }
   function iso(d) { return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
@@ -236,7 +329,7 @@
     const pflicht = new Set(L.tasks.map(t => t.nr));
     const cap = L.extraCap;
     if (L.extra === 'fix') {
-      return L.results.filter(x => x.res !== 'voll').slice(0, 3).map(x => task(r, x.nr, 'luecke', { correctFirst: true }));
+      return L.results.filter(x => x && x.res !== 'voll').slice(0, 3).map(x => task(r, x.nr, 'luecke', { correctFirst: true }));
     }
     if (L.extra === 'vergleich') {
       const out = [];
@@ -340,7 +433,6 @@
       r.lastQ[nr] = q.id;
     });
     r.seen[q.id] = true;
-    save();
   }
 
   /* ---------- Ansicht & Routing ---------- */
@@ -352,11 +444,68 @@
   function canUndo(r, L) {
     return !!(lastUndo && r && L && lastUndo.runId === r.id && lastUndo.sessionId === L.id);
   }
+  function adopt(next) {
+    clearTimeout(nTimer);
+    clearTimeout(qTimer);
+    S = next || empty();
+    storageCorrupt = !next;
+    ui = run()?.session?.ui || {};
+    lastUndo = null;
+    view = { tab: 'fahrplan', filter: 'alle', cat: '0', query: '', open: null, openRow: undefined };
+  }
+
+  function refresh(notify) {
+    const latest = read(KEY);
+    if (latest === snapshot) return false;
+    snapshot = latest;
+    adopt(parseState(latest));
+    if (storageCorrupt) rememberCorrupt();
+    render(true);
+    if (notify) toast('Der Lernstand wurde in einem anderen Tab geändert. Die aktuelle Version ist geladen.');
+    return true;
+  }
+
+  function backupState() {
+    const raw = read(KEY + '.backup');
+    return raw === null ? null : parseState(raw);
+  }
+
+  function importControl() {
+    return '<label class="btn btn--line">Lernstand importieren<input type="file" accept="application/json,.json" data-action="import" class="sr-only"></label>';
+  }
+
+  function recoveryView() {
+    return `<main id="main" class="wrap">
+      <h1 class="mono-xl">Lernstand beschädigt</h1>
+      <p>Der gespeicherte Lernstand lässt sich nicht öffnen. Du kannst eine Sicherung laden oder einen neuen Lernstand beginnen.</p>
+      <div class="actions">
+        ${backupState() ? '<button class="btn btn--ink" data-action="restore">Sicherung wiederherstellen</button>' : ''}
+        ${importControl()}
+        <button class="btn btn--line" data-action="restart">Neuen Lernstand beginnen</button>
+      </div>
+    </main>`;
+  }
+
   function render(moveFocus) {
-    const r = run();
-    if (!r) { app.innerHTML = startView(); return focusMain(moveFocus); }
-    if (r.session) { app.innerHTML = lessonView(r); bindLesson(r); return; }
-    app.innerHTML = homeView(r);
+    try {
+      if (storageCorrupt) {
+        app.innerHTML = recoveryView();
+      } else {
+        const r = run();
+        if (r?.session) {
+          const t = r.session.tasks[r.session.i];
+          if (!ui.stage && t) newTaskUi(t, r);
+          app.innerHTML = lessonView(r);
+          return;
+        }
+        app.innerHTML = r ? homeView(r) : startView();
+      }
+    } catch (error) {
+      console.error('Lernstand konnte nicht angezeigt werden.', error);
+      storageCorrupt = true;
+      rememberCorrupt();
+      app.innerHTML = recoveryView();
+    }
     focusMain(moveFocus);
   }
   function focusMain(move) {
@@ -403,9 +552,10 @@
     <thead><tr><th scope="col">Linie</th><th scope="col">Gestartet</th><th scope="col" class="num">Geprüft</th><th scope="col" class="num">Bestätigt</th><th scope="col">Aktion</th></tr></thead>
     <tbody>${S.runs.slice().reverse().map(past => {
       const pStats = stats(past, analyze(past));
-      return `<tr><td data-label="Linie">${MODES[past.mode].name}${past.endedAt ? ' (beendet ' + fmtDate(past.endedAt) + ')' : ''}</td><td data-label="Gestartet">${fmtDate(past.start)}</td><td class="num" data-label="Geprüft">${pStats.geprueft}/139</td><td class="num" data-label="Bestätigt">${pStats.bestaetigt}</td><td data-label="Aktion"><button class="link" data-action="resume" data-id="${past.id}">Wieder aufnehmen</button></td></tr>`;
+      return `<tr><td data-label="Linie">${MODES[past.mode].name}${past.endedAt ? ' (beendet ' + fmtDate(past.endedAt) + ')' : ''}</td><td data-label="Gestartet">${fmtDate(past.start)}</td><td class="num" data-label="Geprüft">${pStats.geprueft}/139</td><td class="num" data-label="Bestätigt">${pStats.bestaetigt}</td><td data-label="Aktion"><button class="link" data-action="resume" data-id="${esc(past.id)}">Wieder aufnehmen</button></td></tr>`;
     }).join('')}</tbody>
   </table>` : ''}
+  <div class="actions">${importControl()}</div>
   <p class="fine">Quelle: ${esc(D.meta.source)}, Glossar‑Nr. 1–139. Dein Lernstand bleibt nur in diesem Browser gespeichert.</p>
 </main>`;
   }
@@ -515,7 +665,7 @@ ${ready ? `<button class="btn btn--ink" data-action="lesson" data-id="${p.id}">L
   <td class="cell-gleis">${p.wdh ? `<span><b>${p.wdh}</b> Wdh.</span>` : ''}${p.erst ? `<span><b>${p.erst}</b> neu</span>` : ''}${!p.erst ? `<span class="fine-ink">${{ luecke: 'Lückencheck', vergleich: 'Vergleich', nachpruef: 'Nachprüfung', pruefcheck: 'Prüfungscheck' }[p.extra]}</span>` : ''}</td>
   <td class="cell-umfang">${[wdhTerms.length && wdhTerms.length + ' Wiederholungen', erstTerms.length && erstTerms.length + ' Erstabrufe'].filter(Boolean).join('<br>')}</td>
   <td class="cell-via">${[...wdhTerms, ...erstTerms].slice(0, 4).map(nr => esc(TERM.get(nr).name)).join(', ')} …</td>
-  <td class="cell-note">${state === 'verspaetet' ? '<strong class="tag-red">verspätet</strong> ' : ''}${done ? `${done.summary}` : esc(p.note || '')}${state === 'heute' && !done ? ' <strong class="tag-ink">heute</strong>' : ''}</td>
+  <td class="cell-note">${state === 'verspaetet' ? '<strong class="tag-red">verspätet</strong> ' : ''}${done ? esc(done.summary) : esc(p.note || '')}${state === 'heute' && !done ? ' <strong class="tag-ink">heute</strong>' : ''}</td>
 </tr>${open ? `<tr class="route-row" id="sroute-${p.id}"><td></td><td colspan="5">${lessonRoute(r, A, wdhTerms, erstTerms)}</td></tr>` : ''}`; }).join('')}</tbody></table>
 ${legendBox()}
 <p class="fine">Pflichtblöcke: 139 Erstabrufe und 139 Wiederholungsabrufe. Jeder Zweitcheck liegt zwei Kalendertage nach dem Erstabruf. Verpasste Lektionen bleiben in der Warteschlange und werden nicht gestrichen.</p>`;
@@ -605,16 +755,15 @@ ${legendBox()}`;
   }
   function routeView(r, a, t) {
     const entries = r.log.filter(e => e.nr === t.nr);
-    const kindName = { erst: 'Erstabruf', wdh: 'Wiederholung', luecke: 'Lückencheck', pruef: 'Prüfungsstil', uebung: 'Übung' };
     const stops = entries.map(e => {
       const q = Q.get(e.qid);
       const miss = (e.miss || []).map(i => t.crit[i] && t.crit[i].t).filter(Boolean);
       const cls = e.res === 'voll' ? 'full' : 'miss';
       return `<li class="stop stop--${e.indep ? cls : 'practice'}">
-  <span class="stop__when"><b>Tag ${e.day}</b> ${fmtDate(e.d)}</span>
-  <span class="stop__what">${kindName[e.kind] || e.kind}${e.indep ? ' · Nachweis' : e.fn === 'anw' ? ' · Fall' : ' · Übung'}${e.guess ? ' · geraten' : ''}</span>
+  <span class="stop__when"><b>Tag ${esc(e.day)}</b> ${fmtDate(e.d)}</span>
+  <span class="stop__what">${esc(KIND[e.kind] || e.kind)}${e.indep ? ' · Nachweis' : e.fn === 'anw' ? ' · Fall' : ' · Übung'}${e.guess ? ' · geraten' : ''}</span>
   <span class="stop__res">${RES[e.res]}</span>
-  <span class="stop__q">${esc(q.text)}</span>
+  <span class="stop__q">${esc(q?.text || '')}</span>
   ${miss.length ? `<span class="stop__miss">fehlte: ${miss.map(esc).join('; ')}</span>` : ''}
   ${e.conf ? `<span class="stop__miss">verwechselt mit ${esc(TERM.get(e.conf).name)}</span>` : ''}
 </li>`;
@@ -682,7 +831,7 @@ ${legendBox()}`;
   <p>Dein Lernstand liegt nur in diesem Browser. Du kannst ihn als JSON‑Datei exportieren oder wieder einspielen.</p>
   <div class="actions">
     <button class="btn btn--line" data-action="export">Lernstand exportieren</button>
-    <label class="btn btn--line">Lernstand importieren<input type="file" accept="application/json,.json" data-action="import" class="sr-only"></label>
+    ${importControl()}
   </div>
 </section>
 <section class="danger">
@@ -699,7 +848,6 @@ ${legendBox()}`;
     const total = L.tasks.length;
     if (L.over || !t) return lessonEnd(r, L);
     const q = Q.get(t.qid);
-    const kindName = { erst: 'Erstabruf', wdh: 'Wiederholung', luecke: 'Lückencheck', pruef: 'Prüfungsstil', uebung: 'Übung' };
     const srcName = q.src === 'original' ? 'Originalfrage ' + q.ref : q.src === 'uebung' ? 'Übungsfrage aus der Excel' : 'redaktionell ergänzt';
     const fnName = { def: 'Definition', abgr: 'Abgrenzung', anw: 'Anwendung' }[q.fn];
     const pflichtN = L.pflichtN || total;
@@ -707,7 +855,7 @@ ${legendBox()}`;
 <header class="band band--lesson">
   <div class="band__brand"><button class="backlink" data-action="leave">${ICON.back}<span>Fahrplan</span></button>
     <p class="brand__name">${esc(L.title)}</p>
-    <p class="brand__sub">${L.phase === 'pflicht' ? 'Pflichtblock' : 'Lückenblock'}${L.gleis && L.gleis.length ? ' · Gleis ' + L.gleis.join(' · ') : ''}</p></div>
+    <p class="brand__sub">${L.phase === 'pflicht' ? 'Pflichtblock' : 'Lückenblock'}${L.gleis && L.gleis.length ? ' · Gleis ' + L.gleis.map(esc).join(' · ') : ''}</p></div>
   <div class="band__main band__main--progress">
     <p class="lbl">Frage ${L.i + 1} von ${total}</p>
     <span class="sr-only">${L.results.filter(x => x && x.res === 'voll').length} vollständig, ${L.results.filter(x => x && x.res !== 'voll').length} unsicher oder offen</span>
@@ -718,7 +866,7 @@ ${legendBox()}`;
   <article class="qcard">
     <h1 class="question" tabindex="-1" id="qtext">${ui.stage === 'fix' ? fixTitle() : esc(q.text)}</h1>
     ${ui.stage === 'fix' ? `<p class="qref">Ausgangsfrage: ${esc(q.text)}</p>` : ''}
-    <p class="qmeta"><span class="tag-ink">${ui.stage === 'fix' ? 'Korrektur' : kindName[t.kind]}</span><span>${fnName}</span><span>${srcName}</span>${t.short ? '<span class="tag-red">verkürzter Nachcheck</span>' : ''}${t.assisted ? '<span>zählt als Übung</span>' : ''}</p>
+    <p class="qmeta"><span class="tag-ink">${ui.stage === 'fix' ? 'Korrektur' : KIND[t.kind]}</span><span>${fnName}</span><span>${srcName}</span>${t.short ? '<span class="tag-red">verkürzter Nachcheck</span>' : ''}${t.assisted ? '<span>zählt als Übung</span>' : ''}</p>
     ${ui.stage === 'ask' ? askPanel(r, t) : ''}
     ${ui.stage === 'rate' ? ratePanel(r, t, q) : ''}
     ${ui.stage === 'fix' ? fixPanel(r, t) : ''}
@@ -804,9 +952,9 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
   }
 
   function lessonEnd(r, L) {
-    const res = L.results;
+    const res = L.results.filter(Boolean);
     const A = analyze(r);
-    const pflicht = res.slice(0, L.pflichtN || res.length);
+    const pflicht = L.results.slice(0, L.pflichtN || L.results.length).filter(Boolean);
     const unsure = [...new Set(res.filter(x => x.res !== 'voll').map(x => x.nr))].filter(nr => A.get(nr).status === 'unsicher');
     const firstFull = [...new Set(res.filter(x => x.res === 'voll' && x.indep && A.get(x.nr).first && A.get(x.nr).first.d === todayStr() && A.get(x.nr).first.res === 'voll').map(x => x.nr))];
     const canExtra = L.phase === 'pflicht' && L.mode === 'sprint' && L.extra;
@@ -899,7 +1047,7 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
   }
   function makeFix(nr, pt) {
     const term = TERM.get(nr);
-    if (pt.conf) return { nr, type: 'tf', other: pt.conf };
+    if (pt.conf) return { nr, type: 'tf', other: Math.random() < 0.5 ? nr : pt.conf };
     if (pt.res === 'teil' && pt.miss.length) return { nr, type: 'cloze', i: pt.miss[0] };
     const pool = term.conf.length ? term.conf.slice(0, 2) : TERMS.filter(x => x.cat === term.cat && x.nr !== nr).slice(0, 2).map(x => x.nr);
     while (pool.length < 2) pool.push(TERMS[(nr + pool.length * 17) % TERMS.length].nr);
@@ -928,9 +1076,20 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
     const b = e.target.closest('[data-action]');
     if (!b) return;
     const a = b.dataset.action;
+    if (refresh(true)) return;
+    if (a === 'restore') {
+      const backup = backupState();
+      if (backup && confirm('Gesicherten Lernstand wiederherstellen?')) replaceState(backup);
+      return;
+    }
+    if (a === 'restart') {
+      if (confirm('Einen neuen Lernstand beginnen?')) replaceState(empty());
+      return;
+    }
+    if (storageCorrupt) return;
     const r = run();
     if (a === 'start') {
-      const id = 'r' + Date.now();
+      const id = 'r' + (window.crypto?.randomUUID?.() || Date.now() + '-' + Math.random().toString(36).slice(2));
       S.runs.push({ id, mode: b.dataset.mode, start: todayStr(), log: [], done: {}, lastQ: {}, seen: {}, session: null });
       S.active = id; view.tab = 'fahrplan'; save(); render(true); return;
     }
@@ -1009,10 +1168,10 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
       const v = (document.getElementById('cloze') || {}).value || '';
       if (!norm(v)) { toast('Bitte erst das fehlende Wort eintragen.'); document.getElementById('cloze')?.focus(); return; }
       const k = TERM.get(ui.fix.nr).crit[ui.fix.i].k;
-      ui.fix.value = v; ui.fix.done = true; ui.fix.ok = norm(k).includes(norm(v)) && norm(v).length >= Math.min(4, norm(k).length) || norm(v).includes(norm(k));
+      ui.fix.value = v; ui.fix.done = true; ui.fix.ok = clozeMatches(k, v);
       syncUi(r); render(); return;
     }
-    if (a === 'tf') { ui.fix.done = true; ui.fix.ok = b.dataset.v === '0'; syncUi(r); render(); return; }
+    if (a === 'tf') { ui.fix.done = true; ui.fix.ok = (b.dataset.v === '1') === (ui.fix.other === ui.fix.nr); syncUi(r); render(); return; }
     if (a === 'choose') { const k = +b.dataset.k; ui.fix.pick = k; ui.fix.done = true; ui.fix.ok = ui.fix.opts[k] === ui.fix.nr; syncUi(r); render(); return; }
     if (a === 'retry') {
       // Eine unmittelbare erneute Erklärung mit neuem Wortlaut, als Übung.
@@ -1032,24 +1191,39 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
       L.pflichtN = L.i; newTaskUi(L.tasks[L.i], r); save(); render(); focusQ(); return;
     }
   });
+  function clozeMatches(solution, answer) {
+    const expected = norm(solution);
+    const actual = norm(answer);
+    return expected === actual || (expected.startsWith(actual) &&
+      actual.length >= Math.max(5, Math.ceil(expected.length * 0.7)));
+  }
+
   function norm(s) { return String(s || '').toLowerCase().replace(/[^a-zäöüß0-9]/g, ''); }
 
   document.addEventListener('change', e => {
     const el = e.target;
     const a = el.dataset && el.dataset.action;
     if (!a) return;
+    if (a !== 'import' && (refresh(true) || storageCorrupt)) return;
     if (a === 'cat') { view.cat = el.value; render(); document.querySelector('[data-action="cat"]')?.focus(); return; }
     if (a === 'import') {
       const f = el.files && el.files[0];
       if (!f) return;
+      const before = snapshot;
       const reader = new FileReader();
+      reader.onerror = () => toast('Die Datei konnte nicht gelesen werden.');
       reader.onload = () => {
-        try {
-          const parsed = JSON.parse(reader.result);
-          if (!parsed || !Array.isArray(parsed.runs)) throw new Error('Format');
-          S = parsed; save(); render(true); toast('Lernstand importiert.');
-        } catch (err) { toast('Ungültige JSON-Datei.'); }
+        const parsed = parseState(reader.result);
+        if (!parsed) { toast('Ungültiger Lernstand. Dein bisheriger Stand bleibt erhalten.'); return; }
+        if (refresh(true) || before !== snapshot) {
+          toast('Der Lernstand hat sich geändert. Wähle die Importdatei erneut.');
+          return;
+        }
+        if (confirm('Aktuellen Lernstand durch die ausgewählte Datei ersetzen?') && replaceState(parsed, true)) {
+          toast('Lernstand importiert.');
+        }
       };
+      el.value = '';
       reader.readAsText(f);
       return;
     }
@@ -1074,6 +1248,7 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
   }
   let qTimer, nTimer;
   document.addEventListener('input', e => {
+    if (refresh(true) || storageCorrupt) return;
     if (e.target.dataset.action === 'query') {
       view.query = e.target.value;
       clearTimeout(qTimer);
@@ -1122,13 +1297,16 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
     if (e.key === 'Enter' && e.target.id === 'cloze') { e.preventDefault(); document.querySelector('[data-action="cloze"]')?.click(); }
   });
 
-  function bindLesson(r) {
-    if (ui.stage == null) {
-      if (r.session.ui && r.session.ui.stage) ui = r.session.ui;
-      else { const t = r.session.tasks[r.session.i]; if (t) newTaskUi(t, r); }
-      app.innerHTML = lessonView(r);
-    }
+  function replaceState(next, backup = false) {
+    if (!save(next, backup)) return false;
+    adopt(next);
+    render(true);
+    return true;
   }
+
+  window.addEventListener('storage', e => {
+    if (e.key === KEY || e.key === null) refresh(true);
+  });
 
   let toastTimer;
   function toast(msg) {
@@ -1139,12 +1317,8 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
   }
 
   // Test-Hooks für die Regressionstests.
-  window.ZT = { analyze, pickQuestion, buildSprintLesson, buildAdaptiveLesson, PLAN, state: () => S, render };
+  window.ZT = { analyze, pickQuestion, buildSprintLesson, buildAdaptiveLesson, clozeMatches, makeFix, todayStr, PLAN, state: () => S, render };
 
-  if (run() && run().session) {
-    if (run().session.ui && run().session.ui.stage) ui = run().session.ui;
-    else { const t = run().session.tasks[run().session.i]; if (t) newTaskUi(t, run()); }
-  }
+  ui = run()?.session?.ui || {};
   render();
-  if (storageCorrupt) toast('Gespeicherter Lernstand war beschädigt und wurde zurückgesetzt.');
 })();

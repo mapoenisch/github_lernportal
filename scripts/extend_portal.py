@@ -1,20 +1,15 @@
 #!/usr/bin/env python3
 """Erweitert DC-Quellen und beide HTML-Bundles aus den Kursdaten in content/.
 
-Originalmaterial liegt unter assets/kurs/<Lektions-ID> und wird beim lokalen
-Öffnen sowie beim Hosting über relative Links ausgeliefert. Zum Weitergeben
-beide HTML- und assets-Dateien zusammen behalten.
+Die HTML-Einstiege enthalten Lektionen und Quizzes. LeadPilot-Projektdateien
+werden über relative Links aus assets/leadpilot geladen.
 """
 import argparse
 import base64
 import gzip
-import hashlib
 import json
-import mimetypes
 from pathlib import Path
 import re
-import shutil
-import unicodedata
 
 ROOT = Path(__file__).resolve().parent.parent
 START = '// BEGIN KURS-FORTSETZUNG\n'
@@ -28,39 +23,6 @@ def replace_section(doc, kind, value):
 
 def read_section(doc, kind):
     return json.loads(re.search(r'<script type="__bundler/' + kind + r'">(.*?)</script>', doc, re.S)[1])
-
-def module_four_materials(source_root, lessons, provenance):
-    folder = source_root / '4. Modul – Arbeitsmarktvorbereitung'
-    files = {}
-    for group in folder.iterdir():
-        if not group.is_dir():
-            continue
-        for lesson_dir in group.iterdir():
-            match = re.match(r'(4\.\d+\.\d+)\b', lesson_dir.name)
-            if match and lesson_dir.is_dir():
-                for path in lesson_dir.glob('*.pdf'):
-                    files[match[1], unicodedata.normalize('NFC', path.name).strip()] = path
-
-    resources = {}
-    for lesson in lessons:
-        code = lesson['id']
-        resources[code] = []
-        for filename in lesson['materials']:
-            source = files[code, filename]
-            dest = Path('assets/kurs') / code / filename
-            contents = source.read_bytes()
-            (ROOT / dest).parent.mkdir(parents=True, exist_ok=True)
-            if not (ROOT / dest).exists() or (ROOT / dest).read_bytes() != contents:
-                (ROOT / dest).write_bytes(contents)
-            resources[code].append({
-                't': 'button', 'resourceLabel': 'Originalmaterial · PDF', 'label': filename,
-                'href': dest.as_posix(), 'sub': 'Vollständige Kursunterlage',
-            })
-            provenance.append({
-                'lesson': code, 'source': str(source.relative_to(source_root)), 'path': dest.as_posix(),
-                'sha256': hashlib.sha256(contents).hexdigest(),
-            })
-    return resources
 
 # Volltextsuche: durchsucht Lektionen, HubSpot, Unternehmensprojekt, Kompakt und Glossar.
 SEARCH_START = '  // BEGIN SUCHE\n'
@@ -335,65 +297,53 @@ def patch_trainer_nav():
     print('Trainer-Eintrag in vier HTML-Einstiege gesetzt.')
 
 
-def build(source_root):
+def build():
     data = json.loads((ROOT / 'content/continuation.json').read_text())
     job = json.loads((ROOT / 'content/job-preparation.json').read_text())
     lessons = data['lessons']
     job_lessons = job['lessons']
-    ids = {l['id'] for l in lessons}
-    resources = {}
-    provenance = []
-    # Die Kursordner liegen je nach Stand direkt im Quellordner oder unter „2. Modul“.
-    candidates = [*source_root.iterdir(), *((source_root / '2. Modul').iterdir() if (source_root / '2. Modul').is_dir() else [])]
-    for folder in sorted(candidates):
-        if not folder.is_dir():
-            continue
-        name = unicodedata.normalize('NFC', folder.name)
-        match = re.match(r'(2\.[5-9]\.\d+)\b', name)
-        code = '2.8.6' if name == '2.8 Kunden-Pitch' else '2.9.5' if name == '2.9 Team-Pitch' else match[1] if match else None
-        if code not in ids:
-            continue
-        for src in sorted(folder.iterdir()):
-            if not src.is_file() or src.name.startswith(('~$', '.')):
-                continue
-            if src.suffix.lower().strip() not in ('.pdf', '.docx', '.pptx', '.html', '.png', '.jpg', '.xlsx', '.md'):
-                continue
-            # Der Kunden-Pitch wird auf Wunsch ausschließlich als PDF angeboten.
-            if code == '2.8.6' and src.suffix.lower() == '.pptx':
-                continue
-            filename = unicodedata.normalize('NFC', src.name).strip()
-            dest = Path('assets/kurs') / code / filename
-            (ROOT / dest).parent.mkdir(parents=True, exist_ok=True)
-            if not (ROOT / dest).exists() or (ROOT / dest).read_bytes() != src.read_bytes():
-                shutil.copyfile(src, ROOT / dest)
-            draft = 'Entwurf' in filename
-            label = filename
-            # Der Dateiname dieser Lösung ist irreführend; die Zuordnung folgt dem Dokumenttitel.
-            if code == '2.9.4' and 'Feedback' in filename:
-                label = '2.9.4 Lead Management & Erfolgsmessung – Lösungen.pdf'
-            resources.setdefault(code, []).append({'t':'image' if src.suffix.lower()=='.png' and code=='2.9.5' else 'button', 'resourceLabel':'Originalmaterial · '+src.suffix.lower().lstrip('.').upper(),
-                **({'src':dest.as_posix(),'caption':'Zoom-Hintergrund · Team-Pitch · Originaldatei','maxW':'640px'} if src.suffix.lower()=='.png' and code=='2.9.5' else {'label':label,'href':dest.as_posix(),'download':src.suffix.lower() not in ('.pdf','.html','.png','.jpg'), 'sub': 'Entwurfsstand · ergänzendes Originalmaterial' if draft else 'Vollständige Originaldatei · '+src.suffix.lower().lstrip('.').upper()})})
-            provenance.append({'lesson':code,'source':str(src.relative_to(source_root)), 'path':dest.as_posix(),'sha256':hashlib.sha256(src.read_bytes()).hexdigest()})
-    resources.update(module_four_materials(source_root, job_lessons, provenance))
     all_lessons = lessons + job_lessons
-    content = {}
-    for lesson in all_lessons:
-        code = lesson['id']
-        content[code] = {k:v for k,v in lesson.items() if k in ('hero','sections')}
-        blocks = sorted(resources.get(code, []), key=lambda b: ('Entwurf' in b.get('label',''), b.get('label','')))
-        if not blocks:
-            raise ValueError('Keine Materialien für '+code)
-        originals = blocks if code.startswith('4.') else [
-            {'t':'note','text':'Die folgenden Dateien sind die vollständigen Originalunterlagen. Lösungen öffnen sich separat, damit du die Aufgaben zunächst selbst bearbeiten kannst.'}, *blocks]
-        content[code]['sections'].append({'eyebrow':'Kursunterlagen','title':'Originalmaterial & Vertiefung','pill':'Originalmaterial','blocks':originals})
-    def link(code, ending, label):
-        row = next(p for p in provenance if p['lesson']==code and p['path'].endswith(ending))
-        return {'t':'button','label':label,'href':row['path'],'download':ending.endswith(('.pptx','.docx')),'resourceLabel':'Projektarchiv · '+Path(ending).suffix.lstrip('.').upper(),'sub':'Vollständiges Original · fiktives Unternehmensprojekt'}
+    content = {l['id']: {k: l[k] for k in ('hero', 'sections')} for l in all_lessons}
+
+    leadpilot = Path('assets/leadpilot')
+
+    def link(href, label):
+        suffix = href.suffix.lower()
+        if not (ROOT / href).is_file():
+            raise ValueError(f'LeadPilot-Projektdatei fehlt: {href}')
+        return {'t': 'button', 'label': label, 'href': href.as_posix(),
+                'download': suffix in ('.pptx', '.xlsx', '.md'), 'resourceLabel': 'LeadPilot · ' + suffix[1:].upper(),
+                'sub': 'Fiktives Unternehmensprojekt'}
+
+    def pitch(filename, label):
+        return link(leadpilot / 'pitch' / filename, label)
+
+    customer_links = [
+        pitch('LeadPilot Final Pitch-Deck Weidner.pdf', 'Komplettes Kunden-Pitchdeck ansehen · PDF'),
+        pitch('pitch-cockpit.html', 'Pitch-Cockpit öffnen'),
+    ]
+    team_links = [
+        pitch('Teampitch-Deck final mit Schlussfolie.pptx', 'Komplettes finales Team-Pitchdeck herunterladen · PowerPoint'),
+        pitch('Team-Pitch Dossier LeadPilot1.pdf', 'Vollständiges Team-Pitch-Dossier ansehen · PDF'),
+        pitch('Teleprompter LeadPilot.html', 'LeadPilot-Teleprompter öffnen'),
+        pitch('Präsentation-Entwurfsskizzen1.pptx', 'Entwurfsskizzen herunterladen · PowerPoint'),
+        pitch('LeadPilot Zoom-Hintergrund 1920x1080.png', 'LeadPilot-Zoom-Hintergrund öffnen'),
+    ]
+    lesson_links = {'2.8.6': customer_links, '2.9.5': team_links}
+    lessons_dir = leadpilot / 'lektionen'
+    for code in content:
+        paths = sorted(p.relative_to(ROOT) for p in (ROOT / lessons_dir / code).iterdir()
+                       if p.is_file() and not p.name.startswith('.')) if (ROOT / lessons_dir / code).is_dir() else []
+        blocks = lesson_links.get(code, []) + [link(path, path.stem) for path in paths]
+        if blocks:
+            content[code]['sections'].append({'eyebrow': 'Projektarchiv', 'title': 'LeadPilot-Projektdateien',
+                                              'pill': 'Projektarchiv', 'blocks': blocks})
+
     project_sections = [
         {'eyebrow':'Pitch-Entwicklung · 2.8','title':'Kunden-Pitch: Weidner','pill':'12 · Kunden-Pitch','blocks':[
             {'t':'lead','text':'Die Verkaufspräsentation verdichtet das Projekt auf die Sicht von Jens Hartwig: liegen gebliebene Messekontakte, klare Zuständigkeiten und ein nächster Schritt im CRM. Der vollständige Kunden-Pitch schließt den Abschnitt 2.8 ab.'},
             {'t':'flow','cols':2,'steps':[{'num':'01','title':'Fundament','text':'ICP, Persona und die stärksten Nutzenargumente sammeln.'},{'num':'02','title':'Geschichte','text':'Situation, Complication und Resolution zum Drehbuch verbinden.'},{'num':'03','title':'Deck und Probe','text':'Action Titles, klare Visuals und ein gemessener Probelauf.'},{'num':'04','title':'Pitch-Day 1','text':'Feedback nutzen und das finale Deck ablegen.'}]},
-            link('2.8.6','LeadPilot Final Pitch-Deck Weidner.pdf','Komplettes Kunden-Pitchdeck ansehen · PDF'),
+            customer_links[0],
             {'t':'golink','to':'2.8.6','label':'Zu 2.8.6 Pitch-Day 1','sub':'Deck, Pitch-Cockpit und Wissenscheck'}]},
         {'eyebrow':'Pitch-Entwicklung · 2.9','title':'Die gemeinsame Vertriebsstrategie','pill':'13 · Team-Strategie','blocks':[
             {'t':'lead','text':'Im Team-Projekt führen Patrick, André und Marc die Idee mit Content, Outreach, Priorisierung und Erfolgsmessung zusammen. Persona und Zielunternehmen sind Teil der fiktiven Fallstudie Weidner.'},
@@ -401,8 +351,7 @@ def build(source_root):
             {'t':'note','text':'Die Q3-Zahlen im Teamdeck sind Szenariodaten: 650 Leads, 210 MQL, 75 SQL, 36 Angebote und 16 Neukunden. 16/36 ergeben rund 44,4 % Angebotsabschlussquote. 16/58 gestarteten Teamtests ergeben rund 27,6 % Trial-to-Paid. Sie belegen keinen realen Geschäftsbetrieb.'}]},
         {'eyebrow':'Projektarchiv · 2.9','title':'Vollständiges Teamdeck & Dossier','pill':'14 · Team-Pitch','blocks':[
             {'t':'lead','text':'Das finale Deck mit Schlussfolie zeigt die verdichtete Geschichte. Das vollständige Dossier bewahrt die Herleitung zu Persona, Content, Nachrichten, Lead-Priorisierung, Funnel, KPIs und Design. Im Abschluss findest du zusätzlich Teleprompter, Hintergrund und Entwurfsskizzen.'},
-            link('2.9.5','Teampitch-Deck final mit Schlussfolie.pptx','Komplettes finales Team-Pitchdeck herunterladen · PowerPoint'),
-            link('2.9.5','Team-Pitch Dossier LeadPilot1.pdf','Vollständiges Team-Pitch-Dossier ansehen · PDF'),
+            *team_links[:2],
             {'t':'golink','to':'2.9.5','label':'Zu 2.9.5 Pitch-Day 2','sub':'Finalisierung, Generalprobe, vollständige Materialien und Quiz'},
             {'t':'heading','text':'Versionen und Rechenannahmen'},
             {'t':'note','text':'Das finale Teamdeck hat zwölf Folien; im Dossier steht noch die frühere Planung mit 15. Die 150.000-€-Rechnung nutzt ebenfalls verschiedene Annahmen: Kunden-Deck und Dossier rechnen 3 Messen × 2 mögliche Aufträge × 25.000 €, das Teamdeck 60 offene Kontakte × 25 % × 10.000 €. Die Originale bleiben unverändert. Das Ergebnis ist Fallpotenzial, kein nachgewiesener Verlust.'},
@@ -513,15 +462,13 @@ def build(source_root):
     template=transform(read_section(original,'template'))
     bundled=replace_section(replace_section(original,'template',template),'manifest',manifest)
     for f in ['index.html','DBA Lernportal (offline).html']:(ROOT/f).write_text(bundled)
-    (ROOT/'content/materials.json').write_text(json.dumps(provenance,ensure_ascii=False,indent=2)+'\n')
-    print(f'{len(all_lessons)} Lektionen, {sum(len(l["quiz"]["questions"]) for l in all_lessons)} Quizfragen, {len(provenance)} Originaldateien; vier HTML-Einstiege aktualisiert.')
+    print(f'{len(all_lessons)} Lektionen, {sum(len(l["quiz"]["questions"]) for l in all_lessons)} Quizfragen; vier HTML-Einstiege aktualisiert.')
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser()
-    parser.add_argument('--source-root',type=Path,default=Path('/Users/marcpoenisch/Documents/DBA Batch 8'))
     parser.add_argument('--nav-only',action='store_true',help='nur den Trainer-Eintrag der Seitenleiste in die vier HTML-Einstiege setzen, ohne Kursmaterial neu einzulesen')
     args=parser.parse_args()
     if args.nav_only:
         patch_trainer_nav()
     else:
-        build(args.source_root)
+        build()

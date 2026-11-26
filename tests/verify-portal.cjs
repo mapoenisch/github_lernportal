@@ -4,11 +4,9 @@ const vm = require('node:vm');
 const zlib = require('node:zlib');
 const assert = require('node:assert/strict');
 const path = require('node:path');
-const crypto = require('node:crypto');
 const root = path.resolve(__dirname, '..');
 const read = f => fs.readFileSync(path.join(root, f), 'utf8');
 const data = JSON.parse(read('content/continuation.json'));
-const materials = JSON.parse(read('content/materials.json'));
 function component(doc, quiz) {
   const code = doc.match(/<script type="text\/x-dc"[^>]*>([\s\S]*?)<\/script>/)[1];
   const storage = {dba_completed_v1:JSON.stringify({'1.1.2':true,'2.7.4':true})};
@@ -20,6 +18,7 @@ function component(doc, quiz) {
 }
 function check(doc, quiz, label) {
   const portal=component(doc,quiz);
+  assert.ok(!doc.includes('assets/kurs/'), label + ': keine Links auf Kursoriginale');
   const all=portal.CURR.flatMap(m=>m.groups.flatMap(g=>g.lessons));
   assert.equal(new Set(all.map(x=>x.id)).size,all.length, label+': duplicate IDs');
   assert.equal(portal.state.completed['1.1.2'],true);
@@ -28,7 +27,7 @@ function check(doc, quiz, label) {
   assert.equal(JSON.stringify(later.map(x=>x.id)),JSON.stringify(data.lessons.map(x=>x.id)));
   for(const lesson of data.lessons){
     const raw=portal.CONTENT[lesson.id];
-    assert.ok(raw.sections.length>=6,lesson.id+': full lesson');
+    assert.ok(raw.sections.length>=5,lesson.id+': full lesson');
     assert.equal(all.filter(x=>x.id===lesson.id).length,1);
     const q=portal.state.quizData[lesson.id];
     assert.ok(!/150[.]000|Kunden-Deck|Teamdeck|Weidner|LeadPilot|Warum steht|Portal|16 Neukunden|58 Teamtests/.test(JSON.stringify(q)), lesson.id+': Quiz muss Lehrstoff statt Lösungsartefakte abfragen');
@@ -62,7 +61,7 @@ function check(doc, quiz, label) {
     for (const {id} of lessons) {
       const {sections} = portal.CONTENT[id];
       const quiz = portal.state.quizData[id];
-      assert.equal(sections.length, 6, id);
+      assert.equal(sections.length, 5, id);
       assert.equal(quiz.questions.length, 4, id);
       for (const question of quiz.questions) {
         assert.equal(new Set(question.options.map(o => o.id)).size, 4, id);
@@ -72,13 +71,6 @@ function check(doc, quiz, label) {
       for (const block of sections.flatMap(s => s.blocks)) {
         const rendered = portal.styleBlock(block, '#E4694B');
         assert.ok(rendered && !(rendered.isNote && !rendered.text), id + ': ' + block.t);
-      }
-      const originals = sections.at(-1).blocks.filter(b => b.t === 'button');
-      assert.ok(originals.length >= 2, id);
-      for (const {href} of originals) {
-        assert.ok(href.startsWith('assets/kurs/' + id + '/') && fs.existsSync(path.join(root, href)), href);
-        assert.ok(materials.some(m => m.path === href), href);
-        assert.doesNotMatch(href, /MeinCV|Transfer-Checkliste|SoftwareOne|Lösungen?/i);
       }
       portal.select(id);
       assert.equal(portal.renderVals().hasQuiz, true, id);
@@ -132,7 +124,7 @@ function check(doc, quiz, label) {
   assert.ok(!project.some(b=>b.href?.includes('2.8.6')&&b.href.endsWith('.pptx')));
   for(const ending of ['LeadPilot Final Pitch-Deck Weidner.pdf','Teampitch-Deck final mit Schlussfolie.pptx','Team-Pitch Dossier LeadPilot1.pdf'])assert.ok(project.some(b=>b.href?.endsWith(ending)),ending);
   const links=[...data.lessons.flatMap(l=>portal.CONTENT[l.id].sections.flatMap(s=>s.blocks)),...project].filter(b=>b.t==='button');
-  for(const b of links.filter(b=>b.href?.startsWith('assets/kurs/'))){
+  for(const b of links.filter(b=>b.href?.startsWith('assets/leadpilot/'))){
     assert.ok(fs.existsSync(path.join(root,b.href)),b.href);
     if(/\.(pptx|docx|xlsx|md)$/.test(b.href))assert.equal(portal.styleBlock(b,'#E4694B').onOpen,undefined,'Office must not open in iframe');
   }
@@ -169,8 +161,5 @@ const manifest=get('manifest');
 const item=manifest['d3b9f937-d128-463d-851c-f9ea093629b5'];
 check(get('template'),zlib.gunzipSync(Buffer.from(item.data,'base64')).toString(),'HTML-Bundle');
 assert.equal(bundle,read('DBA Lernportal (offline).html'));
-for(const r of materials){
-  const hash=crypto.createHash('sha256').update(fs.readFileSync(path.join(root,r.path))).digest('hex');
-  assert.equal(hash,r.sha256,r.path+': changed original');
-}
-console.log(materials.length+' Originaldateien anhand SHA-256 geprüft. HTML-Paare synchron.');
+assert.ok(!fs.existsSync(path.join(root, 'assets/kurs')));
+console.log('HTML-Paare synchron, keine Kursoriginale im Auslieferungsordner.');

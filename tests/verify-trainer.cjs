@@ -5,16 +5,30 @@ const vm = require('vm');
 const assert = require('assert');
 
 const dir = path.join(__dirname, '..', 'zertifizierungstrainer');
-const store = {};
-const ctx = {
-  window: {}, console,
-  localStorage: { getItem: k => store[k] || null, setItem: (k, v) => { store[k] = v; } },
-  location: { search: '' }, URLSearchParams,
-  document: { getElementById: () => ({ set innerHTML(v) {} }), addEventListener: () => {}, querySelector: () => null, querySelectorAll: () => [] },
-  confirm: () => true, setTimeout, clearTimeout,
-};
-vm.createContext(ctx);
-vm.runInContext(fs.readFileSync(path.join(dir, 'data.js'), 'utf8'), ctx);
+const dataSource = fs.readFileSync(path.join(dir, 'data.js'), 'utf8');
+const appSource = fs.readFileSync(path.join(dir, 'app.js'), 'utf8');
+function trainer(store = {}, location = { search: '', hostname: 'example.org' }) {
+  const events = {};
+  const window = { addEventListener: (event, fn) => { events[event] = fn; }, scrollTo() {} };
+  const box = { innerHTML: '' };
+  const notice = { classList: { add() {}, remove() {} } };
+  const ctx = vm.createContext({
+    window, console, location, URLSearchParams,
+    localStorage: { getItem: k => store[k] ?? null, setItem: (k, v) => { store[k] = v; } },
+    document: { getElementById: id => id === 'app' ? box : null,
+      addEventListener: (event, fn) => { events[event] = fn; },
+      querySelector: sel => sel === '.toast' ? notice : null, querySelectorAll: () => [] },
+    FileReader: class { readAsText(text) { this.result = text; this.onload(); } },
+    confirm: () => true, setTimeout, clearTimeout,
+  });
+  vm.runInContext(dataSource, ctx);
+  vm.runInContext(appSource, ctx);
+  return { ctx, box, notice, events, state: window.ZT.state,
+    click: (action, data) => events.click({ target: { closest: () => ({ dataset: { action, ...data } }) } }),
+    importFile: text => events.change({ target: { dataset: { action: 'import' }, files: [text] } }),
+  };
+}
+const { ctx } = trainer();
 const D = ctx.window.ZT_DATA;
 
 // Umfang: genau Nr. 1–139, nichts ab 140
@@ -36,7 +50,6 @@ const all = Object.values(D.groups).flat();
 assert.strictEqual(all.length, 139); assert.strictEqual(new Set(all).size, 139);
 
 // App laden und Regeln prüfen
-vm.runInContext(fs.readFileSync(path.join(dir, 'app.js'), 'utf8'), ctx);
 const ZT = ctx.window.ZT;
 const today = new Date(); const iso = d => d.toISOString().slice(0, 10);
 const day = n => { const d = new Date(today); d.setDate(d.getDate() + n); return iso(d); };
@@ -60,4 +73,71 @@ assert.strictEqual(a.status, 'unsicher'); assert.ok(a.reset);
 const v = D.questions.find(q => q.fn === 'abgr' && q.terms.includes(39) && q.terms.includes(41));
 assert.ok(v, 'Vergleichsfrage Lead Scoring / Lead Nurturing');
 
-console.log('Zertifizierungstrainer: 139 Begriffe, ' + D.questions.length + ' Fragen, Varianten-, Bestätigungs- und Rücksetzregeln geprüft.');
+
+// Importe aus der Oberfläche prüfen, inklusive Sicherung und Start ohne aktiven Durchlauf.
+const key = 'zt.v1';
+const state = (runs = [], active = null) => JSON.stringify({ runs, active });
+const storedRun = { ...run, id: 'Lernen & Wiederholen', mode: 'sprint', log: [],
+  done: { [ZT.PLAN[0].id]: { date: day(0), n: 1, gaps: [], summary: 'Fragen & Übungen' } } };
+const valid = state([storedRun], storedRun.id);
+const invalid = state([{ ...storedRun, log: null }], storedRun.id);
+const saved = { [key]: valid };
+const open = trainer(saved);
+open.importFile(invalid);
+assert.equal(saved[key], valid);
+open.ctx.confirm = () => false;
+open.importFile(state());
+assert.equal(saved[key], valid);
+open.ctx.confirm = () => true;
+open.importFile(state());
+assert.equal(saved[key + '.backup'], valid);
+assert.match(open.box.innerHTML, /data-action="import"/);
+
+const damaged = { [key]: invalid, [key + '.backup']: valid };
+const recovery = trainer(damaged);
+assert.match(recovery.box.innerHTML, /Sicherung wiederherstellen/);
+assert.equal(damaged[key + '.corrupt'], invalid);
+recovery.click('restore');
+assert.equal(damaged[key], valid);
+assert.match(recovery.box.innerHTML, /Fragen &amp; Übungen/);
+
+const shared = { [key]: valid };
+const first = trainer(shared);
+const second = trainer(shared);
+first.click('lesson', { id: ZT.PLAN[0].id });
+first.click('dunno');
+first.click('save');
+first.click('save');
+assert.equal(JSON.parse(shared[key]).runs[0].log.length, 1);
+second.click('lesson', { id: ZT.PLAN[0].id });
+assert.equal(JSON.parse(shared[key]).runs[0].log.length, 1);
+assert.equal(second.state().runs[0].log.length, 1);
+second.events.storage({ key });
+assert.equal(second.state().runs[0].session.i, 1);
+
+const hosted = {};
+trainer(hosted, { search: '?zeitreise=5', hostname: 'example.org' }).click('start', { mode: 'sprint' });
+assert.equal(JSON.parse(hosted[key]).runs[0].start, ZT.todayStr());
+const local = {};
+trainer(local, { search: '?zeitreise=5', hostname: 'localhost' }).click('start', { mode: 'sprint' });
+assert.equal(local[key], undefined);
+assert.ok(local[key + '.zeitreise']);
+
+// Beide Wahr/Falsch-Varianten und die strengere Lückentextwertung.
+vm.runInContext('Math.random = () => 0.1', ctx);
+assert.equal(ZT.makeFix(39, { conf: 41 }).other, 39);
+vm.runInContext('Math.random = () => 0.9', ctx);
+assert.equal(ZT.makeFix(39, { conf: 41 }).other, 41);
+assert.equal(ZT.clozeMatches('Kundenbindung', 'kund'), false);
+assert.equal(ZT.clozeMatches('Management', 'ment'), false);
+assert.equal(ZT.clozeMatches('Kundenbindung', 'Kundenbind'), true);
+assert.equal(ZT.clozeMatches('wählt', 'Wählt'), true);
+for (const [nr, word] of [[23, 'Kunden'], [26, 'wählt'], [92, 'Abschluss']]) {
+  assert.ok(D.terms.find(t => t.nr === nr).crit.some(c => c.k === word));
+}
+const reloaded = trainer(shared);
+assert.equal(reloaded.state().runs[0].session.i, 1);
+reloaded.click('leave');
+assert.equal(reloaded.state().runs[0].log.length, 1);
+
+console.log('Zertifizierungstrainer: 139 Begriffe, 598 Fragen, Lernregeln, Import, Wiederherstellung, Tab-Wechsel und Zeitreise geprüft.');
