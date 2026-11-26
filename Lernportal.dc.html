@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
 <meta charset="utf-8">
+<title>DBA Lernportal</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%2322707B%27/%3E%3Ctext x=%2716%27 y=%2720%27 text-anchor=%27middle%27 font-family=%27sans-serif%27 font-weight=%27700%27 font-size=%2711%27 fill=%27white%27%3EDBA%3C/text%3E%3C/svg%3E">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
 <meta name="ext-resource-dependency" content="assets/leadpilot-logo-wide.jpg" data-resource-id="imgLogoWide" />
@@ -37,13 +39,65 @@
   ::-webkit-scrollbar-thumb{background:rgba(140,145,160,.35);border-radius:8px}
   ::-webkit-scrollbar-track{background:transparent}
   input::placeholder{color:#A6ABB6}
+  .portal-shell,.portal-workspace{height:100vh;height:100dvh}
+  .portal-workspace{display:flex;min-width:0}
+  .portal-sidebar{flex:0 0 320px;width:320px;display:flex;flex-direction:column;background:#14161C;border-right:1px solid rgba(255,255,255,.05)}
+  .portal-menu,.portal-drawer-close,.portal-drawer-scrim{display:none}
+  .portal-skip{position:fixed;top:8px;left:8px;z-index:150;transform:translateY(-200%);padding:12px;color:#fff;background:#123E45;border-radius:8px}
+  .portal-skip:focus{transform:none}
+  .portal-shell :focus-visible{outline:2px solid #22707B;outline-offset:3px}
+  .portal-sidebar :focus-visible,.portal-overlay :focus-visible{outline-color:#7FC7B9}
+  .portal-section-toggle{width:100%;text-align:left}
+  .portal-overlay{position:fixed;inset:0;z-index:100;background:rgba(15,17,22,.72);display:flex;align-items:center;justify-content:center;padding:28px}
+  .portal-overlay-content{display:flex;flex-direction:column;width:100%;height:100%;max-width:1320px}
+  .portal-overlay-bar{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+  @media (max-width:900px){
+    .portal-sidebar{display:none;position:fixed;inset:0 auto 0 0;z-index:30;width:min(320px,calc(100vw - 48px))}
+    .portal-sidebar[data-open="true"]{display:flex}
+    .portal-drawer-scrim{display:block;position:fixed;inset:0;z-index:29;background:rgba(15,17,22,.66)}
+    .portal-menu,.portal-drawer-close{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 12px;border:1px solid;border-radius:10px;font:700 13px 'Archivo',sans-serif;cursor:pointer;white-space:nowrap}
+    .portal-menu{color:#123E45;background:#fff;border-color:#E4E1D9}
+    .portal-drawer-close{margin:8px 12px;color:#E7ECEA;background:transparent;border-color:#525660}
+    .portal-sidebar nav button,.portal-sidebar nav a{min-height:44px}
+    .portal-header{padding:0 16px!important;gap:10px!important;height:60px!important}
+    .portal-crumb{display:none!important}
+    .portal-search{width:auto!important;max-width:none!important;min-width:0;flex:1!important}
+    .portal-search input{font-size:16px!important}
+    .portal-lesson{padding:32px 20px 68px!important;overflow-wrap:anywhere}
+    .portal-lesson h1{font-size:clamp(29px,7vw,42px)!important;max-width:none!important}
+    .portal-lesson h2{font-size:clamp(22px,5vw,31px)!important}
+    .portal-lesson .portal-resource,.portal-lesson .portal-golink{width:100%!important}
+    .portal-previous-next{flex-wrap:wrap}
+    .portal-previous-next button{min-width:min(100%,13rem)}
+    .portal-overlay{padding:12px}
+    .portal-overlay-bar{gap:8px;flex-wrap:wrap}
+  }
+  @media (max-width:600px){
+    .portal-lesson .portal-grid{grid-template-columns:minmax(0,1fr)!important}
+    .portal-cycle{overflow-x:auto;padding-bottom:8px}
+    .portal-cycle > div{min-width:450px}
+    .portal-cycle{min-width:0}
+    .portal-phase-steps{flex-direction:column}
+    .portal-quiz fieldset{min-width:0;padding:14px!important}
+    .portal-lesson .portal-flow-arrow{display:none!important}
+    .portal-lesson .portal-flow-step{grid-column:1!important;grid-row:auto!important}
+    .portal-lesson .portal-flow-elbow{display:none}
+    .portal-quiz{padding:18px!important}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .portal-shell *{scroll-behavior:auto!important;transition:none!important}
+  }
+
 </style>
 <script src="./quizData.js"></script>
 </helmet>
 
-<div style="display:flex;height:100vh;overflow:hidden;background:#14161C;font-family:'Public Sans',sans-serif;color:#1A1D24">
+<div class="portal-shell" style="overflow:hidden;background:#14161C;font-family:'Public Sans',sans-serif;color:#1A1D24">
 
-  <aside style="flex:0 0 320px;width:320px;background:#14161C;display:flex;flex-direction:column;height:100vh;border-right:1px solid rgba(255,255,255,.05)">
+  <div class="portal-workspace">
+  <a class="portal-skip" href="#portal-main">Zum Inhalt springen</a>
+  <aside class="portal-sidebar" id="portal-nav" data-open="{{ menuOpen }}" aria-label="Lektionsauswahl">
+    <button type="button" class="portal-drawer-close" onClick="{{ onCloseMenu }}">Menü schließen</button>
     <div style="padding:22px 20px 18px;border-bottom:1px solid rgba(255,255,255,.06)">
       <div style="display:flex;align-items:center;gap:12px">
         <div style="width:40px;height:40px;border-radius:11px;background:linear-gradient(140deg,#22707B,#123E45);display:flex;align-items:center;justify-content:center;font:900 15px 'Archivo',sans-serif;color:#fff;letter-spacing:.02em;flex:0 0 auto">DBA</div>
@@ -54,7 +108,7 @@
       </div>
     </div>
 
-    <nav style="flex:1;overflow-y:auto;padding:12px 12px 8px">
+    <nav aria-label="Kursnavigation" style="flex:1;overflow-y:auto;padding:12px 12px 8px">
       <sc-for list="{{ modules }}" as="mod" hint-placeholder-count="2">
         <div style="padding:16px 10px 2px;display:flex;align-items:baseline;gap:8px">
           <span style="font:800 11px/1 'Archivo',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#E4694B">{{ mod.label }}</span>
@@ -202,17 +256,19 @@
     </sc-if>
   </aside>
 
-  <main style="flex:1;display:flex;flex-direction:column;min-width:0;background:#F5F4F0">
-    <header style="flex:0 0 auto;display:flex;align-items:center;gap:18px;padding:0 34px;height:68px;background:rgba(245,244,240,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #E4E1D9;z-index:5">
-      <nav style="display:flex;align-items:center;gap:8px;font:600 13px/1 'Public Sans',sans-serif;color:#8A8F9C;min-width:0;flex:1">
+  <sc-if value="{{ menuOpen }}"><div class="portal-drawer-scrim" aria-hidden="true" onClick="{{ onCloseMenu }}"></div></sc-if>
+  <main id="portal-main" tabindex="-1" style="flex:1;display:flex;flex-direction:column;min-width:0;background:#F5F4F0">
+    <header class="portal-header" style="flex:0 0 auto;display:flex;align-items:center;gap:18px;padding:0 34px;height:68px;background:rgba(245,244,240,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #E4E1D9;z-index:5">
+      <button type="button" class="portal-menu" aria-expanded="{{ menuOpen }}" aria-controls="portal-nav" onClick="{{ onOpenMenu }}">Lektionen</button>
+      <nav class="portal-crumb" aria-label="Aktueller Abschnitt" style="display:flex;align-items:center;gap:8px;font:600 13px/1 'Public Sans',sans-serif;color:#8A8F9C;min-width:0;flex:1">
         <span style="flex:0 0 auto">{{ crumbModule }}</span>
         <span style="color:#C9C6BE;flex:0 0 auto">/</span>
         <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0">{{ crumbGroup }}</span>
         <span style="color:#C9C6BE;flex:0 0 auto">/</span>
         <span style="color:#1A1D24;flex:0 0 auto">{{ crumbCode }}</span>
       </nav>
-      <div style="position:relative;width:300px;max-width:40vw;flex:0 0 auto">
-        <input value="{{ query }}" onChange="{{ onSearch }}" onKeyDown="{{ onSearchKey }}" placeholder="Alle Inhalte durchsuchen …" style="width:100%;height:40px;padding:0 36px 0 38px;border:1px solid #E4E1D9;border-radius:11px;background:#fff;font:400 14px 'Public Sans',sans-serif;color:#1A1D24;outline:none" style-focus="border-color:#22707B"/>
+      <div class="portal-search" style="position:relative;width:300px;max-width:40vw;flex:0 0 auto">
+        <input aria-label="Alle Inhalte durchsuchen" value="{{ query }}" onChange="{{ onSearch }}" onKeyDown="{{ onSearchKey }}" placeholder="Alle Inhalte durchsuchen …" style="width:100%;height:40px;padding:0 36px 0 38px;border:1px solid #E4E1D9;border-radius:11px;background:#fff;font:400 14px 'Public Sans',sans-serif;color:#1A1D24;outline:none" style-focus="border-color:#22707B"/>
         <span style="position:absolute;left:13px;top:50%;transform:translateY(-50%);color:#9AA0AC;font-size:16px;pointer-events:none">⌕</span>
         <!-- BEGIN SUCHE -->
         <sc-if value="{{ searchHasQuery }}" hint-placeholder-val="{{ false }}">
@@ -234,10 +290,10 @@
       </div>
     </header>
 
-    <div ref="{{ scrollRef }}" style="flex:1;overflow-y:auto;scroll-behavior:smooth">
+    <div class="portal-scroll" ref="{{ scrollRef }}" style="flex:1;overflow-y:auto;scroll-behavior:smooth">
 
       <sc-if value="{{ isContent }}" hint-placeholder-val="{{ true }}">
-        <div style="max-width:900px;margin:0 auto;padding:46px 40px 100px">
+        <div class="portal-lesson" style="max-width:900px;margin:0 auto;padding:46px 40px 100px">
 
           <div style="font:800 12px/1 'Archivo',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E4694B;margin-bottom:16px">{{ hero.eyebrow }}</div>
           <h1 style="font:900 42px/1.08 'Archivo',sans-serif;color:#14171E;letter-spacing:-.025em;margin:0 0 16px;max-width:18ch">{{ hero.title }}</h1>
@@ -260,20 +316,22 @@
           <sc-for list="{{ sections }}" as="s" hint-placeholder-count="3">
             <section id="{{ s.id }}" style="{{ s.anchorStyle }}">
               <sc-if value="{{ s.hasEyebrow }}"><div style="font:800 12px/1 'Archivo',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E4694B;margin-bottom:12px">{{ s.eyebrow }}</div></sc-if>
-              <div style="{{ s.headerRowStyle }}" onClick="{{ s.onToggle }}">
-                <h2 style="{{ s.titleStyle }}">{{ s.title }}</h2>
-                <sc-if value="{{ s.hasCaret }}"><span style="{{ s.caretStyle }}">{{ s.caret }}</span></sc-if>
-              </div>
+              <sc-if value="{{ s.hasCaret }}">
+                <h2 style="margin:0"><button type="button" class="portal-section-toggle" aria-expanded="{{ s.open }}" aria-controls="{{ s.bodyId }}" style="{{ s.headerRowStyle }}" onClick="{{ s.onToggle }}">
+                  <span style="{{ s.titleStyle }}">{{ s.title }}</span><span aria-hidden="true" style="{{ s.caretStyle }}">{{ s.caret }}</span>
+                </button></h2>
+              </sc-if>
+              <sc-if value="{{ s.isStatic }}"><h2 style="{{ s.titleStyle }}">{{ s.title }}</h2></sc-if>
               <sc-if value="{{ s.hasLead }}"><p style="font:400 16px/1.6 'Public Sans',sans-serif;color:#565C69;max-width:64ch;margin:0">{{ s.lead }}</p></sc-if>
 
               <sc-if value="{{ s.open }}" hint-placeholder-val="{{ true }}">
-              <div style="{{ s.bodyStyle }}">
+              <div id="{{ s.bodyId }}" style="{{ s.bodyStyle }}">
               <sc-for list="{{ s.blocks }}" as="b" hint-placeholder-count="3">
                 <sc-if value="{{ b.isHeading }}"><h3 id="{{ b.anchorId }}" style="font:700 20px/1.3 'Archivo',sans-serif;color:#14171E;margin:44px 0 14px;letter-spacing:-.01em">{{ b.text }}</h3></sc-if>
                 <sc-if value="{{ b.isLead }}"><p style="font:400 16px/1.6 'Public Sans',sans-serif;color:#565C69;max-width:64ch;margin:16px 0 0">{{ b.text }}</p></sc-if>
                 <sc-if value="{{ b.isNote }}"><p style="{{ b.noteStyle }}">{{ b.text }}</p></sc-if>
                 <sc-if value="{{ b.isButton }}">
-                  <a href="{{ b.href }}" target="_blank" rel="noopener" onClick="{{ b.onOpen }}" style="display:flex;align-items:center;gap:15px;width:50%;margin-top:24px;margin-left:auto;text-decoration:none;background:#33415C;border-radius:20px;padding:20px 22px;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease" style-hover="background:#2A374E;box-shadow:0 14px 32px rgba(51,65,92,.28);transform:translateY(-2px)">
+                  <a class="portal-resource" href="{{ b.href }}" target="_blank" rel="noopener" onClick="{{ b.onOpen }}" style="display:flex;align-items:center;gap:15px;width:50%;margin-top:24px;margin-left:auto;text-decoration:none;background:#33415C;border-radius:20px;padding:20px 22px;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease" style-hover="background:#2A374E;box-shadow:0 14px 32px rgba(51,65,92,.28);transform:translateY(-2px)">
                     <div style="flex:none;width:46px;height:46px;border-radius:13px;background:#A9B6D4;display:flex;align-items:center;justify-content:center;font:800 21px 'Archivo',sans-serif;color:#33415C">↗</div>
                     <div style="flex:1;min-width:0">
                       <div style="font:700 11px/1 'Archivo',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#A9B6D4;margin-bottom:7px">{{ b.resourceLabel }}</div>
@@ -309,7 +367,7 @@
                   </div>
                 </sc-if>
                 <sc-if value="{{ b.isCards }}">
-                  <div style="{{ b.gridStyle }}">
+                  <div class="portal-grid" style="{{ b.gridStyle }}">
                     <sc-for list="{{ b.items }}" as="it" hint-placeholder-count="3">
                       <div style="{{ it.cardStyle }}">
                         <sc-if value="{{ it.hasFlags }}">
@@ -348,14 +406,14 @@
                           <span style="{{ g.roleStyle }}">{{ g.role }}</span>
                           <span style="{{ g.rangeStyle }}">{{ g.range }}</span>
                         </div>
-                        <div style="{{ g.stepsWrapStyle }}">
+                        <div class="portal-phase-steps" style="{{ g.stepsWrapStyle }}">
                           <sc-for list="{{ g.steps }}" as="s" hint-placeholder-count="3">
                             <div style="{{ s.stepStyle }}">
                               <div style="{{ s.numStyle }}">{{ s.num }}</div>
                               <div style="{{ s.titleStyle }}">{{ s.title }}</div>
                               <p style="{{ s.textStyle }}">{{ s.text }}</p>
                             </div>
-                            <sc-if value="{{ s.notLast }}"><div style="{{ s.arrowStyle }}">→</div></sc-if>
+                            <sc-if value="{{ s.notLast }}"><div class="portal-flow-arrow" style="{{ s.arrowStyle }}">→</div></sc-if>
                           </sc-for>
                         </div>
                       </div>
@@ -364,22 +422,22 @@
                   </div>
                 </sc-if>
                 <sc-if value="{{ b.isFlow }}">
-                  <div style="{{ b.flowStyle }}">
+                  <div class="portal-grid" style="{{ b.flowStyle }}">
                     <sc-for list="{{ b.steps }}" as="s" hint-placeholder-count="4">
-                      <div style="{{ s.cellStyle }}">
+                      <div class="portal-flow-step" style="{{ s.cellStyle }}">
                         <div style="{{ s.cardStyle }}">
                           <div style="{{ s.numStyle }}">{{ s.num }}</div>
                           <div style="{{ s.titleStyle }}">{{ s.title }}</div>
                           <sc-if value="{{ s.hasText }}"><p style="{{ s.textStyle }}">{{ s.text }}</p></sc-if>
                         </div>
-                        <sc-if value="{{ s.showRight }}"><div style="{{ s.rightStyle }}">→</div></sc-if>
-                        <sc-if value="{{ s.showLeft }}"><div style="{{ s.leftStyle }}">←</div></sc-if>
-                        <sc-if value="{{ s.showDown }}"><div style="{{ s.downStyle }}">↓</div></sc-if>
+                        <sc-if value="{{ s.showRight }}"><div class="portal-flow-arrow" style="{{ s.rightStyle }}">→</div></sc-if>
+                        <sc-if value="{{ s.showLeft }}"><div class="portal-flow-arrow" style="{{ s.leftStyle }}">←</div></sc-if>
+                        <sc-if value="{{ s.showDown }}"><div class="portal-flow-arrow" style="{{ s.downStyle }}">↓</div></sc-if>
                       </div>
                     </sc-for>
                     <sc-if value="{{ b.hasElbow }}">
                       <sc-for list="{{ b.elbows }}" as="el" hint-placeholder-count="1">
-                        <div style="{{ el.wrapStyle }}">
+                        <div class="portal-flow-elbow" style="{{ el.wrapStyle }}">
                           <div style="{{ el.topStyle }}"></div>
                           <div style="{{ el.horizStyle }}"></div>
                           <div style="{{ el.bottomStyle }}"></div>
@@ -390,7 +448,7 @@
                   </div>
                 </sc-if>
                 <sc-if value="{{ b.isCycle }}">
-                  <div style="{{ b.wrapStyle }}">
+                  <div class="portal-cycle" style="{{ b.wrapStyle }}">
                     <div style="{{ b.ringStyle }}"></div>
                     <div style="{{ b.centerStyle }}">
                       <div style="{{ b.centerIconStyle }}">↻</div>
@@ -425,7 +483,7 @@
                 <sc-if value="{{ b.isCallout }}">
                   <div style="{{ b.calloutStyle }}">
                     <div style="{{ b.titleStyle }}">{{ b.title }}</div>
-                    <div style="{{ b.gridStyle }}">
+                    <div class="portal-grid" style="{{ b.gridStyle }}">
                       <sc-for list="{{ b.items }}" as="ci" hint-placeholder-count="3">
                         <div>
                           <div style="{{ ci.titleStyle }}">{{ ci.title }}</div>
@@ -474,7 +532,7 @@
                   <div style="background:linear-gradient(135deg,#1B5560,#123E45);border-radius:20px;padding:34px 36px;margin-top:40px">
                     <div style="font:700 12px/1 'Archivo',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7FC7B9;margin-bottom:14px">{{ b.label }}</div>
                     <h2 style="font:800 24px/1.2 'Archivo',sans-serif;color:#fff;margin:0 0 20px;letter-spacing:-.01em">{{ b.title }}</h2>
-                    <div style="{{ b.gridStyle }}">
+                    <div class="portal-grid" style="{{ b.gridStyle }}">
                       <sc-for list="{{ b.goals }}" as="g" hint-placeholder-count="4">
                         <div style="display:flex;gap:12px;align-items:flex-start">
                           <span style="font:800 14px/1.4 'Archivo',sans-serif;color:#7FC7B9;flex:0 0 auto">{{ g.n }}</span>
@@ -491,7 +549,7 @@
           </sc-for>
 
           <sc-if value="{{ hasQuiz }}">
-          <div style="background:#fff;border:1px solid #E4E1D9;border-radius:20px;padding:34px 36px;margin-top:28px;box-shadow:0 1px 3px rgba(20,23,30,.05)">
+          <div class="portal-quiz" style="background:#fff;border:1px solid #E4E1D9;border-radius:20px;padding:34px 36px;margin-top:28px;box-shadow:0 1px 3px rgba(20,23,30,.05)">
             <h2 style="font:800 22px/1.2 'Archivo',sans-serif;color:#14171E;margin:0 0 8px;letter-spacing:-.01em">{{ quiz.title }}</h2>
             <sc-if value="{{ quiz.hasIntro }}"><p style="font:400 15px/1.6 'Public Sans',sans-serif;color:#565C69;margin:0">{{ quiz.intro }}</p></sc-if>
             <div style="font:700 12px/1 'Archivo',sans-serif;letter-spacing:.06em;color:#8A8F9C;margin-top:18px">{{ quiz.progressLabel }}</div>
@@ -522,7 +580,12 @@
             </div>
 
             <div style="display:flex;justify-content:flex-end;margin-top:26px">
-              <button type="button" disabled="{{ quiz.submitDisabled }}" onClick="{{ quiz.onSubmit }}" style="{{ quiz.submitStyle }}">{{ quiz.submitLabel }}</button>
+              <sc-if value="{{ quiz.showSubmit }}">
+                <button type="button" disabled="{{ quiz.submitDisabled }}" onClick="{{ quiz.onSubmit }}" style="{{ quiz.submitStyle }}">Antworten senden</button>
+              </sc-if>
+              <sc-if value="{{ quiz.resultVisible }}">
+                <button type="button" class="portal-quiz-retry" onClick="{{ quiz.onRetry }}" style="min-height:44px;padding:10px 18px;border:1px solid #123E45;border-radius:11px;background:#fff;color:#123E45;font:700 14px 'Archivo',sans-serif;cursor:pointer">Quiz wiederholen</button>
+              </sc-if>
             </div>
 
             <sc-if value="{{ quiz.resultVisible }}">
@@ -545,7 +608,7 @@
           </div>
           </sc-if>
 
-          <div style="display:flex;gap:16px;margin-top:56px;border-top:1px solid #E4E1D9;padding-top:26px">
+          <div class="portal-previous-next" style="display:flex;gap:16px;margin-top:56px;border-top:1px solid #E4E1D9;padding-top:26px">
             <sc-if value="{{ hasPrev }}" hint-placeholder-val="{{ true }}">
               <button onClick="{{ onPrev }}" style="flex:1;text-align:left;background:#fff;border:1px solid #E4E1D9;border-radius:14px;padding:18px 22px;cursor:pointer" style-hover="border-color:#123E45">
                 <div style="font:600 12px/1 'Public Sans',sans-serif;color:#9AA0AC;margin-bottom:8px">← Vorherige Lektion</div>
@@ -564,11 +627,11 @@
       </sc-if>
 
       <sc-if value="{{ isDashboard }}">
-        <iframe src="{{ dashboardSrc }}" title="LeadPilot Unternehmensdashboard" style="display:block;width:100%;height:100%;border:0"></iframe>
+        {{ dashboardFrame }}
       </sc-if>
 
       <sc-if value="{{ isLandingpage }}">
-        <iframe src="{{ landingpageSrc }}" title="LeadPilot Landingpage" style="display:block;width:100%;height:100%;border:0"></iframe>
+        {{ landingpageFrame }}
       </sc-if>
 
       <sc-if value="{{ isPlaceholder }}">
@@ -584,18 +647,17 @@
     </div>
   </main>
 
+  </div>
+
   <sc-if value="{{ overlayOpen }}">
-    <div onClick="{{ onCloseOverlay }}" style="position:fixed;inset:0;z-index:100;background:rgba(15,17,22,.72);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);display:flex;flex-direction:column;padding:28px">
-      <div style="flex:0 0 auto;display:flex;align-items:center;gap:16px;max-width:1320px;width:100%;margin:0 auto 16px">
-        <div style="flex:1;min-width:0">
-          <div style="font:700 11px/1 'Archivo',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7FC7B9;margin-bottom:6px">{{ b.resourceLabel }}</div>
-          <div style="font:800 18px/1.2 'Archivo',sans-serif;color:#fff;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ overlayTitle }}</div>
+    <div class="portal-overlay" role="dialog" aria-modal="true" aria-labelledby="portal-overlay-title" onClick="{{ onOverlayBackdrop }}">
+      <div class="portal-overlay-content">
+        <div class="portal-overlay-bar">
+          <h2 id="portal-overlay-title" style="flex:1;min-width:0;margin:0;font:800 18px/1.25 'Archivo',sans-serif;color:#fff;overflow-wrap:anywhere">{{ overlayTitle }}</h2>
+          <a href="{{ overlaySrc }}" target="_blank" rel="noopener" style="padding:11px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.22);color:#E7ECEA;font:700 13px 'Archivo',sans-serif;text-decoration:none">In neuem Tab ↗</a>
+          <button id="portal-overlay-close" aria-label="Vorschau schließen" onClick="{{ onCloseOverlay }}" style="width:44px;height:44px;border-radius:10px;border:1px solid rgba(255,255,255,.22);background:transparent;color:#fff;cursor:pointer">✕</button>
         </div>
-        <a href="{{ overlaySrc }}" target="_blank" rel="noopener" style="flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;text-decoration:none;padding:9px 15px;border-radius:10px;border:1px solid rgba(255,255,255,.22);background:transparent;color:#E7ECEA;font:700 13px 'Archivo',sans-serif" style-hover="background:rgba(255,255,255,.08)">In neuem Tab ↗</a>
-        <button onClick="{{ onCloseOverlay }}" style="flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.22);background:transparent;color:#fff;font:400 20px/1 'Public Sans',sans-serif;cursor:pointer" style-hover="background:rgba(255,255,255,.08)">✕</button>
-      </div>
-      <div onClick="{{ onCloseOverlay }}" style="flex:1;min-height:0;display:flex;align-items:center;justify-content:center">
-        <iframe src="{{ overlaySrc }}" title="{{ overlayTitle }}" style="width:100%;height:100%;max-width:1320px;border:0;border-radius:16px;background:#1E293B;box-shadow:0 30px 70px rgba(0,0,0,.5)"></iframe>
+        {{ overlayFrame }}
       </div>
     </div>
   </sc-if>
@@ -611,8 +673,14 @@ class Component extends DCLogic {
     super(props);
     let completed = {};
     try { completed = JSON.parse(localStorage.getItem('dba_completed_v1') || '{}') || {}; } catch (e) {}
-    this.state = { activeLessonId: '1.1.2', query: '', openGroups: {}, completed, overlaySrc: null, overlayTitle: '', compactOpen: {}, quizAnswers: {}, quizHints: {}, quizSubmitted: false, quizData: {} };
+    let quizResults = {};
+    try {
+      const saved = JSON.parse(localStorage.getItem('dba_quiz_results_v1') || '{}');
+      if (saved && typeof saved === 'object' && !Array.isArray(saved)) quizResults = saved;
+    } catch (e) {}
+    this.state = { menuOpen: false, quizResults, activeLessonId: '1.1.2', query: '', openGroups: {}, completed, overlaySrc: null, overlayTitle: '', compactOpen: {}, quizAnswers: {}, quizHints: {}, quizSubmitted: false, quizData: {} };
     this.scrollRef = React.createRef();
+    this.onEscape = this.onEscape.bind(this);
 
     this.CURR = [
       { id:'m1', label:'Modul 1', title:'Einführung Digital Sales', weeks:'6 Wochen', groups:[
@@ -7642,29 +7710,94 @@ class Component extends DCLogic {
     });
   }
   // END SUCHE
+  quizState(id, quizData = this.state.quizData) {
+    const saved = this.state.quizResults[id];
+    const quiz = quizData[id];
+    if (!quiz || !Array.isArray(saved) || saved.length !== quiz.questions.length ||
+        !quiz.questions.every((q, i) => q.options.some(option => option.id === saved[i]))) {
+      return { quizAnswers: {}, quizHints: {}, quizSubmitted: false };
+    }
+    return { quizAnswers: { ...saved }, quizHints: {}, quizSubmitted: true };
+  }
   select(id) {
-    this.setState({ activeLessonId: id, quizAnswers: {}, quizHints: {}, quizSubmitted: false }, () => {
+    const focusContent = this.state.menuOpen;
+    this.setState({ activeLessonId: id, menuOpen: false, ...this.quizState(id) }, () => {
       if (this.scrollRef.current) this.scrollRef.current.scrollTop = 0;
+      if (focusContent) this.endMenuFocus('#portal-main');
     });
   }
   componentDidMount() {
+    document.addEventListener('keydown', this.onEscape);
+    this.drawerViewport = window.matchMedia('(max-width:900px)');
+    this.onDrawerViewport = event => { if (!event.matches && this.state.menuOpen) this.closeMenu(false); };
+    this.drawerViewport.addEventListener('change', this.onDrawerViewport);
     const pickUpQuizData = (tries) => {
-      if (window.QUIZ_DATA) { this.setState({ quizData: window.QUIZ_DATA }); return; }
+      if (window.QUIZ_DATA) {
+        this.setState({ quizData: window.QUIZ_DATA, ...this.quizState(this.state.activeLessonId, window.QUIZ_DATA) });
+        return;
+      }
       if (tries <= 0) { console.error('quizData.js konnte nicht geladen werden – window.QUIZ_DATA fehlt.'); return; }
-      setTimeout(() => pickUpQuizData(tries - 1), 120);
+      this.quizDataTimer = setTimeout(() => pickUpQuizData(tries - 1), 120);
     };
     pickUpQuizData(50);
+  }
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.onEscape);
+    this.drawerViewport?.removeEventListener('change', this.onDrawerViewport);
+    clearTimeout(this.quizDataTimer);
+  }
+  onEscape(e) {
+    if (e.key !== 'Escape' || e.defaultPrevented) return;
+    if (this.state.overlaySrc) this.closeOverlay();
+    else if (this.state.menuOpen) this.closeMenu();
+    else return;
+    e.preventDefault();
+  }
+  openMenu() {
+    this.setState({ menuOpen: true }, () => {
+      document.querySelector('#portal-main')?.setAttribute('inert', '');
+      document.querySelector('.portal-skip')?.setAttribute('inert', '');
+      document.querySelector('.portal-drawer-close')?.focus();
+    });
+  }
+  endMenuFocus(selector) {
+    document.querySelector('#portal-main')?.removeAttribute('inert');
+    document.querySelector('.portal-skip')?.removeAttribute('inert');
+    if (selector) document.querySelector(selector)?.focus({ preventScroll: true });
+  }
+  closeMenu(restoreFocus = true) {
+    this.setState({ menuOpen: false }, () => this.endMenuFocus(restoreFocus ? '.portal-menu' : null));
   }
   resolveAsset(path) {
     const map = { 'assets/leadpilot-logo-wide.jpg':'imgLogoWide', 'assets/leadpilot-lead-qualifizierung.png':'imgLeadQualifizierung', 'assets/leadpilot-ad.png':'imgAd', 'assets/buyer-persona-canvas.png':'imgPersonaCanvas', 'assets/leadpilot-buyer-persona.pdf':'pdfPersona', 'assets/leadpilot-bmc.pdf':'pdfBmc', 'assets/leadpilot-geschaeftsbericht.pdf':'pdfGeschaeftsbericht', 'assets/leadpilot-dashboard.html':'dashboardHtml', 'assets/leadpilot-landingpage.html':'landingpageHtml' };
     const id = map[path];
     return (id && window.__resources && window.__resources[id]) ? window.__resources[id] : path;
   }
-  openOverlay(src, title) {
-    this.setState({ overlaySrc: src, overlayTitle: title || '' });
+  openOverlay(src, title, trigger) {
+    this.overlayTrigger = trigger;
+    this.setState({ overlaySrc: src, overlayTitle: title || 'Vorschau' }, () => {
+      document.querySelector('.portal-workspace')?.setAttribute('inert', '');
+      document.querySelector('#portal-overlay-close')?.focus();
+    });
   }
   closeOverlay() {
-    this.setState({ overlaySrc: null, overlayTitle: '' });
+    this.setState({ overlaySrc: null, overlayTitle: '' }, () => {
+      document.querySelector('.portal-workspace')?.removeAttribute('inert');
+      this.overlayTrigger?.focus();
+      this.overlayTrigger = null;
+    });
+  }
+  frame(src, title, overlay = false) {
+    const style = overlay
+      ? { width:'100%', flex:1, minHeight:0, border:0, borderRadius:'16px', background:'#1E293B' }
+      : { display:'block', width:'100%', height:'100%', border:0 };
+    return React.createElement('iframe', {
+      src, title, style,
+      onLoad: overlay ? event => {
+        try { event.currentTarget.contentDocument?.addEventListener('keydown', this.onEscape); }
+        catch (e) { /* Fremde Frame-Dokumente sind nicht zugänglich. */ }
+      } : undefined,
+    });
   }
   toggleGroup(id) {
     this.setState(s => ({ openGroups: { ...s.openGroups, [id]: s.openGroups[id] === false ? true : false } }));
@@ -7676,7 +7809,9 @@ class Component extends DCLogic {
     this.setState(s => ({ openGroups: { ...s.openGroups, [id]: !s.openGroups[id] } }));
   }
   selectCompactSection(sectionId, subIndex) {
-    this.setState(s => ({ activeLessonId:'kompakt', compactOpen: { ...s.compactOpen, [sectionId]: true } }), () => {
+    const closeDrawer = this.state.menuOpen;
+    this.setState(s => ({ activeLessonId:'kompakt', menuOpen:false, ...this.quizState('kompakt'), compactOpen: { ...s.compactOpen, [sectionId]: true } }), () => {
+      if (closeDrawer) this.endMenuFocus('#portal-main');
       requestAnimationFrame(() => {
         const el = document.getElementById(sectionId + '-h' + subIndex);
         const container = this.scrollRef.current;
@@ -7708,7 +7843,15 @@ class Component extends DCLogic {
     if (!lessonQuiz) return;
     const allAnswered = lessonQuiz.questions.every((q, i) => !!this.state.quizAnswers[i]);
     if (!allAnswered || this.state.quizSubmitted) return;
-    this.setState({ quizSubmitted: true });
+    const answers = lessonQuiz.questions.map((q, i) => this.state.quizAnswers[i]);
+    const results = { ...this.state.quizResults, [this.state.activeLessonId]: answers };
+    try { localStorage.setItem('dba_quiz_results_v1', JSON.stringify(results)); } catch (e) {}
+    this.setState({ quizResults: results, quizSubmitted: true });
+  }
+  retryQuiz() {
+    this.setState({ quizAnswers: {}, quizHints: {}, quizSubmitted: false }, () => {
+      document.querySelector('.portal-quiz [role="radio"]')?.focus();
+    });
   }
   findLesson(id) {
     for (const m of this.CURR) for (const g of m.groups) for (const l of g.lessons) {
@@ -7997,12 +8140,12 @@ class Component extends DCLogic {
         const isPdf = /\.pdf($|\?)/i.test(b.href || '');
         const resolvedHref = this.resolveAsset(b.href);
         return { isButton:true, resourceLabel:b.resourceLabel || 'Zusatzmaterial · Infografik', label:b.label, href:resolvedHref, hasSub:!!b.sub, sub:b.sub || '',
-          onOpen: (isPdf || b.download) ? undefined : (e)=>{ if(e&&e.preventDefault) e.preventDefault(); this.openOverlay(resolvedHref, b.label); } };
+          onOpen: (isPdf || b.download) ? undefined : (e)=>{ if(e&&e.preventDefault) e.preventDefault(); this.openOverlay(resolvedHref, b.label, e?.currentTarget); } };
       }
       case 'image': {
         const cap = b.caption || '';
         const resolvedSrc = this.resolveAsset(b.src);
-        const open = (e)=>{ if(e&&e.preventDefault) e.preventDefault(); this.openOverlay(resolvedSrc, b.zoomTitle || cap || 'LeadPilot'); };
+        const open = (e)=>{ if(e&&e.preventDefault) e.preventDefault(); this.openOverlay(resolvedSrc, b.zoomTitle || cap || 'LeadPilot', e?.currentTarget); };
         const imgEl = React.createElement('img', { src:resolvedSrc, alt:b.alt || cap || '', onClick:open, style:{ display:'block', width:'100%', height:'auto', cursor:'zoom-in' } });
         return {
           isImage:true, imgEl:imgEl,
@@ -8212,7 +8355,7 @@ class Component extends DCLogic {
       const isGlossary = isAcc && !!s.glossary;
       const open = isAcc ? !!compactOpen[sid] : true;
       return {
-        id:sid,
+        id:sid, bodyId:sid + '-body', isStatic:!isAcc,
         anchorStyle:{ scrollMarginTop:'88px', marginTop: i === 0 ? '56px' : (isGlossary ? '96px' : '64px') },
         hasEyebrow:!!s.eyebrow || isGlossary, eyebrow: isGlossary ? 'Nachschlagewerk · Begriffe von A bis Z' : (s.eyebrow || ''),
         title:s.title || '',
@@ -8341,6 +8484,9 @@ class Component extends DCLogic {
 
     return {
       modules, hubLessons, showProgress,
+      menuOpen: this.state.menuOpen,
+      onOpenMenu: () => this.openMenu(),
+      onCloseMenu: () => this.closeMenu(),
       query: this.state.query,
       onSearch: (e) => this.setState({ query: e.target.value }),
       searchHasQuery: q.length > 0,
@@ -8364,8 +8510,8 @@ class Component extends DCLogic {
       leadpilotNav,
       compactNav,
       glossaryNav,
-      isDashboard, dashboardSrc: this.resolveAsset('assets/leadpilot-dashboard.html'),
-      isLandingpage, landingpageSrc: this.resolveAsset('assets/leadpilot-landingpage.html'),
+      isDashboard, dashboardFrame: isDashboard ? this.frame(this.resolveAsset('assets/leadpilot-dashboard.html'), 'LeadPilot Unternehmensdashboard') : null,
+      isLandingpage, landingpageFrame: isLandingpage ? this.frame(this.resolveAsset('assets/leadpilot-landingpage.html'), 'LeadPilot Landingpage') : null,
       isContent, isPlaceholder: !isContent && !isDashboard && !isLandingpage,
       hero: styled.hero, sections: styled.sections, pills: styled.pills, hasPills: styled.hasPills,
       activeCode: isHub ? (meta.code || active) : active, activeTitle: meta.title || '', activeGroupTitle: meta.groupTitle || '',
@@ -8381,6 +8527,8 @@ class Component extends DCLogic {
       hasPrev: !!prev, prevTitle: prev ? prev.title : '', prevCode: prev ? prev.id : '', onPrev: () => { if (prev) this.select(prev.id); },
       hasNext: !!next, nextTitle: next ? next.title : '', nextCode: next ? next.id : '', onNext: () => { if (next) this.select(next.id); },
       overlayOpen: !!this.state.overlaySrc, overlaySrc: this.state.overlaySrc || '', overlayTitle: this.state.overlayTitle || '', onCloseOverlay: () => this.closeOverlay(),
+      overlayFrame: this.state.overlaySrc ? this.frame(this.state.overlaySrc, this.state.overlayTitle, true) : null,
+      onOverlayBackdrop: event => { if (event.target === event.currentTarget) this.closeOverlay(); },
       hasQuiz: !!((this.state.quizData || {})[active]),
       quiz: this.buildQuiz(accent, (this.state.quizData || {})[active]),
     };
@@ -8441,7 +8589,8 @@ class Component extends DCLogic {
       progressOuterStyle: { height:'6px', background:'#F3F1EC', borderRadius:'99px', overflow:'hidden', marginTop:'12px' },
       progressFillStyle: { height:'100%', width: (submitted ? 100 : Math.round(answeredCount / QUIZ.length * 100)) + '%', background: submitted ? GREEN_SOLID : accent, borderRadius:'99px', transition:'width .3s ease' },
       submitDisabled: !allAnswered || submitted,
-      submitLabel: submitted ? 'Quiz ausgewertet' : 'Antworten senden',
+      showSubmit: !submitted,
+      onRetry: () => this.retryQuiz(),
       submitStyle: (allAnswered && !submitted)
         ? { display:'inline-flex', alignItems:'center', padding:'12px 24px', borderRadius:'11px', border:'0', background:accent, color:'#fff', fontFamily:"'Archivo',sans-serif", fontWeight:700, fontSize:'14px', cursor:'pointer' }
         : { display:'inline-flex', alignItems:'center', padding:'12px 24px', borderRadius:'11px', border:'1px solid #E4E1D9', background:'#F0EEE9', color:'#AEB3BE', fontFamily:"'Archivo',sans-serif", fontWeight:700, fontSize:'14px', cursor:'not-allowed' },
