@@ -305,6 +305,36 @@ def apply_glossary_template(doc):
     return doc.replace(anchor, block + anchor)
 
 
+# Zertifizierungstrainer: eigene App unter zertifizierungstrainer/, als letzter Eintrag der Seitenleiste.
+TRAINER_TEMPLATE = """      <!-- BEGIN TRAINER-NAV -->
+      <div style="margin:20px 10px 12px;height:1px;background:rgba(255,255,255,.09)"></div>
+      <a href="zertifizierungstrainer/index.html" style="display:flex;align-items:center;gap:9px;width:100%;text-decoration:none;padding:9px 10px;border-radius:8px;background:rgba(255,212,0,.08)" style-hover="background:rgba(255,212,0,.16)">
+        <span style="flex:0 0 auto;width:26px;height:26px;border-radius:8px;background:#FFD400;display:flex;flex-direction:column;justify-content:center;gap:3px;padding:0 6px"><span style="display:block;height:2px;background:#111"></span><span style="display:block;height:2px;background:#111"></span><span style="display:block;height:2px;width:60%;background:#111"></span></span>
+        <span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px"><span style="font:700 13px/1.3 'Public Sans',sans-serif;color:#F1F2F4">Zertifizierungstrainer</span><span style="font:500 11.5px/1.3 'Public Sans',sans-serif;color:#8A8F9C">139 Begriffe · Sprint oder 3 Wochen</span></span>
+        <span style="color:#FFD400;font:700 13px 'Archivo',sans-serif;flex:0 0 auto">›</span>
+      </a>
+      <!-- END TRAINER-NAV -->
+"""
+
+def apply_trainer_template(doc):
+    doc = re.sub(r'      <!-- BEGIN TRAINER-NAV -->\n.*?      <!-- END TRAINER-NAV -->\n', '', doc, flags=re.S)
+    anchor = '      <div style="height:12px"></div>\n    </nav>'
+    if doc.count(anchor) != 1:
+        raise ValueError('Trainer-Anker im Template fehlt')
+    return doc.replace(anchor, TRAINER_TEMPLATE + anchor)
+
+
+def patch_trainer_nav():
+    for f in ['Lernportal.dc.html', 'Lernportal-standalone.dc.html']:
+        p = ROOT / f
+        p.write_text(apply_trainer_template(p.read_text()))
+    for f in ['index.html', 'DBA Lernportal (offline).html']:
+        p = ROOT / f
+        doc = p.read_text()
+        p.write_text(replace_section(doc, 'template', apply_trainer_template(read_section(doc, 'template'))))
+    print('Trainer-Eintrag in vier HTML-Einstiege gesetzt.')
+
+
 def build(source_root):
     data = json.loads((ROOT / 'content/continuation.json').read_text())
     job = json.loads((ROOT / 'content/job-preparation.json').read_text())
@@ -467,6 +497,7 @@ def build(source_root):
         doc=doc.replace('weeks:mod.weeks, groups', "weeksLabel: mod.weeks ? '· ' + mod.weeks : '', groups")
         doc=apply_search_template(doc)
         doc=apply_glossary_template(doc)
+        doc=apply_trainer_template(doc)
         return SCRIPT.sub(update,doc,count=1)
     for f in ['Lernportal.dc.html','Lernportal-standalone.dc.html']:
         p=ROOT/f;p.write_text(transform(p.read_text()))
@@ -488,5 +519,9 @@ def build(source_root):
 if __name__=='__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('--source-root',type=Path,default=Path('/Users/marcpoenisch/Documents/DBA Batch 8'))
+    parser.add_argument('--nav-only',action='store_true',help='nur den Trainer-Eintrag der Seitenleiste in die vier HTML-Einstiege setzen, ohne Kursmaterial neu einzulesen')
     args=parser.parse_args()
-    build(args.source_root)
+    if args.nav_only:
+        patch_trainer_nav()
+    else:
+        build(args.source_root)

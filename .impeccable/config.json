@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "files": [
+          ".impeccable/mocks/decision/canon.html"
+        ],
+        "createdAt": "2026-11-26T07:33:13.421Z",
+        "reason": "Claude: canon.html ist die bewusst generische Kategorie-Standard-Skizze der Entscheidungsrunde, nicht ausgeliefert"
+      }
+    ]
+  }
+}
