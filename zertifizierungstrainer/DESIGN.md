@@ -149,6 +149,7 @@ Ein Verkehrssignal-Dreiklang aus Gelb, Schwarz und Weiß, mit Rot als reserviert
 
 **Display Font:** Barlow Semi Condensed (mit Arial Narrow, Helvetica Neue)
 **Body Font:** Barlow (mit Helvetica Neue, Arial)
+**Quelle:** lokal gehostet als woff2 in `fonts/` (Teilmenge latin, eingebunden über `fonts.css`, Lizenz SIL OFL in `fonts/OFL.txt`). Keine externe Schriftquelle, damit die App auch offline ihre Stimme behält.
 
 **Character:** Die halbschmale Barlow trägt Zahlen, Gleise, Spaltenköpfe und Fragen wie eine Fahrplanbeschriftung; die normalbreite Barlow trägt den Lesetext. Alles läuft mit tabellarischen Ziffern.
 
