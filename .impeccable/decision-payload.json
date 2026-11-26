@@ -1,0 +1,60 @@
+{
+  "title": "Visuelle Welt für den Zertifizierungstrainer",
+  "question": "Der Würfel hat den Aushangfahrplan zugeteilt. Behalten, Alternative nehmen oder neu würfeln.",
+  "options": [
+    {
+      "id": "assigned",
+      "kind": "assigned",
+      "label": "Aushangfahrplan",
+      "kicker": "THE ROLL",
+      "lineage": "Gelber Abfahrtsplan am deutschen Bahnsteig",
+      "thesis": "Dein Lernplan als Fahrplan: Jeder Begriff fährt feste Stationen ab, vom Erstabruf bis zur Bestätigung.",
+      "palette": ["#FFD400", "#111111", "#FFFFFF", "#E30613", "#2A2A2A"],
+      "materials": ["gelbes Aushangpapier", "schwarze Tabellenlinien", "rote Verspätungsschrift"],
+      "viewport": "Gelbe Kopfleiste mit der nächsten Lektion monumental, darunter die Tagestafel mit Spalten Tag, Lektion, Gleis (Gruppe), Umfang, über.",
+      "risk": "Kippt ins Bahn-Kostüm, wenn Fahrplan-Vokabular die Lernbegriffe verdrängt.",
+      "raised": [
+        {"from": "rw-timetable-slide-rack", "raise": "Rang über Gewicht, Versalien und Umkehrung: nur drei Schriftgrößen in der ganzen App."},
+        {"from": "pop-culture-shelf-streaming-title-card-wall", "raise": "Die Tafel bleibt ruhig; erst die fokussierte Zeile klappt den Fahrtverlauf des Begriffs auf."},
+        {"from": "digital-design-canon-dark-first-developer-console", "raise": "„Durchlauf zurücksetzen“ steht isoliert mit Abstand, nie neben „Starten“."},
+        {"from": "editorial-sequence-montage-botanical-folio-season", "raise": "Jeder Begriff hat dieselben festen Stationszellen, damit Stände direkt vergleichbar sind."},
+        {"from": "wayfinding-cartography-signage-terminal-yellow-wayfinding", "raise": "Oben steht genau eine Entscheidung: die nächste Aufgabe, groß."},
+        {"from": "signals-instruments-split-flap-concourse", "raise": "Statuswechsel färben die Zeile um, ohne das Raster zu verschieben."}
+      ],
+      "html": ".impeccable/mocks/decision/assigned.html"
+    },
+    {
+      "id": "model-pick",
+      "kind": "pick",
+      "label": "Prüfprotokoll mit Datumsstempel",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "Amtliches Formular, Stempelkissen, Prüfvermerk",
+      "thesis": "Ein Nachweis ist ein Stempel mit Datum; zwei Stempel an verschiedenen Tagen heißen bestätigt.",
+      "palette": ["#E6E8E3", "#1C2321", "#4B3A9A", "#C8102E", "#FFFFFF"],
+      "materials": ["graues Umweltpapier", "violette Stempelfarbe", "Formularfelder"],
+      "viewport": "Links das Begriffsregister, rechts das offene Protokollblatt der aktuellen Frage mit Pflichtmerkmal-Kästchen und Stempelfeldern.",
+      "risk": "Formular-Ästhetik liest sich schnell als Bürokratie; außerdem landen viele Läufe bei Papier-Metaphern.",
+      "html": ".impeccable/mocks/decision/model-pick.html"
+    },
+    {"id": "ch-slide-rack", "kind": "challenger", "catalogId": "rw-timetable-slide-rack", "label": "Timetable Slide Rack", "verdict": "declined", "lineage": "Taschenfahrplan auf Leuchttisch", "thesis": "Alles in einer Schriftgröße auf schrägen Glasträgern.", "palette": ["#D9A21B", "#1A1A1A", "#F4EFE0", "#D4361C"], "materials": ["Glas", "Leuchttisch"], "viewport": "Schräges Dia-Regal mit Lektionen.", "case": "Die Schräglage kostet Lesbarkeit bei 139 Begriffen.", "risk": "Unlesbar bei dichter Arbeit.", "kept": "Rang durch Gewicht statt Größe."},
+    {"id": "ch-streaming", "kind": "challenger", "catalogId": "pop-culture-shelf-streaming-title-card-wall", "label": "Streaming-Kachelwand", "verdict": "declined", "lineage": "Streaming-Katalog", "thesis": "Begriffe als Kachelreihen.", "palette": ["#141414", "#E50914", "#FFFFFF"], "materials": ["Poster-Kacheln"], "viewport": "Horizontale Reihen je Kategorie.", "case": "Begriffe haben keine Bilder; Kacheln wären leer.", "risk": "Leere Kachelwand.", "kept": "Details erst auf Fokus."},
+    {"id": "ch-console", "kind": "challenger", "catalogId": "digital-design-canon-dark-first-developer-console", "label": "Entwickler-Konsole", "verdict": "declined", "lineage": "Dark IDE", "thesis": "Graphit-Panels mit Haarlinien.", "palette": ["#1E1F22", "#3C3F45", "#7EE787", "#FF7B72"], "materials": ["Graphit", "Haarlinien"], "viewport": "Kachel-Panels.", "case": "Vertriebs-Lernende identifizieren sich nicht mit einer IDE.", "risk": "Werkzeug-Kostüm.", "kept": "Destruktive Aktionen isoliert."},
+    {"id": "ch-folio", "kind": "challenger", "catalogId": "editorial-sequence-montage-botanical-folio-season", "label": "Botanisches Folio", "verdict": "declined", "lineage": "Pflanzentafeln", "thesis": "Ein Begriff durch seine Stadien.", "palette": ["#F1E9D8", "#3E5B3A", "#B3261E"], "materials": ["Kupferstich"], "viewport": "Fünf Tafeln nebeneinander.", "case": "Schöne Stadienlogik, aber fremde Welt und Cremepapier-Klischee.", "risk": "Dekorativ statt funktional.", "kept": "Feste Stationszellen pro Begriff."},
+    {"id": "ch-airport", "kind": "challenger", "catalogId": "wayfinding-cartography-signage-terminal-yellow-wayfinding", "label": "Flughafen-Leitsystem", "verdict": "declined", "lineage": "Gelbe Flughafenschilder", "thesis": "Nur die nächste Entscheidung zählt.", "palette": ["#FFCC00", "#000000", "#FFFFFF"], "materials": ["Schilderbänder"], "viewport": "Ein gelbes Band mit der nächsten Aufgabe.", "case": "Gleiche Klarheit, aber der Bahn-Aushang ist Lernenden in Deutschland vertrauter.", "risk": "Doppelt sich mit dem Fahrplan.", "kept": "Eine monumentale nächste Entscheidung."},
+    {"id": "ch-splitflap", "kind": "challenger", "catalogId": "signals-instruments-split-flap-concourse", "label": "Fallblattanzeiger", "verdict": "declined", "lineage": "Bahnhofs-Fallblatt", "thesis": "Statuswechsel als klappernde Zeichen.", "palette": ["#111111", "#FFFFFF", "#F5A623", "#C0392B"], "materials": ["Fallblätter", "Stahlrahmen"], "viewport": "Schwarze Tafel.", "case": "Animation pro Zeichen ermüdet bei zwei Sessions am Tag.", "risk": "Effekt vor Inhalt.", "kept": "Zustand färbt die Zeile, Raster bleibt."}
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code"},
+  "canon": true,
+  "canonCard": {
+    "kind": "canon",
+    "label": "Der Kategorie-Standard",
+    "thesis": "Karteikarten-App wie Quizlet oder Anki, sauber ausgeführt.",
+    "palette": ["#FFFFFF", "#111827", "#4F46E5", "#10B981"],
+    "materials": ["weiße Karten", "Fortschrittsbalken"],
+    "viewport": "Zentrierte Frage-Karte, darunter Fortschrittsbalken und Buttons.",
+    "risk": "Von jeder anderen Lern-App nicht zu unterscheiden.",
+    "html": ".impeccable/mocks/decision/canon.html"
+  },
+  "steer": true
+}
