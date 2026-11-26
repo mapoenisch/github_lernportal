@@ -26,6 +26,7 @@
     try { raw = localStorage.getItem(KEY); } catch (e) { return { runs: [], active: null }; }
     if (!raw) return { runs: [], active: null };
     try { const s = JSON.parse(raw); if (s && Array.isArray(s.runs)) return s; } catch (e) { /* defekt */ }
+    try { localStorage.setItem(KEY + '.corrupt', raw); } catch (e) { /* voll */ }
     storageCorrupt = true;
     return { runs: [], active: null };
   }
@@ -444,10 +445,10 @@
     <div><dt>ungeprüft</dt><dd class="mono-xl">${c.ungeprueft}</dd></div>
   </dl>
 </header>
-<nav class="tabs" aria-label="Bereiche">
-  ${tabs.map(([k, l]) => `<button class="tab${view.tab === k ? ' is-on' : ''}" data-action="tab" data-tab="${k}" aria-current="${view.tab === k ? 'page' : 'false'}">${l}</button>`).join('')}
-</nav>
-<main id="main" class="wrap">
+<div class="tabs" role="tablist" aria-label="Bereiche">
+  ${tabs.map(([k, l]) => `<button class="tab${view.tab === k ? ' is-on' : ''}" id="tab-${k}" role="tab" aria-selected="${view.tab === k}" data-action="tab" data-tab="${k}">${l}</button>`).join('')}
+</div>
+<main id="main" class="wrap" role="tabpanel" aria-labelledby="tab-${view.tab}">
   ${view.tab === 'fahrplan' ? (r.mode === 'sprint' ? sprintBoard(r, A) : adaptiveBoard(r, A)) : ''}
   ${view.tab === 'begriffe' ? termsBoard(r, A) : ''}
   ${view.tab === 'luecken' ? gapsBoard(r, A) : ''}
@@ -587,7 +588,7 @@ ${stationKey()}
 <table class="board board--terms">
 <caption>${list.length} von ${TERMS.length} Begriffen</caption>
 <thead><tr><th scope="col" class="num">Nr.</th><th scope="col">Begriff</th><th scope="col">Kategorie</th><th scope="col">Stationen</th><th scope="col">Stand</th><th scope="col">Nächster Check</th></tr></thead>
-<tbody>${list.length ? list.map(t => termRow(r, A.get(t.nr), t)).join('') : `<tr><td colspan="6" class="empty">Kein Begriff passt zu diesem Filter. <button class="link" data-action="filter" data-filter="alle">Filter zurücksetzen</button></td></tr>`}</tbody></table>
+<tbody>${list.length ? list.map(t => termRow(r, A.get(t.nr), t)).join('') : `<tr><td colspan="6" class="empty">Kein Begriff passt zu diesem Filter. <button class="link" data-action="resetfilters">Filter zurücksetzen</button></td></tr>`}</tbody></table>
 ${legendBox()}`;
   }
   function termRow(r, a, t) {
@@ -676,6 +677,14 @@ ${legendBox()}`;
 <thead><tr><th scope="col">Kategorie</th><th scope="col" class="num">Begriffe</th><th scope="col" class="num">geprüft</th><th scope="col" class="num">bestätigt</th><th scope="col" class="num">unsicher</th><th scope="col" class="num">Fälle vollständig</th></tr></thead>
 <tbody>${cats.map(x => `<tr><td data-label="Kategorie">${x.k}. ${esc(x.name)}</td><td class="num" data-label="Begriffe">${x.n}</td><td class="num" data-label="geprüft">${x.ge}</td><td class="num" data-label="bestätigt">${x.be}</td><td class="num${x.un ? ' red' : ''}" data-label="unsicher">${x.un}</td><td class="num" data-label="Fälle vollständig">${x.anwN ? x.anwOk + '/' + x.anwN : '–'}</td></tr>`).join('')}</tbody></table>
 <p class="fine">Der Nachweis einer Definition und das Ergebnis einer Fallfrage werden getrennt gezählt. Übungen nach einem Hinweis zählen nie als Nachweis.</p>
+<section class="danger">
+  <h2 class="mono-l">Lernstand sichern</h2>
+  <p>Dein Lernstand liegt nur in diesem Browser. Du kannst ihn als JSON‑Datei exportieren oder wieder einspielen.</p>
+  <div class="actions">
+    <button class="btn btn--line" data-action="export">Lernstand exportieren</button>
+    <label class="btn btn--line">Lernstand importieren<input type="file" accept="application/json,.json" data-action="import" class="sr-only"></label>
+  </div>
+</section>
 <section class="danger">
   <h2 class="mono-l">Durchlauf beenden</h2>
   <p>Startet eine neue Linie. Bestätigungen aus diesem Durchlauf werden nicht übernommen.</p>
@@ -933,6 +942,16 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
     if (!r) return;
     if (a === 'tab') { view.tab = b.dataset.tab; render(); document.querySelector('.tab.is-on')?.focus(); return; }
     if (a === 'filter') { view.filter = b.dataset.filter; render(); return; }
+    if (a === 'resetfilters') { view.filter = 'alle'; view.cat = '0'; view.query = ''; render(); return; }
+    if (a === 'export') {
+      const blob = new Blob([JSON.stringify(S, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url; link.download = `lernstand-${todayStr()}.json`;
+      document.body.appendChild(link); link.click(); link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      toast('Lernstand exportiert.'); return;
+    }
     if (a === 'openrow') { const id = b.dataset.id; const cur = view.openRow === undefined ? null : view.openRow; view.openRow = cur === id ? null : id; render(); document.querySelector(`[data-action="openrow"][data-id="${id}"]`)?.focus(); return; }
     if (a === 'open') { const nr = +b.dataset.nr; view.open = view.open === nr ? null : nr; render(); document.querySelector(`[data-action="open"][data-nr="${nr}"]`)?.focus(); return; }
     if (a === 'lesson') {
@@ -975,7 +994,17 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
     if (a === 'check') { ui.notes = (document.getElementById('notes') || {}).value || ''; ui.stage = 'rate'; syncUi(r); render(); document.querySelector('.model h2')?.scrollIntoView({ block: 'nearest' }); return; }
     if (a === 'dunno') { ui.stage = 'rate'; syncUi(r); render(); return; }
     if (a === 'mark') return; // über change
-    if (a === 'save') { saveResult(r); return; }
+    if (a === 'save') {
+      if (!ui.touched) {
+        ui.touched = true;
+        const t = L.tasks[L.i];
+        if (t) t.terms.forEach(nr => updateVerdict(nr));
+        syncUi(r);
+        toast('Noch nichts abgehakt — erneut klicken oder drücken speichert als „falsch“.');
+        return;
+      }
+      saveResult(r); return;
+    }
     if (a === 'cloze') {
       const v = (document.getElementById('cloze') || {}).value || '';
       if (!norm(v)) { toast('Bitte erst das fehlende Wort eintragen.'); document.getElementById('cloze')?.focus(); return; }
@@ -1010,6 +1039,20 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
     const a = el.dataset && el.dataset.action;
     if (!a) return;
     if (a === 'cat') { view.cat = el.value; render(); document.querySelector('[data-action="cat"]')?.focus(); return; }
+    if (a === 'import') {
+      const f = el.files && el.files[0];
+      if (!f) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const parsed = JSON.parse(reader.result);
+          if (!parsed || !Array.isArray(parsed.runs)) throw new Error('Format');
+          S = parsed; save(); render(true); toast('Lernstand importiert.');
+        } catch (err) { toast('Ungültige JSON-Datei.'); }
+      };
+      reader.readAsText(f);
+      return;
+    }
     const nr = +el.dataset.nr;
     if (a === 'mark') { ui.touched = true; ui.marks[nr].has[+el.dataset.i] = el.checked; updateVerdict(nr); syncUi(run()); return; }
     if (a === 'contra') { ui.touched = true; ui.marks[nr].contra = el.checked; updateVerdict(nr); syncUi(run()); return; }
@@ -1050,18 +1093,19 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
         if (view.openRow) { const id = view.openRow; view.openRow = null; render(); document.querySelector(`[data-action="openrow"][data-id="${id}"]`)?.focus(); }
         else if (view.open) { const nr = view.open; view.open = null; render(); document.querySelector(`[data-action="open"][data-nr="${nr}"]`)?.focus(); }
       }
+      if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && document.activeElement && document.activeElement.getAttribute('role') === 'tab') {
+        const tabs = [...document.querySelectorAll('[role="tab"]')];
+        const idx = tabs.indexOf(document.activeElement);
+        if (idx >= 0) {
+          e.preventDefault();
+          const next = tabs[(idx + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length];
+          next.click();
+        }
+      }
       return;
     }
     if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
       e.preventDefault();
-      if (ui.stage === 'rate' && !ui.touched) {
-        ui.touched = true;
-        const t = r.session.tasks[r.session.i];
-        if (t) t.terms.forEach(nr => updateVerdict(nr));
-        syncUi(r);
-        toast('Noch nichts abgehakt — erneut drücken speichert als „falsch“.');
-        return;
-      }
       const btn = document.querySelector('.qcard [data-action="check"], .qcard [data-action="save"], .qcard [data-action="cloze"], .qcard [data-action="next"]');
       btn && btn.click();
       return;
