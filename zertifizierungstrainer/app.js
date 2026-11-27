@@ -437,9 +437,21 @@
 
   /* ---------- Ansicht & Routing ---------- */
   const app = document.getElementById('app');
-  let view = { tab: 'fahrplan', filter: 'alle', cat: '0', query: '', open: null, openRow: undefined, openCat: null };
+  let view = { tab: 'fahrplan', filter: 'alle', cat: '0', query: '', open: null, openRow: undefined, openCat: null, confirm: null };
   let ui = {}; // Zustand der aktuellen Aufgabe
   let lastUndo = null;
+  let pendingImport = null;
+
+  function confirmBar(type, msg, okLabel, danger, id) {
+    if (!view.confirm || view.confirm.type !== type || (id !== undefined && view.confirm.id !== id)) return '';
+    return `<div class="confirm-bar${danger ? ' confirm-bar--danger' : ''}" role="alert">
+  <p>${esc(msg)}</p>
+  <div class="actions">
+    <button class="btn ${danger ? 'btn--danger' : 'btn--ink'}" data-action="confirm-yes">${esc(okLabel)}</button>
+    <button class="btn btn--quiet" data-action="confirm-no">Abbrechen</button>
+  </div>
+</div>`;
+  }
 
   function canUndo(r, L) {
     return !!(lastUndo && r && L && lastUndo.runId === r.id && lastUndo.sessionId === L.id);
@@ -451,7 +463,8 @@
     storageCorrupt = !next;
     ui = run()?.session?.ui || {};
     lastUndo = null;
-    view = { tab: 'fahrplan', filter: 'alle', cat: '0', query: '', open: null, openRow: undefined };
+    view = { tab: 'fahrplan', filter: 'alle', cat: '0', query: '', open: null, openRow: undefined, openCat: null, confirm: null };
+    pendingImport = null;
   }
 
   function refresh(notify) {
@@ -483,6 +496,9 @@
         ${importControl()}
         <button class="btn btn--line" data-action="restart">Neuen Lernstand beginnen</button>
       </div>
+      ${confirmBar('restore', 'Gesicherten Lernstand wiederherstellen?', 'Wiederherstellen', false)}
+      ${confirmBar('restart', 'Einen neuen Lernstand beginnen? Der beschädigte Stand wird überschrieben.', 'Neu beginnen', true)}
+      ${confirmBar('import', 'Aktuellen Lernstand durch die ausgewählte Datei ersetzen?', 'Importieren', false)}
     </main>`;
   }
 
@@ -527,12 +543,12 @@
 </header>
 <main id="main" class="wrap">
   <div class="lines">
-    ${lineCard('sprint', '7 Tage, 14 Lektionen, fester Plan', [
+    ${lineCard('sprint', '7 Tage, 14 Lektionen · ideal bei Prüfung in ~1 Woche', [
       'Zehn Gruppen von A1 bis E2, je 13–14 Begriffe',
       'Jeder Begriff bekommt einen Erstabruf und zwei Tage später einen offenen Zweitcheck',
       'Lückenblöcke nach den Pflichtfragen, Prüfungscheck an Tag 7',
     ])}
-    ${lineCard('adaptiv', '21 Tage, Plan folgt deinem Lernstand', [
+    ${lineCard('adaptiv', '21 Tage, Plan folgt deinem Lernstand · ideal ab ~3 Wochen Vorlauf', [
       'Zwei Lernfenster pro Tag, keine feste Aufgabenzahl',
       'Fällige Wiederholungen und Fehler zuerst, neue Begriffe nach Rückstand',
       'Bestätigt nach zwei vollständigen Erklärungen mit mindestens drei Tagen Abstand',
@@ -559,6 +575,8 @@
     ${S.runs.length ? '<button class="btn btn--line" data-action="export">Lernstand exportieren</button>' : ''}
     ${importControl()}
   </div>
+  ${confirmBar('delete-run', 'Diesen beendeten Durchlauf aus dem Browser entfernen? Exportierte Sicherungen bleiben erhalten.', 'Aus Browser entfernen', true)}
+  ${confirmBar('import', 'Aktuellen Lernstand durch die ausgewählte Datei ersetzen?', 'Importieren', false)}
   ${S.runs.some(past => past.endedAt) ? '<p class="fine">Exportiere deinen Lernstand, bevor du einen beendeten Durchlauf aus dem Browser entfernst.</p>' : ''}
   <p class="fine">Quelle: ${esc(D.meta.source)}, Glossar‑Nr. 1–139. Dein Lernstand bleibt nur in diesem Browser gespeichert.</p>
 </main>`;
@@ -748,7 +766,7 @@ ${legendBox()}`;
       bodyHtml = list.map(t => termRow(r, A.get(t.nr), t)).join('');
     }
     return `<div class="filters">
-  <div class="seg" role="group" aria-label="Status">${filters.map(([k, l]) => `<button class="seg__b${view.filter === k ? ' is-on' : ''}" aria-pressed="${view.filter === k}" data-action="filter" data-filter="${k}">${l}</button>`).join('')}</div>
+  <div class="field"><span class="lbl">Stand</span><div class="seg" role="group" aria-label="Stand">${filters.map(([k, l]) => `<button class="seg__b${view.filter === k ? ' is-on' : ''}" aria-pressed="${view.filter === k}" data-action="filter" data-filter="${k}">${l}</button>`).join('')}</div></div>
   <label class="field"><span class="lbl">Kategorie</span><select data-action="cat">${['<option value="0">Alle Kategorien</option>', ...Object.entries(D.categories).map(([k, v]) => `<option value="${k}"${view.cat === k ? ' selected' : ''}>${k}. ${esc(v)}</option>`)].join('')}</select></label>
   <label class="field field--grow"><span class="lbl">Suchen</span><input type="search" data-action="query" value="${esc(view.query)}" placeholder="Begriff, deutsch oder englisch"></label>
 </div>
@@ -788,7 +806,7 @@ ${legendBox()}`;
     }).join('');
     return `<div class="route">
   <ol class="line-route">${stops || '<li class="stop stop--open"><span class="stop__what">Noch nicht abgefragt.</span></li>'}</ol>
-  <details class="def"><summary>${ICON.down}<span>Glossardefinition und Pflichtmerkmale zeigen</span></summary>
+  <details class="def"><summary>${ICON.down}<span>Glossardefinition und Pflichtmerkmale</span></summary>
     <p>${esc(t.def)}</p><p class="fine-ink">Glossar Nr. ${t.nr} · Lektion ${esc(t.lesson)}</p>
     <ul class="crits-plain">${t.crit.map(c => `<li>${esc(c.t)}</li>`).join('')}</ul>
     <p class="fine-ink">Pflichtmerkmale redaktionell aus der Definition abgeleitet.</p>
@@ -803,7 +821,7 @@ ${legendBox()}`;
     if (!list.length) return `<div class="empty-state"><h2 class="mono-l">Keine offenen Lücken</h2><p>Sobald ein Begriff unvollständig erklärt wurde, steht er hier, sortiert nach Fehlerbild.</p></div>`;
     return `<div class="filters"><p class="fine">Sortiert nach Dringlichkeit: wiederholte Fehler und Verwechslungen zuerst. ${r.mode === 'sprint' ? 'Im Sprint werden Lücken nach den Pflichtfragen jeder Lektion bearbeitet.' : ''}</p>${btn}</div>
 <table class="board">
-<caption>${list.length} Lücken</caption>
+<caption>${plural(list.length, 'Lücke', 'Lücken')}</caption>
 <thead><tr><th scope="col" class="num">Nr.</th><th scope="col">Begriff</th><th scope="col">Fehlerbild</th><th scope="col" class="num">Fehler</th><th scope="col">Stand</th></tr></thead>
 <tbody>${list.map(({ a }) => {
       const t = TERM.get(a.nr);
@@ -851,11 +869,13 @@ ${legendBox()}`;
     <button class="btn btn--line" data-action="export">Lernstand exportieren</button>
     ${importControl()}
   </div>
+  ${confirmBar('import', 'Aktuellen Lernstand durch die ausgewählte Datei ersetzen?', 'Importieren', false)}
 </section>
 <section class="danger">
   <h2 class="mono-l">Durchlauf beenden</h2>
   <p>Startet eine neue Linie. Bestätigungen aus diesem Durchlauf werden nicht übernommen.</p>
   <div class="danger__row"><button class="btn btn--danger" data-action="reset">Durchlauf beenden und neu wählen</button></div>
+  ${confirmBar('reset', 'Durchlauf wirklich beenden? Der bisherige Lernstand bleibt gespeichert, wird aber nicht in die neue Linie übernommen.', 'Durchlauf beenden', true)}
 </section>`;
   }
 
@@ -881,6 +901,7 @@ ${legendBox()}`;
   </div>
 </header>
 <main id="main" class="lesson">
+  ${confirmBar('leave', 'Lektion unterbrechen? Beantwortete Fragen bleiben gespeichert, die offenen bleiben in der Warteschlange.', 'Lektion unterbrechen', false)}
   <article class="qcard">
     <h1 class="question" tabindex="-1" id="qtext">${ui.stage === 'fix' ? fixTitle() : esc(q.text)}</h1>
     ${ui.stage === 'fix' ? `<p class="qref">Ausgangsfrage: ${esc(q.text)}</p>` : ''}
@@ -919,7 +940,7 @@ ${legendBox()}`;
   <h2 class="mono-l">${esc(term.name)}</h2>
   <p class="model__def">${esc(term.def)}</p>
   <p class="fine-ink">Musterantwort: Glossardefinition Nr. ${term.nr}, Lektion ${esc(term.lesson)}.${q.fn === 'anw' ? ' Für die Fallfrage prüfst du zusätzlich, ob du die Merkmale auf den Fall angewendet hast.' : ''}</p>
-  <fieldset class="crits"><legend class="lbl">Was hast du sinngemäß genannt? <span class="fine-ink">redaktionell abgeleitete Pflichtmerkmale</span></legend>
+  <fieldset class="crits"><legend class="lbl">Was hast du sinngemäß genannt? <span class="fine-ink">Kernaussage zählt, nicht Wortlaut · redaktionell abgeleitet</span></legend>
     ${term.crit.map((c, i) => { kIdx++; return `<label class="crit"><input type="checkbox" data-action="mark" data-nr="${nr}" data-i="${i}"${st.has[i] ? ' checked' : ''}><span class="crit__box">${ICON.check}</span><span>${esc(c.t)}</span><kbd>${kIdx <= 9 ? kIdx : ''}</kbd></label>`; }).join('')}
   </fieldset>
   <label class="opt"><input type="checkbox" data-action="contra" data-nr="${nr}"${st.contra ? ' checked' : ''}><span class="crit__box">${ICON.check}</span> Meine Antwort enthielt einen fachlichen Widerspruch</label>
@@ -1102,13 +1123,44 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
     if (!b) return;
     const a = b.dataset.action;
     if (refresh(true)) return;
+    if (a === 'confirm-no') {
+      const c = view.confirm;
+      view.confirm = null;
+      pendingImport = null;
+      render();
+      if (c?.focusSel) document.querySelector(c.focusSel)?.focus();
+      return;
+    }
+    if (a === 'confirm-yes') {
+      const c = view.confirm;
+      view.confirm = null;
+      if (!c) return;
+      if (c.type === 'restore') { const backup = backupState(); if (backup) replaceState(backup); return; }
+      if (c.type === 'restart') { replaceState(empty()); return; }
+      if (c.type === 'import') {
+        const parsed = pendingImport; pendingImport = null;
+        if (parsed && replaceState(parsed, true)) toast('Lernstand importiert.');
+        return;
+      }
+      if (c.type === 'delete-run') {
+        const target = S.runs.find(past => past.id === c.id);
+        if (target?.endedAt && !r) replaceState({ ...S, runs: S.runs.filter(past => past.id !== target.id) });
+        return;
+      }
+      if (c.type === 'reset' && r) {
+        r.endedAt = todayStr(); r.session = null; S.active = null; lastUndo = null; save(); render(true); return;
+      }
+      if (c.type === 'leave' && r?.session) {
+        r.session = null; lastUndo = null; save(); render(true); return;
+      }
+      return;
+    }
     if (a === 'restore') {
-      const backup = backupState();
-      if (backup && confirm('Gesicherten Lernstand wiederherstellen?')) replaceState(backup);
+      if (backupState()) { view.confirm = { type: 'restore', focusSel: '[data-action="restore"]' }; render(); document.querySelector('[data-action="confirm-yes"]')?.focus(); }
       return;
     }
     if (a === 'restart') {
-      if (confirm('Einen neuen Lernstand beginnen?')) replaceState(empty());
+      view.confirm = { type: 'restart', focusSel: '[data-action="restart"]' }; render(); document.querySelector('[data-action="confirm-yes"]')?.focus();
       return;
     }
     if (storageCorrupt) return;
@@ -1135,9 +1187,9 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
     if (a === 'delete-run') {
       const target = S.runs.find(past => past.id === b.dataset.id);
       if (!target?.endedAt || r) return;
-      if (confirm('Diesen beendeten Durchlauf aus dem Browser entfernen? Exportierte Sicherungen bleiben erhalten.')) {
-        replaceState({ ...S, runs: S.runs.filter(past => past.id !== target.id) });
-      }
+      view.confirm = { type: 'delete-run', id: target.id, focusSel: `[data-action="delete-run"][data-id="${target.id}"]` };
+      render();
+      document.querySelector('[data-action="confirm-yes"]')?.focus();
       return;
     }
     if (!r) return;
@@ -1160,13 +1212,20 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
       startLesson(r, L); return;
     }
     if (a === 'reset') {
-      if (confirm('Durchlauf wirklich beenden? Der bisherige Lernstand dieses Durchlaufs bleibt gespeichert, wird aber nicht in die neue Linie übernommen.')) { r.endedAt = todayStr(); r.session = null; S.active = null; lastUndo = null; save(); render(true); }
+      view.confirm = { type: 'reset', focusSel: '[data-action="reset"]' };
+      render();
+      document.querySelector('[data-action="confirm-yes"]')?.focus();
       return;
     }
     const L = r.session;
     if (!L) return;
     if (a === 'leave') {
-      if (!L.over && L.i > 0 && !confirm('Lektion unterbrechen? Beantwortete Fragen bleiben gespeichert, die offenen bleiben in der Warteschlange.')) return;
+      if (!L.over && L.i > 0) {
+        view.confirm = { type: 'leave', focusSel: '.band__brand [data-action="leave"]' };
+        render();
+        document.querySelector('[data-action="confirm-yes"]')?.focus();
+        return;
+      }
       r.session = null; lastUndo = null; save(); render(true); return;
     }
     if (a === 'undo') {
@@ -1185,7 +1244,7 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
       lastUndo = null; save(); render(); focusQ(); return;
     }
     if (a === 'check') { ui.notes = (document.getElementById('notes') || {}).value || ''; ui.stage = 'rate'; syncUi(r); render(); document.querySelector('.model h2')?.scrollIntoView({ block: 'nearest' }); return; }
-    if (a === 'dunno') { ui.stage = 'rate'; syncUi(r); render(); return; }
+    if (a === 'dunno') { ui.stage = 'rate'; ui.touched = true; syncUi(r); render(); return; }
     if (a === 'mark') return; // über change
     if (a === 'ratestep') { const t = L.tasks[L.i]; if (t) { ui.step = Math.max(0, Math.min(t.terms.length - 1, (ui.step || 0) + (+b.dataset.dir || 1))); syncUi(r); render(); document.querySelector('.model h2')?.scrollIntoView({ block: 'nearest' }); } return; }
     if (a === 'save') {
@@ -1254,9 +1313,10 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
           toast('Der Lernstand hat sich geändert. Wähle die Importdatei erneut.');
           return;
         }
-        if (confirm('Aktuellen Lernstand durch die ausgewählte Datei ersetzen?') && replaceState(parsed, true)) {
-          toast('Lernstand importiert.');
-        }
+        pendingImport = parsed;
+        view.confirm = { type: 'import', focusSel: '[data-action="import"]' };
+        render();
+        document.querySelector('[data-action="confirm-yes"]')?.focus();
       };
       el.value = '';
       reader.readAsText(f);
@@ -1296,6 +1356,15 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
     }
   });
   document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && view.confirm) {
+      e.preventDefault();
+      const c = view.confirm;
+      view.confirm = null;
+      pendingImport = null;
+      render();
+      if (c.focusSel) document.querySelector(c.focusSel)?.focus();
+      return;
+    }
     const r = run();
     if (!r) return;
     if (!r.session) {
@@ -1343,7 +1412,7 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
     if (e.key === KEY || e.key === null) refresh(true);
   });
 
-  let toastTimer;
+  let toastTimer, toastClearTimer;
   function ensureToast() {
     let el = document.querySelector('.toast');
     if (!el && document.body) { el = document.createElement('div'); el.className = 'toast'; el.setAttribute('role', 'status'); el.setAttribute('aria-live', 'polite'); document.body.appendChild(el); }
@@ -1352,8 +1421,13 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
   function toast(msg) {
     const el = ensureToast();
     if (!el) return;
+    clearTimeout(toastTimer);
+    clearTimeout(toastClearTimer);
     el.textContent = msg; el.classList.add('is-on');
-    clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('is-on'), 5000);
+    toastTimer = setTimeout(() => {
+      el.classList.remove('is-on');
+      toastClearTimer = setTimeout(() => { if (!el.classList.contains('is-on')) el.textContent = ''; }, 500);
+    }, 5000);
   }
 
   // Test-Hooks für die Regressionstests.
