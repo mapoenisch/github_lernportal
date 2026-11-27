@@ -603,7 +603,8 @@
     const M = MODES[r.mode];
     const over = day > M.days;
     const next = r.mode === 'sprint' ? sprintNext(r, A) : adaptiveNext(r, A);
-    const tabs = [['fahrplan', 'Fahrplan'], ['begriffe', 'Begriffe'], ['luecken', 'Lücken'], ['bilanz', 'Bilanz']];
+    const gapsCount = priorityList(r, A).length;
+    const tabs = [['fahrplan', 'Fahrplan'], ['begriffe', 'Begriffe'], ['luecken', gapsCount ? `Lücken (${gapsCount})` : 'Lücken'], ['bilanz', 'Bilanz']];
     return `
 <header class="band">
   <div class="band__brand">${brand()}
@@ -618,7 +619,7 @@
   </dl>
 </header>
 <div class="tabs" role="tablist" aria-label="Bereiche">
-  ${tabs.map(([k, l]) => `<button class="tab${view.tab === k ? ' is-on' : ''}" id="tab-${k}" role="tab" aria-selected="${view.tab === k}" data-action="tab" data-tab="${k}">${l}</button>`).join('')}
+  ${tabs.map(([k, l]) => `<button class="tab${view.tab === k ? ' is-on' : ''}" id="tab-${k}" role="tab" aria-selected="${view.tab === k}" tabindex="${view.tab === k ? '0' : '-1'}" data-action="tab" data-tab="${k}">${l}</button>`).join('')}
 </div>
 <main id="main" class="wrap" role="tabpanel" aria-labelledby="tab-${view.tab}">
   ${view.tab === 'fahrplan' ? (r.mode === 'sprint' ? sprintBoard(r, A) : adaptiveBoard(r, A)) : ''}
@@ -638,9 +639,9 @@
     const umfang = [wd_ && plural(wd_, 'Begriff erneut erklären', 'Begriffe erneut erklären'), er && plural(er, 'Begriff erstmals prüfen', 'Begriffe erstmals prüfen')].filter(Boolean).join(', danach ');
     const route = [p.wdh && p.wdh + ' Wiederholung', p.erst ? p.erst + ' neu' : { luecke: 'Lückencheck', vergleich: 'Vergleich', nachpruef: 'Nachprüfung', pruefcheck: 'Prüfungscheck' }[p.extra]].filter(Boolean).join(' · ');
     return `<h1 class="mono-xl">${route}</h1>
-<p class="via">${late ? '<strong class="tag-red">Verspätet</strong> ' : ''}<strong>Tag ${p.day} · Lektion ${p.l}.</strong> ${umfang ? 'Heute: ' + umfang + '.' : 'Keine Pflichtfragen offen.'} ${names.length ? 'Über ' + names.map(esc).join(', ') + (L.tasks.length > 5 ? ' und ' + (L.tasks.length - 5) + ' weitere' : '') + '.' : ''}</p>
+<p class="via">${late ? '<strong class="tag-red">Verspätet</strong> ' : ''}<strong>Tag ${p.day} · Lektion ${p.l}.</strong> ${umfang ? 'Heute: ' + umfang + '.' : 'Keine Pflichtfragen offen.'} ${names.length ? 'Über ' + names.map(esc).join(', ') + (L.tasks.length > 5 ? ' und ' + (L.tasks.length - 5) + ' weitere' : '') + '.' : ''}${late ? ' Verpasste Lektionen bleiben in der Warteschlange.' : ''}</p>
 ${L.held.length ? `<p class="via">${plural(L.held.length, 'Zweitcheck wartet', 'Zweitchecks warten')} noch auf den Abstand von zwei Tagen.</p>` : ''}
-${ready ? `<button class="btn btn--ink" data-action="lesson" data-id="${p.id}">Lektion starten ${ICON.go}</button>` : `<p class="via"><strong>Nächste Abfahrt Tag ${p.day}</strong> (${wd(addDays(r.start, p.day - 1))}, ${fmtDate(addDays(r.start, p.day - 1))}). Heute ist alles erledigt.</p>`}`;
+${ready ? `<button class="btn btn--ink" data-action="lesson" data-id="${p.id}">${L.tasks.length ? 'Lektion starten' : 'Lektion abschließen'} ${ICON.go}</button>` : `<p class="via"><strong>Nächste Abfahrt Tag ${p.day}</strong> (${wd(addDays(r.start, p.day - 1))}, ${fmtDate(addDays(r.start, p.day - 1))}). Heute ist alles erledigt.</p>`}`;
   }
 
   function adaptiveNext(r, A) {
@@ -676,7 +677,7 @@ ${ready ? `<button class="btn btn--ink" data-action="lesson" data-id="${p.id}">L
   function sprintBoard(r, A) {
     const rows = sprintRows(r, A);
     const openId = view.openRow === undefined ? null : view.openRow;
-    return `${stationKey()}
+    return `${stationKey(true)}
 <table class="board board--plan">
 <caption>Abfahrtstafel <span class="cap-sub">· 14 Lektionen</span></caption>
 <thead><tr><th scope="col">Tag</th><th scope="col">Lektion</th><th scope="col">Gleis</th><th scope="col">Umfang</th><th scope="col" class="col-via">über</th><th scope="col">Hinweis</th></tr></thead>
@@ -693,8 +694,8 @@ ${legendBox()}
 <p class="fine">Pflichtblöcke: 139 Erstabrufe und 139 Wiederholungsabrufe. Jeder Zweitcheck liegt zwei Kalendertage nach dem Erstabruf. Verpasste Lektionen bleiben in der Warteschlange und werden nicht gestrichen.</p>`;
   }
 
-  function stationKey() {
-    return `<p class="fine legend-inline"><span>Stationen:</span><span><span class="stations stations--sm" aria-hidden="true"><i class="st st--open"></i></span> offen</span><span><span class="stations stations--sm" aria-hidden="true"><i class="st st--full"></i></span> vollständig</span><span><span class="stations stations--sm" aria-hidden="true"><i class="st st--miss"></i></span> nicht vollständig</span><span><span class="stations stations--sm" aria-hidden="true"><i class="st st--full st--end"></i></span> bestätigt</span></p>`;
+  function stationKey(withGleis) {
+    return `<p class="fine legend-inline"><span>Stationen:</span><span><span class="stations stations--sm" aria-hidden="true"><i class="st st--open"></i></span> offen</span><span><span class="stations stations--sm" aria-hidden="true"><i class="st st--full"></i></span> vollständig</span><span><span class="stations stations--sm" aria-hidden="true"><i class="st st--miss"></i></span> nicht vollständig</span><span><span class="stations stations--sm" aria-hidden="true"><i class="st st--full st--end"></i></span> bestätigt</span>${withGleis ? '<span>· Gleis: <b>Wdh.</b> Wiederholung, <b>neu</b> Erstabruf</span>' : ''}</p>`;
   }
 
   function lessonRoute(r, A, wdh, erst) {
@@ -742,7 +743,7 @@ ${legendBox()}`;
     return `<span class="stations${small ? ' stations--sm' : ''}" role="img" aria-label="1. Abruf ${lab[s1]}, 2. Abruf ${lab[s2]}, Bestätigung ${lab[s3]}"><i class="st st--${s1}"></i><i class="st st--${s2}"></i><i class="st st--${s3} st--end"></i></span>`;
   }
   function termsBoard(r, A) {
-    const filters = [['alle', 'Alle'], ['offen', 'offen'], ['unsicher', 'unsicher'], ['bestaetigt', 'bestätigt']];
+    const filters = [['alle', 'Alle'], ['offen', 'offen'], ['einmal', '1× voll'], ['unsicher', 'unsicher'], ['bestaetigt', 'bestätigt']];
     const q = view.query.trim().toLowerCase();
     const list = TERMS.filter(t => {
       const a = A.get(t.nr);
@@ -760,7 +761,7 @@ ${legendBox()}`;
       bodyHtml = Object.entries(D.categories).map(([k, name]) => {
         const items = list.filter(t => String(t.cat) === k);
         const catOpen = view.openCat === k;
-        return `<tr class="cat-head"><th colspan="6" scope="colgroup"><button class="rowbtn" data-action="catgroup" data-cat="${k}" aria-expanded="${catOpen}"><span><b>${k}. ${esc(name)}</b></span><span class="fine-ink">${items.length} Begriffe · ${catOpen ? 'zuklappen' : 'zeigen'}</span></button></th></tr>${catOpen ? items.map(t => termRow(r, A.get(t.nr), t)).join('') : ''}`;
+        return `<tr class="cat-head"><td colspan="6"><button class="rowbtn" data-action="catgroup" data-cat="${k}" aria-expanded="${catOpen}"><span><b>${k}. ${esc(name)}</b></span><span class="fine-ink">${items.length} Begriffe · ${catOpen ? 'zuklappen' : 'zeigen'}</span></button></td></tr>${catOpen ? items.map(t => termRow(r, A.get(t.nr), t)).join('') : ''}`;
       }).join('');
     } else {
       bodyHtml = list.map(t => termRow(r, A.get(t.nr), t)).join('');
@@ -937,14 +938,16 @@ ${legendBox()}`;
       const showVerdict = ui.touched || res !== 'falsch';
       return `<section class="model">
   ${t.terms.length > 1 ? `<p class="lbl">Begriff ${step + 1} von ${t.terms.length}</p>` : ''}
-  <h2 class="mono-l">${esc(term.name)}</h2>
+  <h2 class="mono-l" tabindex="-1">${esc(term.name)}</h2>
   <p class="model__def">${esc(term.def)}</p>
-  <p class="fine-ink">Musterantwort: Glossardefinition Nr. ${term.nr}, Lektion ${esc(term.lesson)}.${q.fn === 'anw' ? ' Für die Fallfrage prüfst du zusätzlich, ob du die Merkmale auf den Fall angewendet hast.' : ''}</p>
-  <fieldset class="crits"><legend class="lbl">Was hast du sinngemäß genannt? <span class="fine-ink">Kernaussage zählt, nicht Wortlaut · redaktionell abgeleitet</span></legend>
+  <p class="fine-ink">Musterantwort: Glossardefinition Nr. ${term.nr}, Lektion ${esc(term.lesson)}.${q.fn === 'anw' ? ' Für die Fallfrage prüfst du zusätzlich, ob du die Merkmale auf den Fall angewendet hast.' : q.fn === 'abgr' ? ' Bei Abgrenzungsfragen zählt, ob du den Unterschied zum Vergleichsbegriff klar benannt hast.' : ''}</p>
+  <fieldset class="crits"><legend class="lbl">Was hast du sinngemäß genannt? <span class="fine-ink">Kernaussage zählt, nicht Wortlaut · Tasten 1–9</span></legend>
     ${term.crit.map((c, i) => { kIdx++; return `<label class="crit"><input type="checkbox" data-action="mark" data-nr="${nr}" data-i="${i}"${st.has[i] ? ' checked' : ''}><span class="crit__box">${ICON.check}</span><span>${esc(c.t)}</span><kbd>${kIdx <= 9 ? kIdx : ''}</kbd></label>`; }).join('')}
   </fieldset>
-  <label class="opt"><input type="checkbox" data-action="contra" data-nr="${nr}"${st.contra ? ' checked' : ''}><span class="crit__box">${ICON.check}</span> Meine Antwort enthielt einen fachlichen Widerspruch</label>
-  ${term.conf.length ? `<label class="field field--inline"><span class="lbl">Verwechselt mit</span><select data-action="conf" data-nr="${nr}"><option value="">nichts verwechselt</option>${term.conf.map(c => `<option value="${c}"${String(st.conf) === String(c) ? ' selected' : ''}>${esc(TERM.get(c).name)}</option>`).join('')}</select></label>` : ''}
+  <div class="rate-flags">
+    <label class="opt"><input type="checkbox" data-action="contra" data-nr="${nr}"${st.contra ? ' checked' : ''}><span class="crit__box">${ICON.check}</span><span>Meine Antwort enthielt einen fachlichen Widerspruch</span><span class="fine-ink">Überschreibt abgehakte Merkmale → falsch</span></label>
+    ${term.conf.length ? `<label class="field field--inline"><span class="lbl">Verwechselt mit</span><select data-action="conf" data-nr="${nr}"><option value="">nichts verwechselt</option>${term.conf.map(c => `<option value="${c}"${String(st.conf) === String(c) ? ' selected' : ''}>${esc(TERM.get(c).name)}</option>`).join('')}</select></label>` : ''}
+  </div>
   ${showVerdict ? `<p class="verdict verdict--${res}" aria-live="polite">Ergebnis: <b>${RES[res]}</b></p>` : `<p class="verdict verdict--hint" aria-live="polite">Pflichtmerkmale abhaken oder Widerspruch wählen.</p>`}
 </section>`;
     }).join('');
@@ -991,9 +994,10 @@ ${f.done ? `<p class="verdict verdict--${f.ok ? 'voll' : 'falsch'}" aria-live="p
 ${f.done ? `<p class="verdict verdict--${f.ok ? 'voll' : 'falsch'}" aria-live="polite">${f.ok ? 'Richtig.' : 'Die markierte Beschreibung gehört zu ' + esc(TERM.get(f.opts[f.pick]).name) + '.'}</p>` : ''}`;
     }
     const canRetry = f.done && !ui.retried;
+    const undoBtn = canUndo(r, r.session) ? `<button class="btn btn--quiet" data-action="undo">Letzte Bewertung korrigieren</button>` : '';
     return `<section class="fix">${body}
-${f.done ? `<div class="actions actions--split">${canRetry ? `<button class="btn btn--line" data-action="retry">Noch einmal offen erklären (neue Formulierung)</button>` : canUndo(r, r.session) ? `<button class="btn btn--quiet" data-action="undo">Letzte Bewertung korrigieren</button>` : '<span></span>'}<div class="actions"><span class="fine-ink kbd">⌘/Strg + Enter</span><button class="btn btn--ink" data-action="next">Weiter ${ICON.go}</button></div></div>
-${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den Nachweis holst du an einem anderen Tag.</p>' : ''}` : ''}
+${f.done ? `<div class="actions actions--split"><div class="actions">${canRetry ? `<button class="btn btn--line" data-action="retry">Noch einmal offen erklären (neue Formulierung)</button>` : ''}${undoBtn}</div><div class="actions"><span class="fine-ink kbd">⌘/Strg + Enter</span><button class="btn btn--ink" data-action="next">Weiter ${ICON.go}</button></div></div>
+${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den Nachweis holst du an einem anderen Tag.</p>' : ''}` : undoBtn ? `<div class="actions">${undoBtn}</div>` : ''}
 </section>`;
   }
 
@@ -1058,6 +1062,9 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
     render(); focusQ();
   }
   function focusQ() { const el = document.getElementById('qtext'); if (el) el.focus({ preventScroll: false }); window.scrollTo(0, 0); }
+  function focusRate() { const el = document.querySelector('.model h2'); if (el) { el.focus({ preventScroll: true }); el.scrollIntoView({ block: 'nearest' }); } }
+  function focusFix() { const el = document.querySelector('#cloze, .fix [data-action="tf"], .fix .choice'); if (el) el.focus({ preventScroll: false }); }
+  function focusAfterFix() { const el = document.querySelector('.fix [data-action="next"]'); if (el) el.focus({ preventScroll: false }); }
 
   function saveResult(r) {
     const L = r.session; const t = L.tasks[L.i]; const q = Q.get(t.qid);
@@ -1086,6 +1093,7 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
       ui.stage = 'fix';
       syncUi(r);
       render();
+      focusFix();
       return;
     }
     if (bad && inPflichtSprint) toast(perTerm[bad].res === 'teil' ? 'Auf die Lückenliste: ' + TERM.get(bad).crit[perTerm[bad].miss[0]].t : 'Auf die Lückenliste gesetzt. Reparatur folgt nach dem Pflichtblock.');
@@ -1243,10 +1251,10 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
       r.session.ui = ui;
       lastUndo = null; save(); render(); focusQ(); return;
     }
-    if (a === 'check') { ui.notes = (document.getElementById('notes') || {}).value || ''; ui.stage = 'rate'; syncUi(r); render(); document.querySelector('.model h2')?.scrollIntoView({ block: 'nearest' }); return; }
-    if (a === 'dunno') { ui.stage = 'rate'; ui.touched = true; syncUi(r); render(); return; }
+    if (a === 'check') { ui.notes = (document.getElementById('notes') || {}).value || ''; ui.stage = 'rate'; syncUi(r); render(); focusRate(); return; }
+    if (a === 'dunno') { ui.stage = 'rate'; ui.touched = true; syncUi(r); render(); focusRate(); return; }
     if (a === 'mark') return; // über change
-    if (a === 'ratestep') { const t = L.tasks[L.i]; if (t) { ui.step = Math.max(0, Math.min(t.terms.length - 1, (ui.step || 0) + (+b.dataset.dir || 1))); syncUi(r); render(); document.querySelector('.model h2')?.scrollIntoView({ block: 'nearest' }); } return; }
+    if (a === 'ratestep') { const t = L.tasks[L.i]; if (t) { ui.step = Math.max(0, Math.min(t.terms.length - 1, (ui.step || 0) + (+b.dataset.dir || 1))); syncUi(r); render(); focusRate(); } return; }
     if (a === 'save') {
       if (!ui.touched) {
         ui.touched = true;
@@ -1263,10 +1271,10 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
       if (!norm(v)) { toast('Bitte erst das fehlende Wort eintragen.'); document.getElementById('cloze')?.focus(); return; }
       const k = TERM.get(ui.fix.nr).crit[ui.fix.i].k;
       ui.fix.value = v; ui.fix.done = true; ui.fix.ok = clozeMatches(k, v);
-      syncUi(r); render(); return;
+      syncUi(r); render(); focusAfterFix(); return;
     }
-    if (a === 'tf') { ui.fix.done = true; ui.fix.ok = (b.dataset.v === '1') === (ui.fix.other === ui.fix.nr); syncUi(r); render(); return; }
-    if (a === 'choose') { const k = +b.dataset.k; ui.fix.pick = k; ui.fix.done = true; ui.fix.ok = ui.fix.opts[k] === ui.fix.nr; syncUi(r); render(); return; }
+    if (a === 'tf') { ui.fix.done = true; ui.fix.ok = (b.dataset.v === '1') === (ui.fix.other === ui.fix.nr); syncUi(r); render(); focusAfterFix(); return; }
+    if (a === 'choose') { const k = +b.dataset.k; ui.fix.pick = k; ui.fix.done = true; ui.fix.ok = ui.fix.opts[k] === ui.fix.nr; syncUi(r); render(); focusAfterFix(); return; }
     if (a === 'retry') {
       // Eine unmittelbare erneute Erklärung mit neuem Wortlaut, als Übung.
       const t = L.tasks[L.i];
@@ -1372,15 +1380,20 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
         if (view.openRow) { const id = view.openRow; view.openRow = null; render(); document.querySelector(`[data-action="openrow"][data-id="${id}"]`)?.focus(); }
         else if (view.open) { const nr = view.open; view.open = null; render(); document.querySelector(`[data-action="open"][data-nr="${nr}"]`)?.focus(); }
       }
-      if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight') && document.activeElement && document.activeElement.getAttribute('role') === 'tab') {
+      if ((e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'Home' || e.key === 'End') && document.activeElement && document.activeElement.getAttribute('role') === 'tab') {
         const tabs = [...document.querySelectorAll('[role="tab"]')];
         const idx = tabs.indexOf(document.activeElement);
         if (idx >= 0) {
           e.preventDefault();
-          const next = tabs[(idx + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length];
-          next.click();
+          const targetIdx = e.key === 'Home' ? 0 : e.key === 'End' ? tabs.length - 1 : (idx + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+          tabs[targetIdx].click();
         }
       }
+      return;
+    }
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      document.querySelector('.band__brand [data-action="leave"]')?.click();
       return;
     }
     if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
