@@ -22,11 +22,12 @@ Prüfungstraining für die 139 Pflichtbegriffe (Glossar-Nr. 1–139) des Digital
 
 ## Positioning
 
-Eine App, zwei Planungslogiken über demselben Fragenbestand: der adaptive 3‑Wochen‑Trainer (Plan folgt dem Lernstand) und der 7‑Tage‑Sprint (feste 14 Lektionen, Gruppen A1–E2, Zweitcheck zwei Tage nach Erstabruf). Jede Wiederabfrage hat einen anderen Wortlaut. Bewertung per Selbstbewertung gegen Pflichtmerkmale; unterstützte Versuche zählen nur als Übung, nie als Nachweis.
+Eine App, zwei Planungslogiken über demselben Fragenbestand: der adaptive 3‑Wochen‑Trainer (Plan folgt dem Lernstand) und der 7‑Tage‑Sprint (feste 14 Lektionen, Gruppen A1–E2, Zweitcheck zwei Tage nach Erstabruf). Jede Wiederabfrage hat einen anderen Wortlaut. Die Lernenden bewerten ihre Antworten anhand der Pflichtmerkmale selbst. Geratene und unterstützte Antworten zählen als Übung. Für einen Nachweis ist ein eigenständiger Abruf erforderlich.
 
 ## Operating Context
 
-- Ablauf je Aufgabe: Frage ohne Hinweise → laut oder schriftlich antworten → „Antwort prüfen“ → Musterantwort + Pflichtmerkmale → Merkmale abhaken → Ergebnis vollständig / teilweise / falsch, optional „War geraten“ → gezielte Korrekturübung (Lückentext, Auswahl, Wahr/Falsch) → ggf. erneute offene Erklärung.
+- Ablauf je Aufgabe: Frage ohne Hinweise → laut oder schriftlich antworten → „Antwort prüfen“ → Musterantwort + Pflichtmerkmale → Merkmale abhaken → Ergebnis vollständig, teilweise, falsch oder geraten → bei Bedarf gezielte Korrektur (Lückentext, Auswahl, Wahr/Falsch) → bei Bedarf erneute offene Erklärung. Wer „War geraten“ auswählt, sieht „geraten“ auch in der Auswertung und erhält für diesen Versuch keinen Nachweis.
+- Der 3‑Wochen‑Trainer zeigt in einer aufklappbaren Tagesvorschau die Inhalte beider Lernfenster. Kommende Inhalte ändern sich mit dem Lernstand.
 - Kein Countdown, keine Aufnahme, keine Spracherkennung.
 - Fortschritt pro Durchlauf; ein neuer Sprint erbt keine Bestätigungen aus dem 3‑Wochen‑Trainer.
 - Verpasste Lektionen werden neu priorisiert und sichtbar gemacht, nie still gestrichen.
