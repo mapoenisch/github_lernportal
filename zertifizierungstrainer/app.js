@@ -427,7 +427,7 @@
     t.terms.forEach(nr => {
       const pt = perTerm[nr];
       const a = A.get(nr);
-      const indep = !t.assisted && q.fn !== 'anw' && !a.todayIndep;
+      const indep = !t.assisted && !extra.guess && q.fn !== 'anw' && !a.todayIndep;
       r.log.push({ d: today, day: dayOf(r), slot: (r.session && r.session.id) || null, qid: q.id, nr, fn: q.fn, kind: t.kind,
         res: pt.res, miss: pt.miss, guess: !!extra.guess, assisted: !!t.assisted, indep, conf: pt.conf || null });
       r.lastQ[nr] = q.id;
@@ -437,7 +437,7 @@
 
   /* ---------- Ansicht & Routing ---------- */
   const app = document.getElementById('app');
-  let view = { tab: 'fahrplan', filter: 'alle', cat: '0', query: '', open: null, openRow: undefined };
+  let view = { tab: 'fahrplan', filter: 'alle', cat: '0', query: '', open: null, openRow: undefined, openCat: null };
   let ui = {}; // Zustand der aktuellen Aufgabe
   let lastUndo = null;
 
@@ -710,7 +710,8 @@ ${legendBox()}
       const rowPlan = x.n <= 14 ? (isToday ? info.perDay : Math.ceil(info.c.ungeprueft / Math.max(1, 14 - x.n + 1))) : 0;
       return `<tr class="${isToday ? 'row--heute' : 'row--geplant'}"><td class="cell-day" data-label="Tag"><span class="mono-l">${x.n}</span><span class="fine-ink">${wd(x.d)} ${fmtDate(x.d)}</span></td><td data-label="Phase">${ph}</td><td data-label="Lernfenster">${fenster}</td><td class="num" data-label="Neue Begriffe">${x.n <= 14 ? Math.min(info.c.ungeprueft + (isToday ? info.newToday : 0), rowPlan) || '–' : '–'}</td><td class="num" data-label="Wiederholungen">${x.dueThen}</td><td class="cell-note" data-label="Hinweis">${x.n === 14 ? 'Ziel: alle Begriffe erstmals geprüft' : x.n === 21 ? 'Bilanz' : ''}${isToday ? ' <strong class="tag-ink">heute</strong>' : ''}</td></tr>`;
     }).join('')}</tbody></table>
-<p class="fine">Fällige Wiederholungen sind eine Vorschau auf Basis deines bisherigen Stands. Was du heute beantwortest, verschiebt sie.</p>`;
+<p class="fine">Fällige Wiederholungen sind eine Vorschau auf Basis deines bisherigen Stands. Was du heute beantwortest, verschiebt sie.</p>
+${legendBox()}`;
   }
 
   /* ---------- Begriffe ---------- */
@@ -733,6 +734,19 @@ ${legendBox()}
       if (q && !(t.name + ' ' + t.de + ' ' + t.en).toLowerCase().includes(q)) return false;
       return true;
     });
+    const unfiltered = !q && view.filter === 'alle' && view.cat === '0';
+    let bodyHtml = '';
+    if (!list.length) {
+      bodyHtml = `<tr><td colspan="6" class="empty">Kein Begriff passt zu diesem Filter. <button class="link" data-action="resetfilters">Filter zurücksetzen</button></td></tr>`;
+    } else if (unfiltered) {
+      bodyHtml = Object.entries(D.categories).map(([k, name]) => {
+        const items = list.filter(t => String(t.cat) === k);
+        const catOpen = view.openCat === k;
+        return `<tr class="cat-head"><th colspan="6" scope="colgroup"><button class="rowbtn" data-action="catgroup" data-cat="${k}" aria-expanded="${catOpen}"><span><b>${k}. ${esc(name)}</b></span><span class="fine-ink">${items.length} Begriffe · ${catOpen ? 'zuklappen' : 'zeigen'}</span></button></th></tr>${catOpen ? items.map(t => termRow(r, A.get(t.nr), t)).join('') : ''}`;
+      }).join('');
+    } else {
+      bodyHtml = list.map(t => termRow(r, A.get(t.nr), t)).join('');
+    }
     return `<div class="filters">
   <div class="seg" role="group" aria-label="Status">${filters.map(([k, l]) => `<button class="seg__b${view.filter === k ? ' is-on' : ''}" aria-pressed="${view.filter === k}" data-action="filter" data-filter="${k}">${l}</button>`).join('')}</div>
   <label class="field"><span class="lbl">Kategorie</span><select data-action="cat">${['<option value="0">Alle Kategorien</option>', ...Object.entries(D.categories).map(([k, v]) => `<option value="${k}"${view.cat === k ? ' selected' : ''}>${k}. ${esc(v)}</option>`)].join('')}</select></label>
@@ -740,9 +754,9 @@ ${legendBox()}
 </div>
 ${stationKey()}
 <table class="board board--terms">
-<caption>${list.length} von ${TERMS.length} Begriffen</caption>
+<caption aria-live="polite">${list.length} von ${TERMS.length} Begriffen</caption>
 <thead><tr><th scope="col" class="num">Nr.</th><th scope="col">Begriff</th><th scope="col">Kategorie</th><th scope="col">Stationen</th><th scope="col">Stand</th><th scope="col">Nächster Check</th></tr></thead>
-<tbody>${list.length ? list.map(t => termRow(r, A.get(t.nr), t)).join('') : `<tr><td colspan="6" class="empty">Kein Begriff passt zu diesem Filter. <button class="link" data-action="resetfilters">Filter zurücksetzen</button></td></tr>`}</tbody></table>
+<tbody>${bodyHtml}</tbody></table>
 ${legendBox()}`;
   }
   function termRow(r, a, t) {
@@ -892,13 +906,16 @@ ${legendBox()}`;
 </div>`;
   }
   function ratePanel(r, t, q) {
+    const step = Math.min(ui.step || 0, t.terms.length - 1);
+    const activeTerms = t.terms.length > 1 ? [t.terms[step]] : t.terms;
     let kIdx = 0;
-    const blocks = t.terms.map(nr => {
+    const blocks = activeTerms.map(nr => {
       const term = TERM.get(nr);
       const st = ui.marks[nr];
       const res = derive(nr);
       const showVerdict = ui.touched || res !== 'falsch';
       return `<section class="model">
+  ${t.terms.length > 1 ? `<p class="lbl">Begriff ${step + 1} von ${t.terms.length}</p>` : ''}
   <h2 class="mono-l">${esc(term.name)}</h2>
   <p class="model__def">${esc(term.def)}</p>
   <p class="fine-ink">Musterantwort: Glossardefinition Nr. ${term.nr}, Lektion ${esc(term.lesson)}.${q.fn === 'anw' ? ' Für die Fallfrage prüfst du zusätzlich, ob du die Merkmale auf den Fall angewendet hast.' : ''}</p>
@@ -911,11 +928,15 @@ ${legendBox()}`;
 </section>`;
     }).join('');
     const notes = (ui.notes || '').trim();
-    return `${notes ? `<section class="mine"><p class="lbl">Deine Stichworte</p><p>${esc(notes).replace(/\n/g, '<br>')}</p></section>` : ''}${blocks}
-<div class="actions actions--split">
-  <label class="opt"><input type="checkbox" data-action="guess"${ui.guess ? ' checked' : ''}><span class="crit__box">${ICON.check}</span> War geraten</label>
-  <div class="actions"><span class="fine-ink kbd">⌘/Strg + Enter</span><button class="btn btn--ink" data-action="save">Ergebnis speichern ${ICON.go}</button></div>
+    const isLast = step >= t.terms.length - 1;
+    const footer = isLast ? `<div class="actions actions--split">
+  <label class="opt"><input type="checkbox" data-action="guess"${ui.guess ? ' checked' : ''}><span class="crit__box">${ICON.check}</span> War geraten <span class="fine-ink">(zählt als Übung, nicht als Nachweis)</span></label>
+  <div class="actions">${step > 0 ? '<button class="btn btn--quiet" data-action="ratestep" data-dir="-1">Zurück</button>' : ''}<span class="fine-ink kbd">⌘/Strg + Enter</span><button class="btn btn--ink" data-action="save">Ergebnis speichern ${ICON.go}</button></div>
+</div>` : `<div class="actions actions--split">
+  ${step > 0 ? '<button class="btn btn--quiet" data-action="ratestep" data-dir="-1">Zurück</button>' : '<span></span>'}
+  <div class="actions"><span class="fine-ink kbd">⌘/Strg + Enter</span><button class="btn btn--ink" data-action="ratestep" data-dir="1">Nächster Begriff ${ICON.go}</button></div>
 </div>`;
+    return `${notes ? `<section class="mine"><p class="lbl">Deine Stichworte</p><p>${esc(notes).replace(/\n/g, '<br>')}</p></section>` : ''}${blocks}${footer}`;
   }
   function derive(nr) {
     const st = ui.marks[nr];
@@ -1121,8 +1142,9 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
     }
     if (!r) return;
     if (a === 'tab') { view.tab = b.dataset.tab; render(); document.querySelector('.tab.is-on')?.focus(); return; }
-    if (a === 'filter') { view.filter = b.dataset.filter; render(); return; }
-    if (a === 'resetfilters') { view.filter = 'alle'; view.cat = '0'; view.query = ''; render(); return; }
+    if (a === 'filter') { view.filter = b.dataset.filter; render(); document.querySelector(`[data-action="filter"][data-filter="${view.filter}"]`)?.focus(); return; }
+    if (a === 'resetfilters') { view.filter = 'alle'; view.cat = '0'; view.query = ''; render(); document.querySelector('[data-action="query"]')?.focus(); return; }
+    if (a === 'catgroup') { const k = b.dataset.cat; view.openCat = view.openCat === k ? null : k; render(); document.querySelector(`[data-action="catgroup"][data-cat="${k}"]`)?.focus(); return; }
     if (a === 'openrow') { const id = b.dataset.id; const cur = view.openRow === undefined ? null : view.openRow; view.openRow = cur === id ? null : id; render(); document.querySelector(`[data-action="openrow"][data-id="${id}"]`)?.focus(); return; }
     if (a === 'open') { const nr = +b.dataset.nr; view.open = view.open === nr ? null : nr; render(); document.querySelector(`[data-action="open"][data-nr="${nr}"]`)?.focus(); return; }
     if (a === 'lesson') {
@@ -1165,6 +1187,7 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
     if (a === 'check') { ui.notes = (document.getElementById('notes') || {}).value || ''; ui.stage = 'rate'; syncUi(r); render(); document.querySelector('.model h2')?.scrollIntoView({ block: 'nearest' }); return; }
     if (a === 'dunno') { ui.stage = 'rate'; syncUi(r); render(); return; }
     if (a === 'mark') return; // über change
+    if (a === 'ratestep') { const t = L.tasks[L.i]; if (t) { ui.step = Math.max(0, Math.min(t.terms.length - 1, (ui.step || 0) + (+b.dataset.dir || 1))); syncUi(r); render(); document.querySelector('.model h2')?.scrollIntoView({ block: 'nearest' }); } return; }
     if (a === 'save') {
       if (!ui.touched) {
         ui.touched = true;
@@ -1293,7 +1316,7 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
     }
     if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
       e.preventDefault();
-      const btn = document.querySelector('.qcard [data-action="check"], .qcard [data-action="save"], .qcard [data-action="cloze"], .qcard [data-action="next"]');
+      const btn = document.querySelector('.qcard [data-action="check"], .qcard [data-action="ratestep"][data-dir="1"], .qcard [data-action="save"], .qcard [data-action="cloze"], .qcard [data-action="next"]');
       btn && btn.click();
       return;
     }
@@ -1321,16 +1344,22 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
   });
 
   let toastTimer;
-  function toast(msg) {
+  function ensureToast() {
     let el = document.querySelector('.toast');
-    if (!el) { el = document.createElement('div'); el.className = 'toast'; el.setAttribute('role', 'status'); document.body.appendChild(el); }
+    if (!el && document.body) { el = document.createElement('div'); el.className = 'toast'; el.setAttribute('role', 'status'); el.setAttribute('aria-live', 'polite'); document.body.appendChild(el); }
+    return el;
+  }
+  function toast(msg) {
+    const el = ensureToast();
+    if (!el) return;
     el.textContent = msg; el.classList.add('is-on');
-    clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('is-on'), 3200);
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => el.classList.remove('is-on'), 5000);
   }
 
   // Test-Hooks für die Regressionstests.
   window.ZT = { analyze, pickQuestion, buildSprintLesson, buildAdaptiveLesson, clozeMatches, makeFix, todayStr, PLAN, state: () => S, render };
 
+  ensureToast();
   ui = run()?.session?.ui || {};
   render();
 })();
