@@ -453,7 +453,7 @@
 
   function confirmBar(type, msg, okLabel, danger, id) {
     if (!view.confirm || view.confirm.type !== type || (id !== undefined && view.confirm.id !== id)) return '';
-    return `<div class="confirm-bar${danger ? ' confirm-bar--danger' : ''}" role="alertdialog" aria-labelledby="confirm-msg">
+    return `<div class="confirm-bar${danger ? ' confirm-bar--danger' : ''}" role="group" aria-labelledby="confirm-msg">
   <p id="confirm-msg">${esc(msg)}</p>
   <div class="actions">
     <button class="btn ${danger ? 'btn--danger' : 'btn--ink'}" data-action="confirm-yes">${esc(okLabel)}</button>
@@ -787,7 +787,7 @@ ${more ? '<button class="btn btn--line" data-action="lesson" data-id="extra">Opt
       const region = document.createElement('div');
       region.className = 'board-scroll';
       region.setAttribute('role', 'region');
-      region.setAttribute('aria-label', table.caption.textContent.trim());
+      region.setAttribute('aria-label', table.classList.contains('board--terms') ? 'Begriffsergebnisse' : table.caption.textContent.trim());
       table.before(region);
       region.appendChild(table);
       region.tabIndex = 0;
@@ -1504,7 +1504,16 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
       openConfirm('discard-lesson', '[data-action="discard-lesson"]');
       return;
     }
-    if (a === 'tab') { view.tab = b.dataset.tab; render(); document.querySelector('.tab.is-on')?.focus(); return; }
+    if (a === 'tab') {
+      if (view.tab !== b.dataset.tab) {
+        view.confirm = null;
+        pendingImport = null;
+      }
+      view.tab = b.dataset.tab;
+      render();
+      document.querySelector('.tab.is-on')?.focus();
+      return;
+    }
     if (a === 'resetfilters') { clearTimeout(qTimer); view.filter = 'alle'; view.cat = '0'; view.query = ''; render(); document.querySelector('[data-action="query"]')?.focus(); return; }
     if (a === 'catgroup') { const k = b.dataset.cat; if (!view.openCats.delete(k)) view.openCats.add(k); render(); document.querySelector(`[data-action="catgroup"][data-cat="${k}"]`)?.focus(); return; }
     if (a === 'openrow') { const id = b.dataset.id; const cur = view.openRow === undefined ? null : view.openRow; view.openRow = cur === id ? null : id; render(); document.querySelector(`[data-action="openrow"][data-id="${id}"]`)?.focus(); return; }
@@ -1619,9 +1628,16 @@ ${canRetry ? '<p class="fine-ink">Die erneute Erklärung zählt als Übung. Den 
     const tbody = table?.querySelector?.('tbody');
     const caption = table?.querySelector?.('caption');
     if (tbody && caption) {
+      const active = document.activeElement;
+      const focusedResult = active?.closest('tbody') === tbody ? active.dataset : null;
       const { countText, bodyHtml } = termsRows(r, analyze(r));
-      caption.textContent = countText;
+      if (caption.textContent !== countText) caption.textContent = countText;
       tbody.innerHTML = bodyHtml;
+      if (focusedResult) {
+        const equivalent = [...tbody.querySelectorAll('button[data-action]')].find(({ dataset }) =>
+          dataset.action === focusedResult.action && dataset.nr === focusedResult.nr && dataset.cat === focusedResult.cat);
+        (equivalent || document.querySelector('[data-action="query"]'))?.focus();
+      }
       return true;
     }
     return false;

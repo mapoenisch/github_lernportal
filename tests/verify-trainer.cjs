@@ -358,6 +358,11 @@ assert.equal(ZT.analyze(legacyGuess).get(39).status, 'ungeprueft');
   assert.match(auditTrainer.box.innerHTML, /id="balance-scroll-hint"/);
   auditTrainer.click('reset');
   assert.equal(auditTrainer.focused(), 'confirm-no');
+  assert.match(auditTrainer.box.innerHTML, /role="group" aria-labelledby="confirm-msg"/);
+  auditTrainer.click('tab', { tab: 'begriffe' });
+  auditTrainer.click('tab', { tab: 'bilanz' });
+  assert.doesNotMatch(auditTrainer.box.innerHTML, /id="confirm-msg"/);
+  auditTrainer.click('reset');
   auditTrainer.click('confirm-yes');
   auditTrainer.click('delete-run', { id: auditTrainer.state().runs[0].id });
   assert.equal(auditTrainer.focused(), 'confirm-no');
@@ -415,6 +420,20 @@ assert.equal(ZT.analyze(legacyGuess).get(39).status, 'ungeprueft');
   assert.equal(queryRefocused, false);
   assert.equal(captionMock.textContent, '2 von 139 Begriffen');
   assert.match(tbodyMock.innerHTML, /Customer Relationship Management/);
+
+  const result = { dataset: { action: 'open', nr: '1' }, closest: () => tbodyMock };
+  let restored = false;
+  tbodyMock.querySelectorAll = () => [{ dataset: result.dataset, focus() { restored = true; } }];
+  auditTrainer.setActive(result);
+  auditTrainer.events.input({ target: { dataset: { action: 'query' }, value: 'crm' } });
+  await new Promise(resolve => setTimeout(resolve, 160));
+  assert.equal(restored, true);
+  assert.equal(queryRefocused, false);
+
+  tbodyMock.querySelectorAll = () => [];
+  auditTrainer.events.input({ target: { dataset: { action: 'query' }, value: 'kein-passender-begriff' } });
+  await new Promise(resolve => setTimeout(resolve, 160));
+  assert.equal(queryRefocused, true);
 
   console.log('Zertifizierungstrainer: 139 Begriffe, 598 Fragen, Lernregeln, Import, Wiederherstellung, Rate-Status, Tagesvorschau, Pausieren und Fortsetzen, Wechsel zu Lektion 2, Tab-Konflikte, fehlgeschlagene Schreibzugriffe, Zeitreise und Audit-Befunde geprüft.');
 })();
