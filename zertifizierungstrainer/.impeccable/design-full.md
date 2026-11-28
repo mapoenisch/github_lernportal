@@ -11,6 +11,7 @@ colors:
   rule-soft: "#D9D7CC"
   done-grey: "#F4F3EE"
   delay-red: "#E30613"
+  delay-red-ink: "#B8000C"
   delay-red-soft: "#FDE6E7"
 typography:
   display:
@@ -43,7 +44,7 @@ rounded:
 spacing:
   pad: "clamp(16px, 2.2vw, 32px)"
   cell: "14px"
-  brand-column: "clamp(220px, 17vw, 260px)"
+  brand-column: "clamp(238px, 18.5vw, 276px)"
 components:
   button-primary:
     backgroundColor: "{colors.ink}"
@@ -129,7 +130,8 @@ Ein Verkehrssignal-Dreiklang aus Gelb, Schwarz und Weiß, mit Rot als reserviert
 - **Blasses Signalgelb** (signal-yellow-soft): heutige und aufgeklappte Tafelzeilen, Hover auf Reitern, Segmenten, Merkmalen und Auswahlen, Teilergebnis-Urteil, leere Lückenfelder.
 
 ### Secondary
-- **Störungsrot** (delay-red): Verspätungsmarke, Zähler „unsicher“, verfehlte Haltestelle, falsche Antwort, Gefahrenknopf.
+- **Störungsrot** (delay-red): verfehlte Haltestelle, Hinweisrahmen bei Rückstand und falschem Lückenfeld.
+- **Dunkles Störungsrot** (delay-red-ink): Text und Rahmen mit vollem Kontrast auf Weiß und Gelb (Verspätungsmarke, Zähler „unsicher“, verfehlte Fortschrittszelle, falsche Antwort, Gefahrenknopf).
 - **Blasses Störungsrot** (delay-red-soft): Hinweisfläche bei Rückstand, falsch gefülltes Lückenfeld.
 
 ### Neutral
@@ -221,7 +223,7 @@ Tabelle mit 3px Kopflinie und 1px Zeilenlinien. Zeilenzustände färben nur den 
 Pro Begriff eine Linie mit Haltestellen: Kreis, Kreis, Quadrat (Erstabruf, Zweitcheck, bestätigt). Gefüllt schwarz = vollständig, rot = verfehlt, gestrichelt = Übung. In der Detailansicht senkrecht mit Datum und Ergebnis je Halt.
 
 ### Fortschrittsschiene
-Eine Zelle pro Frage, 14px hoch, 2px Rahmen: leer offen, weiß aktuell, schwarz erledigt, rot verfehlt; eine Lücke trennt Pflicht- und Zusatzfragen. Die gerade erledigte Zelle klappt von links ein (clip-path, 0.45s, ease-out-expo).
+Eine Zelle pro Frage, 14px hoch, 2px Rahmen: leer offen, weiß aktuell, schwarz erledigt, weiß mit roter Diagonalschraffur verfehlt, gestrichelt geraten; eine Lücke trennt Pflicht- und Zusatzfragen. Die gerade erledigte Zelle klappt von links ein (clip-path, 0.45s, ease-out-expo).
 
 ### Merkmal-Checkliste
 Gestapelte Zeilen mit 1px Rahmen (überlappend, −1px), eigenes eckiges Kästchen, Tastenziffer rechts. Angekreuzt färbt die ganze Zeile gelb, das Kästchen wird Schwarz mit gelbem Haken.
@@ -239,7 +241,7 @@ Urteil als Fläche: vollständig Schwarz/Gelb, teilweise blassgelb, falsch Rot/W
 - **Do** Bewegung bei prefers-reduced-motion vollständig abschalten, wie im Bestand.
 
 ### Don't:
-- **Don't** Schatten, Rundungen an Flächen oder Bedienelementen, Verläufe oder Glas einsetzen.
+- **Don't** Schatten, Rundungen an Flächen oder Bedienelementen, weiche Verläufe oder Glas einsetzen (Ausnahme: harte diagonale Fehler-Schraffuren per `linear-gradient` mit harten Farbstopps an Haltestellen und Fortschrittszellen).
 - **Don't** Rot für etwas anderes als Verspätung, Unsicherheit, Fehler oder Zurücksetzen verwenden.
 - **Don't** eine vierte Schriftgröße einführen.
 - **Don't** eine zentrierte Karteikarte mit Prozent-Fortschrittsbalken bauen.

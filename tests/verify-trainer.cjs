@@ -10,29 +10,41 @@ const appSource = fs.readFileSync(path.join(dir, 'app.js'), 'utf8');
 function trainer(store = {}, location = { search: '', hostname: 'example.org' }) {
   const events = {};
   let focused = null;
+  let activeElement = null;
   const focusedElement = id => ({ focus() { focused = id; }, setAttribute() {} });
   const window = { addEventListener: (event, fn) => { events[event] = fn; }, scrollTo() {} };
-  const box = { innerHTML: '' };
+  const box = { innerHTML: '', querySelectorAll: () => [] };
   const toastClasses = new Set();
   const notice = { classList: {
     add: name => toastClasses.add(name), remove: name => toastClasses.delete(name), contains: name => toastClasses.has(name),
   } };
+  const queryHooks = {};
   const ctx = vm.createContext({
-    window, console, location, URLSearchParams,
+    window, console, location, URLSearchParams, Event,
     localStorage: { getItem: k => store[k] ?? null, setItem: (k, v) => { store[k] = v; } },
-    document: { getElementById: id => {
+    document: {
+      get activeElement() { return activeElement; },
+      getElementById: id => {
         if (id === 'app') return box;
         if (id === 'main') return { ...focusedElement(id), insertAdjacentHTML(_, html) { box.innerHTML += html; } };
         return box.innerHTML.includes('id="' + id + '"') ? focusedElement(id) : null;
       },
       addEventListener: (event, fn) => { events[event] = fn; },
-      querySelector: sel => sel === '.toast' ? notice : null, querySelectorAll: () => [] },
+      querySelector: sel => {
+        if (sel === '.toast') return notice;
+        if (queryHooks[sel]) return queryHooks[sel];
+        if (sel === '[data-action="confirm-no"]' && box.innerHTML.includes('data-action="confirm-no"')) return focusedElement('confirm-no');
+        if (sel === '[data-action="confirm-yes"]' && box.innerHTML.includes('data-action="confirm-yes"')) return focusedElement('confirm-yes');
+        return null;
+      },
+      querySelectorAll: () => [] },
     FileReader: class { readAsText(text) { this.result = text; this.onload(); } },
     setTimeout: (fn, wait) => setTimeout(fn, wait).unref(), clearTimeout,
   });
   vm.runInContext(dataSource, ctx);
   vm.runInContext(appSource, ctx);
-  return { ctx, box, notice, events, state: window.ZT.state,
+  return { ctx, box, notice, events, state: window.ZT.state, queryHooks,
+    setActive: el => { activeElement = el; },
     click: (action, data) => events.click({ target: { closest: () => ({ dataset: { action, ...data } }) } }),
     importFile: text => events.change({ target: { dataset: { action: 'import' }, files: [text] } }),
     typeNotes: value => events.input({ target: { id: 'notes', dataset: {}, value } }),
@@ -174,7 +186,7 @@ const guessStorage = {};
 const guessed = trainer(guessStorage);
 guessed.click('start', { mode: 'adaptiv' });
 assert.equal((guessed.box.innerHTML.match(/class="day(?: day--today)?"/g) || []).length, 21);
-assert.match(guessed.box.innerHTML, /L1 · Abrufen[\s\S]+L2 · Lücken und Anwendung/);
+assert.match(guessed.box.innerHTML, /Lektion 1 · Abrufen[\s\S]+Lektion 2 · Lücken und Anwendung/);
 assert.match(guessed.box.innerHTML, /einmal vollständig/);
 guessed.click('lesson', { id: 'slot1' });
 const guessRun = () => guessed.state().runs[0];
@@ -260,8 +272,149 @@ rejectWrite = false;
 retry.click('save');
 assert.equal(retry.state().runs[0].log.length, 1);
 
+// Eine pausierte Lektion bleibt auch nach Neuladen auf genau derselben Frage.
+const pauseStorage = {};
+const pause = trainer(pauseStorage);
+pause.click('start', { mode: 'sprint' });
+pause.click('lesson', { id: ZT.PLAN[0].id });
+const pausedRun = () => pause.state().runs[0];
+const firstQuestion = pausedRun().session.tasks[0];
+pause.typeNotes('Stichworte vor dem Autosave');
+pause.click('leave');
+assert.match(pause.box.innerHTML, /Frage 1 fortsetzen/);
+assert.equal(pausedRun().session.ui.notes, 'Stichworte vor dem Autosave');
+const pauseReload = trainer(pauseStorage);
+assert.match(pauseReload.box.innerHTML, /Frage 1 fortsetzen/);
+pauseReload.click('resume-lesson');
+pauseReload.click('check');
+pauseReload.change('mark', { checked: true }, { nr: firstQuestion.nr, i: 0 });
+pauseReload.change('guess', { checked: true });
+pauseReload.click('leave');
+pauseReload.click('discard-lesson');
+pauseReload.click('confirm-no');
+assert.match(pauseReload.box.innerHTML, /Frage 1 fortsetzen/);
+pauseReload.click('resume-lesson');
+assert.match(pauseReload.box.innerHTML, /Ergebnis: geraten/);
+assert.equal(pauseReload.state().runs[0].session.tasks[0].qid, firstQuestion.qid);
+pauseReload.click('save');
+pauseReload.typeNotes('Entwurf auf Frage zwei');
+pauseReload.click('leave');
+assert.match(pauseReload.box.innerHTML, /Frage 2 fortsetzen/);
+pauseReload.click('resume-lesson');
+assert.match(pauseReload.box.innerHTML, /Entwurf auf Frage zwei/);
+pauseReload.click('leave');
+pauseReload.click('discard-lesson');
+pauseReload.click('confirm-yes');
+assert.equal(pauseReload.state().runs[0].session, null);
+assert.equal(pauseReload.state().runs[0].log.length, 1);
+
+// Vom Abschluss führt die Hauptaktion in das reguläre Lernfenster 2 samt Lücken.
+const nextTrainer = trainer();
+nextTrainer.click('start', { mode: 'adaptiv' });
+nextTrainer.click('lesson', { id: 'slot1' });
+const nextRun = () => nextTrainer.state().runs[0];
+while (!nextRun().session.over) {
+  nextTrainer.click('dunno');
+  nextTrainer.click('save');
+  nextTrainer.click('next');
+}
+assert.match(nextTrainer.box.innerHTML, /data-id="slot2">Lektion 2 starten/);
+assert.doesNotMatch(nextTrainer.box.innerHTML, /Weiterlernen: nächster Block/);
+assert.doesNotMatch(nextTrainer.box.innerHTML, /\d\.\./);
+const expectedGaps = nextRun().done.a1l1.gaps.slice(0, 4);
+nextTrainer.click('lesson', { id: 'slot2' });
+assert.equal(nextRun().session.id, 'a1l2');
+assert.equal(nextRun().session.tasks.filter(t => t.kind === 'uebung').map(t => t.nr).join(), expectedGaps.join());
+// Korrekturphase und bereits erfasste Bewertung bleiben beim Pausieren verbunden.
+nextTrainer.click('dunno');
+nextTrainer.click('save');
+const logBeforePause = nextRun().log.length;
+nextTrainer.click('leave');
+assert.match(nextTrainer.box.innerHTML, /Frage 1 fortsetzen/);
+assert.match(nextTrainer.box.innerHTML, /Pausiert · verbleibende Aufgaben/);
+nextTrainer.click('resume-lesson');
+assert.equal(nextRun().session.ui.stage, 'fix');
+assert.equal(nextRun().log.length, logBeforePause);
+nextTrainer.click('next');
+while (!nextRun().session.over) {
+  nextTrainer.click('dunno');
+  nextTrainer.click('save');
+  nextTrainer.click('next');
+}
+assert.ok(nextRun().done.a1l2);
+assert.doesNotMatch(nextTrainer.box.innerHTML, /Lektion [12] starten/);
+assert.match(nextTrainer.box.innerHTML, /Optionalen Zusatzblock starten/);
+
 // Alte Sicherungen tragen das Rate-Merkmal separat neben dem ursprünglichen Ergebnis.
 const legacyGuess = { ...run, log: [e(day(-2), 'voll', { indep: false, guess: true })] };
 assert.equal(ZT.analyze(legacyGuess).get(39).status, 'ungeprueft');
 
-console.log('Zertifizierungstrainer: 139 Begriffe, 598 Fragen, Lernregeln, Import, Wiederherstellung, Rate-Status, Tagesvorschau, Tab-Konflikte, fehlgeschlagene Schreibzugriffe und Zeitreise geprüft.');
+// Audit-Befunde: Bestätigungsfokus auf Abbrechen, Zifferntasten nur bei Komponenten-Fokus, Suche ohne Fokusverlust, Tabellenklassen.
+(async () => {
+  const auditTrainer = trainer();
+  auditTrainer.click('start', { mode: 'adaptiv' });
+  auditTrainer.click('tab', { tab: 'bilanz' });
+  assert.match(auditTrainer.box.innerHTML, /class="board board--balance"/);
+  assert.match(auditTrainer.box.innerHTML, /id="balance-scroll-hint"/);
+  auditTrainer.click('reset');
+  assert.equal(auditTrainer.focused(), 'confirm-no');
+  auditTrainer.click('confirm-yes');
+  auditTrainer.click('delete-run', { id: auditTrainer.state().runs[0].id });
+  assert.equal(auditTrainer.focused(), 'confirm-no');
+  auditTrainer.click('confirm-no');
+  auditTrainer.click('resume', { id: auditTrainer.state().runs[0].id });
+
+  // Zifferntasten: in Bewertung und Korrektur nur bei Fokus innerhalb der jeweiligen Gruppe.
+  auditTrainer.click('lesson', { id: 'slot1' });
+  auditTrainer.click('check');
+  let critsBox = { checked: false, dispatchEvent() { auditTrainer.change('mark', { checked: this.checked }, { nr: auditTrainer.state().runs[0].session.tasks[0].nr, i: 0 }); } };
+  let critsGroup = { querySelectorAll: () => [critsBox] };
+  auditTrainer.setActive({ tagName: 'H2', closest: () => null });
+  auditTrainer.events.keydown({ key: '1', altKey: false, ctrlKey: false, metaKey: false, shiftKey: false, preventDefault() {} });
+  assert.equal(critsBox.checked, false);
+  auditTrainer.setActive({ tagName: 'A', closest: () => null });
+  auditTrainer.events.keydown({ key: '1', altKey: false, ctrlKey: false, metaKey: false, shiftKey: false, preventDefault() {} });
+  assert.equal(critsBox.checked, false);
+  auditTrainer.setActive({ tagName: 'INPUT', type: 'checkbox', closest: sel => (sel === '.crits' ? critsGroup : null) });
+  auditTrainer.events.keydown({ key: '1', altKey: false, ctrlKey: false, metaKey: false, shiftKey: false, preventDefault() {} });
+  assert.equal(critsBox.checked, true);
+
+  // Korrektur (Auswahl / Stimmt nicht): ohne Gruppenfokus wirkungslos, mit Gruppenfokus aktiv.
+  auditTrainer.click('leave');
+  auditTrainer.click('discard-lesson');
+  assert.equal(auditTrainer.focused(), 'confirm-no');
+  auditTrainer.click('confirm-yes');
+  auditTrainer.click('lesson', { id: 'slot1' });
+  auditTrainer.click('dunno');
+  auditTrainer.click('save');
+  let choiceClicked = false;
+  let choiceGroup = { querySelector: sel => (sel === '[data-action="choose"][data-k="0"]' ? { click() { choiceClicked = true; } } : null) };
+  auditTrainer.setActive({ tagName: 'H1', closest: () => null });
+  auditTrainer.events.keydown({ key: '1', altKey: false, ctrlKey: false, metaKey: false, shiftKey: false, preventDefault() {} });
+  assert.equal(choiceClicked, false);
+  auditTrainer.setActive({ tagName: 'BUTTON', closest: sel => (sel === '.choices' ? choiceGroup : null) });
+  auditTrainer.events.keydown({ key: '1', altKey: false, ctrlKey: false, metaKey: false, shiftKey: false, preventDefault() {} });
+  assert.equal(choiceClicked, true);
+  auditTrainer.click('leave');
+
+  // Begriffssuche aktualisiert Trefferbereich gezielt, ohne den Fokus von den Filtern zurückzuholen.
+  auditTrainer.click('tab', { tab: 'begriffe' });
+  assert.match(auditTrainer.box.innerHTML, /class="board board--terms board--stack"/);
+  assert.doesNotMatch(auditTrainer.box.innerHTML, /terms-scroll-hint/);
+  const tbodyMock = { innerHTML: '' };
+  const captionMock = { textContent: '' };
+  auditTrainer.queryHooks['.board--terms'] = {
+    querySelector: sel => (sel === 'tbody' ? tbodyMock : sel === 'caption' ? captionMock : null),
+  };
+  let queryRefocused = false;
+  const selectFilter = { tagName: 'SELECT', closest: () => null };
+  auditTrainer.setActive(selectFilter);
+  auditTrainer.queryHooks['[data-action="query"]'] = { focus() { queryRefocused = true; }, setSelectionRange() {} };
+  auditTrainer.events.input({ target: { dataset: { action: 'query' }, value: 'CRM', selectionStart: 3 } });
+  await new Promise(resolve => setTimeout(resolve, 160));
+  assert.equal(queryRefocused, false);
+  assert.equal(captionMock.textContent, '2 von 139 Begriffen');
+  assert.match(tbodyMock.innerHTML, /Customer Relationship Management/);
+
+  console.log('Zertifizierungstrainer: 139 Begriffe, 598 Fragen, Lernregeln, Import, Wiederherstellung, Rate-Status, Tagesvorschau, Pausieren und Fortsetzen, Wechsel zu Lektion 2, Tab-Konflikte, fehlgeschlagene Schreibzugriffe, Zeitreise und Audit-Befunde geprüft.');
+})();

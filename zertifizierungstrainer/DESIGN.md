@@ -11,6 +11,7 @@ colors:
   rule-soft: "#D9D7CC"
   done-grey: "#F4F3EE"
   delay-red: "#E30613"
+  delay-red-ink: "#B8000C"
   delay-red-soft: "#FDE6E7"
 typography:
   display:
@@ -43,7 +44,7 @@ rounded:
 spacing:
   pad: "clamp(16px, 2.2vw, 32px)"
   cell: "14px"
-  brand-column: "clamp(220px, 17vw, 260px)"
+  brand-column: "clamp(238px, 18.5vw, 276px)"
 components:
   button-primary:
     backgroundColor: "{colors.ink}"
@@ -103,9 +104,9 @@ components:
 
 <!-- impeccable:design-map -->
 Name: Zertifizierungstrainer
-Colors: primary: signal-yellow #FFD400; secondary: delay-red #E30613; neutral: ink #111111; primary: signal-yellow-soft #FFF3B0; secondary: delay-red-soft #FDE6E7; neutral: ink-2 #3A3A36 (+4 more in the sidecar)
+Colors: primary: signal-yellow #FFD400; secondary: delay-red #E30613; neutral: ink #111111; primary: signal-yellow-soft #FFF3B0; secondary: delay-red-ink #B8000C; secondary: delay-red-soft #FDE6E7; neutral: ink-2 #3A3A36 (+4 more in the sidecar)
 Fonts: Barlow Semi Condensed (display, title, label); Barlow (body)
-Spacing: pad clamp(16px, 2.2vw, 32px), cell 14px, brand-column clamp(220px, 17vw, 260px)
+Spacing: pad clamp(16px, 2.2vw, 32px), cell 14px, brand-column clamp(238px, 18.5vw, 276px)
 Radius: none 0px, station 50%
 North Star: "Aushangfahrplan"
 Rules:
@@ -116,7 +117,7 @@ Rules:
 - The Haarlinie-statt-Schatten Rule. Kein Schlagschatten, kein Blur, keine Glasfläche.
 - The Rund-nur-für-Haltestellen Rule. Kreise sind Haltestellen und nichts anderes.
 Don't:
-- Don't Schatten, Rundungen an Flächen oder Bedienelementen, Verläufe oder Glas einsetzen.
+- Don't Schatten, Rundungen an Flächen oder Bedienelementen, weiche Verläufe oder Glas einsetzen (Ausnahme: harte diagonale Fehler-Schraffuren per `linear-gradient` mit harten Farbstopps an Haltestellen und Fortschrittszellen).
 - Don't Rot für etwas anderes als Verspätung, Unsicherheit, Fehler oder Zurücksetzen verwenden.
 - Don't eine vierte Schriftgröße einführen.
 - Don't eine zentrierte Karteikarte mit Prozent-Fortschrittsbalken bauen.
